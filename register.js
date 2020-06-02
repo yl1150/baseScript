@@ -61,6 +61,7 @@ let register = {
         touchLocker.parent = cc.find('Canvas');
         touchLocker.zIndex = 9999;
         touchLocker.addComponent(cc.Button);
+        touchLocker.active = false;
         cc.YL.touchLocker = touchLocker;
 
         cc.macro.ENABLE_MULTI_TOUCH = false;//关闭多点触摸

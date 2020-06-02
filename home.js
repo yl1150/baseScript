@@ -13,7 +13,6 @@ cc.Class({
     },
 
     start() {
-        cc.YL.lockTouch();
         this._homeOptions = this.node.getChildByName('homeOptions');
         this._game = this.node.getChildByName('game');
         this._bg = this.node.getChildByName('bg');
@@ -38,7 +37,6 @@ cc.Class({
 
     startGame(){
         this.checkHomeData();
-        cc.YL.unLockTouch();
     },
 
     loadingData(){
