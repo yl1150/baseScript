@@ -54,6 +54,7 @@ cc.Class({
         GD.sound && GD.sound.stopTips();
         GD.sound && GD.sound.playSound('click', 1);
         GD.root.setStarBoard(false);
+        GD.root.setQuestionBg(false);
         GD.root.showLoading(
             () => {
                 for (let i in this.layerPool) {
@@ -100,6 +101,7 @@ cc.Class({
         GD.root.showLoading(
             () => {
                 GD.root.setStarBoard(false);
+                GD.root.setQuestionBg(false);
                 this._loadedLayer.destroy();
                 //this._game.destroyAllChildren();
                 cc.YL.setCanvasBG(this._bgSpriteFrame);
