@@ -24,8 +24,11 @@ cc.Class({
     },
 
     setStarBoard(isShow) {
-        this.questionBg.active = isShow;
         this.starBoard.active = isShow;
+    },
+
+    setQuestionBg(isShow){
+        this.questionBg.active = isShow;
     },
 
     setBack(isShow) {
@@ -84,6 +87,7 @@ cc.Class({
     },
 
     showAddStar(starNum, callFunc) {
+        this.starBoard.active = true;
         let skePool = this.starBoard.getChildByName('ske');
         skePool.active = true;
         let ske = skePool.getChildByName(starNum.toString());
