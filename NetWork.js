@@ -46,23 +46,27 @@ module.exports = {
         history.go(-1)
     },
 
-    setGameEndMessage() {
+    setGameEndMessage(successCallFunc,errorCallFunc) {
         this.send(1);
         setTimeout(() => {
-            console.log(1)
-            if (GD.systemFlag == 1) {
-                try {
-                    window.android.closeGame();
-                } catch (e) {
-                    console.log(
-                        "出现错误, 如果在非android环境下访问, 出现该警告是正常的."
-                    );
-                    console.log(e);
-                }
-            } else if (GD.systemFlag == 0) {
-                window.webkit.messageHandlers.closeGame.postMessage(null);
-            }
+            console.log(1);
+            successCallFunc && successCallFunc();
         }, 4000);
+    },
+
+    closeGame(){
+        if (GD.systemFlag == 1) {
+            try {
+                window.android.closeGame();
+            } catch (e) {
+                console.log(
+                    "出现错误, 如果在非android环境下访问, 出现该警告是正常的."
+                );
+                console.log(e);
+            }
+        } else if (GD.systemFlag == 0) {
+            window.webkit.messageHandlers.closeGame.postMessage(null);
+        }
     },
 
     /**

@@ -182,7 +182,6 @@ let register = {
             }, 3000);
         }
 
-        //cc.YL.net.setGameEndMessage()
     },
 
     //添加语音闹钟 当满足条件时取消
@@ -243,6 +242,19 @@ let register = {
 
     clearAllTimeOut() {
         while (GD.timePool.length > 0) { clearTimeout(GD.timePool.pop()); }
+    },
+
+    //开始学习时长计时 注意之前的时长会清空
+    startTimeCount(){
+        GD.timeCount = 0
+        GD.timeCountID = setInterval(() => {
+            GD.timeCount++;
+        }, 1000);
+    },
+
+    stopTimeCount(){
+        clearInterval(GD.timeCountID)
+        return GD.timeCount;
     },
 }
 cc.YL = register;

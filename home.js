@@ -2,7 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        layerPool: [cc.Prefab]
+        layerPool: [cc.Prefab],
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -31,15 +31,20 @@ cc.Class({
             console.log(data)
             cc.YL.net.saveGameData()
             this.backHomeLayer();
+
+            //结束
+            /* cc.YL.lockTouch();
+            this.showEnding(); */
         })
         this.loadingData();
     },
 
-    startGame(){
+    startGame() {
         this.checkHomeData();
+        cc.YL.startTimeCount();
     },
 
-    loadingData(){
+    loadingData() {
         GD.root.setLoadDataUI(true);
         cc.YL.net.getGameData(GD.gameId, (data) => {
             GD.gameData = data;
@@ -77,8 +82,8 @@ cc.Class({
         return
         this._homeOptions.children.forEach((option) => {
             let data = GD.gameData[option.name];
-            if(!data){
-                console.log('no '+ option.name + 'data');
+            if (!data) {
+                console.log('no ' + option.name + 'data');
                 return;
             }
             let lockState = data.lockState;//关卡是否解锁;
@@ -114,5 +119,20 @@ cc.Class({
 
     },
 
+    //游戏结束 撒花 发送数据
+    showEnding() {
+        cc.YL.showSuccess()
+        cc.YL.net.setGameEndMessage(
+            () => {
+                //正确回调
+                cc.YL.net.closeGame();
+            },
+            () => {
+                //发送失败回调
+                cc.YL.net.setGameEndMessage();
+                cc.YL.net.closeGame();
+            },
+        )
+    },
     // update (dt) {},
 });
