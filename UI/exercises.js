@@ -84,6 +84,7 @@ cc.Class({
 
     passLV() {
         if (this.lv >= this.maxLv) {
+            GD.sound.pauseBgm();
             let canvasBG = cc.YL.setCanvasBG(this.node.getChildByName('bj').getComponent(cc.Sprite).spriteFrame);
             if (this.qType == questionType.exercises) {
                 GD.root.showLoading(
@@ -106,7 +107,6 @@ cc.Class({
             this.lv++;
             this.startGame();
         }
-        GD.sound.pauseBgm();
     },
 
     showAnswerTips(arr, dtArr, sNumArr, durArr, endCallFunc) {

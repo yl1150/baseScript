@@ -8,26 +8,42 @@ cc.Class({
             default: null
         },
         isPlayTips: false,
+        touchColor: {
+            type: [cc.Color],
+            default: [],
+            displayName: '点击转换颜色  0为正常 1触摸'
+        }
     },
 
     onLoad() {
-        this._errorCount =0;
+        this._errorCount = 0;
         GD.sound.setTipsButton(true)
         cc.YL.addClock(this.tips);
         GD.sound.setShowTips(this.tips, this.isPlayTips || GD.jumpModel)
         this.node.children.forEach((option) => {
+            GD.root.setTouchImg(option, 3);
             cc.YL.tools.registerTouch(
                 option,
                 (e) => {
                     e.target.setScale(1.2);
+                    this.setTouch(e.target, true);
                 },
                 null,
                 (e) => {
                     e.target.setScale(1);
+                    this.setTouch(e.target, false);
                     e.target == this.rightOp ? this.showRight(e.target) : this.showError(e.target);
                 },
             )
         })
+    },
+
+    setTouch(target, isShow) {
+        if (!this.isShowTouchImg) {
+            return;
+        }
+        target._touchImg && (target._touchImg.active = isShow);
+        this.touchColor.length > 0 && target._numLabel && (target._numLabel.color = (isShow ? this.touchColor[1] : this.touchColor[0]))
     },
 
     showRight(option) {
