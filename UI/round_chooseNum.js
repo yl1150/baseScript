@@ -73,6 +73,7 @@ cc.Class({
                 (e) => {
                     //e.target.setScale(1);
                     if (this._targetK == e.target) {
+                        this.setTouch(e.target, false);
                         this._targetK = null;
                         this._keyBoard.hideKeyBoard();
                     } else {
