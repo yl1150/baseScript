@@ -44,8 +44,8 @@ cc.Class({
     },
 
     playBGM() {
-        !cc.audioEngine.isMusicPlaying(this.bgm) && cc.audioEngine.playMusic(this.bgm, true);
-        cc.audioEngine.setMusicVolume(0.5);
+        cc.audioEngine.playMusic(this.bgm, true);
+        cc.audioEngine.setMusicVolume(1);
     },
 
     pauseBgm() {
@@ -57,7 +57,7 @@ cc.Class({
     },
 
     //音效 如按钮点击的声音等
-    playSound(name, volume = 0.5) {
+    playSound(name, volume = 1) {
         if (name == 'wrong' || name == 'right') {
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);

@@ -24,11 +24,16 @@ cc.Class({
             type: actionType,
             default: actionType.default,
             displayName: '提示动画类型'
+        },
+        isOneByOne: {
+            default: true,
+            displayName: '是否是逐个显示'
         }
     },
 
     start() {
         this.lv = 1;
+        GD.sound.playBGM();
         GD.sound.setTipsButton(true);
         let canvasBG = cc.YL.setCanvasBG(this.node.getChildByName('bj').getComponent(cc.Sprite).spriteFrame);
         GD.exercises = this;
@@ -101,6 +106,7 @@ cc.Class({
             this.lv++;
             this.startGame();
         }
+        GD.sound.pauseBgm();
     },
 
     showAnswerTips(arr, dtArr, sNumArr, durArr, endCallFunc) {
@@ -119,11 +125,11 @@ cc.Class({
             for (let i = 0; i < scaleNum; i++) {
                 let box = arrPool.shift();
                 box.active = true;
-                this.setAction(box, i * durTime, durTime);
+                this.setAction(box, this.isOneByOne ? i * durTime : 0, durTime);
             }
             cc.YL.timeOut(() => {
                 this.showTips(arrPool, delayTimePool, scaleNumPool, durPool, endCallFunc);
-            }, scaleNum * 1000);
+            }, this.isOneByOne ? scaleNum * 1000 : durTime);
         }, time * 1000);
     },
 

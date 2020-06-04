@@ -27,7 +27,7 @@ cc.Class({
                 case 1: return "正在播放";
                 case 2: {
                     self.yuyin.setAnimation(0, 'newAnimation', true); self.rState = 'stop';
-                }break;//"停止播放"
+                } break;//"停止播放"
                 case 3: return "正在录制";
                 case 4: return "停止录制";
                 default: return "不支持的状态";
@@ -37,7 +37,7 @@ cc.Class({
         cc.YL.tools.registerTouch(
             this.recordBtn,
             (e) => {
-                if(!GD.canRecording){
+                if (!GD.canRecording) {
                     return
                 }
                 GD.sound.stopTips()
@@ -61,7 +61,7 @@ cc.Class({
             },
             null,
             (e) => {
-                if(!GD.canRecording){
+                if (!GD.canRecording) {
                     return
                 }
                 e.target._spine.setAnimation(0, 'newAnimation', true)
@@ -84,22 +84,30 @@ cc.Class({
         this.yuyin.node.active = isShow
     },
 
-    setRecordBtn(isShow){
+    setRecordBtn(isShow) {
         this.recordBtn.active = isShow
     },
 
     enterRecord() {
+        cc.YL.lockTouch();
         cc.YL.emitter.off('recordStates')
         this.setUI(false)
         this.setRecordBtn(false)
-        let name = 'response'
-        GD.sound.playTips(name)
-        let time = GD.sound.getDuringTime(name) + 0.5
-        cc.YL.timeOut(() => {
-            this.node.active = false
-            this.node.destroy()
-            cc.YL.emitter.emit('continueGame');
-        }, time * 1000)
+
+        //录音环节稳定3颗星
+        GD.root.showAddStar(3, () => {
+            let name = 'tips_start'
+            GD.sound.playTips(name)
+            let time = GD.sound.getDuringTime(name) + 0.5
+            cc.YL.timeOut(() => {
+                this.node.active = false
+                this.node.destroy()
+                cc.YL.emitter.emit('continueGame');
+            }, time * 1000)
+        })
+
+
+
     },
 
     refreshRecord() {

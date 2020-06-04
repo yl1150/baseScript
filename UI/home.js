@@ -100,6 +100,7 @@ cc.Class({
         cc.YL.lockTouch();
         GD.sound && GD.sound.stopTips();
         GD.sound && GD.sound.setTipsButton(false);
+        GD.sound.pauseBgm();
         this.checkHomeData();
         cc.YL.stopClock();
         cc.YL.clearAllTimeOut();

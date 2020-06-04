@@ -80,7 +80,7 @@ cc.Class({
         this._isCheckTime = false
         cc.YL.timeOut(() => {
             this._isCheckTime = true
-        }, 500)
+        }, 1000)
         cc.YL.unLockTouch()
         this._state = kStatusCode.STATUS_PLAYVIDEO
         GD.sound.setTipsButton(false)

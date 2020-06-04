@@ -154,7 +154,7 @@ cc.Class({
             if (pAngle > 90 && pAngle < 270 && deltaY > 0) deltaY *= -1;
             let tempPos = cc.v2(starPos.x + deltaX, starPos.y + deltaY);
             //星星散开
-            GD.sound.playSound('star');
+            GD.sound.playSound('getStar');
             let ske = newStar.getChildByName('ske');
             let skeCom = ske.getComponent(sp.Skeleton);
             skeCom.setAnimation(0, 'newAnimation_1', true);
