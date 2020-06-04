@@ -81,7 +81,7 @@ cc.Class({
         }
         cc.YL.lockTouch();
         cc.YL.timeOut(() => {
-            this.showRightAnswer();
+            this.showAnswerTips();
         }, 1200);
     },
 

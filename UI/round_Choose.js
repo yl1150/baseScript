@@ -97,7 +97,7 @@ cc.Class({
         cc.YL.lockTouch();
         GD.sound.playSound('right');
         GD.root.showStar(option, () => {
-            this.showRightAnswer();
+            this.showAnswerTips();
         })
     },
 
