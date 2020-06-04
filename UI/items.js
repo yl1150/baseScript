@@ -30,10 +30,10 @@ cc.Class({
     },
 
     copySelf() {
-        let leaves = cc.instantiate(this.node);
-        leaves.parent = this._opList;
-        leaves.position = this.node.position;
-        leaves.getComponent('leaves').init();
+        let items = cc.instantiate(this.node);
+        items.parent = this._opList;
+        items.position = this.node.position;
+        items.getComponent('items').init();
     },
 
     touchStart(event) {
@@ -81,7 +81,7 @@ cc.Class({
         } else {
             GD.sound.playSound('wrong');
             GD.sound.playSound('blank');
-            GD.nRound.setError()
+            GD.nRound.setError();
             this.showBack();
         }
     },

@@ -121,7 +121,8 @@ cc.Class({
 
     //游戏结束 撒花 发送数据
     showEnding() {
-        cc.YL.showSuccess()
+        cc.YL.stopTimeCount();
+        cc.YL.showSuccess();
         cc.YL.net.setGameEndMessage(
             () => {
                 //正确回调

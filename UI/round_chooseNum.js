@@ -39,9 +39,8 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    init(roundNum) {
+    init() {
         this._errorCount = 0;
-        this.roundNum = roundNum;
 
         let pKeyBoard = this.node.getChildByName('keyBoard');
         let boardWidget = pKeyBoard.getComponent(cc.Widget);
@@ -98,13 +97,12 @@ cc.Class({
         }
 
         let board = this.node.getChildByName('board');
-        let fruits = this.node.getChildByName('fruits');   
-        let opList = this.node.getChildByName('opList');     
-        if(cc.find('Canvas/game').scaleX == 1){
-            fruits.setScale(1);
-            board.setScale(1);
-            let y = fruits.height *0.2;
-            opList.y -= y
+        let fruits = this.node.getChildByName('fruits');
+        let opList = this.node.getChildByName('opList');
+        if (cc.find('Canvas/game').scaleX == 1) {
+            fruits && fruits.setScale(1);
+            board && board.setScale(1);
+            opList && board && (opList.y -= board.height * 0.2)
         }
 
         cc.YL.addClock(this.tips);
@@ -241,47 +239,23 @@ cc.Class({
 
     showAnswerTips() {
         GD.sound.playTips(this.errorTips);
-
         let arr = cc.YL.tools.arrCopy(this.node.getChildByName('board').children);
-        let showTips = (arrPool, delayTimePool, scaleNumPool) => {
-            let time = delayTimePool.shift();
-            if (scaleNumPool.length < 1) {
-                //统计星星数量
-                let starNum = 3;
-                if (this._errorCount == 0) {
-                    starNum = 3;
-                } else if (this._errorCount < 3) {
-                    starNum = 2;
-                } else {
-                    starNum = 1;
-                }
-                setTimeout(() => {
-                    GD.root.showAddStar(starNum, () => {
-                        this.showFinishLayer();
-                    })
-                }, time * 1000);
-                return;
+        GD.exercises.showAnswerTips(arr, this.delayTime, this.scaleNum, this.answerDur, (time) => {
+            //统计星星数量
+            let starNum = 3;
+            if (this._errorCount == 0) {
+                starNum = 3;
+            } else if (this._errorCount < 3) {
+                starNum = 2;
+            } else {
+                starNum = 1;
             }
-            let scaleNum = scaleNumPool.shift();
-            let durTime = this.answerDur.shift();
-            cc.YL.timeOut(() => {
-                for (let i = 0; i < scaleNum; i++) {
-                    let box = arrPool.shift();
-                    box.active = true;
-                    box.opacity = 0;
-                    cc.tween(box)
-                        .delay(i * durTime)
-                        .to(0, { opacity: 255 })
-                        .delay(durTime)
-                        .to(0, { opacity: 0 })
-                        .start()
-                }
-                cc.YL.timeOut(() => {
-                    showTips(arrPool, delayTimePool, scaleNumPool);
-                }, scaleNum * 1000);
+            setTimeout(() => {
+                GD.root.showAddStar(starNum, () => {
+                    this.showFinishLayer();
+                })
             }, time * 1000);
-        }
-        showTips(arr, this.delayTime, this.scaleNum);
+        })
     },
 
     showFinishLayer() {

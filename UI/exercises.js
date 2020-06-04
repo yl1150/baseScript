@@ -4,6 +4,12 @@ const questionType = cc.Enum({
     exercises: 2,
 });
 
+const actionType = cc.Enum({
+    default: 0,//突然出现
+    scale: 1,//缩放
+    jump: 2,//挑一挑
+});
+
 cc.Class({
     extends: cc.Component,
 
@@ -13,6 +19,11 @@ cc.Class({
             type: questionType,
             default: questionType.default,
             displayName: '问题类型'
+        },
+        aType: {
+            type: actionType,
+            default: actionType.default,
+            displayName: '提示动画类型'
         }
     },
 
@@ -61,7 +72,7 @@ cc.Class({
     startGame() {
         let round = this.node.getChildByName('round' + this.lv);
         round.active = true;
-        let roundCom = round.getComponent('round_Choose') || round.getComponent('round_chooseNum') || round.getComponent('round_touch')|| round.getComponent('round_chooseImg');
+        let roundCom = round.getComponent('round_Choose') || round.getComponent('round_chooseNum') || round.getComponent('round_touch') || round.getComponent('round_chooseImg');
         roundCom && roundCom.init(this.lv);
         //this.fitWhiteBG(round);
     },
@@ -89,6 +100,60 @@ cc.Class({
         } else {
             this.lv++;
             this.startGame();
+        }
+    },
+
+    showAnswerTips(arr, dtArr, sNumArr, durArr, endCallFunc) {
+        this.showTips(arr, dtArr, sNumArr, durArr, endCallFunc);
+    },
+
+    showTips(arrPool, delayTimePool, scaleNumPool, durPool, endCallFunc) {
+        let time = delayTimePool.shift();
+        if (scaleNumPool.length < 1) {
+            endCallFunc && endCallFunc(time);
+            return;
+        }
+        let scaleNum = scaleNumPool.shift();
+        let durTime = durPool.shift();
+        cc.YL.timeOut(() => {
+            for (let i = 0; i < scaleNum; i++) {
+                let box = arrPool.shift();
+                box.active = true;
+                this.setAction(box, i * durTime, durTime);
+            }
+            cc.YL.timeOut(() => {
+                this.showTips(arrPool, delayTimePool, scaleNumPool, durPool, endCallFunc);
+            }, scaleNum * 1000);
+        }, time * 1000);
+    },
+
+    setAction(target, delayT1, delayT2) {
+        switch (this.aType) {
+            case actionType.default:
+                target.opacity = 0;
+                cc.tween(target)
+                    .delay(delayT1)
+                    .to(0, { opacity: 255 })
+                    .delay(delayT2)
+                    .to(0, { opacity: 0 })
+                    .start()
+                break;
+            case actionType.scale:
+                cc.tween(target)
+                    .delay(delayT1)
+                    .then(cc.YL.aMgr.zoomAction(1))
+                    .delay(delayT2)
+                    .start()
+                break;
+            case actionType.jump:
+                cc.tween(target)
+                    .delay(delayT1)
+                    .then(cc.YL.aMgr.jump(1))
+                    .delay(delayT2)
+                    .start()
+                break;
+            default:
+                break;
         }
     },
     // update (dt) {},
