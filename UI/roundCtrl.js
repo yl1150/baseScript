@@ -13,7 +13,7 @@ cc.Class({
             default: [],
             displayName: '点击转换颜色  0为正常 1触摸'
         },
-        isShowTouchImg:true,
+        isShowTouchImg: true,
     },
 
     onLoad() {
@@ -22,8 +22,9 @@ cc.Class({
         cc.YL.addClock(this.tips);
         GD.sound.setShowTips(this.tips, this.isPlayTips || GD.jumpModel)
         this.node.children.forEach((option) => {
-            GD.root.setTouchImg(option, 3);
-            option._numLabel = option.getChildByName('num').getComponent(cc.Label);
+            this.isShowTouchImg && GD.root.setTouchImg(option, 3);
+            let num = option.getChildByName('num');
+            num && (option._numLabel = num.getComponent(cc.Label));
             cc.YL.tools.registerTouch(
                 option,
                 (e) => {
@@ -73,12 +74,33 @@ cc.Class({
 
     showError(option) {
         option.angel = 0;
-        this._errorCount++;
         GD.sound.playSound('wrong');
         GD.sound.playSound('blank');
         cc.tween(option)
             .then(cc.YL.aMgr.shakeAction(1))
             .start()
+        this.setError();
+    },
+
+    setError() {
+        this._errorCount++;
+        let maxErrCount = 3
+        if (this._errorCount >= maxErrCount) {
+            cc.YL.lockTouch();
+            setTimeout(() => {
+                GD.sound.playTips('tips_start', () => {
+                    GD.root.showStar(this.rightOp, () => {
+                        GD.root.setStarBoard(true);
+                        GD.root.showAddStar(1, () => {
+                            GD.root.setStarBoard(false);
+                            this.node.active = false;
+                            this.node.destroy();
+                            cc.YL.emitter.emit('continueGame');
+                        })
+                    });
+                })
+            }, 1000);
+        }
     },
     // update (dt) {},
 });
