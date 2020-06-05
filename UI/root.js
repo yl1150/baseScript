@@ -94,7 +94,7 @@ cc.Class({
         ske.active = true;
         ske.getComponent(sp.Skeleton).setAnimation(0, 'newAnimation', false);
         setTimeout(() => {
-            switch (starNum) {
+            /* switch (starNum) {
                 case 3:
                     GD.sound.playSound('right' + cc.YL.tools.randomNum(1, 2));
                     break;
@@ -106,7 +106,7 @@ cc.Class({
                     break;
                 default:
                     break;
-            }
+            } */
             this.earnStar(this.node, starNum, () => {
                 skePool.active = false;
                 ske.active = false;

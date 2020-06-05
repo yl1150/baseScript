@@ -135,13 +135,13 @@ cc.Class({
     pause() {
         if (!this.videoPlayer) { console.log("error:Video is not loaded!"); return; }
         this.videoPlayer.pause();
-        GD.sound.pauseBgm()
+        //GD.sound.pauseBgm()
     },
 
     resume(time) {
         if (!this.videoPlayer) { console.log("error:Video is not loaded!"); return; }
         this.videoPlayer.resume();
-        GD.sound.resumeBgm()
+        //GD.sound.resumeBgm()
         time && (this.videoPlayer.currentTime = time)
     },
 

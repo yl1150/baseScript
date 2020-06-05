@@ -12,7 +12,8 @@ cc.Class({
             type: [cc.Color],
             default: [],
             displayName: '点击转换颜色  0为正常 1触摸'
-        }
+        },
+        isShowTouchImg:true,
     },
 
     onLoad() {
@@ -22,6 +23,7 @@ cc.Class({
         GD.sound.setShowTips(this.tips, this.isPlayTips || GD.jumpModel)
         this.node.children.forEach((option) => {
             GD.root.setTouchImg(option, 3);
+            option._numLabel = option.getChildByName('num').getComponent(cc.Label);
             cc.YL.tools.registerTouch(
                 option,
                 (e) => {
@@ -43,7 +45,7 @@ cc.Class({
             return;
         }
         target._touchImg && (target._touchImg.active = isShow);
-        this.touchColor.length > 0 && target._numLabel && (target._numLabel.color = (isShow ? this.touchColor[1] : this.touchColor[0]))
+        this.touchColor.length > 0 && target._numLabel && (target._numLabel.node.color = (isShow ? this.touchColor[1] : this.touchColor[0]))
     },
 
     showRight(option) {
