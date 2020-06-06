@@ -76,16 +76,17 @@ cc.Class({
         }
     },
 
-    play(url, callBack) {
+    play(url,isShowLaba = false, callBack) {
         this.stopTips();
         this.button.interactable = false;
-        this.showLabaAni(true);
+
+        isShowLaba && this.showLabaAni(true);
         var id = cc.audioEngine.play(url, false, 1);
         this.tipsIDArr.push(id);
         let time = url._audio.duration;
         console.log(time);
         this._timeID = setTimeout(() => {
-            this.showLabaAni(false);
+            isShowLaba && this.showLabaAni(false);
             this.button.interactable = true;
             callBack && callBack();
         }, time * 1000)
@@ -94,6 +95,11 @@ cc.Class({
     //解说音效
     playTips(name, callBack = null) {
         this.stopTips();
+        let isShowLaba = false;
+        if (name == GD.showTips) {
+            //当且仅当问题语音时 播放喇叭
+            isShowLaba = true;
+        }
         var url = null;
         if (name instanceof Object) {
             url = name;
@@ -101,14 +107,14 @@ cc.Class({
             url = cc.YL.loader.getSound(name);
         }
         if (url) {
-            this.play(url, callBack);
+            this.play(url, isShowLaba, callBack);
         } else {
             cc.loader.loadRes('sound' + name, cc.AudioClip, (err, audio) => {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                this.play(audio, callBack);
+                this.play(audio, isShowLaba, callBack);
             })
         }
 
