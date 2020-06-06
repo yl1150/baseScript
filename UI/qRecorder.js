@@ -100,14 +100,12 @@ cc.Class({
             GD.sound.playTips(name)
             let time = GD.sound.getDuringTime(name) + 0.5
             cc.YL.timeOut(() => {
+                GD.root.setStarBoard(false);
                 this.node.active = false
                 this.node.destroy()
                 cc.YL.emitter.emit('continueGame');
             }, time * 1000)
         })
-
-
-
     },
 
     refreshRecord() {
