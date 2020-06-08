@@ -26,7 +26,7 @@ cc.Class({
         this._questions = this.game.getChildByName('questions');
         this._isShowBGM = true;
         this.registerEvent();
-        //this.videoPoster.active = true
+        this.videoPoster.active = true
     },
 
     //注册事件
