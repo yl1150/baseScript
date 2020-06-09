@@ -88,7 +88,7 @@ cc.Class({
         let data = this._roundData.json.continueTime
         let time = cc.YL.tools.setTime(data.s, data.m)
         //this._vPlayer.resume(time)
-        this._vPlayer.resumeAndUnlockProg(time)
+        this._vPlayer.resumeAndUnlockProg()
     },
 
     finishGame() {
