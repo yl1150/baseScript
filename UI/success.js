@@ -17,7 +17,7 @@ cc.Class({
         this.dd = this.node.getChildByName('dd')
         this.dd.children.forEach((ddNode) => {
             ddNode.active = false
-            ddNode._db = ddNode.getComponent(dragonBones.ArmatureDisplay)||ddNode.getComponent(sp.Skeleton)
+            ddNode._db = ddNode.getComponent(dragonBones.ArmatureDisplay) || ddNode.getComponent(sp.Skeleton)
         });
         this.show()
     },
@@ -43,7 +43,7 @@ cc.Class({
                     dd._db.playAnimation('Sprite', 1)
                     break;
                 case 3:
-                    dd._db.setAnimation(0,'newAnimation_1', false)
+                    dd._db.setAnimation(0, 'newAnimation_1', false)
                     break;
                 default:
                     break;

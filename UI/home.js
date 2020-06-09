@@ -3,6 +3,10 @@ cc.Class({
 
     properties: {
         layerPool: [cc.Prefab],
+        isDemo: {
+            default: true,
+            displayName: '是否是demo展示',
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -30,11 +34,14 @@ cc.Class({
         cc.YL.emitter.on('gameEnd', (data) => {
             console.log(data)
             cc.YL.net.saveGameData()
-            this.backHomeLayer();
 
-            //结束
-            /* cc.YL.lockTouch();
-            this.showEnding(); */
+            if (this.isDemo) {
+                this.backHomeLayer();
+            } else {
+                //结束
+                cc.YL.lockTouch();
+                this.showEnding();
+            }
         })
         this.loadingData();
     },

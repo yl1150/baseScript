@@ -156,31 +156,18 @@ let register = {
 
     showSuccess(callFunc) {
         cc.YL.lockTouch()
-        let success = canvas.getChildByName('success')
-        if (!success) {
-            cc.loader.loadRes('prefab/success', cc.Prefab, (err, _prefab) => {
-                if (err) {
-                    console.log(err);
-                }
-                var success = cc.instantiate(_prefab);
-                success.addComponent("success").init();
-                success.parent = canvas;
-                success.zIndex = 999;
-                cc.YL.timeOut(() => {
-                    cc.YL.unLockTouch();
-                    success.active = false;
-                    callFunc && callFunc();
-                }, 3000);
-            });
-        } else {
-            success.active = true;
-            success.getComponent('success').init();
+        cc.loader.loadRes('prefab/success', cc.Prefab, (err, _prefab) => {
+            if (err) {
+                console.log(err);
+            }
+            var success = cc.instantiate(_prefab);
+            success.addComponent("success").init();
+            success.parent = cc.find('Canvas');
+            success.zIndex = 999;
             cc.YL.timeOut(() => {
-                cc.YL.unLockTouch();
-                success.active = false;
                 callFunc && callFunc();
             }, 3000);
-        }
+        });
 
     },
 
