@@ -163,7 +163,7 @@ cc.Class({
             this._vPlayer.pauseAndHideProg();
         }
         GD.root.setBack(false);
-        GD.sound.resumeBgm();
+        //GD.sound.resumeBgm();
         this._state = kStatusCode.STATUS_PLAYING;
         GD.sound.setTipsButton(true);
         this._isCheckTime = false;
