@@ -96,7 +96,7 @@ cc.Class({
 
         //录音环节稳定3颗星
         GD.root.showAddStar(3, () => {
-            let name = 'tips_start'
+            let name = 'tipsListen'
             GD.sound.playTips(name)
             let time = GD.sound.getDuringTime(name) + 0.5
             cc.YL.timeOut(() => {

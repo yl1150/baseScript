@@ -39,11 +39,11 @@ module.exports = {
     },
 
     //摇晃
-    shakeAction(num) {
+    shakeAction(num,pAngle = 30) {
         if (num) {
-            return cc.tween().repeat(num, cc.tween().to(0.1, { angle: -30 }).to(0.1, { angle: 30 }).to(0.1, { angle: 30 }).to(0.1, { angle: 0 }))
+            return cc.tween().repeat(num, cc.tween().to(0.1, { angle: -pAngle }).to(0.1, { angle: pAngle }).to(0.1, { angle: pAngle }).to(0.1, { angle: 0 }))
         } else {
-            return cc.tween().repeatForever(cc.tween().to(0.1, { angle: -30 }).to(0.1, { angle: 30 }).to(0.1, { angle: 30 }).to(0.1, { angle: -30 }))
+            return cc.tween().repeatForever(cc.tween().to(0.1, { angle: -pAngle }).to(0.1, { angle: pAngle }).to(0.1, { angle: pAngle }).to(0.1, { angle: -pAngle }))
         }
     },
 

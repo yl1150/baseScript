@@ -257,6 +257,10 @@ module.exports = {
         _spine.setAttachment(_slotName, _skinName)
     },
 
+    hideSpineSkin(_spine, _slotName) {
+        _spine.setAttachment(_slotName, null)
+    },
+
     setTime(s = 0, m = 0, h = 0) {
         return (s + m * 60 + h * 3600)
     },
