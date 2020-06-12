@@ -20,15 +20,27 @@ cc.Class({
         this._prog = this.progressNode.getComponent('videoProg')
     },
 
-    start(){
+    start() {
         this.setVideoBottom();
+        this._isLoaded = false;
     },
 
-    init(readyCallFunc, videoCallFunc,rounData) {
+    init(readyCallFunc, videoCallFunc, rounData) {
         this._readyCallFunc = readyCallFunc
         this._videoCallFunc = videoCallFunc
         this._roundData = rounData
-        //设置视频在底层
+
+        //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
+        cc.YL.timeOut(() => {
+            if (!this._isLoaded) {
+                //限定时间内 不响应 强行调用
+                this._isLoaded = true;
+                this.videoPlayer = this.getComponent(cc.VideoPlayer);
+                this.videoDuration = this.videoPlayer.getDuration()
+                this._prog.init(this, this._roundData)
+                this._readyCallFunc()
+            }
+        }, 5000);
     },
 
     //暂停视频 隐藏进度条
@@ -37,7 +49,7 @@ cc.Class({
         this.pause()
     },
 
-    resumeAndUnlockProg(time){
+    resumeAndUnlockProg(time) {
         this.resume(time)
         this._prog.setScreenTouch(true)
     },
@@ -80,10 +92,13 @@ cc.Class({
             case cc.VideoPlayer.EventType.READY_TO_PLAY:
                 {
                     console.log("video-READY_TO_PLAY")
-                    this.videoPlayer = videoPlayer;
-                    this.videoDuration = this.videoPlayer.getDuration()
-                    this._prog.init(this, this._roundData)
-                    this._readyCallFunc()
+                    if (!this._isLoaded) {
+                        this._isLoaded = true;
+                        this.videoPlayer = videoPlayer;
+                        this.videoDuration = this.videoPlayer.getDuration()
+                        this._prog.init(this, this._roundData)
+                        this._readyCallFunc()
+                    }
                 }
                 break;
             case cc.VideoPlayer.EventType.CLICKED:
@@ -117,8 +132,8 @@ cc.Class({
         console.log(event)
     },
 
-    setTime(time){
-        this.videoPlayer.currentTime = time  
+    setTime(time) {
+        this.videoPlayer.currentTime = time
     },
 
     play(time) {
@@ -149,7 +164,7 @@ cc.Class({
         this.videoPlayer.currentTime = this.videoPlayer.getDuration() * progress
     },
 
-    getVideoState(){
+    getVideoState() {
         return this._videoState
     },
 
