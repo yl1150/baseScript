@@ -10,7 +10,19 @@ let register = {
         let url = document.URL + 'config.json';
 
         //注册按钮点击事件 用于添加点击音效
+        cc.Button.prototype._onTouchBegan = function (t) {
+            if(!GD.canTouch){
+                return;
+            }
+            if (!this.interactable || !this.enabledInHierarchy) return;
+            this._pressed = true;
+            this._updateState();
+            event.stopPropagation();
+        }
         cc.Button.prototype._onTouchEnded = function (t) {
+            if(!GD.canTouch){
+                return;
+            }
             if (this.interactable && this.enabledInHierarchy) {
                 if (this._pressed) {
                     cc.Component.EventHandler.emitEvents(this.clickEvents, t);
@@ -24,28 +36,28 @@ let register = {
         }
         cc.YL.net.getUserToken();
 
- /*        cc.loader.load(url, function (err, data) {
-            if (err || !data) {
-                console.log('not Found!!', err);
-                GD.postURL = 'https://www.hxsup.com/api/game/addGameLog';
-                cc.YL.net.getGameData(0, (data) => {
-                    GD.root.reFreshStar();
-                });
-                return;
-            }
-            console.log(data)
-            if (data.isDeBug) {
-                console.log('当前为调试模式!!');
-                GD.postURL = data.deBugURL;
-            } else {
-                console.log('当前为正式模式!!')
-                GD.postURL = data.OfficialURL;
-            }
-            GD.gameId = data.gameID ? data.gameID : 0;
-            cc.YL.net.getGameData(GD.gameId, () => {
-                GD.root.reFreshStar();
-            });
-        }) */
+        /*        cc.loader.load(url, function (err, data) {
+                   if (err || !data) {
+                       console.log('not Found!!', err);
+                       GD.postURL = 'https://www.hxsup.com/api/game/addGameLog';
+                       cc.YL.net.getGameData(0, (data) => {
+                           GD.root.reFreshStar();
+                       });
+                       return;
+                   }
+                   console.log(data)
+                   if (data.isDeBug) {
+                       console.log('当前为调试模式!!');
+                       GD.postURL = data.deBugURL;
+                   } else {
+                       console.log('当前为正式模式!!')
+                       GD.postURL = data.OfficialURL;
+                   }
+                   GD.gameId = data.gameID ? data.gameID : 0;
+                   cc.YL.net.getGameData(GD.gameId, () => {
+                       GD.root.reFreshStar();
+                   });
+               }) */
 
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
@@ -55,12 +67,20 @@ let register = {
 
         let scene = cc.director.getScene();
 
-        let touchLocker = new cc.Node('touchLocker');
-        touchLocker.width = 2000;
-        touchLocker.height = 2000;
-        touchLocker.parent = cc.find('Canvas');
-        touchLocker.zIndex = 9999;
-        touchLocker.addComponent(cc.Button);
+        let touchLocker = cc.find('Canvas/touchLocker');
+       /*  cc.YL.tools.registerTouch(
+            touchLocker,
+            (e) => {
+                e.stopPropagation()
+            },
+            (e) => {
+                e.stopPropagation()
+            },
+            (e) => {
+                e.stopPropagation()
+            }
+        ); */
+        //touchLocker.zIndex = 9999;
         touchLocker.active = false;
         cc.YL.touchLocker = touchLocker;
 
@@ -102,16 +122,18 @@ let register = {
         }
     },
 
-
     lockTouch() {
         //屏蔽所有触摸
         console.log('lock');
-        cc.YL.touchLocker.active = true;
+        GD.canTouch = false;
+        //cc.YL.touchLocker.active = true;
     },
 
     unLockTouch() {
         console.log('unlock');
-        cc.YL.touchLocker.active = false;
+        GD.canTouch = true;
+        //cc.YL.touchLocker.active = false;
+        //console.log(cc.find('Canvas'))
     },
 
 
@@ -232,14 +254,14 @@ let register = {
     },
 
     //开始学习时长计时 注意之前的时长会清空
-    startTimeCount(){
+    startTimeCount() {
         GD.timeCount = 0
         GD.timeCountID = setInterval(() => {
             GD.timeCount++;
         }, 1000);
     },
 
-    stopTimeCount(){
+    stopTimeCount() {
         clearInterval(GD.timeCountID)
         return GD.timeCount;
     },

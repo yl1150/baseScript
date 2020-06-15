@@ -90,6 +90,9 @@ module.exports = {
             return
         }
         startFunc && node.on('touchstart', (event) => {
+            if(!GD.canTouch){
+                return
+            }
             cc.YL.emitter.emit('tips_touchStart')
             if (GD.isShowClickAni && GD._clickAni) {
                 GD._clickAni.active = false
@@ -100,14 +103,23 @@ module.exports = {
         }, this)
 
         moveFunc && node.on('touchmove', (event) => {
+            if(!GD.canTouch){
+                return
+            }
             moveFunc(event)
         }, this)
 
         endFunc && node.on('touchend', (event) => {
+            if(!GD.canTouch){
+                return
+            }
             endFunc(event)
         }, this)
 
         endFunc && node.on('touchcancel', (event) => {
+            if(!GD.canTouch){
+                return
+            }
             endFunc(event)
         }, this)
     },

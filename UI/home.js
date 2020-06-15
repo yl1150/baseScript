@@ -57,6 +57,7 @@ cc.Class({
             let prefab = cc.instantiate(this.targetPrefab);
             this._game.addChild(prefab);
         }else{
+            cc.YL.unLockTouch();
             this.setHomeLayer(true);
         }
 
@@ -159,6 +160,10 @@ cc.Class({
                 cc.YL.net.closeGame();
             },
         )
+    },
+
+    touch(){
+        console.log('touch')
     },
     // update (dt) {},
 });

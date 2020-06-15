@@ -12,7 +12,7 @@ cc.Class({
     onLoad() {
         GD.root = this;
         this.sample = this.node.getChildByName('sample');
-        this.star = this.node.getChildByName('star').getComponent(cc.ParticleSystem);
+        this.star = this.node.getChildByName('star');
         this.back = this.node.getChildByName('back');
         this.loadSpine = this.node.getChildByName('loadSpine');
         this.loadSpine._spine = this.loadSpine.getComponent(sp.Skeleton);
@@ -20,6 +20,8 @@ cc.Class({
         this.winSpine = this.node.getChildByName('winSpine');
         this.winSpine._spine = this.winSpine.getComponent(sp.Skeleton);
         this._touchImgPool = this.node.getChildByName('touchImgPool');
+
+        this.starPool = new cc.NodePool();
         this.setStarBoard(false);
     },
 
@@ -27,7 +29,7 @@ cc.Class({
         this.starBoard.active = isShow;
     },
 
-    setQuestionBg(isShow){
+    setQuestionBg(isShow) {
         this.questionBg.active = isShow;
     },
 
@@ -61,18 +63,48 @@ cc.Class({
         }, 4000)
     },
 
-    showStar(target, callFunc) {
-        let star = this.star;
-        star.node.zIndex = 999;
-        star.node.active = true;
-        star.stopSystem();
-        star.resetSystem();
-        GD.sound.playSound('star');
-        setTimeout(() => {
-            star.node.active = false;
-            callFunc && callFunc();
-        }, 1000)
-        star.node.position = cc.YL.tools.getRelativePos(target, this.node);
+    showStar(original, callFunc) {
+        if (original.constructor == cc.Node) {
+            let star = this.starPool.get();
+            if (!star) {
+                star = cc.instantiate(this.star);
+            }
+            star._partice = star.getComponent(cc.ParticleSystem);
+            star.zIndex = 999;
+            star.active = true;
+            star.parent = this.star.parent;
+            star._partice.resetSystem();
+            GD.sound.playSound('star');
+            setTimeout(() => {
+                this.starPool.put(star);
+                callFunc && callFunc();
+            }, 1000)
+            star.position = cc.YL.tools.getRelativePos(original, this.node);
+
+        }
+        if (original.constructor == Array) {
+            GD.sound.playSound('star');
+            for (let i in original) {
+                let star = this.starPool.get();
+                if (!star) {
+                    star = cc.instantiate(this.star);
+                }
+                star._partice = star.getComponent(cc.ParticleSystem);
+                star.zIndex = 999;
+                star.active = true;
+                star.parent = this.star.parent;
+                star._partice.resetSystem();
+                setTimeout(() => {
+                    this.starPool.put(star);
+                }, 1000)
+                star.position = cc.YL.tools.getRelativePos(original[i], this.node);
+            }
+            setTimeout(() => {
+                callFunc && callFunc();
+            }, 1000);
+
+        }
+
     },
 
     showWinSpine(callFunc) {
@@ -193,7 +225,7 @@ cc.Class({
         target._touchImg = img;
     },
 
-    setLoadDataUI(isShow){
+    setLoadDataUI(isShow) {
         //this.node.getChildByName('loadingData').active = isShow;
     },
     // update (dt) {},
