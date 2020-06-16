@@ -52,24 +52,19 @@ cc.Class({
     },
 
     startGame() {
-        if(!this.isDemo){
-            cc.YL.lockTouch();
-            let prefab = cc.instantiate(this.targetPrefab);
-            this._game.addChild(prefab);
-        }else{
-            cc.YL.unLockTouch();
-            this.setHomeLayer(true);
-        }
-
         this.checkHomeData();
         cc.YL.startTimeCount();
     },
 
     loadingData() {
+        if(this.isDemo){
+            cc.YL.unLockTouch();
+            this.setHomeLayer(true);
+            this._bg.active = true;
+        }
         this.setHomeLayer(false);
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        this._bg.active = true;
         GD.root.setLoadDataUI(true);
         cc.YL.net.getGameData(GD.gameId, (data) => {
             GD.gameData = data;
