@@ -67,8 +67,8 @@ let register = {
 
         let scene = cc.director.getScene();
 
-        let touchLocker = cc.find('Canvas/touchLocker');
-       /*  cc.YL.tools.registerTouch(
+       /*  let touchLocker = cc.find('Canvas/touchLocker');
+         cc.YL.tools.registerTouch(
             touchLocker,
             (e) => {
                 e.stopPropagation()
@@ -79,10 +79,10 @@ let register = {
             (e) => {
                 e.stopPropagation()
             }
-        ); */
-        //touchLocker.zIndex = 9999;
+        ); 
+        touchLocker.zIndex = 9999;
         touchLocker.active = false;
-        cc.YL.touchLocker = touchLocker;
+        cc.YL.touchLocker = touchLocker; */
 
         cc.macro.ENABLE_MULTI_TOUCH = false;//关闭多点触摸
 
