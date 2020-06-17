@@ -48,6 +48,7 @@ cc.Class({
                 this.showEnding();
             }
         })
+        this.setHomeLayer(false);
         this.loadingData();
     },
 
@@ -62,7 +63,6 @@ cc.Class({
             this.setHomeLayer(true);
             this._bg.active = true;
         }
-        this.setHomeLayer(false);
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
         GD.root.setLoadDataUI(true);
