@@ -7,11 +7,6 @@ cc.Class({
             default: true,
             displayName: '是否是demo展示',
         },
-        targetPrefab:{
-            default:null,
-            type:cc.Prefab,
-            displayName:'需要展示的游戏'
-        }
     },
 
     // LIFE-CYCLE CALLBACKS:
