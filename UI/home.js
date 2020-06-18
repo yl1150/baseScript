@@ -15,6 +15,7 @@ cc.Class({
         let register = require('register');
         register.init();
     },
+///xxxxxxxxxxxx
 
     start() {
         this._homeOptions = this.node.getChildByName('homeOptions');
