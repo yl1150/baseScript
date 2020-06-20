@@ -34,6 +34,7 @@ cc.Class({
     },
 
     setBack(isShow) {
+        isShow = false;
         this.back.active = isShow;
         this.back.opacity = 0;
         cc.tween(this.back)
@@ -42,7 +43,7 @@ cc.Class({
     },
 
     reFreshStar() {
-        this.starNumLabel.string = GD.gameData['starNum'];
+        this.starNumLabel.string = GD.integral;
     },
 
     //展示加载进度条
@@ -154,7 +155,8 @@ cc.Class({
     * @param {Function} cb 完成后回调
     */
     earnStar(target, count, cb) {
-        cc.YL.net.addStarNum(count);
+        GD.integral += parseInt(count);
+        cc.YL.net.sendTimeAndStar(GD.timeCount, GD.integral);
         var board = this.starBoard.getChildByName('kuang');
         var starIcon = board.getChildByName('starIcon');
         var maxLength = 150;

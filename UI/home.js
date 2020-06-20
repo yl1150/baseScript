@@ -33,8 +33,6 @@ cc.Class({
 
         cc.YL.emitter.on('gameEnd', (data) => {
             console.log(data)
-            cc.YL.net.saveGameData()
-
             if (this.isDemo) {
                 this.backHomeLayer();
             } else {
@@ -61,12 +59,9 @@ cc.Class({
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
         GD.root.setLoadDataUI(true);
-        cc.YL.net.getGameData(GD.gameId, (data) => {
-            GD.gameData = data;
-            GD.root.reFreshStar();
-            GD.root.setLoadDataUI(false);
-            this.startGame();
-        });
+        GD.root.reFreshStar();
+        GD.root.setLoadDataUI(false);
+        this.startGame();
     },
 
     changeLayer(event, name) {
@@ -137,19 +132,10 @@ cc.Class({
 
     //游戏结束 撒花 发送数据
     showEnding() {
-        cc.YL.stopTimeCount();
+        let time = cc.YL.stopTimeCount();
         cc.YL.showSuccess();
-        cc.YL.net.setGameEndMessage(
-            () => {
-                //正确回调
-                cc.YL.net.closeGame();
-            },
-            () => {
-                //发送失败回调
-                cc.YL.net.setGameEndMessage();
-                cc.YL.net.closeGame();
-            },
-        )
+        cc.YL.net.sendTimeAndStar(parseInt(time), 0)//提交数据
+        cc.YL.net.finish()//延时4s结束游戏
     },
 
     touch(){

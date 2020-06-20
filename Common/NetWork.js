@@ -2,125 +2,148 @@
  * 网络
  */
 module.exports = {
-
     getUserToken() {
-        let url = location.href;
-        let params = url.split("&");
+        var url = location.href;
+        var params = url.split("?");
         if (params[1]) {
-            let auth = params[0].split("=")[1];
-            let getSystemFlag = params[1].split("=")[1];
-            if (auth) {
-                GD.systemFlag = getSystemFlag;
-                GD.userToken = auth;
+            var arr = params[1].split("&");
+            for (var i = 0; i < arr.length; i++) {
+                var str1 = arr[i].split("=")[0];
+                var str2 = arr[i].split("=")[1];
+                if (!str2) continue;
+                switch (str1) {
+                    case 'userToken':
+                        GD.userToken = str2;
+                        break;
+                    case 'practiceId':
+                        GD.practiceId = parseInt(str2);
+                        break;
+                    case 'integral':
+                        GD.integral = parseInt(str2);
+                        break;
+                    case 'systemFlag':
+                        GD.systemFlag = str2;
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     },
 
-    send(score) {
+    http_post(params, url, header, cb, failCount = 0) {
+        var self = this;
+        var xhr = cc.loader.getXMLHttpRequest();
+        xhr.open("POST", url);
+        for (let i in header) {
+            xhr.setRequestHeader(i, header[i]);
+        }
+        xhr.send(params);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    if (cb) cb;
+                } else {
+                    console.log("ErrorStatus:", xhr.status);
+                    //失败重传，最多三次
+                    if (++failCount < 3) self.http_post(params, url, header, cb, failCount);
+                }
+            }
+        };
+    },
+
+    finish() {
+        this.sendScore(1);
+        setTimeout(() => {
+            console.log(1)
+            if (GD.systemFlag == 1) {
+                try {
+                    window.android.closeGame();
+                } catch (e) {
+                    console.log("出现错误, 如果在非android环境下访问, 出现该警告是正常的.");
+                    console.log(e);
+                }
+            } else if (GD.systemFlag == 0) {
+                window.webkit.messageHandlers.closeGame.postMessage(null);
+                //微信专用结束
+                wx.miniProgram.redirectTo({
+                     url: `/pages/finish/finish`,
+                })
+            }
+        }, 4000);
+    },
+
+    /**
+     * 发送分数
+     * @param {Integer} score 最后分数
+     */
+    sendScore(score) {
         var data = {
             result: score,
             gameId: GD.gameId
         };
         data = JSON.stringify(data)
-        GD.postURL && this.httpHelper_post(GD.postURL, data);
-    },
-
-    httpHelper_post(url, params) {
-        var xhr = cc.loader.getXMLHttpRequest();
-        xhr.open("POST", url);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Authorization", GD.userToken);
-        xhr.send(params);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status <= 207)) {
-                // err = false;  
-            } else {
-                // err = true;  
-            }
-            // var response = xhr.responseText;  
-            // callback(err,response);  
-        };
-    },
-
-    back() {
-        history.go(-1)
-    },
-
-    setGameEndMessage(successCallFunc,errorCallFunc) {
-        this.send(1);
-        setTimeout(() => {
-            console.log(1);
-            successCallFunc && successCallFunc();
-        }, 4000);
-    },
-
-    closeGame(){
-        if (GD.systemFlag == 1) {
-            try {
-                window.android.closeGame();
-            } catch (e) {
-                console.log(
-                    "出现错误, 如果在非android环境下访问, 出现该警告是正常的."
-                );
-                console.log(e);
-            }
-        } else if (GD.systemFlag == 0) {
-            window.webkit.messageHandlers.closeGame.postMessage(null);
+        var url = 'https://www.hxsup.com/api/game/addGameLog'
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
         }
+        this.http_post(data, url, header);
     },
 
     /**
-    * 发送指令码至服务器
-    * @param {*} data 
-    */
-    sendData(data) {
-
-    },
-
-    /**
-     * 获取对应gameID的数据 包括星星的数据
+     * 发送游戏时长和积分数（微信专用）
+     * @param {Integer} time 游戏时长，单位：秒
+     * @param {Integer} starNum 积分数
      */
-    getGameData(gameID, callFunc) {
-        let gameData = [];
-        gameData['starNum'] = 0;
-        gameData['videoGame'] = {
-            //视频游戏
-            lockState: 1//是否解锁 1:已经解锁 0:未解锁
-        };
-
-        gameData['questionBank'] = {
-            //题库
-            lockState: 0
-        };
-
-        gameData['videoTips'] = {
-            //小贴士
-            lockState: 0
-        };
-        gameData['punchCard'] = {
-            //打卡
-            lockState: 0
-        };
-        gameData['learningReport'] = {
-            //学习报告
-            lockState: 0
-        };
-        setTimeout(() => {
-            callFunc && callFunc(gameData);
-        }, 1000);
+    sendTimeAndStar(time, starNum) {
+        var data = {
+            practiceId: GD.practiceId,
+            times: time,
+            integral: starNum
+        }
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com:8116/api/annual/mini/studyLog/add'
+        var header = {
+            "AnnualMiniToken": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
     },
 
     /**
-     * 保存关卡内的数据 不包括星星的数据
-     * 应当在关卡结束时调用 当等待时间结束时 服务器未反馈或者反馈发送失败 应调用对应提示
+     * 发送积分数/星星数
+     * @param {Integer} starNum 积分数
      */
-    saveGameData(data) {
-
-        //
+    sendStarNum(starNum) {
+        var data = {
+            quantity: starNum
+        }
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral'
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
     },
 
-    addStarNum(num) {
-        GD.gameData['starNum'] += num;
-        //发送消息给服务器 {加星星} 服务器未反馈或者反馈发送失败时则消除所获得的的星星
+    /**
+     * 发送游戏时长
+     * @param {Integer} t 游戏时长，单位：秒
+     */
+    sendTime(time) {
+        var data = {
+            practiceId: 1,
+            times: time
+        }
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com:8115/api/annual/studyLog/add'
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
     },
 };
