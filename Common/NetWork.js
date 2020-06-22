@@ -14,15 +14,19 @@ module.exports = {
                 switch (str1) {
                     case 'userToken':
                         GD.userToken = str2;
+                        console.log('userToken:', str2)
                         break;
                     case 'practiceId':
                         GD.practiceId = parseInt(str2);
+                        console.log('practiceId:', str2)
                         break;
                     case 'integral':
                         GD.integral = parseInt(str2);
+                        console.log('integral:', str2)
                         break;
                     case 'systemFlag':
                         GD.systemFlag = str2;
+                        console.log('systemFlag:', str2)
                         break;
 
                     default:
@@ -65,10 +69,10 @@ module.exports = {
                     console.log(e);
                 }
             } else if (GD.systemFlag == 0) {
-                window.webkit.messageHandlers.closeGame.postMessage(null);
+                //window.webkit.messageHandlers.closeGame.postMessage(null);
                 //微信专用结束
                 wx.miniProgram.redirectTo({
-                     url: `/pages/finish/finish`,
+                    url: `/pages/finish/finish`,
                 })
             }
         }, 4000);
@@ -104,7 +108,8 @@ module.exports = {
             integral: starNum
         }
         data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com:8116/api/annual/mini/studyLog/add'
+        //var url = 'http://dev.hxsup.com:8116/api/annual/mini/studyLog/add'
+        var url = 'https://dev.hxsup.com/api/annual/mini/studyLog/add'
         var header = {
             "AnnualMiniToken": GD.userToken,
             "Content-Type": "application/json",
