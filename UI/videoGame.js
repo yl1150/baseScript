@@ -32,18 +32,6 @@ cc.Class({
     //注册事件
     registerEvent() {
 
-        //当游戏开始时触发
-        /*   cc.YL.emitter.on('gameStart', (e, data) => {
-              console.log('gameStart')
-          })
-  
-          cc.YL.emitter.on('gameEnd', (e, data) => {
-              console.log('gameEnd')
-              cc.YL.showSuccess(()=>{
-                  cc.YL.net.setGameEndMessage();
-              })
-          }) */
-
         cc.YL.emitter.on('finishRound', (e) => {
             console.log('finishRound')
             var data = this._roundData.json.continueTime

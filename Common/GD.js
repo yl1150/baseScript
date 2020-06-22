@@ -17,4 +17,9 @@ window.GD = {
         star:0,//本次通关所获得的星星数
     },
     gameId:1,
+    practiceId: 1,
+    /**
+     * 积分数/星星数
+     */
+    integral: 0,
 }

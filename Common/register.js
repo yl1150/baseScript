@@ -2,7 +2,7 @@ let register = {
     init() {
         cc.YL.tools = require("tools");
         cc.YL.aMgr = require('ActionMgr');
-        cc.YL.net = require('NetWork');
+        cc.YL.net = require('Network');
         cc.YL.recorder = require('testRecorder');
         var Loader = require("loader");
         var Emitter = require("emitter");
@@ -35,29 +35,6 @@ let register = {
             }
         }
         cc.YL.net.getUserToken();
-
-        /*        cc.loader.load(url, function (err, data) {
-                   if (err || !data) {
-                       console.log('not Found!!', err);
-                       GD.postURL = 'https://www.hxsup.com/api/game/addGameLog';
-                       cc.YL.net.getGameData(0, (data) => {
-                           GD.root.reFreshStar();
-                       });
-                       return;
-                   }
-                   console.log(data)
-                   if (data.isDeBug) {
-                       console.log('当前为调试模式!!');
-                       GD.postURL = data.deBugURL;
-                   } else {
-                       console.log('当前为正式模式!!')
-                       GD.postURL = data.OfficialURL;
-                   }
-                   GD.gameId = data.gameID ? data.gameID : 0;
-                   cc.YL.net.getGameData(GD.gameId, () => {
-                       GD.root.reFreshStar();
-                   });
-               }) */
 
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
