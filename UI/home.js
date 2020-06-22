@@ -7,6 +7,10 @@ cc.Class({
             default: true,
             displayName: '是否是demo展示',
         },
+        layerName: {
+            default: '',
+            displayName: 'prefab名',
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -56,6 +60,8 @@ cc.Class({
             cc.YL.unLockTouch();
             this.setHomeLayer(true);
             this._bg.active = true;
+        }else{
+            this.changeLayer(this.layerName);
         }
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
@@ -65,27 +71,19 @@ cc.Class({
         this.startGame();
     },
 
-    changeLayer(event, name) {
-        cc.YL.lockTouch();
+    changeLayer( name) {
         GD.sound && GD.sound.stopTips();
-        GD.sound && GD.sound.playSound('click', 1);
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        GD.root.showLoading(
-            () => {
-                for (let i in this.layerPool) {
-                    if (this.layerPool[i].name == name) {
-                        let layer = cc.instantiate(this.layerPool[i]);
-                        this._game.addChild(layer);
-                        this._loadedLayer = layer;
-                    }
-                }
-                this.setHomeLayer(false);
-            },
-            () => {
-                cc.YL.unLockTouch();
+        cc.YL.unLockTouch();
+        for (let i in this.layerPool) {
+            if (this.layerPool[i].name == name) {
+                let layer = cc.instantiate(this.layerPool[i]);
+                this._game.addChild(layer);
+                this._loadedLayer = layer;
             }
-        )
+        }
+        this.setHomeLayer(false);
     },
 
     //检测每一关关卡数据

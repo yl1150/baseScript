@@ -17,29 +17,29 @@ module.exports = {
     }, */
 
     //缩放效果
-    zoomAction(num = null) {
+    zoomAction(num = null, max = 1.2, min = 0.8) {
         if (num) {
             return cc.tween().repeat(
                 num,
                 cc.tween()
-                    .to(0.1, { scale: 1.2 })
+                    .to(0.1, { scale: max })
                     .to(0.1, { scale: 1 })
-                    .to(0.1, { scale: 0.8 })
+                    .to(0.1, { scale: min })
                     .to(0.1, { scale: 1 })
             )
         } else {
             return cc.tween().repeatForever(
                 cc.tween()
-                    .to(0.1, { scale: 1.2 })
+                    .to(0.1, { scale: max })
                     .to(0.1, { scale: 1 })
-                    .to(0.1, { scale: 0.8 })
+                    .to(0.1, { scale: min })
                     .to(0.1, { scale: 1 })
             )
         }
     },
 
     //摇晃
-    shakeAction(num,pAngle = 30) {
+    shakeAction(num, pAngle = 30) {
         if (num) {
             return cc.tween().repeat(num, cc.tween().to(0.1, { angle: -pAngle }).to(0.1, { angle: pAngle }).to(0.1, { angle: pAngle }).to(0.1, { angle: 0 }))
         } else {
@@ -47,11 +47,11 @@ module.exports = {
         }
     },
 
-    jump(num){
+    jump(num) {
         if (num) {
-            return cc.tween().repeat(num, cc.tween().by(0.1, { position: cc.v2(0,50) }).by(0.1, { position: cc.v2(0,-50) }))
+            return cc.tween().repeat(num, cc.tween().by(0.1, { position: cc.v2(0, 50) }).by(0.1, { position: cc.v2(0, -50) }))
         } else {
-            return cc.tween().repeatForever(num, cc.tween().by(0.1, { position: cc.v2(0,50) }).by(0.1, { position: cc.v2(0,-50) }))
+            return cc.tween().repeatForever(num, cc.tween().by(0.1, { position: cc.v2(0, 50) }).by(0.1, { position: cc.v2(0, -50) }))
         }
     },
 
