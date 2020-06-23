@@ -69,11 +69,11 @@ module.exports = {
                     console.log(e);
                 }
             } else if (GD.systemFlag == 0) {
-                //window.webkit.messageHandlers.closeGame.postMessage(null);
-                //微信专用结束
+                window.webkit.messageHandlers.closeGame.postMessage(null);
+                /* //微信专用结束
                 wx.miniProgram.redirectTo({
                     url: `/pages/finish/finish`,
-                })
+                }) */
             }
         }, 4000);
     },
