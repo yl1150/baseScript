@@ -1,16 +1,52 @@
+const _GAMELIST = {
+    /**默认展现游戏目录 */
+    '0': '',
+
+    /**视频游戏 */
+    '1': 'videoGame',
+
+    /**题库 */
+    '2': 'questionBank',
+
+    /**播放小贴士视频 */
+    '3': 'videoTips',
+
+    /**习题上*/
+    '4': 'exercises1',
+
+    /**习题下*/
+    '5': 'exercises2',
+};
+const GAMELIST = cc.Enum({
+    /**默认展现游戏目录 */
+    default: 0,
+
+    /**视频游戏 */
+    videoGame: 1,
+
+    /**题库 */
+    questionBank: 2,
+
+    /**播放小贴士视频 */
+    videoTips: 3,
+
+    /**习题上*/
+    exercises1: 4,
+
+    /**习题下*/
+    exercises2: 5,
+});
 cc.Class({
     extends: cc.Component,
 
     properties: {
         layerPool: [cc.Prefab],
-        isDemo: {
-            default: true,
-            displayName: '是否是demo展示',
+        gameName: {
+            default: GAMELIST.default,
+            type: GAMELIST,
+            displayName: '游戏目录',
         },
-        layerName: {
-            default: '',
-            displayName: 'prefab名',
-        },
+
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -19,7 +55,6 @@ cc.Class({
         let register = require('register');
         register.init();
     },
-///xxxxxxxxxxxx
 
     start() {
         this._homeOptions = this.node.getChildByName('homeOptions');
@@ -38,7 +73,7 @@ cc.Class({
 
         cc.YL.emitter.on('gameEnd', (data) => {
             console.log(data)
-            if (this.isDemo) {
+            if (this.gameName == GAMELIST.default) {
                 this.backHomeLayer();
             } else {
                 //结束
@@ -56,12 +91,12 @@ cc.Class({
     },
 
     loadingData() {
-        if(this.isDemo){
+        if (this.gameName == GAMELIST.default) {
             cc.YL.unLockTouch();
             this.setHomeLayer(true);
             this._bg.active = true;
-        }else{
-            this.changeLayer(this.layerName);
+        } else {
+            this.changeLayer(null, _GAMELIST[this.gameName]);
         }
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
@@ -71,7 +106,8 @@ cc.Class({
         this.startGame();
     },
 
-    changeLayer( name) {
+    changeLayer(event, name) {
+        console.log('loadGame:   ',name,'   ==============');
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
@@ -137,7 +173,7 @@ cc.Class({
         cc.YL.net.finish()//延时4s结束游戏
     },
 
-    touch(){
+    touch() {
         console.log('touch')
     },
     // update (dt) {},
