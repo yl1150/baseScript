@@ -140,7 +140,7 @@ module.exports = {
      */
     sendTime(time) {
         var data = {
-            practiceId: 1,
+            practiceId: GD.practiceId,
             times: time
         }
         data = JSON.stringify(data);
