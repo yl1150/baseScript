@@ -156,7 +156,7 @@ cc.Class({
     */
     earnStar(target, count, cb) {
         GD.integral += parseInt(count);
-        cc.YL.net.sendTimeAndStar(GD.timeCount, GD.integral);
+        cc.YL.net.sendStarNum(count);
         var board = this.starBoard.getChildByName('kuang');
         var starIcon = board.getChildByName('starIcon');
         var maxLength = 150;

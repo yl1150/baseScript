@@ -126,7 +126,7 @@ module.exports = {
             quantity: starNum
         }
         data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral'
+        var url = GD.isTest? 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral':'http://www.hxsup.com:8115/api/annual/userRecord/addIntegral'
         var header = {
             "Authorization": GD.userToken,
             "Content-Type": "application/json",
@@ -140,11 +140,12 @@ module.exports = {
      */
     sendTime(time) {
         var data = {
-            practiceId: 1,
+            practiceId: GD.practiceId,
             times: time
         }
         data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com:8115/api/annual/studyLog/add'
+        var url = GD.isTest? 'http://dev.hxsup.com:8115/api/annual/studyLog/add':'http://dev.hxsup.com:8115/api/annual/studyLog/add'
+
         var header = {
             "Authorization": GD.userToken,
             "Content-Type": "application/json",

@@ -36,6 +36,7 @@ const GAMELIST = cc.Enum({
     /**习题下*/
     exercises2: 5,
 });
+
 cc.Class({
     extends: cc.Component,
 
@@ -46,7 +47,10 @@ cc.Class({
             type: GAMELIST,
             displayName: '游戏目录',
         },
-
+        isTest:{
+            default:false,
+            displayName:'是否是测试版'
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -54,6 +58,7 @@ cc.Class({
     onLoad() {
         let register = require('register');
         register.init();
+        GD.isTest = this.isTest;
     },
 
     start() {
@@ -103,6 +108,7 @@ cc.Class({
         GD.root.setLoadDataUI(true);
         GD.root.reFreshStar();
         GD.root.setLoadDataUI(false);
+        GD.root.setBack(false);
         this.startGame();
     },
 
@@ -169,7 +175,7 @@ cc.Class({
     showEnding() {
         let time = cc.YL.stopTimeCount();
         cc.YL.showSuccess();
-        cc.YL.net.sendTimeAndStar(parseInt(time), 0)//提交数据
+        cc.YL.net.sendTime(parseInt(time))//提交数据
         cc.YL.net.finish()//延时4s结束游戏
     },
 
