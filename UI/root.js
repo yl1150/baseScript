@@ -230,5 +230,18 @@ cc.Class({
     setLoadDataUI(isShow) {
         //this.node.getChildByName('loadingData').active = isShow;
     },
+
+    getStarNum(eCount) {
+        //统计星星数量
+        let starNum = 3;
+        if (eCount <= 0) {
+            starNum = 3;
+        } else if (eCount < 3) {
+            starNum = 2;
+        } else {
+            starNum = 1;
+        }
+        return starNum;
+    },
     // update (dt) {},
 });
