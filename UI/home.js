@@ -47,6 +47,10 @@ cc.Class({
             type: GAMELIST,
             displayName: '游戏目录',
         },
+        isWX:{
+            default:false,
+            displayName:'是否是微信版'
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -54,6 +58,7 @@ cc.Class({
     onLoad() {
         let register = require('register');
         register.init();
+        GD.isWX = this.isWX;
     },
 
     start() {

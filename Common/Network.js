@@ -34,7 +34,7 @@ module.exports = {
                 }
             }
         }
-        console.log('此为',cc._isAppTest?'正式':'测试');
+        console.log('此为',cc._isOfficial?'正式':'测试');
     },
 
     http_post(params, url, header, cb, failCount = 0) {
@@ -111,6 +111,9 @@ module.exports = {
         data = JSON.stringify(data);
         //var url = 'http://dev.hxsup.com:8116/api/annual/mini/studyLog/add'
         var url = 'https://dev.hxsup.com/api/annual/mini/studyLog/add'
+        if(cc._isOfficial){
+            url = 'https://www.hxsup.com/api/annual/mini/studyLog/add'
+        }
         var header = {
             "AnnualMiniToken": GD.userToken,
             "Content-Type": "application/json",
@@ -123,12 +126,16 @@ module.exports = {
      * @param {Integer} starNum 积分数
      */
     sendStarNum(starNum) {
+        if(GD.isWX){
+            cc.YL.net.sendTimeAndStar(0,starNum);
+            return;
+        }
         var data = {
             quantity: starNum
         }
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral'
-        if(cc._isAppTest){
+        if(cc._isOfficial){
             url = 'https://www.hxsup.com/api/annual/userRecord/addIntegral'
         }
         var header = {
@@ -143,13 +150,19 @@ module.exports = {
      * @param {Integer} t 游戏时长，单位：秒
      */
     sendTime(time) {
+        if(GD.isWX){
+            cc.YL.net.sendTimeAndStar(time,0);
+            return;
+        }
+
+
         var data = {
             practiceId: GD.practiceId,
             times: time
         }
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8115/api/annual/studyLog/add'
-        if(cc._isAppTest){
+        if(cc._isOfficial){
             url = 'https://www.hxsup.com/api/annual/studyLog/add'
         }
         var header = {
