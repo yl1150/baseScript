@@ -126,7 +126,7 @@ let register = {
         var videoRatio = 16 / 9;
         if (winRatio >= videoRatio) {
             console.log('fitPhone')
-            var pScale = videoRatio / winRatio+0.1;
+            var pScale = videoRatio / winRatio;
             fitNode.setScale(pScale > 1 ? 1 : pScale);
             // var canvasCom = pCanvas.getComponent(cc.Canvas);
             // canvasCom.fitHeight=true;
