@@ -50,7 +50,7 @@ cc.Class({
         isWX:{
             default:false,
             displayName:'是否是微信版'
-        }
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
