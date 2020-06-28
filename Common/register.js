@@ -11,7 +11,7 @@ let register = {
 
         //注册按钮点击事件 用于添加点击音效
         cc.Button.prototype._onTouchBegan = function (t) {
-            if(!GD.canTouch){
+            if (!GD.canTouch) {
                 return;
             }
             if (!this.interactable || !this.enabledInHierarchy) return;
@@ -20,7 +20,7 @@ let register = {
             event.stopPropagation();
         }
         cc.Button.prototype._onTouchEnded = function (t) {
-            if(!GD.canTouch){
+            if (!GD.canTouch) {
                 return;
             }
             if (this.interactable && this.enabledInHierarchy) {
@@ -44,22 +44,22 @@ let register = {
 
         let scene = cc.director.getScene();
 
-       /*  let touchLocker = cc.find('Canvas/touchLocker');
-         cc.YL.tools.registerTouch(
-            touchLocker,
-            (e) => {
-                e.stopPropagation()
-            },
-            (e) => {
-                e.stopPropagation()
-            },
-            (e) => {
-                e.stopPropagation()
-            }
-        ); 
-        touchLocker.zIndex = 9999;
-        touchLocker.active = false;
-        cc.YL.touchLocker = touchLocker; */
+        /*  let touchLocker = cc.find('Canvas/touchLocker');
+          cc.YL.tools.registerTouch(
+             touchLocker,
+             (e) => {
+                 e.stopPropagation()
+             },
+             (e) => {
+                 e.stopPropagation()
+             },
+             (e) => {
+                 e.stopPropagation()
+             }
+         ); 
+         touchLocker.zIndex = 9999;
+         touchLocker.active = false;
+         cc.YL.touchLocker = touchLocker; */
 
         cc.macro.ENABLE_MULTI_TOUCH = false;//关闭多点触摸
 
@@ -126,8 +126,8 @@ let register = {
         var videoRatio = 16 / 9;
         if (winRatio >= videoRatio) {
             console.log('fitPhone')
-            var pScale = videoRatio / winRatio;
-            fitNode.setScale(scale);
+            var pScale = videoRatio / winRatio+0.1;
+            fitNode.setScale(pScale > 1 ? 1 : pScale);
             // var canvasCom = pCanvas.getComponent(cc.Canvas);
             // canvasCom.fitHeight=true;
             // canvasCom.fitWidth=false;

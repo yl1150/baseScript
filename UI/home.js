@@ -47,10 +47,6 @@ cc.Class({
             type: GAMELIST,
             displayName: '游戏目录',
         },
-        isTest:{
-            default:false,
-            displayName:'是否是测试版'
-        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -58,7 +54,6 @@ cc.Class({
     onLoad() {
         let register = require('register');
         register.init();
-        GD.isTest = this.isTest;
     },
 
     start() {

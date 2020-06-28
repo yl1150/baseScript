@@ -34,6 +34,7 @@ module.exports = {
                 }
             }
         }
+        console.log('此为',cc._isAppTest?'正式':'测试');
     },
 
     http_post(params, url, header, cb, failCount = 0) {
@@ -80,7 +81,7 @@ module.exports = {
 
     /**
      * 发送分数
-     * @param {Integer} score 最后分数
+     * @param {Integer} score 最后分数  废弃
      */
     sendScore(score) {
         var data = {
@@ -127,6 +128,9 @@ module.exports = {
         }
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral'
+        if(cc._isAppTest){
+            url = 'https://www.hxsup.com/api/annual/userRecord/addIntegral'
+        }
         var header = {
             "Authorization": GD.userToken,
             "Content-Type": "application/json",
@@ -145,6 +149,9 @@ module.exports = {
         }
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8115/api/annual/studyLog/add'
+        if(cc._isAppTest){
+            url = 'https://www.hxsup.com/api/annual/studyLog/add'
+        }
         var header = {
             "Authorization": GD.userToken,
             "Content-Type": "application/json",
