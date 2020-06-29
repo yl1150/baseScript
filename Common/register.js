@@ -139,7 +139,7 @@ let register = {
         let bg = canvas.getChildByName('bg');
         bg.getComponent(cc.Sprite).spriteFrame = bgSpriteFrame;
         bg.angle = 0;
-        bg.setContentSize(cc.winSize.width, cc.winSize.height);
+        //bg.setContentSize(cc.winSize.width, cc.winSize.height);
         return bg;
     },
 

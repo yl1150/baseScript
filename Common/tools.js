@@ -90,7 +90,7 @@ module.exports = {
             return
         }
         startFunc && node.on('touchstart', (event) => {
-            if(!GD.canTouch){
+            if (!GD.canTouch) {
                 event.target._isTouch = false;
                 return
             }
@@ -105,21 +105,21 @@ module.exports = {
         }, this)
 
         moveFunc && node.on('touchmove', (event) => {
-            if(!GD.canTouch || !event.target._isTouch){
+            if (!GD.canTouch || !event.target._isTouch) {
                 return
             }
             moveFunc(event)
         }, this)
 
         endFunc && node.on('touchend', (event) => {
-            if(!GD.canTouch || !event.target._isTouch){
+            if (!GD.canTouch || !event.target._isTouch) {
                 return
             }
             endFunc(event)
         }, this)
 
         endFunc && node.on('touchcancel', (event) => {
-            if(!GD.canTouch || !event.target._isTouch){
+            if (!GD.canTouch || !event.target._isTouch) {
                 return
             }
             endFunc(event)
@@ -307,6 +307,4 @@ module.exports = {
     },
 
 
-    log(message) {
-    },
 }
