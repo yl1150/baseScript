@@ -70,7 +70,7 @@ var testRecorder = {
      */
     checkPermissionSupported(){
         if(cc.sys.os===cc.sys.OS_IOS){
-            window.webkit.messageHandlers.getPermissionSupported.postMessage(null);
+            window.webkit.messageHandlers && window.webkit.messageHandlers.getPermissionSupported && window.webkit.messageHandlers.getPermissionSupported.postMessage(null);
         }else{
             window.android.getPermissionSupported();
         }
