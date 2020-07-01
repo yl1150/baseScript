@@ -16,6 +16,7 @@ cc.Class({
         //var camera = GD.main.node.getChildByName("Main Camera");
         camera.getComponent(cc.Camera).backgroundColor = cc.color(0, 0, 0, 0);
         //播放器
+        cc.gameConfig.videoURL && (this.getComponent(cc.VideoPlayer).remoteURL = cc.gameConfig.videoURL);
         this.videoPlayer = null;
         this._prog = this.progressNode.getComponent('videoProg')
     },
@@ -66,6 +67,7 @@ cc.Class({
                 clearInterval(pInterval_video);
                 video0.style.position = 'fixed';
                 video0.style.zIndex = -1;
+                video0.poster = GD.main.videoPoster.getComponent(cc.Sprite).spriteFrame.nativeUrl;
             }
         }, 10);
         var gCanvas = null;
@@ -98,6 +100,7 @@ cc.Class({
                         this.videoDuration = this.videoPlayer.getDuration()
                         this._prog.init(this, this._roundData)
                         this._readyCallFunc()
+                        GD.root.showLog('正常播放')
                     }
                 }
                 break;
@@ -129,7 +132,6 @@ cc.Class({
     },
 
     onPlaying(event) {
-        console.log(event)
     },
 
     setTime(time) {

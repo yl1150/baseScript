@@ -12,10 +12,6 @@ window.GD = {
     game: null,
     lvCtrl: null,
     sound: null,
-    roundData:{
-        passed:false, //关卡是否已经通关了
-        star:0,//本次通关所获得的星星数
-    },
     gameId:1,
     practiceId: 1,
     /**
