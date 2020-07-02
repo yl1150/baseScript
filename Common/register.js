@@ -7,6 +7,16 @@ let register = {
         var Loader = require("loader");
         var Emitter = require("emitter");
 
+        if(!cc.gameConfig){
+            cc.gameConfig = {
+                isOfficial: false,
+                videoURL: "",
+                isWX: false,
+                gameID: 0,
+                gameName:''
+            }
+        }
+
         //注册按钮点击事件 用于添加点击音效
         cc.Button.prototype._onTouchBegan = function (t) {
             if (!GD.canTouch) {

@@ -34,7 +34,7 @@ module.exports = {
                 }
             }
         }
-        console.log('此为',cc.gameConfig.isOfficial?'正式':'测试');
+        console.log('此为', cc.gameConfig.isOfficial ? '正式' : '测试');
     },
 
     http_post(params, url, header, cb, failCount = 0) {
@@ -42,6 +42,9 @@ module.exports = {
         var xhr = cc.loader.getXMLHttpRequest();
         xhr.open("POST", url);
         for (let i in header) {
+            if (!header[i]) {
+                return;
+            }
             xhr.setRequestHeader(i, header[i]);
         }
         xhr.send(params);
@@ -110,8 +113,8 @@ module.exports = {
         }
         data = JSON.stringify(data);
         //var url = 'http://dev.hxsup.com:8116/api/annual/mini/studyLog/add'
-        var url = 'https://dev.hxsup.com/api/annual/mini/studyLog/add'
-        if(cc.gameConfig.isOfficial){
+        var url = 'https://dev.hxsup.com/api/annual/mini/studyLog/add'
+        if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/mini/studyLog/add'
         }
         var header = {
@@ -126,8 +129,8 @@ module.exports = {
      * @param {Integer} starNum 积分数
      */
     sendStarNum(starNum) {
-        if(cc.gameConfig.isWX){
-            cc.YL.net.sendTimeAndStar(0,starNum);
+        if (cc.gameConfig.isWX) {
+            cc.YL.net.sendTimeAndStar(0, starNum);
             return;
         }
         var data = {
@@ -135,7 +138,7 @@ module.exports = {
         }
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral'
-        if(cc.gameConfig.isOfficial){
+        if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/userRecord/addIntegral'
         }
         var header = {
@@ -150,8 +153,8 @@ module.exports = {
      * @param {Integer} t 游戏时长，单位：秒
      */
     sendTime(time) {
-        if(cc.gameConfig.isWX){
-            cc.YL.net.sendTimeAndStar(time,0);
+        if (cc.gameConfig.isWX) {
+            cc.YL.net.sendTimeAndStar(time, 0);
             return;
         }
 
@@ -162,7 +165,7 @@ module.exports = {
         }
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8115/api/annual/studyLog/add'
-        if(cc.gameConfig.isOfficial){
+        if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/studyLog/add'
         }
         var header = {
