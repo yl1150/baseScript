@@ -1,6 +1,6 @@
 const _GAMELIST = {
     /**默认展现游戏目录 */
-    '0': '',
+    '0': 'default',
 
     /**视频游戏 */
     '1': 'videoGame',
@@ -54,6 +54,7 @@ cc.Class({
     onLoad() {
         let register = require('register');
         register.init();
+        this.showLayerName = cc.gameConfig.gameName || _GAMELIST[this.gameName];
     },
 
     start() {
@@ -73,7 +74,7 @@ cc.Class({
 
         cc.YL.emitter.on('gameEnd', (data) => {
             console.log(data)
-            if (this.gameName == GAMELIST.default) {
+            if (this.showLayerName == 'default') {
                 this.backHomeLayer();
             } else {
                 //结束
@@ -91,12 +92,12 @@ cc.Class({
     },
 
     loadingData() {
-        if (this.gameName == GAMELIST.default) {
+        if (this.showLayerName == 'default') {
             cc.YL.unLockTouch();
             this.setHomeLayer(true);
             this._bg.active = true;
         } else {
-            this.changeLayer(null, _GAMELIST[this.gameName]);
+            this.changeLayer(null, this.showLayerName);
         }
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
@@ -108,7 +109,7 @@ cc.Class({
     },
 
     changeLayer(event, name) {
-        console.log('loadGame:   ',name,'   ==============');
+        console.log('loadGame:   ', name, '   ==============');
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);

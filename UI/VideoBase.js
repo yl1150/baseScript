@@ -100,7 +100,6 @@ cc.Class({
                         this.videoDuration = this.videoPlayer.getDuration()
                         this._prog.init(this, this._roundData)
                         this._readyCallFunc()
-                        GD.root.showLog('正常播放')
                     }
                 }
                 break;
