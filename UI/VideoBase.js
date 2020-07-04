@@ -47,6 +47,7 @@ cc.Class({
     //暂停视频 隐藏进度条
     pauseAndHideProg() {
         this._prog.setScreenTouch(false)
+        this._prog.setVideoProg(false)
         this.pause()
     },
 
