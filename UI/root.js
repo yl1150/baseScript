@@ -90,7 +90,7 @@ cc.Class({
                 if (!star) {
                     star = cc.instantiate(this.star);
                 }
-                star._partice = star.getComponent(cc.ParticleSystem);
+                star._partice = star.getChildByName('star').getComponent(cc.ParticleSystem);
                 star.zIndex = 999;
                 star.active = true;
                 star.parent = this.star.parent;
