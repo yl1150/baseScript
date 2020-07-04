@@ -176,6 +176,7 @@ const kStatusCode = cc.Enum({
 
     setScreenTouch(isLock){
         this.screenTouch.active = isLock
+        this.setVideoProg(false)
     },
 
     //开启隐藏倒计时计数
