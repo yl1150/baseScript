@@ -34,6 +34,28 @@ module.exports = {
                 }
             }
         }
+
+        //根据链接自动选择栏目包
+     /*    var index1 = url.indexOf('/build/web-mobile');
+        if (index1 >= 0) {
+            var str1 = url.substring(0, index1);
+            var index2 = str1.lastIndexOf('/');
+            var str2 = str1.substr(index2 + 1);
+            var columnId = parseInt(str2);
+            if (columnId > 0) {
+                this.gameIndex = columnId;
+            } else {
+                this.gameIndex = 0;
+            }
+            console.log(index1,'=======')
+            console.log(str1,'=============')
+            console.log(index2,'==========')
+            console.log(str2,'===========')
+
+        } else {
+            //根据游戏配置选择栏目包
+            if (cc.gameConfig.columnId >= 0) this.gameIndex = parseInt(cc.gameConfig.columnId);
+        }  */
         console.log('此为', cc.gameConfig.isOfficial ? '正式' : '测试');
     },
 

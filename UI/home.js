@@ -57,6 +57,23 @@ cc.Class({
         this.showLayerName = cc.gameConfig.gameName || _GAMELIST[this.gameName];
     },
 
+    initData() {
+        switch (this.showLayerName) {
+            case _GAMELIST[GAMELIST.default]:
+                GD.setTimeDataEachRound = false;
+                break;
+            case _GAMELIST[GAMELIST.videoGame]:
+                GD.setTimeDataEachRound = false;
+                break;
+            case _GAMELIST[GAMELIST.questionBank]:
+                GD.setTimeDataEachRound = true;
+                break;
+            default:
+                GD.setTimeDataEachRound = false;
+                break;
+        }
+    },
+
     start() {
         this._homeOptions = this.node.getChildByName('homeOptions');
         this._game = this.node.getChildByName('game');

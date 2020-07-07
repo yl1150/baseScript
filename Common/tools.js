@@ -306,5 +306,10 @@ module.exports = {
         _sprite.setMaterial(0, cc.Material.getBuiltinMaterial(materialType))
     },
 
-
+    touchTransition(target, scaleX, scaleY) {
+        !scaleY && (scaleY = scaleX);
+        scaleX = target.scaleX / Math.abs(target.scaleX) * scaleX;
+        scaleY = target.scaleY / Math.abs(target.scaleY) * scaleY;
+        target.setScale(scaleX, scaleY);
+    },
 }
