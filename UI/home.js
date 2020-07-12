@@ -83,7 +83,29 @@ cc.Class({
             }
         })
         this.setHomeLayer(false);
-        this.loadingData();
+        if (cc.gameConfig.isWX) {
+            //当前为微信包
+            cc.YL.unLockTouch();
+            let homeLayer = this.node.getChildByName('homeLayer');
+            let startBtn = homeLayer.getChildByName('startBtn');
+            startBtn._spine = startBtn.getComponent(sp.Skeleton);
+            homeLayer.active = true;
+            cc.YL.tools.registerTouch(startBtn,
+                (e) => {
+                    e.target._spine.setAnimation(0,'newAnimation_2',false);
+                },
+                null,
+                (e) => {
+                    e.target._spine.setAnimation(0,'newAnimation_1',false);
+                    this.loadingData();
+                    homeLayer.active = false;
+                });
+        } else {
+            this.loadingData();
+        }
+
+
+
     },
 
     startGame() {
@@ -175,8 +197,5 @@ cc.Class({
         cc.YL.net.finish()//延时4s结束游戏
     },
 
-    touch() {
-        console.log('touch')
-    },
     // update (dt) {},
 });

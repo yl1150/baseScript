@@ -26,6 +26,7 @@ cc.Class({
     },
 
     setStarBoard(isShow) {
+        cc.gameConfig.isWX && (isShow = false);
         this.starBoard.active = isShow;
     },
 
@@ -103,9 +104,7 @@ cc.Class({
             setTimeout(() => {
                 callFunc && callFunc();
             }, 1000);
-
         }
-
     },
 
     showWinSpine(callFunc) {
@@ -120,6 +119,11 @@ cc.Class({
     },
 
     showAddStar(starNum, callFunc) {
+        if(cc.gameConfig.isWX){
+            callFunc && callFunc();
+            cc.YL.net.sendStarNum(starNum);
+            return;
+        }
         this.starBoard.active = true;
         let skePool = this.starBoard.getChildByName('ske');
         skePool.active = true;
