@@ -13,7 +13,8 @@ cc.Class({
         GD.sound = this
         this.soundAni = this.getComponent(sp.Skeleton)
         this.button = this.getComponent(cc.Button)
-        this.tipsIDArr = []
+        this.tipsIDArr = [];
+        this.sIDPool = [];
         this.button.interactable = false;
         this.node.opacity = 0;
     },
@@ -58,20 +59,24 @@ cc.Class({
 
     //音效 如按钮点击的声音等
     playSound(name, volume = 1) {
+        if(cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])){
+            console.log('禁止同时播放同一个音效')
+            return;
+        }
         if (name == 'wrong' || name == 'right') {
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
         var url = cc.YL.loader.getSound(name);
         if (url) {
-            this.soundID = cc.audioEngine.play(url, false, volume);
+            this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
         } else {
-            cc.loader.loadRes('sound' + name, cc.AudioClip, (err, audio) => {
+            cc.loader.loadRes('sound' + name, cc.AudioClip, (err, url) => {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                this.soundID = cc.audioEngine.play(audio, false, volume);
+                this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
             })
         }
     },
@@ -79,13 +84,10 @@ cc.Class({
     play(url,isShowLaba = false, callBack) {
         this.stopTips();
         this.button.interactable = false;
-
         isShowLaba && this.showLabaAni(true);
-        var id = cc.audioEngine.play(url, false, 1);
-        this.tipsIDArr.push(id);
+        cc.audioEngine.play(url, false, 1);
         let time = url._audio.duration;
-        console.log(time);
-        this._timeID = setTimeout(() => {
+        this._timeID = cc.YL.timeOut(() => {
             isShowLaba && this.showLabaAni(false);
             this.button.interactable = true;
             callBack && callBack();
