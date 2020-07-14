@@ -55,8 +55,8 @@ module.exports = {
     },
 
     //获得相对于目标节点的位置
-    getRelativePos(node, targetNode) {
-        return targetNode.convertToNodeSpaceAR(node.convertToWorldSpaceAR(cc.v2(0, 0)))
+    getRelativePos(other, self) {
+        return self.convertToNodeSpaceAR(other.convertToWorldSpaceAR(cc.v2(0, 0)))
     },
 
     /**
