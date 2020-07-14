@@ -30,18 +30,26 @@ cc.Class({
         this._readyCallFunc = readyCallFunc
         this._videoCallFunc = videoCallFunc
         this._roundData = rounData
-
+        this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
-        cc.YL.timeOut(() => {
-            if (!this._isLoaded) {
-                //限定时间内 不响应 强行调用
-                this._isLoaded = true;
-                this.videoPlayer = this.getComponent(cc.VideoPlayer);
-                this.videoDuration = this.videoPlayer.getDuration()
-                this._prog.init(this, this._roundData)
-                this._readyCallFunc()
+        this.ierID = setInterval(() => {
+            if (!this._isLoaded && !this.videoPlayer.currentTime) {
+                console.log('强制播放');
+                this.startGame();
+            } else {
+                clearInterval(this.ierID);
             }
-        }, 5000);
+        }, 1000)
+    },
+
+    startGame() {
+        //限定时间内 不响应 强行调用
+        this._isLoaded = true;
+        this.videoDuration = this.videoPlayer.getDuration();
+        this._prog.init(this, this._roundData);
+        this._readyCallFunc();
+        this.ctrlVideo(1 / this.videoDuration);
+        this.resume();
     },
 
     //暂停视频 隐藏进度条
@@ -96,11 +104,7 @@ cc.Class({
                 {
                     console.log("video-READY_TO_PLAY")
                     if (!this._isLoaded) {
-                        this._isLoaded = true;
-                        this.videoPlayer = videoPlayer;
-                        this.videoDuration = this.videoPlayer.getDuration()
-                        this._prog.init(this, this._roundData)
-                        this._readyCallFunc()
+                        this.startGame();
                     }
                 }
                 break;
@@ -163,6 +167,11 @@ cc.Class({
     },
 
     ctrlVideo(progress) {
+        if (!this._isLoaded) {
+            console.log('强制播放');
+            this.startGame();
+            return;
+        }
         this.videoPlayer.currentTime = this.videoPlayer.getDuration() * progress
     },
 
@@ -175,7 +184,7 @@ cc.Class({
     },
 
     update(dt) {
-        if (!this.videoPlayer) {
+        if (!this.videoPlayer || !this._isLoaded || !this.videoPlayer.currentTime) {
             return
         }
         this._videoCallFunc(this.videoPlayer.currentTime)
