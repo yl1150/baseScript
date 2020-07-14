@@ -33,16 +33,13 @@ cc.Class({
         this._roundData = rounData;
         this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
-        this.ierID = setInterval(() => {
-            if (!this.videoPlayer.currentTime) {
-                console.log('强制播放');
+        setTimeout(() => {
+            if (!this._isLoaded) {
                 this.play();
-            } else {
-                clearInterval(this.ierID);
-                this._setPoster(false);
                 this.startGame();
+                this._setPoster(false);
             }
-        }, 1000)
+        }, 2000);
     },
 
     startGame() {
