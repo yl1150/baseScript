@@ -26,18 +26,21 @@ cc.Class({
         this._isLoaded = false;
     },
 
-    init(readyCallFunc, videoCallFunc, rounData) {
-        this._readyCallFunc = readyCallFunc
-        this._videoCallFunc = videoCallFunc
-        this._roundData = rounData
+    init(readyCallFunc, videoCallFunc,setPoster, rounData) {
+        this._readyCallFunc = readyCallFunc;
+        this._videoCallFunc = videoCallFunc;
+        this._setPoster = setPoster;
+        this._roundData = rounData;
         this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
         this.ierID = setInterval(() => {
-            if (!this._isLoaded && !this.videoPlayer.currentTime) {
+            if (!this.videoPlayer.currentTime) {
                 console.log('强制播放');
-                this.startGame();
+                this.play();
             } else {
                 clearInterval(this.ierID);
+                this._setPoster(false);
+                this.startGame();
             }
         }, 1000)
     },
@@ -104,7 +107,9 @@ cc.Class({
                 {
                     console.log("video-READY_TO_PLAY")
                     if (!this._isLoaded) {
+                        this.play();
                         this.startGame();
+                        this._setPoster(false);
                     }
                 }
                 break;

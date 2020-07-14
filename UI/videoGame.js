@@ -26,7 +26,7 @@ cc.Class({
         this._questions = this.game.getChildByName('questions');
         this._isShowBGM = true;
         this.registerEvent();
-        this.videoPoster.active = true
+        this.setPoster(true);
     },
 
     //注册事件
@@ -50,7 +50,7 @@ cc.Class({
         cc.YL.unLockTouch()
         this._time = 0
         GD.sound.setTipsButton(false);
-        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this), this.roundData);
+        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this),this.setPoster.bind(this), this.roundData);
     },
 
     startGame() {
@@ -58,8 +58,10 @@ cc.Class({
         GD.jumpModel = false
         this._isCheckTime = true
         this._state = kStatusCode.STATUS_PLAYVIDEO
-        this._vPlayer.play()
-        this.videoPoster.active = false
+    },
+
+    setPoster(isShow){
+        this.videoPoster.active = isShow;
     },
 
     continueGame() {
