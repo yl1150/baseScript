@@ -26,18 +26,27 @@ cc.Class({
         this._isLoaded = false;
     },
 
-    init(readyCallFunc, videoCallFunc,setPoster, rounData) {
+    init(readyCallFunc, videoCallFunc, setPoster, rounData) {
         this._readyCallFunc = readyCallFunc;
         this._videoCallFunc = videoCallFunc;
         this._setPoster = setPoster;
         this._roundData = rounData;
         this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
-        setTimeout(() => {
-            if (!this._isLoaded) {
+        //强制播放视频（ready事件无效）
+        var intervalTag = setInterval(() => {
+            if (this.videoPlayer.currentTime || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
+                clearInterval(intervalTag);
+            } else {
                 this.play();
-                this.startGame();
-                this._setPoster(false);
+                setTimeout(() => {
+                    if (this.videoPlayer.currentTime || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
+                        clearInterval(intervalTag);
+                        //准备好并播放视频
+                        this.startGame();
+                        this._setPoster(false);
+                    }
+                }, 100);
             }
         }, 2000);
     },
