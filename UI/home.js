@@ -55,23 +55,7 @@ cc.Class({
         let register = require('register');
         register.init();
         this.showLayerName = cc.gameConfig.gameName || _GAMELIST[this.gameName];
-    },
-
-    initData() {
-        switch (this.showLayerName) {
-            case _GAMELIST[GAMELIST.default]:
-                GD.setTimeDataEachRound = false;
-                break;
-            case _GAMELIST[GAMELIST.videoGame]:
-                GD.setTimeDataEachRound = false;
-                break;
-            case _GAMELIST[GAMELIST.questionBank]:
-                GD.setTimeDataEachRound = true;
-                break;
-            default:
-                GD.setTimeDataEachRound = false;
-                break;
-        }
+        GD.isSendRoundID = this.showLayerName == 'questionBank';
     },
 
     start() {
@@ -88,7 +72,47 @@ cc.Class({
             })
         }
         cc.YL.fitPhone(this._game);
+        this.initUI();
+        this.registerEvent();
+        if (cc.gameConfig.isWX) {
+            //当前为微信包
+            this.initHomeLayer();
+        } else {
+            this.changeLayer(null, this.showLayerName);
+        }
+    },
 
+    initUI() {
+        /*  switch (this.showLayerName) {
+             case _GAMELIST[GAMELIST.default]:
+                 GD.setTimeDataEachRound = false;
+                 break;
+             case _GAMELIST[GAMELIST.videoGame]:
+                 GD.setTimeDataEachRound = false;
+                 break;
+             case _GAMELIST[GAMELIST.questionBank]:
+                 GD.setTimeDataEachRound = true;
+                 break;
+             default:
+                 GD.setTimeDataEachRound = false;
+                 break;
+         } */
+        GD.root.setStarBoard(false);
+        GD.root.setQuestionBg(false);
+        GD.root.setLoadDataUI(true);
+        GD.root.reFreshStar();
+        GD.root.setLoadDataUI(false);
+        GD.root.setBack(false);
+        this.setHomeLayer(false);
+        if (this.showLayerName == _GAMELIST[GAMELIST.default]) {
+            this.setHomeLayer(true);
+            this._bg.active = true;
+            cc.YL.unLockTouch();
+        }
+    },
+
+    //注册事件
+    registerEvent() {
         cc.YL.emitter.on('gameEnd', (data) => {
             console.log(data)
             if (this.showLayerName == 'default') {
@@ -99,60 +123,74 @@ cc.Class({
                 this.showEnding();
             }
         })
-        this.setHomeLayer(false);
-        if (cc.gameConfig.isWX) {
-            //当前为微信包
-            cc.YL.unLockTouch();
-            let homeLayer = this.node.getChildByName('homeLayer');
-            let startBtn = homeLayer.getChildByName('startBtn');
-            startBtn._spine = startBtn.getComponent(sp.Skeleton);
-            homeLayer.active = true;
-            cc.YL.tools.registerTouch(startBtn,
+    },
+
+    initHomeLayer() {
+        let homeLayer = this.node.getChildByName('homeLayer');
+        homeLayer.active = true;
+
+        let registerTouch = (targetBtn, roundID = 1) => {
+            cc.YL.tools.registerTouch(
+                targetBtn,
                 (e) => {
-                    e.target._spine.setAnimation(0,'newAnimation_2',false);
+                    e.target.setScale(0.8);
                 },
                 null,
                 (e) => {
-                    e.target._spine.setAnimation(0,'newAnimation_1',false);
-                    this.loadingData();
+                    e.target.setScale(1);
+                    GD.iRoundID = roundID;
+                    this.changeLayer(null, this.showLayerName);
                     homeLayer.active = false;
-                });
-        } else {
-            this.loadingData();
+                }
+            );
         }
 
-
-
-    },
-
-    startGame() {
-        this.checkHomeData();
-        cc.YL.startTimeCount();
-    },
-
-    loadingData() {
-        if (this.showLayerName == 'default') {
+        setTimeout(() => {
             cc.YL.unLockTouch();
-            this.setHomeLayer(true);
-            this._bg.active = true;
-        } else {
-            this.changeLayer(null, this.showLayerName);
-        }
-        GD.root.setStarBoard(false);
-        GD.root.setQuestionBg(false);
-        GD.root.setLoadDataUI(true);
-        GD.root.reFreshStar();
-        GD.root.setLoadDataUI(false);
-        GD.root.setBack(false);
-        this.startGame();
+            switch (this.showLayerName) {
+                case _GAMELIST[GAMELIST.default]:
+                //展示界面 仅显示开始界面 
+                case _GAMELIST[GAMELIST.videoGame]:
+                    //当前为视频游戏环节 仅显示开始界面
+                    let uiNode = homeLayer.getChildByName('noRecordedUI');
+                    uiNode.active = true;
+                    registerTouch(uiNode.getChildByName('start_Icon'));
+                    break;
+                case _GAMELIST[GAMELIST.questionBank]:
+                    if (cc.gameConfig.roundID > 1) {
+                        //有学习记录
+                        GD.sound.playSound('homeTips');
+                        let uiNode = homeLayer.getChildByName('recordedUI');
+                        uiNode.active = true;
+                        registerTouch(uiNode.getChildByName('reStart_Icon'));//重新开始按钮
+                        registerTouch(uiNode.getChildByName('start_Icon'), cc.gameConfig.roundID);//继续游戏按钮
+                    } else {
+                        let uiNode = homeLayer.getChildByName('noRecordedUI');
+                        uiNode.active = true;
+                        GD.iRoundID = 1;
+
+                        registerTouch(uiNode.getChildByName('start_Icon'));
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }, 1000);
     },
 
     changeLayer(event, name) {
+        if (name == 'default') {
+            return;
+        }
+        if (event) {
+            GD.iRoundID = 1;
+        }
+        cc.YL.unLockTouch();
         console.log('loadGame:   ', name, '   ==============');
+        cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        cc.YL.unLockTouch();
         for (let i in this.layerPool) {
             if (this.layerPool[i].name == name) {
                 let layer = cc.instantiate(this.layerPool[i]);
@@ -210,7 +248,7 @@ cc.Class({
     showEnding() {
         let time = cc.YL.stopTimeCount();
         cc.YL.showSuccess();
-        cc.YL.net.sendTime(parseInt(time))//提交数据
+        !cc.gameConfig.isWX && cc.YL.net.sendTime(parseInt(time))//提交数据
         cc.YL.net.finish()//延时4s结束游戏
     },
 

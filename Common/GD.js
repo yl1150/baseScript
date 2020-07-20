@@ -2,6 +2,7 @@ window.GD = {
     stage: 1,
     lv: 1,
     maxLv: 1,
+    iRoundID:1,
     userToken: null,
     systemFlag: null,
     canTouch: false,
@@ -18,4 +19,5 @@ window.GD = {
      * 积分数/星星数
      */
     integral: 0,
+    isSendRoundID:false
 }
