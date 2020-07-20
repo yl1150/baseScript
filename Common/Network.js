@@ -136,7 +136,7 @@ module.exports = {
     finish() {
         this.sendScore(1);
         setTimeout(() => {
-            console.log(1)
+            console.log(1,GD.systemFlag)
             if (GD.systemFlag == 1) {
                 try {
                     window.android.closeGame();
@@ -150,6 +150,7 @@ module.exports = {
                     wx.miniProgram.redirectTo({
                         url: `/pages/finish/finish`,
                     })
+                    console.log('wxFinish')
                 }else{
                     window.webkit.messageHandlers.closeGame.postMessage(null);
                 }
