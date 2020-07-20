@@ -64,7 +64,7 @@ module.exports = {
     微信端专用
     获取学习进度接口
     */
-   getLearningProcess(cb) {
+    getLearningProcess(cb) {
         var data = {
             practiceId: GD.practiceId,
         }
@@ -76,13 +76,13 @@ module.exports = {
             "AnnualMiniToken": GD.userToken,
             "Content-Type": "application/json",
         }
-        this.http_get(data, url, header,cb);
+        this.http_get(data, url, header, cb);
     },
 
     http_get(params, url, header, cb, failCount = 0) {
         var self = this;
         var xhr = cc.loader.getXMLHttpRequest();
-        url+=('?practiceId='+params.practiceId)
+        url += ('?practiceId=' + params.practiceId)
         xhr.open("GET", url);
         for (let i in header) {
             if (!header[i]) {
@@ -90,9 +90,9 @@ module.exports = {
             }
             xhr.setRequestHeader(i, header[i]);
         }
-        console.log('params:===',params);
-        console.log('url:====',url);
-        console.log('header:====',header);
+        console.log('params:===', params);
+        console.log('url:====', url);
+        console.log('header:====', header);
         xhr.send();
         xhr.onreadystatechange = function (data) {
             if (xhr.readyState == 4) {
@@ -145,11 +145,14 @@ module.exports = {
                     console.log(e);
                 }
             } else if (GD.systemFlag == 0) {
-                window.webkit.messageHandlers.closeGame.postMessage(null);
-                /* //微信专用结束
-                wx.miniProgram.redirectTo({
-                    url: `/pages/finish/finish`,
-                }) */
+                if (cc.gameConfig.isWX) {
+                    //微信专用结束
+                    wx.miniProgram.redirectTo({
+                        url: `/pages/finish/finish`,
+                    })
+                }else{
+                    window.webkit.messageHandlers.closeGame.postMessage(null);
+                }
             }
         }, 4000);
     },
@@ -188,7 +191,7 @@ module.exports = {
             times: time,
             integral: starNum
         }
-        console.log('sendTimeAndStar: ',data);
+        console.log('sendTimeAndStar: ', data);
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com:8116/api/annual/mini/studyLog/add'
         if (cc.gameConfig.isOfficial) {
