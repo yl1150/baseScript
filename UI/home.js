@@ -248,7 +248,12 @@ cc.Class({
     showEnding() {
         let time = cc.YL.stopTimeCount();
         cc.YL.showSuccess();
-        !cc.gameConfig.isWX && cc.YL.net.sendTime(parseInt(time))//提交数据
+        //提交数据
+        if (cc.gameConfig.isWX) {
+            cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? 8 : 0, time, 0);
+        } else {
+            cc.YL.net.sendTime(parseInt(time))
+        }
         cc.YL.net.finish()//延时4s结束游戏
     },
 
