@@ -82,8 +82,7 @@ module.exports = {
     http_get(params, url, header, cb, failCount = 0) {
         var self = this;
         var xhr = cc.loader.getXMLHttpRequest();
-        url += ('?practiceId=' + params.practiceId)
-        xhr.open("GET", url);
+        xhr.open("GET", url + '?practiceId=' + params.practiceId);
         for (let i in header) {
             if (!header[i]) {
                 return;
@@ -136,7 +135,7 @@ module.exports = {
     finish() {
         this.sendScore(1);
         setTimeout(() => {
-            console.log(1,GD.systemFlag)
+            console.log(1, GD.systemFlag)
             if (GD.systemFlag == 1) {
                 try {
                     window.android.closeGame();
@@ -151,7 +150,7 @@ module.exports = {
                         url: `/pages/finish/finish`,
                     })
                     console.log('wxFinish')
-                }else{
+                } else {
                     window.webkit.messageHandlers.closeGame.postMessage(null);
                 }
             }
