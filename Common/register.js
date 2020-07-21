@@ -44,23 +44,6 @@ let register = {
             }
         }
         cc.YL.net.getUserToken();
-        if(cc.gameConfig.isWX){
-            cc.YL.net.getLearningProcess((GameData) => {
-                console.log(GameData);
-                if (!GameData) {
-                    return
-                }
-                /*
-                    | 参数名称 | 类型   | 说明                     |
-                    | -------- | ------ | ------------------------ |
-                    | code     | int    | 状态码 0：成功           |
-                    | msg      | String |                          |
-                    | data     | int    | 当前模块的续播的练习序号 |
-                */
-                cc.gameConfig.roundID = GameData.data
-            })
-        }
- 
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
         !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.loadRes());

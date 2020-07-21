@@ -129,6 +129,28 @@ cc.Class({
         let homeLayer = this.node.getChildByName('homeLayer');
         homeLayer.active = true;
 
+        let isUpdateRoundID = true;
+        let id = setTimeout(() => {
+            isUpdateRoundID = false;
+            showButton();
+        }, 1000);
+        cc.YL.net.getLearningProcess((GameData) => {
+            console.log(GameData);
+            if (!GameData || !isUpdateRoundID) {
+                return
+            }
+            clearTimeout(id);//清理延时
+            /*
+                | 参数名称 | 类型   | 说明                     |
+                | -------- | ------ | ------------------------ |
+                | code     | int    | 状态码 0：成功           |
+                | msg      | String |                          |
+                | data     | int    | 当前模块的续播的练习序号 |
+            */
+            cc.gameConfig.roundID = GameData.data;
+            showButton();
+        })
+
         let registerTouch = (targetBtn, roundID = 1) => {
             cc.YL.tools.registerTouch(
                 targetBtn,
@@ -145,7 +167,7 @@ cc.Class({
             );
         }
 
-        setTimeout(() => {
+        let showButton = () => {
             cc.YL.unLockTouch();
             switch (this.showLayerName) {
                 case _GAMELIST[GAMELIST.default]:
@@ -175,7 +197,7 @@ cc.Class({
                 default:
                     break;
             }
-        }, 1000);
+        }
     },
 
     changeLayer(event, name) {
