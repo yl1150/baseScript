@@ -179,7 +179,7 @@ let register = {
     },
 
     //添加语音闹钟 当满足条件时取消
-    addClock(tipsName, clockTime = 10) {
+    addClock(tipsName, clockTime = 20) {
         //注册触摸事件 当发生点击时 注销闹钟
         clockTime += GD.sound.getDuringTime(tipsName);
         cc.YL.emitter.on('tips_touchStart', cc.YL.stopClock.bind(this));
