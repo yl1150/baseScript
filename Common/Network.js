@@ -68,7 +68,7 @@ module.exports = {
         var data = {
             practiceId: GD.practiceId,
         }
-        var url = 'http://dev.hxsup.com:8116/api/annual/mini/lesson/practice/process'
+        var url = 'https://dev.hxsup.com/api/annual/mini/lesson/practice/process'
         if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/mini/lesson/practice/process'
         }
