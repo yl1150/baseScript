@@ -13,7 +13,8 @@ let register = {
                 videoURL: "",
                 isWX: false,
                 gameID: 0,
-                gameName:''
+                gameName:'',
+                roundID:1
             }
         }
 
@@ -43,7 +44,6 @@ let register = {
             }
         }
         cc.YL.net.getUserToken();
-
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
         !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.loadRes());

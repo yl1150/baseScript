@@ -29,17 +29,16 @@ const kStatusCode = cc.Enum({
 
     //初始化视频进度条 根据每个关卡节点的数据在进度条上生成对应的按钮
     init(videoBase, roundData) {
-        let totalTime = videoBase.videoDuration;
-        if(!totalTime){
+        if(!videoBase.videoDuration){
             var intervalTag = setInterval(() => {
                 if (videoBase.videoDuration) {
                     this.init(videoBase,roundData);
                     clearInterval(intervalTag);
-                } 
-            }, 1000);
+                }
+            }, 500);
             return;
         }
-       
+
         let _canvas = cc.find('Canvas')
         let widget = this.getComponent(cc.Widget)
         widget.target = _canvas
