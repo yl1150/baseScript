@@ -176,6 +176,8 @@ cc.Class({
                     //当前为视频游戏环节 仅显示开始界面
                     let uiNode = homeLayer.getChildByName('noRecordedUI');
                     uiNode.active = true;
+                    //重置roundID
+                    GD.iRoundID = 1;
                     registerTouch(uiNode.getChildByName('start_Icon'));
                     break;
                 case _GAMELIST[GAMELIST.questionBank]:
@@ -272,7 +274,7 @@ cc.Class({
         cc.YL.showSuccess();
         //提交数据
         if (cc.gameConfig.isWX) {
-            cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? 8 : 0, time, 0);
+            cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
             cc.YL.net.sendTime(parseInt(time))
         }

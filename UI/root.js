@@ -121,10 +121,10 @@ cc.Class({
     showAddStar(starNum, callFunc) {
         if (cc.gameConfig.isWX) {
             let time = cc.YL.stopTimeCount();//结束计时
-            let roundID = GD.isSendRoundID ? GD.iRoundID : 0;
+            let roundID = GD.isSendRoundID ? GD.iRoundID : GD.roundID;
             cc.YL.net.sendTimeAndStar(roundID, time, starNum);
             cc.YL.startTimeCount();//重新计时
-            callFunc&&callFunc();
+            callFunc && callFunc();
             return;
         }
         this.starBoard.active = true;
