@@ -151,7 +151,7 @@ cc.Class({
             showButton();
         })
 
-        let registerTouch = (targetBtn, roundID = 1) => {
+        let registerTouch = (targetBtn) => {
             cc.YL.tools.registerTouch(
                 targetBtn,
                 (e) => {
@@ -160,7 +160,6 @@ cc.Class({
                 null,
                 (e) => {
                     e.target.setScale(1);
-                    GD.iRoundID = roundID;
                     this.changeLayer(null, this.showLayerName);
                     homeLayer.active = false;
                 }
@@ -183,11 +182,13 @@ cc.Class({
                 case _GAMELIST[GAMELIST.questionBank]:
                     if (cc.gameConfig.roundID > 1) {
                         //有学习记录
+                        //设置关卡为对应关卡
+                        GD.iRoundID = cc.gameConfig.roundID;
                         GD.sound.playSound('homeTips');
                         let uiNode = homeLayer.getChildByName('recordedUI');
                         uiNode.active = true;
                         registerTouch(uiNode.getChildByName('reStart_Icon'));//重新开始按钮
-                        registerTouch(uiNode.getChildByName('start_Icon'), cc.gameConfig.roundID);//继续游戏按钮
+                        registerTouch(uiNode.getChildByName('start_Icon'));//继续游戏按钮
                     } else {
                         let uiNode = homeLayer.getChildByName('noRecordedUI');
                         uiNode.active = true;
