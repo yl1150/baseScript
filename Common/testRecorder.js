@@ -68,10 +68,10 @@ var testRecorder = {
     /**
      * 检测权限
      */
-    checkPermissionSupported(){
-        if(cc.sys.os===cc.sys.OS_IOS){
+    checkPermissionSupported() {
+        if (cc.sys.os === cc.sys.OS_IOS) {
             window.webkit.messageHandlers && window.webkit.messageHandlers.getPermissionSupported && window.webkit.messageHandlers.getPermissionSupported.postMessage(null);
-        }else{
+        } else {
             window.android.getPermissionSupported();
         }
     },
@@ -83,7 +83,7 @@ var testRecorder = {
     changeValueMediaStatus(codeStr) {
         var resultObj = JSON.parse(codeStr);
         var statusCode = resultObj.code;
-        cc.YL.emitter.emit('recordStates',statusCode)
+        cc.YL.emitter.emit('recordStates', statusCode)
     },
 
     /*
@@ -91,17 +91,16 @@ var testRecorder = {
         第一个参数为权限码PermissionCode
         录音权限：“1”，假设以后新增播放权限为“2”，且用户未授权，则会发jsonStr示例:{"1":"true","2":"false"}
     */
-       /**
-     * 录音权限回调
-     * @param {*} jsonStr 
-     */
-    supportedPermissionsListeners(jsonStr){
+    /**
+  * 录音权限回调
+  * @param {*} jsonStr 
+  */
+    supportedPermissionsListeners(jsonStr) {
         var resultObj = JSON.parse(jsonStr);
         cc.YL.emitter.emit('permissions', resultObj)
         var resultObj = JSON.parse(jsonStr);
         //{"1":"true","2":"false"}  1:录音权限  2:播放权限
-        resultObj[2]=true;//暂定有播放权限（后端没还没加这个权限检测）-----------------------------------
-        var isAllowed=(resultObj&&resultObj[1]&&resultObj[2]);
+        var isAllowed = (resultObj && resultObj[1] == 'true');
         cc.YL.emitter.emit('permissions', resultObj)
     },
 
