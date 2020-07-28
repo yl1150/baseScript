@@ -85,7 +85,7 @@ cc.Class({
                 clearInterval(pInterval_video);
                 video0.style.position = 'fixed';
                 video0.style.zIndex = -1;
-                video0.poster = GD.main.videoPoster.getComponent(cc.Sprite).spriteFrame.nativeUrl;
+                video0.poster = GD.main.videoPoster.getComponent(cc.Sprite).spriteFrame._texture.nativeUrl;
             }
         }, 10);
         var gCanvas = null;
