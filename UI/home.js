@@ -159,6 +159,9 @@ cc.Class({
                 },
                 null,
                 (e) => {
+                    if(e.target.name == 'reStart_Icon'){
+                        GD.iRoundID = 1;
+                    }
                     e.target.setScale(1);
                     this.changeLayer(null, this.showLayerName);
                     homeLayer.active = false;
@@ -180,6 +183,7 @@ cc.Class({
                     registerTouch(uiNode.getChildByName('start_Icon'));
                     break;
                 case _GAMELIST[GAMELIST.questionBank]:
+                    console.log(cc.gameConfig,'========')
                     if (cc.gameConfig.roundID > 1) {
                         //有学习记录
                         //设置关卡为对应关卡
