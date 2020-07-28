@@ -14,7 +14,8 @@ let register = {
                 isWX: false,
                 gameID: 0,
                 gameName:'',
-                roundID:1
+                roundID:1,
+                maxRoundID:8,//最大关卡数
             }
         }
 

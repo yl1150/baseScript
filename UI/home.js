@@ -151,7 +151,7 @@ cc.Class({
             showButton();
         })
 
-        let registerTouch = (targetBtn, roundID = 1) => {
+        let registerTouch = (targetBtn) => {
             cc.YL.tools.registerTouch(
                 targetBtn,
                 (e) => {
@@ -159,8 +159,10 @@ cc.Class({
                 },
                 null,
                 (e) => {
+                    if(e.target.name == 'reStart_Icon'){
+                        GD.iRoundID = 1;
+                    }
                     e.target.setScale(1);
-                    GD.iRoundID = roundID;
                     this.changeLayer(null, this.showLayerName);
                     homeLayer.active = false;
                 }
@@ -176,16 +178,21 @@ cc.Class({
                     //当前为视频游戏环节 仅显示开始界面
                     let uiNode = homeLayer.getChildByName('noRecordedUI');
                     uiNode.active = true;
+                    //重置roundID
+                    GD.iRoundID = 1;
                     registerTouch(uiNode.getChildByName('start_Icon'));
                     break;
                 case _GAMELIST[GAMELIST.questionBank]:
+                    console.log(cc.gameConfig,'========')
                     if (cc.gameConfig.roundID > 1) {
                         //有学习记录
+                        //设置关卡为对应关卡
+                        GD.iRoundID = cc.gameConfig.roundID;
                         GD.sound.playSound('homeTips');
                         let uiNode = homeLayer.getChildByName('recordedUI');
                         uiNode.active = true;
                         registerTouch(uiNode.getChildByName('reStart_Icon'));//重新开始按钮
-                        registerTouch(uiNode.getChildByName('start_Icon'), cc.gameConfig.roundID);//继续游戏按钮
+                        registerTouch(uiNode.getChildByName('start_Icon'));//继续游戏按钮
                     } else {
                         let uiNode = homeLayer.getChildByName('noRecordedUI');
                         uiNode.active = true;
@@ -272,7 +279,7 @@ cc.Class({
         cc.YL.showSuccess();
         //提交数据
         if (cc.gameConfig.isWX) {
-            cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? 8 : 0, time, 0);
+            cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
             cc.YL.net.sendTime(parseInt(time))
         }
