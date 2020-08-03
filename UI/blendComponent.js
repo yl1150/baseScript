@@ -19,11 +19,17 @@ cc.Class({
 
     setTreeBlend(nTree) {
         console.log(nTree);
-        let kidCount = 0;
         let setBlend = (pNode) => {
-            kidCount++;
-            if (pNode && pNode.getComponent(cc.Sprite)) {
-                pNode.getComponent(cc.Sprite).srcBlendFactor = cc.macro.BlendFactor.ONE;
+            if(!pNode){
+                return;
+            }
+            let _sprite = pNode.getComponent(cc.Sprite);
+            let _label = pNode.getComponent(cc.Label);
+            if (_sprite) {
+                _sprite.srcBlendFactor = cc.macro.BlendFactor.ONE;
+            }
+            if(_label){
+                _label.srcBlendFactor = cc.macro.BlendFactor.ONE;
             }
         }
         let findChild = (pNode) => {
