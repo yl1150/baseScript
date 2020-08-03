@@ -50,7 +50,7 @@ cc.Class({
         cc.YL.unLockTouch()
         this._time = 0
         GD.sound.setTipsButton(false);
-        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this),this.setPoster.bind(this), this.roundData);
+        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this), this.setPoster.bind(this), this.roundData);
     },
 
     startGame() {
@@ -60,7 +60,7 @@ cc.Class({
         this._state = kStatusCode.STATUS_PLAYVIDEO
     },
 
-    setPoster(isShow){
+    setPoster(isShow) {
         this.videoPoster.active = isShow;
     },
 
@@ -130,7 +130,7 @@ cc.Class({
     jumpToRound(roundData) {
         GD.jumpModel = true;
         let data = roundData.json.limitTime
-        this._vPlayer.videoPlayer.currentTime = cc.YL.tools.setTime(data.s, data.m)
+        this._vPlayer.setTime(cc.YL.tools.setTime(data.s, data.m));
         this.freezeVideoCheck()
     },
 

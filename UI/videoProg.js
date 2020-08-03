@@ -29,10 +29,10 @@ const kStatusCode = cc.Enum({
 
     //初始化视频进度条 根据每个关卡节点的数据在进度条上生成对应的按钮
     init(videoBase, roundData) {
-        if(!videoBase.videoDuration){
+        if (!videoBase.videoDuration) {
             var intervalTag = setInterval(() => {
                 if (videoBase.videoDuration) {
-                    this.init(videoBase,roundData);
+                    this.init(videoBase, roundData);
                     clearInterval(intervalTag);
                 }
             }, 500);
@@ -184,7 +184,7 @@ const kStatusCode = cc.Enum({
         this._pauseBtn.getComponent(cc.Sprite).spriteFrame = (state == 'pause' ? this.pauseTexture : this.resumeTexture)
     },
 
-    setScreenTouch(isLock){
+    setScreenTouch(isLock) {
         this.screenTouch.active = isLock
     },
 
@@ -213,6 +213,10 @@ const kStatusCode = cc.Enum({
     },
 
     updateProgress(curTime, totalTime) {
+        if (!curTime || !totalTime || !this._prog) {
+            console.log('updateProgress:::', curTime, totalTime, this._prog);
+            return;
+        }
         let m = parseInt(curTime / 60)
         let s = parseInt(curTime - m * 60)
         let curString = ((m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s))
