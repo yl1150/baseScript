@@ -44,6 +44,12 @@ cc.Class({
         this.playTips(GD.showTips);
     },
 
+    playStartBgm(){
+        console.log('playStartBgm===============')
+        cc.audioEngine.playMusic(this.bgm, true);
+        cc.audioEngine.setMusicVolume(0.001);
+    },
+
     playBGM() {
         cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(1);
@@ -57,9 +63,13 @@ cc.Class({
         cc.audioEngine.resumeMusic();
     },
 
+    stopBgm(){
+        cc.audioEngine.stopMusic();
+    },
+
     //音效 如按钮点击的声音等
     playSound(name, volume = 1) {
-        if(cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])){
+        if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
             console.log('禁止同时播放同一个音效')
             return;
         }
@@ -81,7 +91,7 @@ cc.Class({
         }
     },
 
-    play(url,isShowLaba = false, callBack) {
+    play(url, isShowLaba = false, callBack) {
         this.stopTips();
         this.button.interactable = false;
         isShowLaba && this.showLabaAni(true);
