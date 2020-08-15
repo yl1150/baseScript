@@ -17,7 +17,9 @@ const _GAMELIST = {
     /**习题下*/
     '5': 'exercises2',
     /*游戏*/
-    '6': 'yearGame'
+    '6': 'yearGame',
+     /*pk游戏*/
+     '7': 'pkGame'
 };
 const GAMELIST = cc.Enum({
     /**默认展现游戏目录 */
@@ -39,7 +41,10 @@ const GAMELIST = cc.Enum({
     exercises2: 5,
 
     /*游戏*/
-    yearGame: 6
+    yearGame: 6,
+    
+    /*pk游戏*/
+    pkGame: 7
 });
 
 cc.Class({
