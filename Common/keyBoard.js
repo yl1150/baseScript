@@ -14,7 +14,7 @@ cc.Class({
     onLoad() {
     },
 
-    init(callFunc, oriString = this._oriString) {
+    init(callFunc, oriString = '?') {
         this._oriString = oriString;
         this._touchCallFunc = callFunc;
         this._shadow = this.node.getChildByName('shadow');
