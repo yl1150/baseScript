@@ -65,6 +65,7 @@ cc.Class({
     },
 
     start() {
+        GD.sound.playStartBgm();
         this._homeOptions = this.node.getChildByName('homeOptions');
         this._game = this.node.getChildByName('game');
         this._bg = this.node.getChildByName('bg');
@@ -161,6 +162,8 @@ cc.Class({
             cc.YL.tools.registerTouch(
                 targetBtn,
                 (e) => {
+                    console.log('click')
+                    GD.sound.playSound('click');
                     e.target.setScale(0.8);
                 },
                 null,

@@ -165,6 +165,12 @@ module.exports = {
                 return false
             }
         }
+
+        for (let i in arr2) {
+            if (!this.getArrIsHaveCell(arr1, arr2[i])) {
+                return false
+            }
+        }
         return true
     },
 

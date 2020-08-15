@@ -23,6 +23,7 @@ cc.Class({
 
     start() {
         this.setVideoBottom();
+        //this.play();
         this._isLoaded = false;
     },
 
@@ -35,16 +36,16 @@ cc.Class({
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
         //强制播放视频（ready事件无效）
         var intervalTag = setInterval(() => {
-            if (this.videoPlayer.currentTime || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
+            if (this.getCurrentTime() || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
                 clearInterval(intervalTag);
             } else {
                 this.play();
                 setTimeout(() => {
-                    if (this.videoPlayer.currentTime || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
+                    if (this.getCurrentTime() || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
                         clearInterval(intervalTag);
                         //准备好并播放视频
+                        console.log('强播')
                         this.startGame();
-                        this._setPoster(false);
                     }
                 }, 100);
             }
@@ -53,12 +54,19 @@ cc.Class({
 
     startGame() {
         //限定时间内 不响应 强行调用
-        this._isLoaded = true;
         this.videoDuration = this.videoPlayer.getDuration();
         this._prog.init(this, this._roundData);
         this._readyCallFunc();
         this.ctrlVideo(1 / this.videoDuration);
-        this.resume();
+        this._setPoster(false);
+        this.play();
+        this._isLoaded = true;
+
+        console.log('CurrentTime:  ', this.getCurrentTime())
+        console.log('isPlaying:  ', this.videoPlayer.isPlaying())
+        console.log('currentStatus:  ', this.videoPlayer._currentStatus)
+
+
     },
 
     //暂停视频 隐藏进度条
@@ -111,8 +119,9 @@ cc.Class({
                 break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY:
                 {
-                    console.log("video-READY_TO_PLAY")
+                    console.log("video-READY_TO_PLAY", this._isLoaded)
                     if (!this._isLoaded) {
+                        console.log('自然加载')
                         this.play();
                         this.startGame();
                         this._setPoster(false);
@@ -149,14 +158,10 @@ cc.Class({
     onPlaying(event) {
     },
 
-    setTime(time) {
-        this.videoPlayer.currentTime = time
-    },
-
     play(time) {
         if (!this.videoPlayer) { console.log("error:Video is not loaded!"); return; }
         this.videoPlayer.play();
-        time && (this.videoPlayer.currentTime = time)
+        time && this.setTime(time);
     },
 
     stop() {
@@ -174,16 +179,11 @@ cc.Class({
         if (!this.videoPlayer) { console.log("error:Video is not loaded!"); return; }
         this.videoPlayer.resume();
         //GD.sound.resumeBgm()
-        time && (this.videoPlayer.currentTime = time)
+        time && this.setTime(time);
     },
 
     ctrlVideo(progress) {
-        if (!this._isLoaded) {
-            console.log('强制播放');
-            this.startGame();
-            return;
-        }
-        this.videoPlayer.currentTime = this.videoPlayer.getDuration() * progress
+        this.setTime(this.videoPlayer.getDuration() * progress);
     },
 
     getVideoState() {
@@ -191,14 +191,22 @@ cc.Class({
     },
 
     getCurrentTime() {
-        return this.videoPlayer.currentTime;
+        return this.videoPlayer._impl._video.currentTime;
+    },
+
+
+    setTime(time) {
+        if (!time) {
+            return
+        }
+        this.videoPlayer._impl._video.currentTime = time
     },
 
     update(dt) {
-        if (!this.videoPlayer || !this._isLoaded || !this.videoPlayer.currentTime) {
+        if (!this.videoPlayer || !this._isLoaded || !this.getCurrentTime()) {
             return
         }
-        this._videoCallFunc(this.videoPlayer.currentTime)
-        this._prog.updateProgress(this.videoPlayer.currentTime, this.videoPlayer.getDuration())
+        this._videoCallFunc(this.getCurrentTime())
+        this._prog.updateProgress(this.getCurrentTime(), this.videoPlayer.getDuration())
     },
 });
