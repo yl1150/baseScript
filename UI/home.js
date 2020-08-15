@@ -16,6 +16,8 @@ const _GAMELIST = {
 
     /**习题下*/
     '5': 'exercises2',
+    /*游戏*/
+    '6': 'yearGame'
 };
 const GAMELIST = cc.Enum({
     /**默认展现游戏目录 */
@@ -35,6 +37,9 @@ const GAMELIST = cc.Enum({
 
     /**习题下*/
     exercises2: 5,
+
+    /*游戏*/
+    yearGame: 6
 });
 
 cc.Class({
@@ -47,6 +52,7 @@ cc.Class({
             type: GAMELIST,
             displayName: '游戏目录',
         },
+        isFitPhone:true
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -71,7 +77,7 @@ cc.Class({
                 GD.canRecording = true;
             })
         }
-        cc.YL.fitPhone(this._game);
+        this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
         this.registerEvent();
         if (cc.gameConfig.isWX) {
@@ -159,7 +165,7 @@ cc.Class({
                 },
                 null,
                 (e) => {
-                    if(e.target.name == 'reStart_Icon'){
+                    if (e.target.name == 'reStart_Icon') {
                         GD.iRoundID = 1;
                     }
                     e.target.setScale(1);
@@ -183,7 +189,7 @@ cc.Class({
                     registerTouch(uiNode.getChildByName('start_Icon'));
                     break;
                 case _GAMELIST[GAMELIST.questionBank]:
-                    console.log(cc.gameConfig,'========')
+                    console.log(cc.gameConfig, '========')
                     if (cc.gameConfig.roundID > 1) {
                         //有学习记录
                         //设置关卡为对应关卡

@@ -71,7 +71,7 @@ cc.Class({
         if (url) {
             this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
         } else {
-            cc.loader.loadRes('sound' + name, cc.AudioClip, (err, url) => {
+            cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, url) => {
                 if (err) {
                     console.log(err);
                     return;
@@ -111,7 +111,7 @@ cc.Class({
         if (url) {
             this.play(url, isShowLaba, callBack);
         } else {
-            cc.loader.loadRes('sound' + name, cc.AudioClip, (err, audio) => {
+            cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, audio) => {
                 if (err) {
                     console.log(err);
                     return;
