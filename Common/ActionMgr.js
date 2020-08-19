@@ -91,8 +91,13 @@ module.exports = {
         }
     },
 
-    blink() {
-        return cc.tween().to(2, { opacity: 0 })
+    blink(num) {
+        let action = cc.tween().to(0.2, { opacity: 125 }).to(0.2, { opacity: 255 });
+        if (num) {
+            return cc.tween().repeat(num,action)
+        } else {
+            return cc.tween().repeatForever(action)
+        }
     },
 
     /** 线性的位移函数，

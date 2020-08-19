@@ -14,7 +14,8 @@ cc.Class({
     onLoad() {
     },
 
-    init(callFunc) {
+    init(callFunc, oriString = '?') {
+        this._oriString = oriString;
         this._touchCallFunc = callFunc;
         this._shadow = this.node.getChildByName('shadow');
         this._board = this.node.getChildByName('board');
@@ -44,7 +45,7 @@ cc.Class({
             });
         }
         if (del) {
-            if (this._targetLabel && this._targetLabel.string != '?') {
+            if (this._targetLabel && this._targetLabel.string != this._oriString) {
                 isShow = true
             }
             del._canHandle = isShow
@@ -84,7 +85,7 @@ cc.Class({
         let _numLabel = this._targetLabel
         if (keys == 'del') {
             if (_numLabel.string.length <= 1) {
-                _numLabel.string = '?'
+                _numLabel.string = this._oriString
             } else {
                 _numLabel.string = _numLabel.string.split('').shift()
             }
@@ -98,7 +99,7 @@ cc.Class({
             if (this._type == keyBoardType.Symbol) {
                 _numLabel.string = keys
             } else {
-                if (_numLabel.string == '?' || _numLabel.string == '|') {
+                if (_numLabel.string == this._oriString) {
                     _numLabel.string = keys
                 } else {
                     _numLabel.string += keys
