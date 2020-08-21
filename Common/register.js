@@ -7,15 +7,15 @@ let register = {
         var Loader = require("loader");
         var Emitter = require("emitter");
 
-        if(!cc.gameConfig){
+        if (!cc.gameConfig) {
             cc.gameConfig = {
                 isOfficial: false,
                 videoURL: "",
                 isWX: false,
                 gameID: 0,
-                gameName:'',
-                roundID:1,
-                maxRoundID:8,//最大关卡数
+                gameName: '',
+                roundID: 1,
+                maxRoundID: 8,//最大关卡数
             }
         }
 
@@ -170,7 +170,7 @@ let register = {
                 console.log(err);
             }
             var success = cc.instantiate(_prefab);
-            success.addComponent("success").init();
+            success.getComponent('success') ? success.getComponent('success').init() : success.addComponent("success").init();
             success.parent = cc.find('Canvas');
             success.zIndex = 999;
             cc.YL.timeOut(() => {
