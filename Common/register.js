@@ -47,7 +47,7 @@ let register = {
         cc.YL.net.getUserToken();
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
-        !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.loadRes());
+        !cc.YL.loader && (cc.YL.loader = new Loader());
 
         !GD.timePool && (GD.timePool = []);
 

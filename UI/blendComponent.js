@@ -79,8 +79,9 @@ cc.Class({
     setTreeName(nTree) {
         let count = 1
         nTree.children.forEach((kid) => {
-            kid.name = 'op' + count++;
-            kid.getChildByName('touchImg').active = false;
+            kid.children.forEach((node) => {
+                node.name = 'point'
+            });
         });
     },
 
