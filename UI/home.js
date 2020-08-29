@@ -18,8 +18,8 @@ const _GAMELIST = {
     '5': 'exercises2',
     /*游戏*/
     '6': 'yearGame',
-    /*pk游戏*/
-    '7': 'pkGame'
+     /*pk游戏*/
+     '7': 'pkGame'
 };
 const GAMELIST = cc.Enum({
     /**默认展现游戏目录 */
@@ -42,7 +42,7 @@ const GAMELIST = cc.Enum({
 
     /*游戏*/
     yearGame: 6,
-
+    
     /*pk游戏*/
     pkGame: 7
 });
@@ -57,7 +57,7 @@ cc.Class({
             type: GAMELIST,
             displayName: '游戏目录',
         },
-        isFitPhone: true
+        isFitPhone:true
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -259,7 +259,8 @@ cc.Class({
     },
 
     setHomeLayer(isShow) {
-        this._homeOptions && (this._homeOptions.active = isShow);
+        this._homeOptions&& (this._homeOptions.active = isShow);
+        this._bg.active = isShow;
     },
 
     backHomeLayer() {
