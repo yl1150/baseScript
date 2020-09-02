@@ -133,6 +133,8 @@ cc.Class({
         let ske = skePool.getChildByName(starNum.toString());
         ske.active = true;
         ske.getComponent(sp.Skeleton).setAnimation(0, 'newAnimation', false);
+        var board = this.starBoard.getChildByName('kuang');
+        var starIcon = board.getChildByName('starIcon');
         setTimeout(() => {
             /* switch (starNum) {
                 case 3:
@@ -147,7 +149,8 @@ cc.Class({
                 default:
                     break;
             } */
-            this.earnStar(this.node, starNum, () => {
+            GD.sound.playSound('getStar');
+            this.earnStar(this.node, starIcon,starNum, () => {
                 skePool.active = false;
                 ske.active = false;
                 callFunc && callFunc();
@@ -161,15 +164,13 @@ cc.Class({
     * @param {Number} count 星星数
     * @param {Function} cb 完成后回调
     */
-    earnStar(target, count, cb) {
+    earnStar(startPoint,endPoint, count, cb) {
         GD.integral += parseInt(count);
         cc.YL.net.sendStarNum(count);
-        var board = this.starBoard.getChildByName('kuang');
-        var starIcon = board.getChildByName('starIcon');
         var maxLength = 150;
         var deltaAngle = 72;
-        var starPos = cc.YL.tools.getRelativePos(target, this.node);
-        var endPos = cc.YL.tools.getRelativePos(starIcon, this.node);
+        var starPos = cc.YL.tools.getRelativePos(startPoint, this.node);
+        var endPos = cc.YL.tools.getRelativePos(endPoint, this.node);
         var angle_arr = cc.YL.tools.createWithContinueNumber(0, Math.floor(360 / deltaAngle) - 1);
         angle_arr = cc.YL.tools.randomOrder(angle_arr);
         angle_arr = angle_arr.map(x => { return x * deltaAngle });
@@ -195,7 +196,6 @@ cc.Class({
             if (pAngle > 90 && pAngle < 270 && deltaY > 0) deltaY *= -1;
             let tempPos = cc.v2(starPos.x + deltaX, starPos.y + deltaY);
             //星星散开
-            GD.sound.playSound('getStar');
             let ske = newStar.getChildByName('ske');
             let skeCom = ske.getComponent(sp.Skeleton);
             skeCom.setAnimation(0, 'newAnimation_1', true);

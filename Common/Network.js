@@ -79,6 +79,23 @@ module.exports = {
         this.http_get(data, url, header, cb);
     },
 
+    //从服务端获取所需要的用户数据
+    getPlayerMessage(cb) {
+        //
+        var data = {
+            practiceId: '1',
+        }
+        var url = 'http://dev.hxsup.com:8118/api/annual/phase/getGameUserInfo'
+        if (cc.gameConfig.isOfficial) {
+            url = 'https://www.hxsup.com/api/annual/phase/getGameUserInfo'
+        }
+        var header = {
+            "Authorization": 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJleHAiOjE2MDA2NzM1MDEsInVzZXJpZCI6NTB9.gEBAmlP6MtrB7Qn8BuQ0kw9qUoR-YdA6MYrgn66D4mM',
+            "Content-Type": "application/json",
+        }
+        this.http_get(data, url, header, cb);
+    },
+
     http_get(params, url, header, cb, failCount = 0) {
         var self = this;
         var xhr = cc.loader.getXMLHttpRequest();
