@@ -23,6 +23,12 @@ cc.Class({
 
         this.starPool = new cc.NodePool();
         this.setStarBoard(false);
+
+
+        let widget = this.questionBg.getComponent(cc.Widget);
+        widget.target = cc.find('Canvas')
+        widget.top = 60;
+        widget.bottom = 60;
     },
 
     setStarBoard(isShow) {

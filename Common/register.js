@@ -7,15 +7,15 @@ let register = {
         var Loader = require("loader");
         var Emitter = require("emitter");
 
-        if(!cc.gameConfig){
+        if (!cc.gameConfig) {
             cc.gameConfig = {
                 isOfficial: false,
                 videoURL: "",
                 isWX: false,
                 gameID: 0,
-                gameName:'',
-                roundID:1,
-                maxRoundID:8,//最大关卡数
+                gameName: '',
+                roundID: 1,
+                maxRoundID: 8,//最大关卡数
             }
         }
 
@@ -47,7 +47,7 @@ let register = {
         cc.YL.net.getUserToken();
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
-        !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.loadRes());
+        !cc.YL.loader && (cc.YL.loader = new Loader());
 
         !GD.timePool && (GD.timePool = []);
 
@@ -137,6 +137,7 @@ let register = {
             console.log('fitPhone')
             var pScale = videoRatio / winRatio;
             fitNode.setScale(pScale > 1 ? 1 : pScale);
+            GD.root.node.setScale(pScale > 1 ? 1 : pScale);
             // var canvasCom = pCanvas.getComponent(cc.Canvas);
             // canvasCom.fitHeight=true;
             // canvasCom.fitWidth=false;
@@ -169,7 +170,7 @@ let register = {
                 console.log(err);
             }
             var success = cc.instantiate(_prefab);
-            success.addComponent("success").init();
+            success.getComponent('success') ? success.getComponent('success').init() : success.addComponent("success").init();
             success.parent = cc.find('Canvas');
             success.zIndex = 999;
             cc.YL.timeOut(() => {
@@ -182,6 +183,7 @@ let register = {
     //添加语音闹钟 当满足条件时取消
     addClock(tipsName, clockTime = 20) {
         //注册触摸事件 当发生点击时 注销闹钟
+        return;
         clockTime += GD.sound.getDuringTime(tipsName);
         cc.YL.emitter.on('tips_touchStart', cc.YL.stopClock.bind(this));
         this.intervalID = setInterval(() => {
@@ -190,6 +192,7 @@ let register = {
     },
 
     stopClock() {
+        return;
         cc.YL.emitter.off('tips_touchStart');
         this.intervalID && clearInterval(this.intervalID);
         this.intervalID = null;

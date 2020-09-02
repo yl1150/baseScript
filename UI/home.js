@@ -18,8 +18,8 @@ const _GAMELIST = {
     '5': 'exercises2',
     /*游戏*/
     '6': 'yearGame',
-     /*pk游戏*/
-     '7': 'pkGame'
+    /*pk游戏*/
+    '7': 'pkGame'
 };
 const GAMELIST = cc.Enum({
     /**默认展现游戏目录 */
@@ -42,9 +42,18 @@ const GAMELIST = cc.Enum({
 
     /*游戏*/
     yearGame: 6,
-    
+
     /*pk游戏*/
     pkGame: 7
+});
+
+const GAMEMODEL = cc.Enum({
+    /**默认 prefab加载方式*/
+    default: 0,
+
+    //无需加载
+    no_loaded: 1,
+
 });
 
 cc.Class({
@@ -57,7 +66,12 @@ cc.Class({
             type: GAMELIST,
             displayName: '游戏目录',
         },
-        isFitPhone:true
+        gameModel: {
+            default: GAMEMODEL.default,
+            type: GAMEMODEL,
+            displayName: '游戏加载方式',
+        },
+        isFitPhone: true
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -95,32 +109,13 @@ cc.Class({
     },
 
     initUI() {
-        /*  switch (this.showLayerName) {
-             case _GAMELIST[GAMELIST.default]:
-                 GD.setTimeDataEachRound = false;
-                 break;
-             case _GAMELIST[GAMELIST.videoGame]:
-                 GD.setTimeDataEachRound = false;
-                 break;
-             case _GAMELIST[GAMELIST.questionBank]:
-                 GD.setTimeDataEachRound = true;
-                 break;
-             default:
-                 GD.setTimeDataEachRound = false;
-                 break;
-         } */
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
         GD.root.setLoadDataUI(true);
         GD.root.reFreshStar();
         GD.root.setLoadDataUI(false);
         GD.root.setBack(false);
-        this.setHomeLayer(false);
-        if (this.showLayerName == _GAMELIST[GAMELIST.default]) {
-            this.setHomeLayer(true);
-            this._bg.active = true;
-            cc.YL.unLockTouch();
-        }
+        this.setHomeLayer(this.showLayerName == _GAMELIST[GAMELIST.default]);
     },
 
     //注册事件
@@ -222,26 +217,30 @@ cc.Class({
     },
 
     changeLayer(event, name) {
+        cc.YL.unLockTouch();
         if (name == 'default') {
             return;
         }
         if (event) {
             GD.iRoundID = 1;
         }
-        cc.YL.unLockTouch();
         console.log('loadGame:   ', name, '   ==============');
         cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        for (let i in this.layerPool) {
-            if (this.layerPool[i].name == name) {
-                let layer = cc.instantiate(this.layerPool[i]);
-                this._game.addChild(layer);
-                this._loadedLayer = layer;
+        if (this.gameModel == GAMEMODEL.default) {
+            for (let i in this.layerPool) {
+                if (this.layerPool[i].name == name) {
+                    let layer = cc.instantiate(this.layerPool[i]);
+                    this._game.addChild(layer);
+                    this._loadedLayer = layer;
+                }
             }
+            this.setHomeLayer(false);
+        }else{
+            this._bg.active = true;
         }
-        this.setHomeLayer(false);
     },
 
     //检测每一关关卡数据
@@ -259,7 +258,7 @@ cc.Class({
     },
 
     setHomeLayer(isShow) {
-        this._homeOptions.active = isShow;
+        this._homeOptions && (this._homeOptions.active = isShow);
         this._bg.active = isShow;
     },
 
