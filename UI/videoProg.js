@@ -39,6 +39,11 @@ const kStatusCode = cc.Enum({
             return;
         }
 
+        if(this._isInit){
+            console.log('已经初始化')
+            return;
+        }
+
         let _canvas = cc.find('Canvas')
         let widget = this.getComponent(cc.Widget)
         widget.target = _canvas
@@ -144,7 +149,7 @@ const kStatusCode = cc.Enum({
                 }
             },
         )
-
+        this._isInit = true;
         this._videoBase = videoBase
         for (let i in roundData) {
             let data = roundData[i].json.limitTime

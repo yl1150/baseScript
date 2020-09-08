@@ -50,6 +50,13 @@ cc.Class({
                 }, 100);
             }
         }, 2000);
+        
+        cc.YL.tools.registerTouch(GD.main.videoPoster, null, null, ()=>{
+            clearInterval(intervalTag);
+            this.startGame();
+        });
+
+
     },
 
     startGame() {
