@@ -157,8 +157,24 @@ cc.Class({
         this._state = kStatusCode.STATUS_PLAYING;
         GD.sound.setTipsButton(true);
         this._isCheckTime = false;
-        cc.YL.unLockTouch();
-        let question = cc.instantiate(this.questionPool[roundLv - 1]);
-        question.parent = this._questions;
+        if (this.questionPool.length < 1) {
+            //手动加载
+            cc.loader.loadRes('prefab/' + roundData.json.gameName, cc.Prefab, (err, _prefab) => {
+                if (err) {
+                    console.log(err);
+                }
+                cc.YL.unLockTouch();
+                let question = cc.instantiate(_prefab);
+                question.parent = this._questions;
+            });
+        } else {
+            cc.YL.unLockTouch();
+            let question = cc.instantiate(this.questionPool[roundLv - 1]);
+            question.parent = this._questions;
+        }
+
+
+
+
     },
 });
