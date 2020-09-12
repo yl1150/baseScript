@@ -92,7 +92,7 @@ module.exports = {
     },
 
     blink(num) {
-        let action = cc.tween().to(0.2, { opacity: 125 }).to(0.2, { opacity: 255 });
+        let action = cc.tween().to(0.2, { opacity: 0 }).to(0.2, { opacity: 255 });
         if (num) {
             return cc.tween().repeat(num,action)
         } else {
