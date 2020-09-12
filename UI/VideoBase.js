@@ -197,6 +197,9 @@ cc.Class({
         return this.videoPlayer._impl._video.currentTime;
     },
 
+    getDuration(){
+        return this.videoPlayer.getDuration();
+    },
 
     setTime(time) {
         if (!time) {

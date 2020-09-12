@@ -29,9 +29,9 @@ const kStatusCode = cc.Enum({
 
     //初始化视频进度条 根据每个关卡节点的数据在进度条上生成对应的按钮
     init(videoBase, roundData) {
-        if (!videoBase.videoDuration) {
+        if (!videoBase.getDuration()) {
             var intervalTag = setInterval(() => {
-                if (videoBase.videoDuration) {
+                if (videoBase.getDuration()) {
                     this.init(videoBase, roundData);
                     clearInterval(intervalTag);
                 }
@@ -154,7 +154,7 @@ const kStatusCode = cc.Enum({
         for (let i in roundData) {
             let data = roundData[i].json.limitTime
             let isTipsRound = roundData[i].json.isTipsRound
-            let percent = cc.YL.tools.setTime(data.s, data.m) / videoBase.videoDuration
+            let percent = cc.YL.tools.setTime(data.s, data.m) / videoBase.getDuration()
             let x = this.node.width * percent - this.node.width / 2
             let icon = new cc.Node('icon')
             icon.addComponent(cc.Sprite).spriteFrame = isTipsRound ? this.quesIcon : this.gameIcon
