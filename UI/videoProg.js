@@ -152,8 +152,11 @@ const kStatusCode = cc.Enum({
         this._isInit = true;
         this._videoBase = videoBase
         for (let i in roundData) {
-            let data = roundData[i].json.limitTime
-            let isTipsRound = roundData[i].json.isTipsRound
+            let json = roundData[i].json||roundData[i];
+
+            let data = json.limitTime
+            let isTipsRound = json.isTipsRound
+
             let percent = cc.YL.tools.setTime(data.s, data.m) / videoBase.getDuration()
             let x = this.node.width * percent - this.node.width / 2
             let icon = new cc.Node('icon')
