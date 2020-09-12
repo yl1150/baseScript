@@ -50,8 +50,8 @@ cc.Class({
                 }, 100);
             }
         }, 2000);
-        
-        cc.YL.tools.registerTouch(GD.main.videoPoster, null, null, ()=>{
+
+        cc.YL.tools.registerTouch(GD.main.videoPoster, () => { }, null, () => {
             clearInterval(intervalTag);
             this.startGame();
         });
@@ -64,16 +64,12 @@ cc.Class({
         this.videoDuration = this.videoPlayer.getDuration();
         this._prog.init(this, this._roundData);
         this._readyCallFunc();
-        this.ctrlVideo(1 / this.videoDuration);
         this._setPoster(false);
         this.play();
         this._isLoaded = true;
-
         console.log('CurrentTime:  ', this.getCurrentTime())
         console.log('isPlaying:  ', this.videoPlayer.isPlaying())
         console.log('currentStatus:  ', this.videoPlayer._currentStatus)
-
-
     },
 
     //暂停视频 隐藏进度条
@@ -129,9 +125,9 @@ cc.Class({
                     console.log("video-READY_TO_PLAY", this._isLoaded)
                     if (!this._isLoaded) {
                         console.log('自然加载')
-                        this.play();
+                        //this.play();
                         this.startGame();
-                        this._setPoster(false);
+                        //this._setPoster(false);
                     }
                 }
                 break;
@@ -201,6 +197,9 @@ cc.Class({
         return this.videoPlayer._impl._video.currentTime;
     },
 
+    getDuration(){
+        return this.videoPlayer.getDuration();
+    },
 
     setTime(time) {
         if (!time) {

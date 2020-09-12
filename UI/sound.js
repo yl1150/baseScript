@@ -46,12 +46,12 @@ cc.Class({
 
     playStartBgm(){
         console.log('playStartBgm===============')
-        cc.audioEngine.playMusic(this.bgm, true);
+        this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(0.001);
     },
 
     playBGM() {
-        cc.audioEngine.playMusic(this.bgm, true);
+        this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(1);
     },
 
