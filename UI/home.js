@@ -230,15 +230,28 @@ cc.Class({
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
         if (this.gameModel == GAMEMODEL.default) {
+            let prefab = null;
             for (let i in this.layerPool) {
                 if (this.layerPool[i].name == name) {
-                    let layer = cc.instantiate(this.layerPool[i]);
-                    this._game.addChild(layer);
-                    this._loadedLayer = layer;
+                    prefab = this.layerPool[i];
                 }
             }
+            if (prefab) {
+                let layer = cc.instantiate(prefab);
+                this._game.addChild(layer);
+                this._loadedLayer = layer;
+            } else {
+                cc.loader.loadRes('prefab/' + name, cc.Prefab, (err, _prefab) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    let layer = cc.instantiate(_prefab);
+                    this._game.addChild(layer);
+                    this._loadedLayer = layer;
+                });
+            }
             this.setHomeLayer(false);
-        }else{
+        } else {
             this._bg.active = true;
         }
     },
