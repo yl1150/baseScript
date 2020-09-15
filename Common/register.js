@@ -137,7 +137,7 @@ let register = {
             console.log('fitPhone')
             var pScale = videoRatio / winRatio;
             fitNode.setScale(pScale > 1 ? 1 : pScale);
-            GD.root.node.setScale(pScale > 1 ? 1 : pScale);
+            //GD.root.node.setScale(pScale > 1 ? 1 : pScale);
             // var canvasCom = pCanvas.getComponent(cc.Canvas);
             // canvasCom.fitHeight=true;
             // canvasCom.fitWidth=false;
