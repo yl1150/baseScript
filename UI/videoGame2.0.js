@@ -13,8 +13,7 @@ cc.Class({
 
     properties: {
         videoPlayer: cc.Node,
-        questionPool: [cc.Prefab],
-        roundData: [cc.JsonAsset],
+        roundData: cc.JsonAsset,
         showBGMTime: 0,
         videoPoster: cc.Node
     },
@@ -27,6 +26,17 @@ cc.Class({
         this._isShowBGM = true;
         this.registerEvent();
         this.setPoster(true);
+        this.splitRoundData();
+    },
+
+    splitRoundData() {
+        let arr = [];
+        let json = this.roundData.json;
+        for (let i in json) {
+            arr.push(json[i]);
+        }
+        console.log(arr);
+        this.roundData = arr;
     },
 
     //注册事件
@@ -34,7 +44,7 @@ cc.Class({
 
         cc.YL.emitter.on('finishRound', (e) => {
             console.log('finishRound')
-            var data = this._roundData.json.continueTime
+            var data = this._roundData.continueTime
             var time = cc.YL.tools.setTime(data.s, data.m)
             //this._vPlayer.resume(time)
             this._vPlayer.setTime(time)
@@ -75,7 +85,7 @@ cc.Class({
         this._state = kStatusCode.STATUS_PLAYVIDEO
         GD.sound.setTipsButton(false)
         console.log(this._roundData)
-        let data = this._roundData.json.continueTime
+        let data = this._roundData.continueTime
         let time = cc.YL.tools.setTime(data.s, data.m)
         //this._vPlayer.resume(time)
         this._vPlayer.resumeAndUnlockProg()
@@ -113,7 +123,7 @@ cc.Class({
         }
         this._time = _currentTime
         for (let i in this.roundData) {
-            let data = this.roundData[i].json.limitTime
+            let data = this.roundData[i].limitTime
             if (cc.YL.tools.isTime(_currentTime, cc.YL.tools.setTime(data.s, data.m))) {
                 GD.lv = parseInt(i) + 1
                 this.showQuestion(this.roundData[i])
@@ -129,22 +139,23 @@ cc.Class({
 
     jumpToRound(roundData) {
         GD.jumpModel = true;
-        let data = roundData.json.limitTime
+        let data = roundData.limitTime
         this._vPlayer.setTime(cc.YL.tools.setTime(data.s, data.m));
         this.freezeVideoCheck()
     },
 
     showQuestion(roundData) {
         this._roundData = roundData;
-        let isRecordLV = roundData.json.isRecordLV;
-        let jumpTime = roundData.json.jumpTime;
-        let roundLv = roundData.json.roundLv;
+        let isRecordLV = roundData.isRecordLV;
+        let jumpTime = roundData.jumpTime;
+        let roundLv = roundData.roundLv;
+        let prefabName = roundData.prefabName;
         if (isRecordLV) {
             if (GD.canRecording) {
                 this._vPlayer.pauseAndHideProg();
             } else {
                 GD.lv++;
-                let data = roundData.json.continueTime;
+                let data = roundData.continueTime;
                 let time = cc.YL.tools.setTime(data.s, data.m) + jumpTime;
                 this._vPlayer.resume(time);
                 return;
@@ -157,22 +168,15 @@ cc.Class({
         this._state = kStatusCode.STATUS_PLAYING;
         GD.sound.setTipsButton(true);
         this._isCheckTime = false;
-        if (this.questionPool.length < 1) {
-            //手动加载
-            cc.loader.loadRes('prefab/' + roundData.json.gameName, cc.Prefab, (err, _prefab) => {
-                if (err) {
-                    console.log(err);
-                }
-                cc.YL.unLockTouch();
-                let question = cc.instantiate(_prefab);
-                question.parent = this._questions;
-            });
-        } else {
-            cc.YL.unLockTouch();
-            let question = cc.instantiate(this.questionPool[roundLv - 1]);
-            question.parent = this._questions;
-        }
 
+        cc.loader.loadRes('prefab/' + prefabName, cc.Prefab, (err, _prefab) => {
+            if (err) {
+                console.log(err);
+            }
+            cc.YL.unLockTouch();
+            let question = cc.instantiate(_prefab);
+            question.parent = this._questions;
+        });
 
 
 
