@@ -44,7 +44,7 @@ cc.Class({
         this.playTips(GD.showTips);
     },
 
-    playStartBgm(){
+    playStartBgm() {
         console.log('playStartBgm===============')
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(0.001);
@@ -63,7 +63,7 @@ cc.Class({
         cc.audioEngine.resumeMusic();
     },
 
-    stopBgm(){
+    stopBgm() {
         cc.audioEngine.stopMusic();
     },
 
@@ -149,6 +149,10 @@ cc.Class({
         } else {
             return 1;
         }
+    },
+
+    stopEffect(name) {
+        this.sIDPool[name] && cc.audioEngine.stopEffect(this.sIDPool[name]);
     },
 
     stopTips() {
