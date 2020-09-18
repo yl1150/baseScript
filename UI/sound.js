@@ -156,6 +156,7 @@ cc.Class({
     },
 
     stopTips() {
+        cc.YL.emitter.emit('stopTips');
         this._timeID && clearTimeout(this._timeID);
         this.showLabaAni(false);
         this.button.interactable = true;
