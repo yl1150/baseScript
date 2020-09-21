@@ -77,18 +77,11 @@ cc.Class({
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
-        var url = cc.YL.loader.getSound(name);
-        if (url) {
-            this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
-        } else {
-            cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, url) => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
+        var url = cc.YL.loader.getSound(name,(url)=>{
+            if (url) {
                 this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
-            })
-        }
+            } 
+        });
     },
 
     play(url, isShowLaba = false, callBack) {

@@ -21,6 +21,12 @@ function mixin(obj) {
     return obj;
 }
 
+Loader.prototype.init = function () {
+   this.imgAssets = [];
+   this.soundAssets = [];
+   this.dbAsset = [];
+}
+
 Loader.prototype.loadRes = function () {
     let self = this
     this.imgAssets = []
@@ -64,7 +70,7 @@ Loader.prototype.getImg = function (name, callFunc) {
         return null
     }
     if (!this.imgAssets) {
-        cc.loader.loadRes("img/" + name , cc.SpriteFrame, (err, data) => {
+        cc.loader.loadRes("img/" + name, cc.SpriteFrame, (err, data) => {
             if (err) {
                 console.log(err);
                 return;
@@ -104,15 +110,26 @@ Loader.prototype.getSpine = function (name, callFunc) {
     }
 }
 
-Loader.prototype.getSound = function (name) {
-    if (!this.soundAssets || !name) {
-        return null
+Loader.prototype.getSound = function (name, cb) {
+    if (!name) {
+        return
     }
-    for (var i in this.soundAssets) {
-        if (this.soundAssets[i].name == name) {
-            return this.soundAssets[i]
+    if (this.soundAssets) {
+        for (var i in this.soundAssets) {
+            if (this.soundAssets[i].name == name) {
+                cb && cb(this.soundAssets[i]);
+                return this.soundAssets[i];
+            }
         }
     }
+    cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, url) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        this.soundAssets[name] = url;
+        cb && cb(url);
+    })
     return null
 }
 
