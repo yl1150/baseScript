@@ -1,12 +1,3 @@
-
-const FITMODEL = cc.Enum({
-    /**默认 问题背景适配方式*/
-    default: 0,
-
-    //无需加载
-    no_loaded: 1,
-
-});
 cc.Class({
     extends: cc.Component,
 
@@ -38,7 +29,9 @@ cc.Class({
 
         let widget = this.questionBg.getComponent(cc.Widget);
         if(widget){
-            widget.target = cc.find('Canvas')
+            widget.target = cc.find('Canvas');
+            widget.top = 60;
+            widget.bottom = 60;
             widget.updateAlignment();
         }
     },
