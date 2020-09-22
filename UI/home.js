@@ -71,7 +71,8 @@ cc.Class({
             type: GAMEMODEL,
             displayName: '游戏加载方式',
         },
-        isFitPhone: true
+        isFitPhone: true,
+        isShowRecord:false
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -94,12 +95,11 @@ cc.Class({
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
         this.registerEvent();
-        this.initHomeLayer();
-        // if (cc.gameConfig.isWX) {
-        //     //当前为微信包
-        // } else {
-        //     this.changeLayer(null, this.showLayerName);
-        // }
+         if (this.isShowRecord) {
+             this.initHomeLayer();
+         } else {
+             this.changeLayer(null, this.showLayerName);
+         }
     },
 
     initData(){

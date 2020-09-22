@@ -4,6 +4,7 @@ let register = {
         cc.YL.aMgr = require('ActionMgr');
         cc.YL.net = require('Network');
         cc.YL.recorder = require('testRecorder');
+        cc.YL.audioEditor = require('AudioEditorer');
         var Loader = require("loader");
         var Emitter = require("emitter");
 
