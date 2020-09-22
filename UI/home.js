@@ -90,21 +90,25 @@ cc.Class({
         this._bg = this.node.getChildByName('bg');
         this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
 
+       
+        this.isFitPhone && cc.YL.fitPhone(this._game);
+        this.initUI();
+        this.registerEvent();
+        this.initHomeLayer();
+        // if (cc.gameConfig.isWX) {
+        //     //当前为微信包
+        // } else {
+        //     this.changeLayer(null, this.showLayerName);
+        // }
+    },
+
+    initData(){
         GD.canRecording = false;
         if (window.webkit || window.android) {
             cc.YL.recorder.checkPermissionSupported()
             cc.YL.emitter.on('permissions', (datas) => {
                 GD.canRecording = true;
             })
-        }
-        this.isFitPhone && cc.YL.fitPhone(this._game);
-        this.initUI();
-        this.registerEvent();
-        if (cc.gameConfig.isWX) {
-            //当前为微信包
-            this.initHomeLayer();
-        } else {
-            this.changeLayer(null, this.showLayerName);
         }
     },
 

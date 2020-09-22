@@ -5,8 +5,10 @@ module.exports = {
     getUserToken() {
         var url = location.href;
         var params = url.split("?");
+        console.log(params)
         if (params[1]) {
             var arr = params[1].split("&");
+            console.log(arr)
             for (var i = 0; i < arr.length; i++) {
                 var str1 = arr[i].split("=")[0];
                 var str2 = arr[i].split("=")[1];
@@ -28,35 +30,19 @@ module.exports = {
                         GD.systemFlag = str2;
                         console.log('systemFlag:', str2)
                         break;
-
+                    case 'bgMusicVolume':
+                        GD.bgMusicVolume = parseInt(str2);
+                        console.log('bgMusicVolume:', str2)
+                        break;
                     default:
                         break;
                 }
             }
         }
         //测试token
-        //GD.userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJleHAiOjE1OTU3NzU5NjAsInVzZXJpZCI6Mzl9.7Y7V92fsqmCnOqkC_vfIElrggwuRVD9a5waHpKlyIRA'
-        //根据链接自动选择栏目包
-        /*    var index1 = url.indexOf('/build/web-mobile');
-           if (index1 >= 0) {
-               var str1 = url.substring(0, index1);
-               var index2 = str1.lastIndexOf('/');
-               var str2 = str1.substr(index2 + 1);
-               var columnId = parseInt(str2);
-               if (columnId > 0) {
-                   this.gameIndex = columnId;
-               } else {
-                   this.gameIndex = 0;
-               }
-               console.log(index1,'=======')
-               console.log(str1,'=============')
-               console.log(index2,'==========')
-               console.log(str2,'===========')
-   
-           } else {
-               //根据游戏配置选择栏目包
-               if (cc.gameConfig.columnId >= 0) this.gameIndex = parseInt(cc.gameConfig.columnId);
-           }  */
+        if (!GD.userToken) {
+            GD.userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJleHAiOjE2MDE3NTQ3MzgsInVzZXJpZCI6NTB9.oNsYbapzAuf2wcq_f0eqXOP9-LJKPxtBUzYNd8jEcoo'
+        }
         console.log('此为', cc.gameConfig.isOfficial ? '正式' : '测试');
     },
 
@@ -68,15 +54,24 @@ module.exports = {
         var data = {
             practiceId: GD.practiceId,
         }
-        var url = 'https://dev.hxsup.com/api/annual/mini/lesson/practice/process'
-        if (cc.gameConfig.isOfficial) {
-            url = 'https://www.hxsup.com/api/annual/mini/lesson/practice/process'
-        }
+        let urlHead = cc.gameConfig.isOfficial ? 'https://www.hxsup.com' : 'https://dev.hxsup.com'
+
+        var url = '/api/annual/mini/lesson/practice/process'
         var header = {
             "AnnualMiniToken": GD.userToken,
             "Content-Type": "application/json",
         }
-        this.http_get(data, url, header, cb);
+
+        if (!cc.gameConfig.isWX) {
+            header = {
+                "Authorization": GD.userToken,
+                "Content-Type": "application/json",
+            }
+            url = '/api/annual/lesson/practice/process'
+        }
+
+
+        this.http_get(data, urlHead + url, header, cb);
     },
 
     //从服务端获取所需要的用户数据
@@ -85,12 +80,12 @@ module.exports = {
         var data = {
             practiceId: '1',
         }
-        var url = 'http://dev.hxsup.com:8118/api/annual/phase/getGameUserInfo'
+        var url = 'http://dev.hxsup.com/api/annual/phase/getGameUserInfo'
         if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/phase/getGameUserInfo'
         }
         var header = {
-            "Authorization": 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJleHAiOjE2MDA2NzM1MDEsInVzZXJpZCI6NTB9.gEBAmlP6MtrB7Qn8BuQ0kw9qUoR-YdA6MYrgn66D4mM',
+            "Authorization": GD.userToken,
             "Content-Type": "application/json",
         }
         this.http_get(data, url, header, cb);
@@ -230,7 +225,7 @@ module.exports = {
             quantity: starNum
         }
         data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com:8115/api/annual/userRecord/addIntegral'
+        var url = 'http://dev.hxsup.com/api/annual/userRecord/addIntegral'
         if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/userRecord/addIntegral'
         }
@@ -251,7 +246,7 @@ module.exports = {
             times: time
         }
         data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com:8115/api/annual/studyLog/add'
+        var url = 'http://dev.hxsup.com/api/annual/studyLog/add'
         if (cc.gameConfig.isOfficial) {
             url = 'https://www.hxsup.com/api/annual/studyLog/add'
         }

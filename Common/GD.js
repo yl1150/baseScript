@@ -15,6 +15,7 @@ window.GD = {
     sound: null,
     gameId:1,
     practiceId: 1,
+    bgMusicVolume:100,//百分比
     /**
      * 积分数/星星数
      */

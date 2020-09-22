@@ -52,7 +52,7 @@ cc.Class({
 
     playBGM() {
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
-        cc.audioEngine.setMusicVolume(1);
+        cc.audioEngine.setMusicVolume(1 * GD.bgMusicVolume / 100);
     },
 
     pauseBgm() {
@@ -77,10 +77,10 @@ cc.Class({
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
-        var url = cc.YL.loader.getSound(name,(url)=>{
+        var url = cc.YL.loader.getSound(name, (url) => {
             if (url) {
                 this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
-            } 
+            }
         });
     },
 

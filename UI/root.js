@@ -1,8 +1,16 @@
+
+const FITMODEL = cc.Enum({
+    /**默认 问题背景适配方式*/
+    default: 0,
+
+    //无需加载
+    no_loaded: 1,
+
+});
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        questionBg: cc.Node,
         starBoard: cc.Node,
         starNumLabel: cc.Label,
     },
@@ -25,11 +33,13 @@ cc.Class({
         this.setStarBoard(false);
 
 
+        this.questionBg = cc.find('Canvas/questionBg');
+        this.questionBg && this.questionBg.addComponent('bgFit').fit();
+
         let widget = this.questionBg.getComponent(cc.Widget);
         if(widget){
             widget.target = cc.find('Canvas')
-            widget.top = 60;
-            widget.bottom = 60;
+            widget.updateAlignment();
         }
     },
 
@@ -40,6 +50,7 @@ cc.Class({
 
     setQuestionBg(isShow) {
         this.questionBg.active = isShow;
+        this.questionBg.getComponent('bgFit').fit();
     },
 
     setBack(isShow) {

@@ -52,7 +52,6 @@ let register = {
         !GD.timePool && (GD.timePool = []);
 
         let scene = cc.director.getScene();
-
         /*  let touchLocker = cc.find('Canvas/touchLocker');
           cc.YL.tools.registerTouch(
              touchLocker,
