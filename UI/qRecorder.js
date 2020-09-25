@@ -2,6 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        roundID:0,
         tips: {
             type: cc.AudioClip,
             default: null
@@ -10,6 +11,7 @@ cc.Class({
     },
 
     onLoad() {
+        GD.roundID = this.roundID;
         cc.YL.addClock(this.tips);
         GD.sound.setShowTips(this.tips, this.isPlayTips || GD.jumpModel)
         this.enterBtn = this.node.getChildByName('queren')

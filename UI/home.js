@@ -311,7 +311,7 @@ cc.Class({
         if (cc.gameConfig.isWX) {
             cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
-            cc.YL.net.sendTime(parseInt(time))
+            cc.YL.net.sendTime(parseInt(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1,time))
         }
         cc.YL.net.finish()//延时4s结束游戏
     },

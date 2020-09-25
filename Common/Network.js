@@ -47,14 +47,13 @@ module.exports = {
     },
 
     /*
-    微信端专用
     获取学习进度接口
     */
     getLearningProcess(cb) {
         var data = {
             practiceId: GD.practiceId,
         }
-        let urlHead = cc.gameConfig.isOfficial ? 'https://www.hxsup.com' : 'https://dev.hxsup.com'
+        let urlHead = cc.gameConfig.isOfficial ? 'http://www.hxsup.com' : 'http://dev.hxsup.com'
 
         var url = '/api/annual/mini/lesson/practice/process'
         var header = {
@@ -82,7 +81,7 @@ module.exports = {
         }
         var url = 'http://dev.hxsup.com/api/annual/phase/getGameUserInfo'
         if (cc.gameConfig.isOfficial) {
-            url = 'https://www.hxsup.com/api/annual/phase/getGameUserInfo'
+            url = 'http://www.hxsup.com/api/annual/phase/getGameUserInfo'
         }
         var header = {
             "Authorization": GD.userToken,
@@ -90,6 +89,79 @@ module.exports = {
         }
         this.http_get(data, url, header, cb);
     },
+
+
+    /**
+     * 发送游戏时长和积分数（微信专用）
+     * @param {Integer} time 游戏时长，单位：秒
+     * @param {Integer} starNum 积分数
+     * | practiceId | int  | 是       | -      | 模块id，由App传递                                            |
+     * | seq        | int  | 是       | -      | 练习的序号。比如：《阿布的菜园》中有8个练习，则序号一次为：1~8 |
+     * | times      | int  | 是       | -      | 练习时长，单位：秒。单个练习所使用的时间。                   |
+     * | integral   | int  | 是       | 0      | 获得的积分数。单个练习所获得的积分。                         |
+     */
+    sendTimeAndStar(roundID, time, starNum) {
+        var data = {
+            practiceId: GD.practiceId,
+            seq: roundID,
+            times: time,
+            integral: starNum
+        }
+        console.log('sendTimeAndStar: ', data);
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com/api/annual/mini/studyLog/add'
+        if (cc.gameConfig.isOfficial) {
+            url = 'http://www.hxsup.com/api/annual/mini/studyLog/add'
+        }
+        var header = {
+            "AnnualMiniToken": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
+    },
+
+    /**
+     * 发送积分数/星星数
+     * @param {Integer} starNum 积分数
+     */
+    sendStarNum(starNum) {
+        var data = {
+            quantity: starNum
+        }
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com/api/annual/userRecord/addIntegral'
+        if (cc.gameConfig.isOfficial) {
+            url = 'http://www.hxsup.com/api/annual/userRecord/addIntegral'
+        }
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
+    },
+
+    /**
+     * 发送游戏时长
+     * @param {Integer} t 游戏时长，单位：秒
+     */
+    sendTime(roundID, time) {
+        var data = {
+            practiceId: GD.practiceId,
+            seq: roundID,
+            times: time
+        }
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com/api/annual/studyLog/add'
+        if (cc.gameConfig.isOfficial) {
+            url = 'http://www.hxsup.com/api/annual/studyLog/add'
+        }
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
+    },
+
 
     http_get(params, url, header, cb, failCount = 0) {
         var self = this;
@@ -101,14 +173,11 @@ module.exports = {
             }
             xhr.setRequestHeader(i, header[i]);
         }
-        console.log('params:===', params);
-        console.log('url:====', url);
-        console.log('header:====', header);
         xhr.send();
         xhr.onreadystatechange = function (data) {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-                    console.log(xhr)
+                    console.log('success',xhr)
                     if (cb) cb(JSON.parse(xhr.response));
                 } else {
                     console.log("ErrorStatus:", xhr.status);
@@ -133,7 +202,7 @@ module.exports = {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-                    console.log('success')
+                    console.log('success',xhr)
                     if (cb) cb;
                 } else {
                     console.log("ErrorStatus:", xhr.status);
@@ -167,93 +236,5 @@ module.exports = {
                 }
             }
         }, 4000);
-    },
-
-    /**
-     * 发送分数
-     * @param {Integer} score 最后分数  废弃
-     */
-    sendScore(score) {
-        var data = {
-            result: score,
-            gameId: GD.gameId
-        };
-        data = JSON.stringify(data)
-        var url = 'https://www.hxsup.com/api/game/addGameLog'
-        var header = {
-            "Authorization": GD.userToken,
-            "Content-Type": "application/json",
-        }
-        this.http_post(data, url, header);
-    },
-
-    /**
-     * 发送游戏时长和积分数（微信专用）
-     * @param {Integer} time 游戏时长，单位：秒
-     * @param {Integer} starNum 积分数
-     * | practiceId | int  | 是       | -      | 模块id，由App传递                                            |
-     * | seq        | int  | 是       | -      | 练习的序号。比如：《阿布的菜园》中有8个练习，则序号一次为：1~8 |
-     * | times      | int  | 是       | -      | 练习时长，单位：秒。单个练习所使用的时间。                   |
-     * | integral   | int  | 是       | 0      | 获得的积分数。单个练习所获得的积分。                         |
-     */
-    sendTimeAndStar(roundID, time, starNum) {
-        var data = {
-            practiceId: GD.practiceId,
-            seq: roundID,
-            times: time,
-            integral: starNum
-        }
-        console.log('sendTimeAndStar: ', data);
-        data = JSON.stringify(data);
-        var url = 'https://dev.hxsup.com/api/annual/mini/studyLog/add'
-        if (cc.gameConfig.isOfficial) {
-            url = 'https://www.hxsup.com/api/annual/mini/studyLog/add'
-        }
-        var header = {
-            "AnnualMiniToken": GD.userToken,
-            "Content-Type": "application/json",
-        }
-        this.http_post(data, url, header);
-    },
-
-    /**
-     * 发送积分数/星星数
-     * @param {Integer} starNum 积分数
-     */
-    sendStarNum(starNum) {
-        var data = {
-            quantity: starNum
-        }
-        data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com/api/annual/userRecord/addIntegral'
-        if (cc.gameConfig.isOfficial) {
-            url = 'https://www.hxsup.com/api/annual/userRecord/addIntegral'
-        }
-        var header = {
-            "Authorization": GD.userToken,
-            "Content-Type": "application/json",
-        }
-        this.http_post(data, url, header);
-    },
-
-    /**
-     * 发送游戏时长
-     * @param {Integer} t 游戏时长，单位：秒
-     */
-    sendTime(time) {
-        var data = {
-            practiceId: GD.practiceId,
-            times: time
-        }
-        data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com/api/annual/studyLog/add'
-        if (cc.gameConfig.isOfficial) {
-            url = 'https://www.hxsup.com/api/annual/studyLog/add'
-        }
-        var header = {
-            "Authorization": GD.userToken,
-            "Content-Type": "application/json",
-        }
-        this.http_post(data, url, header);
     },
 };
