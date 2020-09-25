@@ -10,7 +10,7 @@ cc.Class({
     // onLoad () {},
 
     fit() {
-        let originSize = cc.Size(1230, 566);
+        let originSize = cc.Size(1230, 600);
         let widget = this.getComponent(cc.Widget);
         if (this.node.height > originSize.height) {
             //拉伸了 
