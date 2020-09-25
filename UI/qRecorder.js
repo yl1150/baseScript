@@ -11,6 +11,7 @@ cc.Class({
 
     onLoad() {
         cc.YL.addClock(this.tips);
+        GD.sound.setTipsButton(true);
         GD.sound.setShowTips(this.tips, this.isPlayTips || GD.jumpModel)
         this.enterBtn = this.node.getChildByName('queren')
         this.refreshBtn = this.node.getChildByName('refresh')

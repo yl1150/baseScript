@@ -166,7 +166,7 @@ cc.Class({
         GD.root.setBack(false);
         //GD.sound.resumeBgm();
         this._state = kStatusCode.STATUS_PLAYING;
-        GD.sound.setTipsButton(true);
+        //GD.sound.setTipsButton(true);
         this._isCheckTime = false;
 
         cc.loader.loadRes('prefab/' + prefabName, cc.Prefab, (err, _prefab) => {
