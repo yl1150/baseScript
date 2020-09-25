@@ -172,9 +172,5 @@ cc.Class({
             let question = cc.instantiate(this.questionPool[roundLv - 1]);
             question.parent = this._questions;
         }
-
-
-
-
     },
 });

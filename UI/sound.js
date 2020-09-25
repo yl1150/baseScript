@@ -46,6 +46,7 @@ cc.Class({
 
     playStartBgm() {
         console.log('playStartBgm===============')
+        this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(0.001);
     },
@@ -77,19 +78,21 @@ cc.Class({
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
-        var url = cc.YL.loader.getSound(name, (url) => {
+        cc.YL.loader.getSound(name, (url) => {
             if (url) {
-                this.sIDPool[name] = cc.audioEngine.play(url, false, volume);
+                cc.YL.audioEditor.editorAudio(url);
+                this.sIDPool[name] = cc.audioEngine.playEffect(url, false, volume);
             }
         });
     },
 
     play(url, isShowLaba = false, callBack) {
+        cc.YL.audioEditor.editorAudio(url);
         this.stopTips();
         this.button.interactable = false;
         isShowLaba && this.showLabaAni(true);
-        cc.audioEngine.play(url, false, 1);
-        let time = url._audio.duration;
+        cc.audioEngine.playEffect(url, false, 1);
+        let time = url._audio.duration + 0.25;
         this._timeID = cc.YL.timeOut(() => {
             isShowLaba && this.showLabaAni(false);
             this.button.interactable = true;
@@ -138,7 +141,7 @@ cc.Class({
             url = cc.YL.loader.getSound(name);
         }
         if (url) {
-            return url._audio.duration;
+            return url._audio.duration + 0.25;
         } else {
             return 1;
         }

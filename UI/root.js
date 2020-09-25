@@ -131,14 +131,17 @@ cc.Class({
     },
 
     showAddStar(starNum, callFunc) {
+        let time = cc.YL.stopTimeCount();//结束计时
+        let roundID = GD.isSendRoundID ? GD.iRoundID : GD.roundID;
         if (cc.gameConfig.isWX) {
-            let time = cc.YL.stopTimeCount();//结束计时
-            let roundID = GD.isSendRoundID ? GD.iRoundID : GD.roundID;
             cc.YL.net.sendTimeAndStar(roundID, time, starNum);
             cc.YL.startTimeCount();//重新计时
             callFunc && callFunc();
             return;
         }
+        cc.YL.net.sendTime(GD.roundID,parseInt(time))
+        cc.YL.startTimeCount();//重新计时
+
         this.starBoard.active = true;
         let skePool = this.starBoard.getChildByName('ske');
         skePool.active = true;
@@ -177,8 +180,8 @@ cc.Class({
     * @param {Function} cb 完成后回调
     */
     earnStar(startPoint,endPoint, count, cb) {
-        GD.integral += parseInt(count);
         cc.YL.net.sendStarNum(count);
+        GD.integral += parseInt(count);
         var maxLength = 150;
         var deltaAngle = 72;
         var starPos = cc.YL.tools.getRelativePos(startPoint, this.node);

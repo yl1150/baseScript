@@ -5,7 +5,7 @@ module.exports ={
 
         if (sys.os === sys.OS_IOS && sys.isMobile) {
             console.log('setAudio_to_Dom');
-            //audio.loadMode = cc.AudioClip.LoadMode.DOM_AUDIO;
+            audio.loadMode = cc.AudioClip.LoadMode.DOM_AUDIO;
         }
     },
 }

@@ -7,9 +7,11 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        GD.roundID = this.roundID;
+    },
 
-    start () {
+    onEnable () {
         GD.roundID = this.roundID;
     },
 
