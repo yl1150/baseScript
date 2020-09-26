@@ -72,7 +72,7 @@ cc.Class({
             displayName: '游戏加载方式',
         },
         isFitPhone: true,
-        isShowRecord:false
+        isShowRecord: false
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -91,18 +91,20 @@ cc.Class({
         this._bg = this.node.getChildByName('bg');
         this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
 
-       
+        GD.isPlayBgm = this.showLayerName == 'questionBank'
+
+
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
         this.registerEvent();
-         if (this.isShowRecord) {
-             this.initHomeLayer();
-         } else {
-             this.changeLayer(null, this.showLayerName);
-         }
+        if (this.isShowRecord) {
+            this.initHomeLayer();
+        } else {
+            this.changeLayer(null, this.showLayerName);
+        }
     },
 
-    initData(){
+    initData() {
         GD.canRecording = false;
         if (window.webkit || window.android) {
             cc.YL.recorder.checkPermissionSupported()
@@ -311,8 +313,11 @@ cc.Class({
         if (cc.gameConfig.isWX) {
             cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
-            
-            cc.YL.net.sendTime(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1,time)
+            if (this.isShowRecord) {
+                cc.YL.net.sendSeqAndTime(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time)
+            } else {
+                cc.YL.net.sendTime(time)
+            }
         }
         cc.YL.net.finish()//延时4s结束游戏
     },

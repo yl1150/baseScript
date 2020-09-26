@@ -48,6 +48,10 @@ cc.Class({
     },
 
     playStartBgm() {
+        if (!GD.isPlayBgm) {
+            return;
+        }
+
         console.log('playStartBgm===============')
         //this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
@@ -55,6 +59,9 @@ cc.Class({
     },
 
     playBGM() {
+        if (!GD.isPlayBgm) {
+            return;
+        }
         // this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(1 * GD.bgMusicVolume / 100);
@@ -73,7 +80,7 @@ cc.Class({
         cc.audioEngine.stopMusic();
     },
 
-    uncache(clip){
+    uncache(clip) {
         cc.audioEngine.uncache(clip)
     },
 
@@ -82,13 +89,13 @@ cc.Class({
         //单管线 同一时间只允许2个音效
         let count = 0;
         for (let i in this.sIDArr) {
-            if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i]))count++
+            if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i])) count++
             if (count >= maxAudio) {
                 console.log('禁止同时播放多个个音效')
                 return;
             }
         }
-     
+
         if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
             console.log('禁止同时播放同一个音效')
             return;

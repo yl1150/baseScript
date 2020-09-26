@@ -144,10 +144,29 @@ module.exports = {
      * 发送游戏时长
      * @param {Integer} t 游戏时长，单位：秒
      */
-    sendTime(roundID, time) {
+    sendSeqAndTime(roundID, time) {
         var data = {
             practiceId: GD.practiceId,
             seq: roundID,
+            times: time
+        }
+        console.log(data);
+        data = JSON.stringify(data);
+        var url = 'http://dev.hxsup.com/api/annual/studyLog/add'
+        if (cc.gameConfig.isOfficial) {
+            url = 'http://www.hxsup.com/api/annual/studyLog/add'
+        }
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
+    },
+
+    //发送学习记录 仅发送时间
+    sendTime(time){
+        var data = {
+            practiceId: GD.practiceId,
             times: time
         }
         console.log(data);
