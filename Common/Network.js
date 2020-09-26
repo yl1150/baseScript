@@ -150,6 +150,7 @@ module.exports = {
             seq: roundID,
             times: time
         }
+        console.log(data);
         data = JSON.stringify(data);
         var url = 'http://dev.hxsup.com/api/annual/studyLog/add'
         if (cc.gameConfig.isOfficial) {
@@ -214,7 +215,7 @@ module.exports = {
     },
 
     finish() {
-        this.sendScore(1);
+        //this.sendScore(1);
         setTimeout(() => {
             console.log(1, GD.systemFlag)
             if (GD.systemFlag == 1) {
