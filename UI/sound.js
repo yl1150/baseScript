@@ -66,7 +66,7 @@ cc.Class({
     },
 
     resumeBgm() {
-        cc.audioEngine.resumeBgm();
+        cc.audioEngine.resumeMusic();
     },
 
     stopBgm() {

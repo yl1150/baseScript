@@ -157,7 +157,7 @@ cc.Class({
         GD.root.setBack(false);
         //GD.sound.resumeBgm();
         this._state = kStatusCode.STATUS_PLAYING;
-        GD.sound.setTipsButton(true);
+        //GD.sound.setTipsButton(true);
         this._isCheckTime = false;
         if (this.questionPool.length < 1) {
             //手动加载
