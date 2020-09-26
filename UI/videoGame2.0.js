@@ -59,6 +59,7 @@ cc.Class({
     start() {
         cc.YL.unLockTouch()
         this._time = 0
+        GD.sound.pauseBgm();
         GD.sound.setTipsButton(false);
         this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this), this.setPoster.bind(this), this.roundData);
     },
@@ -75,6 +76,7 @@ cc.Class({
     },
 
     continueGame() {
+        GD.sound.pauseBgm();
         GD.root.setBack(true);
         GD.jumpModel = false;
         this._isCheckTime = false

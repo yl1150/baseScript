@@ -41,7 +41,7 @@ module.exports = {
         }
         //测试token
         if (!GD.userToken) {
-            GD.userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJleHAiOjE2MDE3NTQ3MzgsInVzZXJpZCI6NTB9.oNsYbapzAuf2wcq_f0eqXOP9-LJKPxtBUzYNd8jEcoo'
+            GD.userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJ1c2VyaWQiOjUwfQ.JIagAjWHOEwuAG_7RmSUqj5jx4ehn1mJOzQ6tkfKqSU'
         }
         console.log('此为', cc.gameConfig.isOfficial ? '正式' : '测试');
     },

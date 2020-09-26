@@ -58,6 +58,7 @@ cc.Class({
         GD.jumpModel = false
         this._isCheckTime = true
         this._state = kStatusCode.STATUS_PLAYVIDEO
+        GD.sound.pauseBgm();
     },
 
     setPoster(isShow) {
@@ -65,6 +66,7 @@ cc.Class({
     },
 
     continueGame() {
+        GD.sound.pauseBgm();
         GD.root.setBack(true);
         GD.jumpModel = false;
         this._isCheckTime = false

@@ -1,3 +1,5 @@
+const { timeOut } = require("../Common/register");
+const maxAudio = 2;
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -15,6 +17,7 @@ cc.Class({
         this.button = this.getComponent(cc.Button)
         this.tipsIDArr = [];
         this.sIDPool = [];
+        this.sIDArr = []
         this.button.interactable = false;
         this.node.opacity = 0;
     },
@@ -46,30 +49,46 @@ cc.Class({
 
     playStartBgm() {
         console.log('playStartBgm===============')
-        this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
+        //this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(0.001);
     },
 
     playBGM() {
+        // this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(1 * GD.bgMusicVolume / 100);
     },
 
     pauseBgm() {
+        console.log('pauseBgm')
         cc.audioEngine.pauseMusic();
     },
 
     resumeBgm() {
-        cc.audioEngine.resumeMusic();
+        cc.audioEngine.resumeBgm();
     },
 
     stopBgm() {
         cc.audioEngine.stopMusic();
     },
 
+    uncache(clip){
+        cc.audioEngine.uncache(clip)
+    },
+
     //音效 如按钮点击的声音等
     playSound(name, volume = 1) {
+        //单管线 同一时间只允许2个音效
+        let count = 0;
+        for (let i in this.sIDArr) {
+            if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i]))count++
+            if (count >= maxAudio) {
+                console.log('禁止同时播放多个个音效')
+                return;
+            }
+        }
+     
         if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
             console.log('禁止同时播放同一个音效')
             return;
@@ -80,19 +99,21 @@ cc.Class({
         }
         cc.YL.loader.getSound(name, (url) => {
             if (url) {
-                cc.YL.audioEditor.editorAudio(url);
-                this.sIDPool[name] = cc.audioEngine.playEffect(url, false, volume);
+                //cc.YL.audioEditor.editorAudio(url);
+                let id = cc.audioEngine.play(url, false, volume);
+                this.sIDPool[name] = id;
+                this.sIDArr.push(id);
             }
         });
     },
 
     play(url, isShowLaba = false, callBack) {
-        cc.YL.audioEditor.editorAudio(url);
+        //cc.YL.audioEditor.editorAudio(url);
         this.stopTips();
         this.button.interactable = false;
         isShowLaba && this.showLabaAni(true);
-        cc.audioEngine.playEffect(url, false, 1);
-        let time = url._audio.duration + 0.25;
+        cc.audioEngine.play(url, false, 1);
+        let time = url._audio.duration;
         this._timeID = cc.YL.timeOut(() => {
             isShowLaba && this.showLabaAni(false);
             this.button.interactable = true;
@@ -102,7 +123,7 @@ cc.Class({
 
     //解说音效
     playTips(name, callBack = null) {
-        this.stopTips();
+        //this.stopTips();
         let isShowLaba = false;
         if (name == GD.showTips) {
             //当且仅当问题语音时 播放喇叭
@@ -141,7 +162,7 @@ cc.Class({
             url = cc.YL.loader.getSound(name);
         }
         if (url) {
-            return url._audio.duration + 0.25;
+            return url._audio.duration;
         } else {
             return 1;
         }
