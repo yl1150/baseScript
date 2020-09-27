@@ -80,6 +80,7 @@ cc.Class({
     onLoad() {
         let register = require('register');
         register.init();
+        GD.isShowRecord = this.isShowRecord;
         this.showLayerName = cc.gameConfig.gameName || _GAMELIST[this.gameName];
         GD.isSendRoundID = this.showLayerName == 'questionBank';
     },
@@ -97,7 +98,7 @@ cc.Class({
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
         this.registerEvent();
-        if (this.isShowRecord) {
+        if (GD.isShowRecord) {
             this.initHomeLayer();
         } else {
             this.changeLayer(null, this.showLayerName);
@@ -313,7 +314,7 @@ cc.Class({
         if (cc.gameConfig.isWX) {
             cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
-            if (this.isShowRecord) {
+            if (GD.isShowRecord) {
                 cc.YL.net.sendSeqAndTime(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time)
             } else {
                 cc.YL.net.sendTime(time)
