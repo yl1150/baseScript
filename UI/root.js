@@ -139,7 +139,12 @@ cc.Class({
             callFunc && callFunc();
             return;
         }
-        cc.YL.net.sendTime(GD.roundID,parseInt(time))
+        if (GD.isShowRecord) {
+            cc.YL.net.sendSeqAndTime(GD.roundID, time)
+        } else {
+            cc.YL.net.sendTime(parseInt(time))
+        }
+
         cc.YL.startTimeCount();//重新计时
 
         this.starBoard.active = true;

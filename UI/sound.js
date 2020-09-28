@@ -87,12 +87,14 @@ cc.Class({
     //音效 如按钮点击的声音等
     playSound(name, volume = 1) {
         //单管线 同一时间只允许2个音效
-        let count = 0;
-        for (let i in this.sIDArr) {
-            if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i])) count++
-            if (count >= maxAudio) {
-                console.log('禁止同时播放多个个音效')
-                return;
+        if (cc.sys.os === cc.sys.OS_IOS && cc.sys.isMobile) {
+            let count = 0;
+            for (let i in this.sIDArr) {
+                if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i])) count++
+                if (count >= maxAudio) {
+                    console.log('禁止同时播放多个个音效')
+                    return;
+                }
             }
         }
 
