@@ -20,6 +20,7 @@ cc.Class({
         this.sIDArr = []
         this.button.interactable = false;
         this.node.opacity = 0;
+        this.setVolume(1)
     },
 
     setTipsButton(canTouch) {
@@ -47,6 +48,16 @@ cc.Class({
         this.playTips(GD.showTips);
     },
 
+        /**
+     * 设置音量
+     * @param {number} audioId 音效Id
+     * @param {number} volume 音量，0~1
+     */
+    setVolume(audioId, volume) {
+        cc.audioEngine.setVolume(audioId, volume);
+    },
+
+
     playStartBgm() {
         if (!GD.isPlayBgm) {
             return;
@@ -59,9 +70,9 @@ cc.Class({
     },
 
     playBGM() {
-        if (!GD.isPlayBgm) {
+       /*  if (!GD.isPlayBgm) {
             return;
-        }
+        } */
         // this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(1 * GD.bgMusicVolume / 100);
@@ -87,7 +98,7 @@ cc.Class({
     //音效 如按钮点击的声音等
     playSound(name, volume = 1) {
         //单管线 同一时间只允许2个音效
-        let count = 0;
+      /*   let count = 0;
         for (let i in this.sIDArr) {
             if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i])) count++
             if (count >= maxAudio) {
@@ -95,7 +106,7 @@ cc.Class({
                 return;
             }
         }
-
+ */
         if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
             console.log('禁止同时播放同一个音效')
             return;
@@ -107,7 +118,7 @@ cc.Class({
         cc.YL.loader.getSound(name, (url) => {
             if (url) {
                 //cc.YL.audioEditor.editorAudio(url);
-                let id = cc.audioEngine.play(url, false, volume);
+                let id = cc.audioEngine.play(url, false);
                 this.sIDPool[name] = id;
                 this.sIDArr.push(id);
             }
@@ -119,7 +130,7 @@ cc.Class({
         this.stopTips();
         this.button.interactable = false;
         isShowLaba && this.showLabaAni(true);
-        cc.audioEngine.play(url, false, 1);
+        cc.audioEngine.play(url, false);
         let time = url._audio.duration;
         this._timeID = cc.YL.timeOut(() => {
             isShowLaba && this.showLabaAni(false);

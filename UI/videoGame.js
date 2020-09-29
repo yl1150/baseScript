@@ -40,6 +40,11 @@ cc.Class({
             this._vPlayer.setTime(time)
         })
 
+        cc.YL.emitter.on('finishGame', (e, data) => {
+            console.log('finishGame')
+            this.finishGame();
+        })
+
         cc.YL.emitter.on('continueGame', (e, data) => {
             console.log('continueGame')
             this.continueGame();
@@ -50,7 +55,7 @@ cc.Class({
         cc.YL.unLockTouch()
         this._time = 0
         GD.sound.setTipsButton(false);
-        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this), this.setPoster.bind(this), this.roundData);
+        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this), this.videoPoster, this.roundData);
     },
 
     startGame() {
@@ -85,6 +90,8 @@ cc.Class({
 
     finishGame() {
         //提交数据
+        GD.sound.pauseBgm();
+        cc.YL.lockTouch()
         cc.YL.emitter.off('continueGame');
         cc.YL.emitter.emit('gameEnd');
     },

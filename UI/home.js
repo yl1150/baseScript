@@ -80,24 +80,25 @@ cc.Class({
     onLoad() {
         let register = require('register');
         register.init();
-        GD.isShowRecord = this.isShowRecord;
+
+        this._homeOptions = this.node.getChildByName('homeOptions');
+        this._game = this.node.getChildByName('game');
+        this._bg = this.node.getChildByName('bg');
+        this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
         this.showLayerName = cc.gameConfig.gameName || _GAMELIST[this.gameName];
+
+        GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = this.showLayerName == 'questionBank';
     },
 
     start() {
         GD.sound.playStartBgm();
-        this._homeOptions = this.node.getChildByName('homeOptions');
-        this._game = this.node.getChildByName('game');
-        this._bg = this.node.getChildByName('bg');
-        this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
-
-        GD.isPlayBgm = this.showLayerName == 'questionBank'
-
-
+        
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
+        this.initData();
         this.registerEvent();
+
         if (GD.isShowRecord) {
             this.initHomeLayer();
         } else {
