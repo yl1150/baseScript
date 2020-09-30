@@ -13,7 +13,6 @@ cc.Class({
     onLoad() {
         //摄像机组件透明度
         var camera = cc.find('Canvas/Main Camera');
-        //var camera = GD.main.node.getChildByName("Main Camera");
         camera.getComponent(cc.Camera).backgroundColor = cc.color(0, 0, 0, 0);
         //播放器
         cc.gameConfig.videoURL && (this.getComponent(cc.VideoPlayer).remoteURL = cc.gameConfig.videoURL);
@@ -24,13 +23,14 @@ cc.Class({
     start() {
         this.setVideoBottom();
         //this.play();
-        this._isLoaded = false;
+        this._isLoaded = false;  
+
     },
 
-    init(readyCallFunc, videoCallFunc, setPoster, rounData) {
+    init(readyCallFunc, videoCallFunc, poster, rounData) {
         this._readyCallFunc = readyCallFunc;
         this._videoCallFunc = videoCallFunc;
-        this._setPoster = setPoster;
+        this._poster = poster;
         this._roundData = rounData;
         this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
@@ -51,7 +51,7 @@ cc.Class({
             }
         }, 2000);
 
-        cc.YL.tools.registerTouch(GD.main.videoPoster, () => { }, null, () => {
+        cc.YL.tools.registerTouch(this._poster, () => { }, null, () => {
             clearInterval(intervalTag);
             this.startGame();
         });
@@ -64,12 +64,15 @@ cc.Class({
         this.videoDuration = this.videoPlayer.getDuration();
         this._prog.init(this, this._roundData);
         this._readyCallFunc();
-        this._setPoster(false);
+        this.setPoster(false);
         this.play();
         this._isLoaded = true;
-        console.log('CurrentTime:  ', this.getCurrentTime())
-        console.log('isPlaying:  ', this.videoPlayer.isPlaying())
-        console.log('currentStatus:  ', this.videoPlayer._currentStatus)
+        this.allowUpdateVisible = true;
+        this.allowUpdateCheckEnd = true;
+    },
+
+    setPoster(isShow) {
+        this._poster.active = isShow;
     },
 
     //暂停视频 隐藏进度条
@@ -96,7 +99,7 @@ cc.Class({
                 clearInterval(pInterval_video);
                 video0.style.position = 'fixed';
                 video0.style.zIndex = -1;
-                video0.poster = GD.main.videoPoster.getComponent(cc.Sprite).spriteFrame._texture.nativeUrl;
+                video0.poster = this._poster.getComponent(cc.Sprite).spriteFrame._texture.nativeUrl;
             }
         }, 10);
         var gCanvas = null;
@@ -114,20 +117,14 @@ cc.Class({
         this._videoState = eventType
         switch (eventType) {
             case cc.VideoPlayer.EventType.META_LOADED:
-                {
-                    console.log("video-META_LOADED")
-                    var t_video = Math.round(videoPlayer.getDuration());
-                    console.log("Video Duration：" + t_video);
-                }
+                {}
                 break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY:
                 {
                     console.log("video-READY_TO_PLAY", this._isLoaded)
                     if (!this._isLoaded) {
                         console.log('自然加载')
-                        //this.play();
                         this.startGame();
-                        //this._setPoster(false);
                     }
                 }
                 break;
@@ -139,7 +136,6 @@ cc.Class({
             case cc.VideoPlayer.EventType.COMPLETED:
                 {
                     console.log("video-COMPLETED")
-                    GD.main.finishGame();
                 }
             case cc.VideoPlayer.EventType.PLAYING:
                 {
@@ -156,6 +152,63 @@ cc.Class({
             default:
                 break;
         }
+    },
+
+
+    checkVideoPlayerMatrix() {
+        var style = this.videoPlayer._impl._video.style;
+        if (style && !style.transform) {
+            style.transform = this.calculateImplMatrix();
+        }
+    },
+
+    calculateImplMatrix() {
+        let node = this.node;
+        let mat4 = cc.mat4();
+        node.getWorldMatrix(mat4);
+        let renderCamera = cc.Camera._findRendererCamera(node);
+        if (renderCamera) {
+            renderCamera.worldMatrixToScreen(mat4, mat4, cc.game.canvas.width, cc.game.canvas.height);
+        }
+        let mat4m = mat4.m;
+
+        let dpr = cc.view.getDevicePixelRatio();
+        let scaleX = 1 / dpr;
+        let scaleY = 1 / dpr;
+
+        let w = node._contentSize.width * scaleX;
+        let h = node._contentSize.height * scaleY;
+
+        let container = cc.game.container;
+        let cw = container.clientWidth;
+        let ch = container.clientHeight;
+        let pScale = 1;
+        if ((w / h) < (cw / ch)) {
+            pScale = ch / h;
+        } else {
+            pScale = cw / w;
+        }
+        mat4m[0] = pScale;
+        mat4m[5] = pScale;
+        let a = mat4m[0] * scaleX, b = mat4m[1], c = mat4m[4], d = mat4m[5] * scaleY;
+
+        let offsetX = container && container.style.paddingLeft ? parseInt(container.style.paddingLeft) : 0;
+        let offsetY = container && container.style.paddingBottom ? parseInt(container.style.paddingBottom) : 0;
+
+        let appx = (w * pScale) * node._anchorPoint.x;
+        let appy = (h * pScale) * node._anchorPoint.y;
+
+        let tx = mat4m[12] * scaleX - appx + offsetX;
+        let ty = mat4m[13] * scaleY - appy + offsetY;
+
+        a = a.toFixed(3);
+        b = b.toFixed(3);
+        c = c.toFixed(3);
+        d = d.toFixed(3);
+        tx = tx.toFixed(3);
+        ty = ty.toFixed(3);
+        let matrix = "matrix(" + a + "," + -b + "," + -c + "," + d + "," + tx + "," + -ty + ")";
+        return matrix;
     },
 
     onPlaying(event) {
@@ -214,5 +267,27 @@ cc.Class({
         }
         this._videoCallFunc(this.getCurrentTime())
         this._prog.updateProgress(this.getCurrentTime(), this.videoPlayer.getDuration())
+
+        if (this.allowUpdateVisible) {
+            //重置视频可见（专治黑屏）
+            var video = this.videoPlayer._impl._video;
+            var currentTime = video.currentTime;
+            if (currentTime > 0.1) {
+                video.style.visibility = 'visible';
+                this.allowUpdateVisible = false;
+            } else if (currentTime > 0) {
+                video.style.visibility = 'hidden';
+            }
+        }
+        if (this.allowUpdateCheckEnd) {
+            //检测视频结束
+            var currentTime = this.getCurrentTime();
+            var totalTime = this.getDuration();
+            if (currentTime && totalTime && (totalTime - currentTime < 0.2)) {
+                this.allowUpdateCheckEnd = false;
+                //视频结束
+                cc.YL.emitter.emit('finishGame');
+            }
+        }
     },
 });
