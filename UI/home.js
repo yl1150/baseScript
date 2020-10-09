@@ -89,6 +89,7 @@ cc.Class({
 
         GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = this.showLayerName == 'questionBank';
+        GD.isPlayBgm = this.showLayerName == 'questionBank';
     },
 
     start() {
