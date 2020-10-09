@@ -77,7 +77,7 @@ module.exports = {
     getPlayerMessage(cb) {
         //
         var data = {
-            practiceId: '1',
+            practiceId: GD.practiceId,
         }
         var url = 'http://dev.hxsup.com/api/annual/phase/getGameUserInfo'
         if (cc.gameConfig.isOfficial) {

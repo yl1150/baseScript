@@ -25,4 +25,64 @@ const videoStatusCode = cc.Enum({
     /**播放视频 */
     STATUS_PLAYVIDEO: 2,
 });
-export {blockType,kStatusCode}
+
+
+const _GAMELIST = {
+    /**默认展现游戏目录 */
+    '0': 'default',
+
+    /**视频游戏 */
+    '1': 'videoGame',
+
+    /**题库 */
+    '2': 'questionBank',
+
+    /**播放小贴士视频 */
+    '3': 'videoTips',
+
+    /**习题上*/
+    '4': 'exercises1',
+
+    /**习题下*/
+    '5': 'exercises2',
+    /*游戏*/
+    '6': 'yearGame',
+    /*pk游戏*/
+    '7': 'pkGame'
+};
+
+const GAMELIST = cc.Enum({
+    /**默认展现游戏目录 */
+    default: 0,
+
+    /**视频游戏 */
+    videoGame: 1,
+
+    /**题库 */
+    questionBank: 2,
+
+    /**播放小贴士视频 */
+    videoTips: 3,
+
+    /**习题上*/
+    exercises1: 4,
+
+    /**习题下*/
+    exercises2: 5,
+
+    /*游戏*/
+    yearGame: 6,
+
+    /*pk游戏*/
+    pkGame: 7
+});
+
+const GAMEMODEL = cc.Enum({
+    /**默认 prefab加载方式*/
+    default: 0,
+
+    //无需加载
+    no_loaded: 1,
+
+});
+export {blockType,kStatusCode,videoStatusCode,_GAMELIST,GAMELIST,GAMEMODEL}
