@@ -20,7 +20,6 @@ cc.Class({
         this.sIDArr = []
         this.button.interactable = false;
         this.node.opacity = 0;
-        this.setVolume(1)
     },
 
     setTipsButton(canTouch) {
@@ -70,9 +69,9 @@ cc.Class({
     },
 
     playBGM() {
-       /*  if (!GD.isPlayBgm) {
+        if (!GD.isPlayBgm) {
             return;
-        } */
+        }
         // this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
         this.bgm && cc.audioEngine.playMusic(this.bgm, true);
         cc.audioEngine.setMusicVolume(1 * GD.bgMusicVolume / 100);
