@@ -21,40 +21,8 @@ const _GAMELIST = {
     /*pk游戏*/
     '7': 'pkGame'
 };
-const GAMELIST = cc.Enum({
-    /**默认展现游戏目录 */
-    default: 0,
 
-    /**视频游戏 */
-    videoGame: 1,
-
-    /**题库 */
-    questionBank: 2,
-
-    /**播放小贴士视频 */
-    videoTips: 3,
-
-    /**习题上*/
-    exercises1: 4,
-
-    /**习题下*/
-    exercises2: 5,
-
-    /*游戏*/
-    yearGame: 6,
-
-    /*pk游戏*/
-    pkGame: 7
-});
-
-const GAMEMODEL = cc.Enum({
-    /**默认 prefab加载方式*/
-    default: 0,
-
-    //无需加载
-    no_loaded: 1,
-
-});
+let GAMELIST = require('Define').GAMELIST;
 
 cc.Class({
     extends: cc.Component,
@@ -65,11 +33,6 @@ cc.Class({
             default: GAMELIST.default,
             type: GAMELIST,
             displayName: '游戏目录',
-        },
-        gameModel: {
-            default: GAMEMODEL.default,
-            type: GAMEMODEL,
-            displayName: '游戏加载方式',
         },
         isFitPhone: true,
         isShowRecord: false
@@ -85,25 +48,41 @@ cc.Class({
         this._game = this.node.getChildByName('game');
         this._bg = this.node.getChildByName('bg');
         this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
-        this.showLayerName = cc.gameConfig.gameName || _GAMELIST[this.gameName];
+
+
+        if (!cc.gameConfig.gameName) cc.gameConfig.gameName = this.gameName
 
         GD.isShowRecord = this.isShowRecord;
-        GD.isSendRoundID = this.showLayerName == 'questionBank';
-        GD.isPlayBgm = this.showLayerName == 'questionBank';
+        GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
+        GD.isPlayBgm = cc.gameConfig.gameName == GAMELIST.questionBank;
     },
 
     start() {
         GD.sound.playStartBgm();
-        
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
         this.initData();
         this.registerEvent();
 
+        let hLayer = this.node.getChildByName('homeLayer');
         if (GD.isShowRecord) {
-            this.initHomeLayer();
+            if (hLayer) {
+                hLayer.active = true;
+                hLayer.getComponent('homeLayer').init();
+            } else {
+                cc.loader.loadRes('prefab/homeLayer', cc.Prefab, (err, _prefab) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    hLayer = cc.instantiate(_prefab);
+                    this._game.addChild(hLayer);
+                    hLayer.getComponent('homeLayer').init();
+                });
+            }
+
         } else {
-            this.changeLayer(null, this.showLayerName);
+            hLayer && hLayer.destroy();
+            this.changeLayer();
         }
     },
 
@@ -124,14 +103,14 @@ cc.Class({
         GD.root.reFreshStar();
         GD.root.setLoadDataUI(false);
         GD.root.setBack(false);
-        this.setHomeLayer(this.showLayerName == _GAMELIST[GAMELIST.default]);
+        this.setHomeLayer(cc.gameConfig.gameName == GAMELIST.default);
     },
 
     //注册事件
     registerEvent() {
         cc.YL.emitter.on('gameEnd', (data) => {
             console.log(data)
-            if (this.showLayerName == 'default') {
+            if (cc.gameConfig.gameName == GAMELIST.default) {
                 this.backHomeLayer();
             } else {
                 //结束
@@ -139,106 +118,28 @@ cc.Class({
                 this.showEnding();
             }
         })
-    },
 
-    initHomeLayer() {
-        let homeLayer = this.node.getChildByName('homeLayer');
-        homeLayer.active = true;
-
-        let isUpdateRoundID = true;
-        let id = setTimeout(() => {
-            isUpdateRoundID = false;
-            showButton();
-        }, 1000);
-        cc.YL.net.getLearningProcess((GameData) => {
-            console.log(GameData);
-            if (!GameData || !isUpdateRoundID) {
-                return
-            }
-            clearTimeout(id);//清理延时
-            /*
-                | 参数名称 | 类型   | 说明                     |
-                | -------- | ------ | ------------------------ |
-                | code     | int    | 状态码 0：成功           |
-                | msg      | String |                          |
-                | data     | int    | 当前模块的续播的练习序号 |
-            */
-            cc.gameConfig.roundID = GameData.data;
-            showButton();
+        cc.YL.emitter.on('cdLayer', (data) => {
+            this.changeLayer();
         })
-
-        let registerTouch = (targetBtn) => {
-            cc.YL.tools.registerTouch(
-                targetBtn,
-                (e) => {
-                    console.log('click')
-                    GD.sound.playSound('click');
-                    e.target.setScale(0.8);
-                },
-                null,
-                (e) => {
-                    if (e.target.name == 'reStart_Icon') {
-                        GD.iRoundID = 1;
-                    }
-                    e.target.setScale(1);
-                    this.changeLayer(null, this.showLayerName);
-                    homeLayer.active = false;
-                }
-            );
-        }
-
-        let showButton = () => {
-            cc.YL.unLockTouch();
-            switch (this.showLayerName) {
-                case _GAMELIST[GAMELIST.default]:
-                //展示界面 仅显示开始界面 
-                case _GAMELIST[GAMELIST.videoGame]:
-                    //当前为视频游戏环节 仅显示开始界面
-                    let uiNode = homeLayer.getChildByName('noRecordedUI');
-                    uiNode.active = true;
-                    //重置roundID
-                    GD.iRoundID = 1;
-                    registerTouch(uiNode.getChildByName('start_Icon'));
-                    break;
-                case _GAMELIST[GAMELIST.questionBank]:
-                    console.log(cc.gameConfig, '========')
-                    if (cc.gameConfig.roundID > 1) {
-                        //有学习记录
-                        //设置关卡为对应关卡
-                        GD.iRoundID = cc.gameConfig.roundID;
-                        GD.sound.playSound('homeTips');
-                        let uiNode = homeLayer.getChildByName('recordedUI');
-                        uiNode.active = true;
-                        registerTouch(uiNode.getChildByName('reStart_Icon'));//重新开始按钮
-                        registerTouch(uiNode.getChildByName('start_Icon'));//继续游戏按钮
-                    } else {
-                        let uiNode = homeLayer.getChildByName('noRecordedUI');
-                        uiNode.active = true;
-                        GD.iRoundID = 1;
-
-                        registerTouch(uiNode.getChildByName('start_Icon'));
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
     },
 
     changeLayer(event, name) {
         cc.YL.unLockTouch();
-        if (name == 'default') {
-            return;
-        }
-        if (event) {
-            GD.iRoundID = 1;
-        }
-        console.log('loadGame:   ', name, '   ==============');
         cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        if (this.gameModel == GAMEMODEL.default) {
+
+        if (!name) name = _GAMELIST[cc.gameConfig.gameName];
+        if (name == 'default') return;
+        console.log('loadGame:   ', name, '   ==============');
+
+        let tNode = this._game.getChildByName(name);
+        if (tNode) {
+            //无需加载
+            this._bg.active = true;
+        } else {
             let prefab = null;
             for (let i in this.layerPool) {
                 if (this.layerPool[i].name == name) {
@@ -260,8 +161,6 @@ cc.Class({
                 });
             }
             this.setHomeLayer(false);
-        } else {
-            this._bg.active = true;
         }
     },
 
@@ -314,10 +213,10 @@ cc.Class({
         cc.YL.showSuccess();
         //提交数据
         if (cc.gameConfig.isWX) {
-            cc.YL.net.sendTimeAndStar(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
+            cc.YL.net.sendTimeAndStar(cc.gameConfig.gameName == GAMELIST.questionBank ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
             if (GD.isShowRecord) {
-                cc.YL.net.sendSeqAndTime(this.showLayerName == 'questionBank' ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time)
+                cc.YL.net.sendSeqAndTime(cc.gameConfig.gameName == GAMELIST.questionBank ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time)
             } else {
                 cc.YL.net.sendTime(time)
             }
@@ -325,5 +224,9 @@ cc.Class({
         cc.YL.net.finish()//延时4s结束游戏
     },
 
+    onDestroy() {
+        cc.YL.emitter.off('gameEnd');
+        cc.YL.emitter.off('cdLayer')
+    },
     // update (dt) {},
 });

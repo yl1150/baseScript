@@ -92,7 +92,7 @@ module.exports = {
     },
 
     //闪烁 1s2次
-    blink(num) {
+    blink() {
         let action = cc.tween().to(0.25, { opacity: 0 }).to(0.25, { opacity: 255 });
         return cc.tween().repeat(2,action)
     },

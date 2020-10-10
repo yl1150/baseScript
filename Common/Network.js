@@ -49,7 +49,7 @@ module.exports = {
     /*
     获取学习进度接口
     */
-    getLearningProcess(cb) {
+    getLearningProcess(cb,failCb) {
         var data = {
             practiceId: GD.practiceId,
         }
@@ -70,7 +70,7 @@ module.exports = {
         }
 
 
-        this.http_get(data, urlHead + url, header, cb);
+        this.http_get(data, urlHead + url, header, cb,failCb);
     },
 
     //从服务端获取所需要的用户数据
@@ -164,7 +164,7 @@ module.exports = {
     },
 
     //发送学习记录 仅发送时间
-    sendTime(time){
+    sendTime(time) {
         var data = {
             practiceId: GD.practiceId,
             times: time
@@ -183,7 +183,7 @@ module.exports = {
     },
 
 
-    http_get(params, url, header, cb, failCount = 0) {
+    http_get(params, url, header, cb, failCb, failCount = 0) {
         var self = this;
         var xhr = cc.loader.getXMLHttpRequest();
         xhr.open("GET", url + '?practiceId=' + params.practiceId);
@@ -197,12 +197,16 @@ module.exports = {
         xhr.onreadystatechange = function (data) {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-                    console.log('success',xhr)
+                    console.log('success', xhr)
                     if (cb) cb(JSON.parse(xhr.response));
                 } else {
                     console.log("ErrorStatus:", xhr.status);
                     //失败重传，最多三次
-                    if (++failCount < 3) self.http_get(params, url, header, cb, failCount);
+                    if (++failCount < 3) {
+                        self.http_get(params, url, header, cb, failCb, failCount)
+                    } else {
+                        failCb && failCb(xhr.status);
+                    };
                 }
             }
         };
@@ -222,7 +226,7 @@ module.exports = {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-                    console.log('success',xhr)
+                    console.log('success', xhr)
                     if (cb) cb;
                 } else {
                     console.log("ErrorStatus:", xhr.status);
