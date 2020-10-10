@@ -22,9 +22,9 @@ function mixin(obj) {
 }
 
 Loader.prototype.init = function () {
-   this.imgAssets = [];
-   this.soundAssets = [];
-   this.dbAsset = [];
+    this.imgAssets = [];
+    this.soundAssets = [];
+    this.dbAsset = [];
 }
 
 Loader.prototype.loadRes = function () {
@@ -122,13 +122,22 @@ Loader.prototype.getSound = function (name, cb) {
             }
         }
     }
-    cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, url) => {
+    /*    cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, url) => {
+           if (err) {
+               console.log(err);
+               return;
+           }
+           this.soundAssets[name] = url;
+           cb && cb(url);
+       }) */
+
+    cc.resources.load("sound/" + name, cc.AudioClip, (err, clip) => {
         if (err) {
             console.log(err);
-            return;
+            return
         }
-        this.soundAssets[name] = url;
-        cb && cb(url);
+        this.soundAssets[name] = clip;
+        cb && cb(clip);
     })
     return null
 }

@@ -18,13 +18,13 @@ cc.Class({
         cc.gameConfig.videoURL && (this.getComponent(cc.VideoPlayer).remoteURL = cc.gameConfig.videoURL);
         this.videoPlayer = null;
         this._prog = this.progressNode.getComponent('videoProg')
+
     },
 
     start() {
         this.setVideoBottom();
         //this.play();
-        this._isLoaded = false;  
-
+        this._isLoaded = false;
     },
 
     init(readyCallFunc, videoCallFunc, poster, rounData) {
@@ -35,21 +35,26 @@ cc.Class({
         this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
         //强制播放视频（ready事件无效）
+
+        var self = this;
+        function checkPlaying() {
+            var result = false;
+            var currentTime = self.videoPlayer._impl._video.currentTime;
+            var isPlaying = self.videoPlayer.isPlaying();
+            var isPlayStatus = (self.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING);
+            if (currentTime || isPlaying || isPlayStatus) result = true;
+            return result;
+        }
+
+
         var intervalTag = setInterval(() => {
-            if (this.getCurrentTime() || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
+            if (checkPlaying()) {
+                this.startGame();
                 clearInterval(intervalTag);
             } else {
                 this.play();
-                setTimeout(() => {
-                    if (this.getCurrentTime() || this.videoPlayer.isPlaying() || this.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING) {
-                        clearInterval(intervalTag);
-                        //准备好并播放视频
-                        console.log('强播')
-                        this.startGame();
-                    }
-                }, 100);
             }
-        }, 2000);
+        }, 500);
 
         cc.YL.tools.registerTouch(this._poster, () => { }, null, () => {
             clearInterval(intervalTag);
@@ -77,6 +82,7 @@ cc.Class({
 
     //暂停视频 隐藏进度条
     pauseAndHideProg() {
+        this.setPoster(false);
         this._prog.setScreenTouch(false)
         this._prog.setVideoProg(false)
         this.pause()
@@ -117,11 +123,10 @@ cc.Class({
         this._videoState = eventType
         switch (eventType) {
             case cc.VideoPlayer.EventType.META_LOADED:
-                {}
+                { }
                 break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY:
                 {
-                    console.log("video-READY_TO_PLAY", this._isLoaded)
                     if (!this._isLoaded) {
                         console.log('自然加载')
                         this.startGame();
@@ -130,24 +135,19 @@ cc.Class({
                 break;
             case cc.VideoPlayer.EventType.CLICKED:
                 {
-                    console.log("video-CLICKED")
                 }
                 break;
             case cc.VideoPlayer.EventType.COMPLETED:
                 {
-                    console.log("video-COMPLETED")
                 }
             case cc.VideoPlayer.EventType.PLAYING:
                 {
-                    console.log("video-PLAYING")
                 }
             case cc.VideoPlayer.EventType.STOPPED:
                 {
-                    console.log("video-STOPPED")
                 }
             case cc.VideoPlayer.EventType.PAUSED:
                 {
-                    console.log("video-PAUSED")
                 }
             default:
                 break;
@@ -250,7 +250,7 @@ cc.Class({
         return this.videoPlayer._impl._video.currentTime;
     },
 
-    getDuration(){
+    getDuration() {
         return this.videoPlayer.getDuration();
     },
 
@@ -260,6 +260,7 @@ cc.Class({
         }
         this.videoPlayer._impl._video.currentTime = time
     },
+
 
     update(dt) {
         if (!this.videoPlayer || !this._isLoaded || !this.getCurrentTime()) {
