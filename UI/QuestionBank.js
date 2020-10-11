@@ -33,7 +33,6 @@ cc.Class({
     },
 
     start() {
-        this.startLv = GD.iRoundID;
         GD.sound.setTipsButton(true);
         GD.root.setStarBoard(false);
         this.canvasBG = cc.YL.setCanvasBG(this.node.getChildByName('bj').getComponent(cc.Sprite).spriteFrame);
@@ -42,6 +41,7 @@ cc.Class({
         GD.root.setQuestionBg(true);
         GD.root.setStarBoard(true);
         this.canvasBG.active = true;
+        this.registerEvent();
         //this.fitWhiteBG();
     },
 
@@ -49,6 +49,7 @@ cc.Class({
         cc.YL.emitter.on('startGame', (e, data) => {
             console.log('startGame')
             GD.sound.playBGM();
+            this.startLv = GD.iRoundID;
             this.startGame();
         })
 
@@ -84,6 +85,7 @@ cc.Class({
             cc.loader.loadRes('prefab/' + this.folderName + '/round' + this.startLv, cc.Prefab, (err, _prefab) => {
                 if (err) {
                     console.log(err);
+                    return;
                 }
                 var round = cc.instantiate(_prefab);
                 round.parent = this.node;

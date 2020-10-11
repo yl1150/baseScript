@@ -1,27 +1,4 @@
-const _GAMELIST = {
-    /**默认展现游戏目录 */
-    '0': 'default',
-
-    /**视频游戏 */
-    '1': 'videoGame',
-
-    /**题库 */
-    '2': 'questionBank',
-
-    /**播放小贴士视频 */
-    '3': 'videoTips',
-
-    /**习题上*/
-    '4': 'exercises1',
-
-    /**习题下*/
-    '5': 'exercises2',
-    /*游戏*/
-    '6': 'yearGame',
-    /*pk游戏*/
-    '7': 'pkGame'
-};
-
+let GAMETYPE = require('Define').GAMETYPE;
 let GAMELIST = require('Define').GAMELIST;
 
 cc.Class({
@@ -30,8 +7,8 @@ cc.Class({
     properties: {
         layerPool: [cc.Prefab],
         gameName: {
-            default: GAMELIST.default,
-            type: GAMELIST,
+            default: GAMETYPE.default,
+            type: GAMETYPE,
             displayName: '游戏目录',
         },
         isFitPhone: true,
@@ -50,7 +27,7 @@ cc.Class({
         this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
 
 
-        if (!cc.gameConfig.gameName) cc.gameConfig.gameName = _GAMELIST[this.gameName];
+        if (!cc.gameConfig.gameName) cc.gameConfig.gameName = GAMELIST[this.gameName];
 
         GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;

@@ -26,7 +26,7 @@ const videoStatusCode = cc.Enum({
     STATUS_PLAYVIDEO: 2,
 });
 
-const GAMELIST = cc.Enum({
+const GAMETYPE = cc.Enum({
     /**默认展现游戏目录 */
     default: 0,
 
@@ -52,4 +52,50 @@ const GAMELIST = cc.Enum({
     pkGame: 7
 });
 
-export {blockType,kStatusCode,videoStatusCode,GAMELIST}
+const GAMELIST = {
+    /**默认展现游戏目录 */
+    '0': 'default',
+
+    /**视频游戏 */
+    '1': 'videoGame',
+
+    /**题库 */
+    '2': 'questionBank',
+
+    /**播放小贴士视频 */
+    '3': 'videoTips',
+
+    /**习题上*/
+    '4': 'exercises1',
+
+    /**习题下*/
+    '5': 'exercises2',
+    /*游戏*/
+    '6': 'yearGame',
+    /*pk游戏*/
+    '7': 'pkGame',
+    default: 'default',
+
+    /**视频游戏 */
+    videoGame: 'videoGame',
+
+    /**题库 */
+    questionBank: 'questionBank',
+
+    /**播放小贴士视频 */
+    videoTips: 'videoTips',
+
+    /**习题上*/
+    exercises1: 'exercises1',
+
+    /**习题下*/
+    exercises2: 'exercises2',
+
+    /*游戏*/
+    yearGame: 'yearGame',
+
+    /*pk游戏*/
+    pkGame: 'pkGame'
+};
+
+export {blockType,kStatusCode,videoStatusCode,GAMETYPE,GAMELIST}
