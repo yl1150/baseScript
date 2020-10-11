@@ -14,25 +14,24 @@ cc.Class({
         //摄像机组件透明度
         var camera = cc.find('Canvas/Main Camera');
         camera.getComponent(cc.Camera).backgroundColor = cc.color(0, 0, 0, 0);
-        //播放器
-        cc.gameConfig.videoURL && (this.getComponent(cc.VideoPlayer).remoteURL = cc.gameConfig.videoURL);
-        this.videoPlayer = null;
-        this._prog = this.progressNode.getComponent('videoProg')
 
+        this._poster = this.node.getChildByName('videoPoster');
+        this.videoPlayer = this.getComponent(cc.VideoPlayer);
+        //播放器
+        cc.gameConfig.videoURL && (this.videoPlayer.remoteURL = cc.gameConfig.videoURL);
+        this._prog = this.progressNode.getComponent('videoProg');
     },
 
     start() {
         this.setVideoBottom();
-        //this.play();
+        this.setPoster(true);
         this._isLoaded = false;
     },
 
-    init(readyCallFunc, videoCallFunc, poster, rounData) {
+    init(readyCallFunc, videoCallFunc, rounData) {
         this._readyCallFunc = readyCallFunc;
         this._videoCallFunc = videoCallFunc;
-        this._poster = poster;
         this._roundData = rounData;
-        this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
         //强制播放视频（ready事件无效）
 
@@ -127,10 +126,7 @@ cc.Class({
                 break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY:
                 {
-                    if (!this._isLoaded) {
-                        console.log('自然加载')
-                        this.startGame();
-                    }
+
                 }
                 break;
             case cc.VideoPlayer.EventType.CLICKED:

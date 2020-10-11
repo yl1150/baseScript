@@ -16,7 +16,6 @@ cc.Class({
         questionPool: [cc.Prefab],
         roundData: [cc.JsonAsset],
         showBGMTime: 0,
-        videoPoster: cc.Node
     },
 
     onLoad() {
@@ -26,7 +25,6 @@ cc.Class({
         this._questions = this.game.getChildByName('questions');
         this._isShowBGM = true;
         this.registerEvent();
-        this.setPoster(true);
     },
 
     //注册事件
@@ -49,25 +47,28 @@ cc.Class({
             console.log('continueGame')
             this.continueGame();
         })
-    },
 
-    start() {
-        cc.YL.unLockTouch()
-        this._time = 0
-        GD.sound.setTipsButton(false);
-        this._vPlayer.init(this.startGame.bind(this), this.videoCallFunc.bind(this), this.videoPoster, this.roundData);
+        cc.YL.emitter.on('startGame', (e, data) => {
+            console.log('startGame')
+            this.startGame();
+        })
     },
 
     startGame() {
-        //初始化并展示出产动画
-        GD.jumpModel = false
-        this._isCheckTime = true
-        this._state = kStatusCode.STATUS_PLAYVIDEO
-        GD.sound.pauseBgm();
-    },
-
-    setPoster(isShow) {
-        this.videoPoster.active = isShow;
+        cc.YL.unLockTouch()
+        this._time = 0
+        GD.sound.setTipsButton(false);
+        this._vPlayer.init(
+            () => {
+                //初始化并展示出产动画
+                GD.jumpModel = false
+                this._isCheckTime = true
+                this._state = kStatusCode.STATUS_PLAYVIDEO
+                GD.sound.pauseBgm();
+            },
+            this.videoCallFunc.bind(this),
+            this.roundData
+        );
     },
 
     continueGame() {
@@ -92,13 +93,14 @@ cc.Class({
         //提交数据
         GD.sound.pauseBgm();
         cc.YL.lockTouch()
-        cc.YL.emitter.off('continueGame');
         cc.YL.emitter.emit('gameEnd');
     },
 
     onDestroy() {
         cc.YL.emitter.off('finishRound');
         cc.YL.emitter.off('continueGame');
+        cc.YL.emitter.off('finishGame');
+        cc.YL.emitter.off('startGame');
     },
 
     freezeVideoCheck() {

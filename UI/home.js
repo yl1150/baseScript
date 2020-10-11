@@ -50,7 +50,7 @@ cc.Class({
         this._bgSpriteFrame = this._bg.getComponent(cc.Sprite).spriteFrame;
 
 
-        if (!cc.gameConfig.gameName) cc.gameConfig.gameName = this.gameName
+        if (!cc.gameConfig.gameName) cc.gameConfig.gameName = _GAMELIST[this.gameName];
 
         GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
@@ -75,14 +75,17 @@ cc.Class({
                         console.log(err);
                     }
                     hLayer = cc.instantiate(_prefab);
-                    this._game.addChild(hLayer);
+                    this.node.addChild(hLayer);
                     hLayer.getComponent('homeLayer').init();
                 });
             }
-
+            this.loadLayer();
         } else {
             hLayer && hLayer.destroy();
-            this.changeLayer();
+            this.loadLayer(() => {
+                //加载完成后直接启动
+                cc.gameConfig.gameName == GAMELIST.videoGame && cc.YL.emitter.emit('startGame');
+            });
         }
     },
 
@@ -119,19 +122,16 @@ cc.Class({
             }
         })
 
-        cc.YL.emitter.on('cdLayer', (data) => {
-            this.changeLayer();
-        })
     },
 
-    changeLayer(event, name) {
+    loadLayer(event, name) {
         cc.YL.unLockTouch();
         cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
 
-        if (!name) name = _GAMELIST[cc.gameConfig.gameName];
+        if (!name) name = cc.gameConfig.gameName;
         if (name == 'default') return;
         console.log('loadGame:   ', name, '   ==============');
 
@@ -226,7 +226,6 @@ cc.Class({
 
     onDestroy() {
         cc.YL.emitter.off('gameEnd');
-        cc.YL.emitter.off('cdLayer')
     },
     // update (dt) {},
 });

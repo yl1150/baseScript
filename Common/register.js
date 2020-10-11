@@ -12,7 +12,7 @@ let register = {
             cc.gameConfig = {
                 isOfficial: false,
                 videoURL: "",
-                isWX: false,
+                isWX: true,
                 gameID: 0,
                 gameName: '',
                 roundID: 1,
