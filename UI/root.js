@@ -4,6 +4,7 @@ cc.Class({
     properties: {
         starBoard: cc.Node,
         starNumLabel: cc.Label,
+        isUpdateBGWidget:false,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -25,10 +26,11 @@ cc.Class({
 
 
         this.questionBg = cc.find('Canvas/questionBg');
-        this.questionBg && this.questionBg.addComponent('bgFit').fit();
 
         let widget = this.questionBg.getComponent(cc.Widget);
-        if(widget){
+        if(widget && this.isUpdateBGWidget){
+            this.bgFit = this.questionBg.addComponent('bgFit');
+            this.bgFit.fit();
             widget.target = cc.find('Canvas');
             widget.top = 60;
             widget.bottom = 60;
@@ -43,7 +45,7 @@ cc.Class({
 
     setQuestionBg(isShow) {
         this.questionBg.active = isShow;
-        this.questionBg.getComponent('bgFit').fit();
+        this.bgFit && this.bgFit.fit();
     },
 
     setBack(isShow) {
