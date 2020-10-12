@@ -59,9 +59,11 @@ cc.Class({
             this.loadLayer();
         } else {
             hLayer && hLayer.destroy();
-            this.loadLayer(() => {
+            this.loadLayer('',() => {
                 //加载完成后直接启动
-                cc.gameConfig.gameName == GAMELIST.videoGame && cc.YL.emitter.emit('startGame');
+                cc.YL.timeOut(()=>{
+                    cc.YL.emitter.emit('startGame');
+                },500)
             });
         }
     },
@@ -101,7 +103,16 @@ cc.Class({
 
     },
 
-    loadLayer(event, name) {
+    changeLayer(event,name){
+        this.loadLayer(name,() => {
+            //加载完成后直接启动
+            cc.YL.timeOut(()=>{
+                cc.YL.emitter.emit('startGame');
+            },500)
+        });
+    },
+
+    loadLayer(name,cb) {
         cc.YL.unLockTouch();
         cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
@@ -116,6 +127,7 @@ cc.Class({
         if (tNode) {
             //无需加载
             this._bg.active = true;
+            cb && cb();
         } else {
             let prefab = null;
             for (let i in this.layerPool) {
@@ -127,6 +139,7 @@ cc.Class({
                 let layer = cc.instantiate(prefab);
                 this._game.addChild(layer);
                 this._loadedLayer = layer;
+                cb && cb();
             } else {
                 cc.loader.loadRes('prefab/' + name, cc.Prefab, (err, _prefab) => {
                     if (err) {
@@ -135,6 +148,7 @@ cc.Class({
                     let layer = cc.instantiate(_prefab);
                     this._game.addChild(layer);
                     this._loadedLayer = layer;
+                    cb && cb();
                 });
             }
             this.setHomeLayer(false);

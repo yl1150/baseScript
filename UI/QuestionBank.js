@@ -107,6 +107,11 @@ cc.Class({
         }
     },
 
+    onDestroy() {
+        cc.YL.emitter.off('PASSLV');
+
+    },
+
     showAnswerTips(arr, dtArr, sNumArr, durArr, endCallFunc) {
         this.showTips(arr, dtArr, sNumArr, durArr, endCallFunc);
     },
