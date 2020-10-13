@@ -12,7 +12,8 @@ cc.Class({
             displayName: '游戏目录',
         },
         isFitPhone: true,
-        isShowRecord: false
+        isShowRecord: false,
+        maxRoundID:8
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -28,10 +29,12 @@ cc.Class({
 
 
         if (!cc.gameConfig.gameName) cc.gameConfig.gameName = GAMELIST[this.gameName];
+        if (!cc.gameConfig.maxRoundID) cc.gameConfig.maxRoundID = this.maxRoundID;
 
         GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
         GD.isPlayBgm = cc.gameConfig.gameName == GAMELIST.questionBank;
+
     },
 
     start() {
