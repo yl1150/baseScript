@@ -16,11 +16,10 @@ let register = {
                 gameID: 0,
                 gameName: '',
                 roundID: 1,
-                maxRoundID: 8,//最大关卡数
             }
         }
         //注册按钮点击事件 用于添加点击音效
-        cc.Button.prototype._onTouchBegan = function (t) {
+        cc.Button.prototype._onTouchBegan = function (event) {
             if (!GD.canTouch) {
                 return;
             }
