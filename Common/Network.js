@@ -109,9 +109,9 @@ module.exports = {
         }
         console.log('sendTimeAndStar: ', data);
         data = JSON.stringify(data);
-        var url = 'http://dev.hxsup.com/api/annual/mini/studyLog/add'
+        var url = 'https://dev.hxsup.com/api/annual/mini/studyLog/add'
         if (cc.gameConfig.isOfficial) {
-            url = 'http://www.hxsup.com/api/annual/mini/studyLog/add'
+            url = 'https://www.hxsup.com/api/annual/mini/studyLog/add'
         }
         var header = {
             "AnnualMiniToken": GD.userToken,
