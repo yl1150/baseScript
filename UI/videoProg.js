@@ -8,7 +8,17 @@ const kStatusCode = cc.Enum({
 
     /**播放视频 */
     STATUS_PLAYVIDEO: 2,
-}); cc.Class({
+});
+
+const Prog_kStatusCode = cc.Enum({
+    /**无状态 */
+    Show: 0,
+
+    /**正在游戏关卡 */
+    Hide: 1,
+
+});
+cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -39,10 +49,11 @@ const kStatusCode = cc.Enum({
             return;
         }
 
-        if(this._isInit){
+        if (this._isInit) {
             console.log('已经初始化')
             return;
         }
+        this.node.active = true;
 
         let _canvas = cc.find('Canvas')
         let widget = this.getComponent(cc.Widget)
@@ -62,8 +73,9 @@ const kStatusCode = cc.Enum({
         this._progBar = this.node.getChildByName('progBar')
         this._progHandle = this.node.getChildByName('Handle')
         this._pauseBtn = this.node.getChildByName('pauseBtn')
-        this.node.active = false
         this._progHandle.zIndex = 99
+
+        this.setVideoProg(false);
         cc.YL.tools.registerTouch(
             this._progBg,
             (e) => {
@@ -113,7 +125,7 @@ const kStatusCode = cc.Enum({
                 if (GD.main.checkState() == kStatusCode.STATUS_PLAYVIDEO) {
                     //当且仅当 播放视频时 可显示进度条及其相关
                     this.setBtnSprite(this._videoBase.getVideoState() == cc.VideoPlayer.EventType.PAUSED ? 'pause' : 'resume')
-                    if (this.node.active) {
+                    if (this._progState == Prog_kStatusCode.Show) {
                         this.setVideoProg(false)
                         this.stopHidingClock()
                     } else {
@@ -152,7 +164,7 @@ const kStatusCode = cc.Enum({
         this._isInit = true;
         this._videoBase = videoBase
         for (let i in roundData) {
-            let json = roundData[i].json||roundData[i];
+            let json = roundData[i].json || roundData[i];
 
             let data = json.limitTime
             let isTipsRound = json.isTipsRound
@@ -209,8 +221,9 @@ const kStatusCode = cc.Enum({
     },
 
     setVideoProg(isShow) {
-        this._pauseBtn.active = isShow
-        this.node.active = isShow
+        this._pauseBtn.active = isShow;
+        this._progState = isShow ? Prog_kStatusCode.Show : Prog_kStatusCode.Hide
+        this.node.setScale(isShow ? 0.67 : 0);
     },
 
     sliderCallFunc(e) {
