@@ -1,3 +1,4 @@
+let GAMELIST = require('Define').GAMELIST;
 cc.Class({
     extends: cc.Component,
 
@@ -140,7 +141,7 @@ cc.Class({
             callFunc && callFunc();
             return;
         }
-        if (GD.isShowRecord) {
+        if (GD.isShowRecord && cc.gameConfig.gameName == GAMELIST.questionBank) {
             cc.YL.net.sendSeqAndTime(GD.roundID, time)
         } else {
             cc.YL.net.sendTime(parseInt(time))
