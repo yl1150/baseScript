@@ -106,6 +106,9 @@ cc.Class({
             }
         }
  */
+        if(name == 'click')return;
+
+
         if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
             console.log('禁止同时播放同一个音效')
             return;
