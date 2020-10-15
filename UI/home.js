@@ -13,7 +13,7 @@ cc.Class({
         },
         isFitPhone: true,
         isShowRecord: false,
-        maxRoundID:8
+        maxRoundID: 8
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -62,11 +62,11 @@ cc.Class({
             this.loadLayer();
         } else {
             hLayer && hLayer.destroy();
-            this.loadLayer('',() => {
+            this.loadLayer('', () => {
                 //加载完成后直接启动
-                cc.YL.timeOut(()=>{
+                cc.YL.timeOut(() => {
                     cc.YL.emitter.emit('startGame');
-                },500)
+                }, 500)
             });
         }
     },
@@ -106,16 +106,16 @@ cc.Class({
 
     },
 
-    changeLayer(event,name){
-        this.loadLayer(name,() => {
+    changeLayer(event, name) {
+        this.loadLayer(name, () => {
             //加载完成后直接启动
-            cc.YL.timeOut(()=>{
+            cc.YL.timeOut(() => {
                 cc.YL.emitter.emit('startGame');
-            },500)
+            }, 500)
         });
     },
 
-    loadLayer(name,cb) {
+    loadLayer(name, cb) {
         cc.YL.unLockTouch();
         cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
@@ -209,8 +209,8 @@ cc.Class({
         if (cc.gameConfig.isWX) {
             cc.YL.net.sendTimeAndStar(cc.gameConfig.gameName == GAMELIST.questionBank ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
-            if (GD.isShowRecord) {
-                cc.YL.net.sendSeqAndTime(cc.gameConfig.gameName == GAMELIST.questionBank ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time)
+            if (GD.isShowRecord && cc.gameConfig.gameName == GAMELIST.questionBank) {
+                cc.YL.net.sendSeqAndTime(8 , time)
             } else {
                 cc.YL.net.sendTime(time)
             }
