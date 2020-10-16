@@ -56,7 +56,7 @@ cc.Class({
                     console.log(err);
                 }
                 var icon = cc.instantiate(_prefab);
-                icon.parent = this.node;
+                icon.parent = this.questionBg;
                 icon.zIndex = -1;
                 this._seqIcon = icon.getComponent('seqIcon')
                 this._seqIcon.setType(this.seqIconType);

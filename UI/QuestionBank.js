@@ -15,7 +15,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        maxLv: 5,
+        maxLv: 8,
         qType: {
             type: questionType,
             default: questionType.default,

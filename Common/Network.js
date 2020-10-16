@@ -53,7 +53,7 @@ module.exports = {
         var data = {
             practiceId: GD.practiceId,
         }
-        let urlHead = cc.gameConfig.isOfficial ? 'http://www.hxsup.com' : 'http://dev.hxsup.com'
+        let urlHead = cc.gameConfig.isOfficial ? 'https://www.hxsup.com' : 'https://dev.hxsup.com'
 
         var url = '/api/annual/mini/lesson/practice/process'
         var header = {
