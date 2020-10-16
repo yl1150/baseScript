@@ -1,10 +1,19 @@
+const ICONTYPE = cc.Enum({
+    default: 1,
+    ice: 2
+});
 cc.Class({
     extends: cc.Component,
 
     properties: {
         starBoard: cc.Node,
         starNumLabel: cc.Label,
-        isUpdateBGWidget:false,
+        isUpdateBGWidget: false,
+        seqIconType: {
+            default: ICONTYPE.default,
+            type: ICONTYPE,
+            displayName: 'icon类型',
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -28,14 +37,34 @@ cc.Class({
         this.questionBg = cc.find('Canvas/questionBg');
 
         let widget = this.questionBg.getComponent(cc.Widget);
-        if(widget && this.isUpdateBGWidget){
+        if (widget && this.isUpdateBGWidget && cc.YL.tools.checkIsphone()) {
             this.bgFit = this.questionBg.addComponent('bgFit');
             this.bgFit.fit();
+            widget.enabled = true;
             widget.target = cc.find('Canvas');
             widget.top = 60;
             widget.bottom = 60;
             widget.updateAlignment();
         }
+        this.setSeqIcon(false)
+    },
+
+    setSeqIcon(isShow,maxNum = 6) {
+        if (!this._seqIcon) {
+            cc.loader.loadRes('seqIcon/' + 'seqIcon', cc.Prefab, (err, _prefab) => {
+                if (err) {
+                    console.log(err);
+                }
+                var icon = cc.instantiate(_prefab);
+                icon.parent = this.node;
+                icon.zIndex = -1;
+                this._seqIcon = icon.getComponent('seqIcon')
+                this._seqIcon.setType(this.seqIconType);
+                this._seqIcon.setIcon(isShow,maxNum);
+            });
+            return;
+        }
+        this._seqIcon.setIcon(isShow,maxNum);
     },
 
     setStarBoard(isShow) {
@@ -135,7 +164,7 @@ cc.Class({
     showAddStar(starNum, callFunc) {
         let time = cc.YL.stopTimeCount();//结束计时
         if (cc.gameConfig.isWX) {
-            cc.YL.net.sendTimeAndStar( GD.roundID, time, starNum);
+            cc.YL.net.sendTimeAndStar(GD.roundID, time, starNum);
             cc.YL.startTimeCount();//重新计时
             callFunc && callFunc();
             return;
@@ -171,7 +200,7 @@ cc.Class({
                     break;
             } */
             GD.sound.playSound('getStar');
-            this.earnStar(this.node, starIcon,starNum, () => {
+            this.earnStar(this.node, starIcon, starNum, () => {
                 skePool.active = false;
                 ske.active = false;
                 callFunc && callFunc();
@@ -185,7 +214,7 @@ cc.Class({
     * @param {Number} count 星星数
     * @param {Function} cb 完成后回调
     */
-    earnStar(startPoint,endPoint, count, cb) {
+    earnStar(startPoint, endPoint, count, cb) {
         cc.YL.net.sendStarNum(count);
         GD.integral += parseInt(count);
         var maxLength = 150;

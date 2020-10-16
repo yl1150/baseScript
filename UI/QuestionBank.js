@@ -40,6 +40,7 @@ cc.Class({
         this.folderName = 'qBank';
         GD.root.setQuestionBg(true);
         GD.root.setStarBoard(true);
+        GD.root.setSeqIcon(true,this.maxLv);
         this.canvasBG.active = true;
         this.registerEvent();
         //this.fitWhiteBG();
@@ -74,6 +75,7 @@ cc.Class({
     },
 
     startGame() {
+        cc.YL.emitter.emit('refreshSeqID',this.startLv);
         GD.root.setStarBoard(false);
         let round = this.node.getChildByName('round' + this.startLv);
         if (round && round.isValid) {
