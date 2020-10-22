@@ -46,10 +46,14 @@ module.exports = {
         console.log('此为', cc.gameConfig.isOfficial ? '正式' : '测试');
     },
 
+    getLearningProcess(cb, failCb) {
+        cc.gameConfig.isWX ? this.getLearningProcess_WX(cb, failCb) : this.getLearningProcess_App(cb, failCb);
+    },
+
     /*
     获取学习进度接口
     */
-    getLearningProcess(cb,failCb) {
+    getLearningProcess_WX(cb, failCb) {
         var data = {
             practiceId: GD.practiceId,
         }
@@ -60,17 +64,21 @@ module.exports = {
             "AnnualMiniToken": GD.userToken,
             "Content-Type": "application/json",
         }
+        this.http_get(data, urlHead + url, header, cb, failCb);
+    },
 
-        if (!cc.gameConfig.isWX) {
-            header = {
-                "Authorization": GD.userToken,
-                "Content-Type": "application/json",
-            }
-            url = '/api/annual/lesson/practice/process'
+    getLearningProcess_App(cb, failCb) {
+        var data = {
+            practiceId: GD.practiceId,
         }
+        let urlHead = cc.gameConfig.isOfficial ? 'http://www.hxsup.com' : 'http://dev.hxsup.com'
 
-
-        this.http_get(data, urlHead + url, header, cb,failCb);
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        var url = '/api/annual/lesson/practice/process'
+        this.http_get(data, urlHead + url, header, cb, failCb);
     },
 
     //从服务端获取所需要的用户数据
