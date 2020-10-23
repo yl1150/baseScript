@@ -83,9 +83,9 @@ module.exports = {
         let maxY = sy * 1.2;
         let minY = sy * 0.8;
         let midY = (maxY + minY) / 2;
-        let action = cc.tween().parallel(cc.tween().by(0.1, { position: cc.v2(0, 50) }).by(0.1, { position: cc.v2(0, -50) }),cc.tween().to(0.1, { scaleX: maxX, scaleY: maxY }).to(0.1, { scaleX: midX, scaleY: midY }))
+        let action = cc.tween().parallel(cc.tween().by(0.1, { position: cc.v2(0, 50) }).by(0.1, { position: cc.v2(0, -50) }), cc.tween().to(0.1, { scaleX: maxX, scaleY: maxY }).to(0.1, { scaleX: midX, scaleY: midY }))
         if (num) {
-            return cc.tween().repeat(num,action)
+            return cc.tween().repeat(num, action)
         } else {
             return cc.tween().repeatForever(action)
         }
@@ -94,7 +94,7 @@ module.exports = {
     //闪烁 1s2次
     blink() {
         let action = cc.tween().to(0.25, { opacity: 0 }).to(0.25, { opacity: 255 });
-        return cc.tween().repeat(2,action)
+        return cc.tween().repeat(2, action)
     },
 
     /** 线性的位移函数，
@@ -103,4 +103,27 @@ module.exports = {
     lineMove(startP, endP, dt = 0.1) {
         return cc.tween().to((cc.YL.tools.getDisTance(startP, endP) / 100) * dt, { position: endP })
     },
+
+    /**上下晃动用于拖拽选项弹回*/
+    SHAKING_Y: cc
+        .tween()
+        .by(0.1, { scaleX: 0.0265, scaleY: -0.04, y: -18 })
+        .by(2 / 15, { scaleX: -0.0275, scaleY: 0.014, y: 23 })
+        .by(2 / 15, { scaleX: 0.002, scaleY: -0.03, y: -9 })
+        .by(4 / 15, { scaleX: -0.001, scaleY: 0.056, y: 6.2 })
+        .by(11 / 30, { y: -2.2 }),
+
+    /**左右晃动，用于点击选项错误效果*/
+    SHAKING_X: cc
+        .tween()
+        .by(1 / 30, { x: -30.7 })
+        .by(1 / 30, { x: 30.7 })
+        .by(2 / 30, { x: 29 })
+        .by(2 / 30, { x: -29 })
+        .by(3 / 30, { x: -22.1 })
+        .by(3 / 30, { x: 22.1 })
+        .by(3 / 30, { x: 13.6 })
+        .by(4 / 30, { x: -13.6 })
+        .by(5 / 30, { x: -4.2 })
+        .by(6 / 30, { x: 4.2 }),
 }

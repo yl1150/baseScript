@@ -77,11 +77,14 @@ cc.Class({
     },
 
     setTreeName(nTree) {
+        Editor.log('setTreeName:');
         let count = 1
         nTree.children.forEach((kid) => {
             kid.children.forEach((node) => {
-                node.name = 'point'
+                node.name = 'frame'
             });
+            kid.name = 'block'+count++
+
         });
     },
 
