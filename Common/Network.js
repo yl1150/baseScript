@@ -74,7 +74,7 @@ module.exports = {
         var data = {
             practiceId: GD.practiceId,
         }
-        let urlHead = GD.isDev ? 'http://dev.hxsup.com' : 'http://www.hxsup.com'
+        let urlHead = cc.gameConfig.isOfficial ? 'http://www.hxsup.com' : 'http://dev.hxsup.com'
 
         var header = {
             "Authorization": GD.userToken,
