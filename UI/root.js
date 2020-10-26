@@ -46,7 +46,6 @@ cc.Class({
             widget.bottom = 60;
             widget.updateAlignment();
         }
-        this.setSeqIcon(false)
     },
 
     setSeqIcon(isShow,maxNum = 6) {

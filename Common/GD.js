@@ -15,10 +15,11 @@ window.GD = {
     sound: null,
     gameId:1,
     practiceId: 1,
-    bgMusicVolume:100,//百分比
+    bgMusicVolume:1,
     /**
      * 积分数/星星数
      */
     integral: 0,
-    isSendRoundID:false
+    isSendRoundID:false,
+    audio_NativeUrl_Pool:[]
 }

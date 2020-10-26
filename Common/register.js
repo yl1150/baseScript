@@ -46,8 +46,7 @@ let register = {
         cc.YL.net.getUserToken();
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
-        !cc.YL.loader && (cc.YL.loader = new Loader(),cc.YL.loader.init());
-
+        !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.init(),cc.YL.loader.loadResByTier());
         !GD.timePool && (GD.timePool = []);
 
         let scene = cc.director.getScene();
@@ -104,6 +103,20 @@ let register = {
 
             };
         }
+
+        if (cc.sys.os === cc.sys.OS_IOS) {
+            cc.game.on(cc.game.EVENT_GAME_INITED, () => {
+                cc.game.on(cc.game.EVENT_SHOW, () => {
+                    //cc.audioEngine.resumeAll();
+                    cc.Director.resume()
+                });
+
+                cc.game.on(cc.game.EVENT_HIDE, () => {
+                    cc.Director.pause();
+                    //cc.audioEngine.pauseAll();
+                });
+            })
+        }
     },
 
     lockTouch() {
@@ -125,14 +138,12 @@ let register = {
         //适配
         var pCanvas = cc.director.getScene().getChildByName('Canvas').getComponent(cc.Canvas);
         var scale = cc.winSize.height / pCanvas.designResolution.height
-        console.log('fitCheck')
         var pw = cc.winSize.width;
         var ph = cc.winSize.height;
         //宽高比低于视频比，即屏幕太窄就缩放
         var winRatio = pw / ph;
         var videoRatio = 16 / 9;
         if (winRatio >= videoRatio) {
-            console.log('fitPhone')
             var pScale = videoRatio / winRatio;
             fitNode.setScale(pScale > 1 ? 1 : pScale);
             //GD.root.node.setScale(pScale > 1 ? 1 : pScale);

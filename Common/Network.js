@@ -5,10 +5,8 @@ module.exports = {
     getUserToken() {
         var url = location.href;
         var params = url.split("?");
-        console.log(params)
         if (params[1]) {
             var arr = params[1].split("&");
-            console.log(arr)
             for (var i = 0; i < arr.length; i++) {
                 var str1 = arr[i].split("=")[0];
                 var str2 = arr[i].split("=")[1];
@@ -31,7 +29,7 @@ module.exports = {
                         console.log('systemFlag:', str2)
                         break;
                     case 'bgMusicVolume':
-                        GD.bgMusicVolume = parseInt(str2);
+                        GD.bgMusicVolume = parseInt(str2) / 100;
                         console.log('bgMusicVolume:', str2)
                         break;
                     default:
@@ -43,16 +41,14 @@ module.exports = {
         if (!GD.userToken) {
             GD.userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaXNzIjoiYXV0aDAiLCJ1c2VyaWQiOjUwfQ.JIagAjWHOEwuAG_7RmSUqj5jx4ehn1mJOzQ6tkfKqSU'
         }
-        console.log('此为', cc.gameConfig.isOfficial ? '正式' : '测试');
     },
 
     getLearningProcess(cb, failCb) {
-        cc.gameConfig.isWX ? this.getLearningProcess_WX(cn.failCb) : this.getLearningProcess_App(cb, failCb);
+        cc.gameConfig.isWX ? this.getLearningProcess_WX(cb, failCb) : this.getLearningProcess_App(cb, failCb);
     },
 
     /*
-     微信端
-     获取学习进度接口  
+    获取学习进度接口
     */
     getLearningProcess_WX(cb, failCb) {
         var data = {
@@ -68,8 +64,6 @@ module.exports = {
         this.http_get(data, urlHead + url, header, cb, failCb);
     },
 
-    //app 端
-    //从服务端获取所需要的用户数据 仅题库调用 视频操作不要调用
     getLearningProcess_App(cb, failCb) {
         var data = {
             practiceId: GD.practiceId,

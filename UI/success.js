@@ -17,13 +17,6 @@ cc.Class({
     },
 
     init() {
-        cc.audioEngine.stopAllEffects()
-        cc.loader.loadRes('sound/gameEnd', cc.AudioClip, (err, audio) => {
-            if (err) {
-                console.log(err)
-            }
-            cc.audioEngine.play(audio, false, 1)
-        })
         this.caidai = this.node.getChildByName("caidai1")
         this.caidai2 = this.node.getChildByName("caidai2")
         this.dd = this.node.getChildByName('dd')

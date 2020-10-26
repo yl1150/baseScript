@@ -29,7 +29,6 @@ Loader.prototype.init = function () {
 
 Loader.prototype.loadRes = function () {
     let self = this
-    this.imgAssets = []
     cc.loader.loadResDir("img", cc.SpriteFrame, function (err, assets, urls) {
         if (err) {
             console.log(err)
@@ -38,14 +37,27 @@ Loader.prototype.loadRes = function () {
         //console.log(assets)
         self.imgAssets = assets
     });
-    cc.loader.loadResDir("sound", cc.AudioClip, function (err, assets, urls) {
-        if (err) {
-            console.log(err)
-            return
-        }
-        //console.log(assets)
-        self.soundAssets = assets
-    });
+
+    /*     cc.loader.loadResDir("sound", cc.AudioClip, function (err, assets, urls) {
+            if (err) {
+                console.log(err)
+                return
+            }
+            self.soundAssets = assets;
+            let prePlay = function(arr)  {
+                if (arr.length < 1) {
+                    return;
+                }
+                let clip = arr.shift();
+                let _aid = cc.audioEngine.play(clip, false, 1);
+                cc.audioEngine.stop(_aid);
+                setTimeout(() => {
+                    prePlay(arr);
+                }, 16);
+            }
+            prePlay(cc.YL.tools.arrCopy(assets));
+            console.log('音频资源加载完------',assets);
+        }); */
 
     cc.loader.loadResDir("spineAndDB", dragonBones.ArmatureDisplayData, function (err, assets) {
         if (err) {
@@ -63,6 +75,26 @@ Loader.prototype.loadRes = function () {
         }
         self.spineDatas = data
     });
+}
+
+//按照梯队加载资源 仅限音频
+Loader.prototype.loadResByTier = function (id) {
+    let self = this
+    if (cc.gameConfig.soundAssets) {
+        this.soundAssets = cc.gameConfig.soundAssets;
+    } else {
+        console.log('为获取到soundAssets 重新加载')
+        cc.assetManager.loadBundle('soundBundle', (err, bundle) => {
+            bundle.loadDir("", cc.AudioClip, function (err, assets) {
+                // ...
+                self.soundAssets = assets;
+                //cc.audioEngine.totalLoad(assets);
+            });
+        });
+    }
+
+
+
 }
 
 Loader.prototype.getImg = function (name, callFunc) {
@@ -122,23 +154,12 @@ Loader.prototype.getSound = function (name, cb) {
             }
         }
     }
-    /*    cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, url) => {
-           if (err) {
-               console.log(err);
-               return;
-           }
-           this.soundAssets[name] = url;
-           cb && cb(url);
-       }) */
+    cc.assetManager.loadBundle('soundBundle', (err, bundle) => {
+        bundle.load(name, cc.AudioClip, (err, clip) => {
+            cb && cb(clip);
+        });
+    });
 
-    cc.resources.load("sound/" + name, cc.AudioClip, (err, clip) => {
-        if (err) {
-            console.log(err);
-            return
-        }
-        this.soundAssets[name] = clip;
-        cb && cb(clip);
-    })
     return null
 }
 

@@ -1,12 +1,6 @@
-const { timeOut } = require("../Common/register");
-const maxAudio = 2;
 cc.Class({
     extends: cc.Component,
     properties: {
-        bgm: {
-            type: cc.AudioClip,
-            default: null
-        },
     },
 
 
@@ -15,9 +9,7 @@ cc.Class({
         GD.sound = this
         this.soundAni = this.getComponent(sp.Skeleton)
         this.button = this.getComponent(cc.Button)
-        this.tipsIDArr = [];
         this.sIDPool = [];
-        this.sIDArr = []
         this.button.interactable = false;
         this.node.opacity = 0;
     },
@@ -41,21 +33,21 @@ cc.Class({
             this.soundAni.setAnimation(0, 'newAnimation_2', false);
             this.soundAni.addAnimation(0, 'newAnimation', true);
         }
+        this.button.interactable = !isShow;
     },
 
     callFunc() {
         this.playTips(GD.showTips);
     },
 
-        /**
-     * 设置音量
-     * @param {number} audioId 音效Id
-     * @param {number} volume 音量，0~1
-     */
+    /**
+ * 设置音量
+ * @param {number} audioId 音效Id
+ * @param {number} volume 音量，0~1
+ */
     setVolume(audioId, volume) {
         cc.audioEngine.setVolume(audioId, volume);
     },
-
 
     playStartBgm() {
         if (!GD.isPlayBgm) {
@@ -63,18 +55,18 @@ cc.Class({
         }
 
         console.log('playStartBgm===============')
-        //this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
-        this.bgm && cc.audioEngine.playMusic(this.bgm, true);
-        cc.audioEngine.setMusicVolume(0.001);
+        /*   this.bgm && cc.audioEngine.playMusic(this.bgm, true);
+          cc.audioEngine.setMusicVolume(0.001); */
     },
 
     playBGM() {
         if (!GD.isPlayBgm) {
             return;
         }
-        // this.bgm && cc.YL.audioEditor.editorAudio(this.bgm);
-        this.bgm && cc.audioEngine.playMusic(this.bgm, true);
-        cc.audioEngine.setMusicVolume(1 * GD.bgMusicVolume / 100);
+        cc.YL.loader.getSound('bgm', (url) => {
+            if (url) cc.audioEngine.playMusic(url, true);
+        });
+        cc.audioEngine.setMusicVolume(GD.bgMusicVolume);
     },
 
     pauseBgm() {
@@ -96,77 +88,35 @@ cc.Class({
 
     //音效 如按钮点击的声音等
     playSound(name, volume = 1) {
-        //单管线 同一时间只允许2个音效
-      /*   let count = 0;
-        for (let i in this.sIDArr) {
-            if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDArr[i])) count++
-            if (count >= maxAudio) {
-                console.log('禁止同时播放多个个音效')
-                return;
-            }
-        }
- */
-        if(name == 'click')return;
-
-
-        if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
-            console.log('禁止同时播放同一个音效')
-            return;
-        }
         if (name == 'wrong' || name == 'right') {
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
+        /* if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
+            console.log('禁止同时播放同一个音效')
+            return;
+        } */
+
         cc.YL.loader.getSound(name, (url) => {
             if (url) {
-                //cc.YL.audioEditor.editorAudio(url);
-                let id = cc.audioEngine.play(url, false);
-                this.sIDPool[name] = id;
-                this.sIDArr.push(id);
+                this.sIDPool.push(cc.audioEngine.play(url))
             }
         });
     },
 
-    play(url, isShowLaba = false, callBack) {
-        //cc.YL.audioEditor.editorAudio(url);
-        this.stopTips();
-        this.button.interactable = false;
-        isShowLaba && this.showLabaAni(true);
-        cc.audioEngine.play(url, false);
-        let time = url._audio.duration;
-        this._timeID = cc.YL.timeOut(() => {
-            isShowLaba && this.showLabaAni(false);
-            this.button.interactable = true;
-            callBack && callBack();
-        }, time * 1000)
-    },
-
     //解说音效
     playTips(name, callBack = null) {
-        //this.stopTips();
-        let isShowLaba = false;
-        if (name == GD.showTips) {
-            //当且仅当问题语音时 播放喇叭
-            isShowLaba = true;
-        }
-        var url = null;
-        if (name instanceof Object) {
-            url = name;
-        } else {
-            url = cc.YL.loader.getSound(name);
-        }
-        if (url) {
-            this.play(url, isShowLaba, callBack);
-        } else {
-            cc.loader.loadRes('sound/' + name, cc.AudioClip, (err, audio) => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                this.play(audio, isShowLaba, callBack);
-            })
-        }
-
+        this.stopTips();
+        this.showLabaAni(GD.showTips == name);
+        cc.YL.loader.getSound(name, (url) => {
+            if (!url) return;
+            this.sIDPool.push(cc.audioEngine.play(url))
+            let time = url._audio.duration;
+            this._timeID = cc.YL.timeOut(() => {
+                this.showLabaAni(false);
+                callBack && callBack();
+            }, time * 1000)
+        });
     },
 
     setShowTips(name, isPlaying, callBack = null) {
@@ -188,16 +138,18 @@ cc.Class({
         }
     },
 
-    stopEffect(name) {
-        this.sIDPool[name] && cc.audioEngine.stopEffect(this.sIDPool[name]);
+    stopEffect(id) {
+        id && cc.audioEngine.stopEffect(id);
     },
 
     stopTips() {
-        cc.YL.emitter.emit('stopTips');
-        this._timeID && clearTimeout(this._timeID);
+        //cc.YL.emitter.emit('stopTips');
+        cc.YL.clearTimeOut(this._timeID);
         this.showLabaAni(false);
-        this.button.interactable = true;
         cc.audioEngine.stopAllEffects();
+        /* while (this.sIDPool.length > 0) {
+            this.stopEffect(this.sIDPool.shift());
+        } */
     },
 });
 

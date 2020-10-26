@@ -205,6 +205,11 @@ cc.Class({
     showEnding() {
         let time = cc.YL.stopTimeCount();
         cc.YL.showSuccess();
+        GD.sound.playTips('gameEnd', () => {
+            GD.sound.stopTips();//手动强制停止所有音频
+            GD.sound.stopBgm();
+            cc.nAudio.destroyAllSounds();
+        })
         //提交数据
         if (cc.gameConfig.isWX) {
             cc.YL.net.sendTimeAndStar(cc.gameConfig.gameName == GAMELIST.questionBank ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);

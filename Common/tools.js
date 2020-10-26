@@ -133,6 +133,12 @@ module.exports = {
         node.off('touchcancel')
     },
 
+    //ios 返回true  安卓 false
+    checkPlatform(){
+        return false;
+        //return cc.sys.os === cc.sys.OS_IOS;
+    },
+
     checkIsphone() {
         let num = (cc.winSize.width / cc.winSize.height)
         console.log("屏幕比例为:", num)
