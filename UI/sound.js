@@ -108,15 +108,25 @@ cc.Class({
     playTips(name, callBack = null) {
         this.stopTips();
         this.showLabaAni(GD.showTips == name);
-        cc.YL.loader.getSound(name, (url) => {
-            if (!url) return;
+        if (name instanceof Object) {
+            let url = name;
             this.sIDPool.push(cc.audioEngine.play(url))
             let time = url._audio.duration;
             this._timeID = cc.YL.timeOut(() => {
                 this.showLabaAni(false);
                 callBack && callBack();
             }, time * 1000)
-        });
+        } else {
+            cc.YL.loader.getSound(name, (url) => {
+                if (!url) return;
+                this.sIDPool.push(cc.audioEngine.play(url))
+                let time = url._audio.duration;
+                this._timeID = cc.YL.timeOut(() => {
+                    this.showLabaAni(false);
+                    callBack && callBack();
+                }, time * 1000)
+            });
+        }
     },
 
     setShowTips(name, isPlaying, callBack = null) {
