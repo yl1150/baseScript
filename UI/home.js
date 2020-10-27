@@ -44,6 +44,13 @@ cc.Class({
         this.initData();
         this.registerEvent();
 
+
+        if(cc.gameConfig.gameName == GAMELIST.yearGame){
+            this._bg.active = true;
+            return;
+        }
+
+
         let hLayer = this.node.getChildByName('homeLayer');
         if (GD.isShowRecord) {
             if (hLayer) {

@@ -48,7 +48,7 @@ cc.Class({
         }
     },
 
-    setSeqIcon(isShow,maxNum = 6) {
+    setSeqIcon(isShow, maxNum = 6) {
         if (!this._seqIcon) {
             cc.loader.loadRes('seqIcon/' + 'seqIcon', cc.Prefab, (err, _prefab) => {
                 if (err) {
@@ -59,11 +59,11 @@ cc.Class({
                 icon.zIndex = -1;
                 this._seqIcon = icon.getComponent('seqIcon')
                 this._seqIcon.setType(this.seqIconType);
-                this._seqIcon.setIcon(isShow,maxNum);
+                this._seqIcon.setIcon(isShow, maxNum);
             });
             return;
         }
-        this._seqIcon.setIcon(isShow,maxNum);
+        this._seqIcon.setIcon(isShow, maxNum);
     },
 
     setStarBoard(isShow) {
@@ -77,6 +77,9 @@ cc.Class({
     },
 
     setBack(isShow) {
+        if (!this.back) {
+            return
+        }
         isShow = false;
         this.back.active = isShow;
         this.back.opacity = 0;
