@@ -39,7 +39,6 @@ cc.Class({
         GD.exercises = this;
         this.folderName = 'qBank';
         GD.root.setQuestionBg(true);
-        GD.root.setStarBoard(true);
         GD.root.setSeqIcon(true, this.maxLv);
         this.canvasBG.active = true;
         this.registerEvent();

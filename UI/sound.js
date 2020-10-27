@@ -92,10 +92,10 @@ cc.Class({
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
-        /* if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
+        if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
             console.log('禁止同时播放同一个音效')
             return;
-        } */
+        }
 
         cc.YL.loader.getSound(name, (url) => {
             if (url) {
