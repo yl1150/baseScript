@@ -33,18 +33,21 @@ cc.Class({
 
         GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
-
+        GD.isSetTime = true;
         switch (cc.gameConfig.gameName) {
             case GAMELIST.default:
             case GAMELIST.videoGame:
-            case GAMELIST.exercises1:             
+            case GAMELIST.exercises1:
             case GAMELIST.exercises2:
                 GD.isPlayBgm = false;
                 break;
             case GAMELIST.questionBank:
-
+                GD.isPlayBgm = true;
+                break;
             case GAMELIST.yearGame:
-
+                GD.isSetTime = false;
+                GD.isPlayBgm = true;
+                break;
             case GAMELIST.pkGame:
                 GD.isPlayBgm = true;
                 break;

@@ -164,20 +164,21 @@ cc.Class({
     },
 
     showAddStar(starNum, callFunc) {
-        let time = cc.YL.stopTimeCount();//结束计时
-        if (cc.gameConfig.isWX) {
-            cc.YL.net.sendTimeAndStar(GD.roundID, time, starNum);
+        if (GD.isSetTime) {
+            let time = cc.YL.stopTimeCount();//结束计时
+            if (cc.gameConfig.isWX) {
+                cc.YL.net.sendTimeAndStar(GD.roundID, time, starNum);
+                cc.YL.startTimeCount();//重新计时
+                callFunc && callFunc();
+                return;
+            }
+            if (GD.isShowRecord) {
+                cc.YL.net.sendSeqAndTime(GD.roundID, time)
+            } else {
+                cc.YL.net.sendTime(parseInt(time))
+            }
             cc.YL.startTimeCount();//重新计时
-            callFunc && callFunc();
-            return;
         }
-        if (GD.isShowRecord) {
-            cc.YL.net.sendSeqAndTime(GD.roundID, time)
-        } else {
-            cc.YL.net.sendTime(parseInt(time))
-        }
-
-        cc.YL.startTimeCount();//重新计时
 
         this.starBoard.active = true;
         let skePool = this.starBoard.getChildByName('ske');
