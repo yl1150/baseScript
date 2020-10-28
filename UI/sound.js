@@ -12,6 +12,7 @@ cc.Class({
         this.sIDPool = [];
         this.button.interactable = false;
         this.node.opacity = 0;
+        this.bindSkeArr = [];
     },
 
     setTipsButton(canTouch) {
@@ -22,16 +23,43 @@ cc.Class({
             .start();
     },
 
+    //绑定spine节点
+    bindSpine(spine, norAni, speakAni) {
+        if (!spine) {
+            return;
+        }
+        let skeData = {
+            ske: spine,
+            nAni: norAni,
+            sAni: speakAni
+        }
+        this.bindSkeArr[spine.name] = skeData;
+    },
+
+    unbundlingSpine(spine) {
+        if (!spine) {
+            return;
+        }
+        this.bindSkeArr[spine.name] = null;
+    },
     showLabaAni(isShow) {
         if (isShow) {
             this.soundAni.setAnimation(0, 'newAnimation_3', false);
             this.soundAni.addAnimation(0, 'newAnimation_1', true);
+            for (let i in this.bindSkeArr) {
+                let skeData = this.bindSkeArr[i];
+                skeData.ske.setAnimation(0, skeData.sAni, true);
+            }
         } else {
             if (this.soundAni.animation == 'newAnimation') {
                 return
             }
             this.soundAni.setAnimation(0, 'newAnimation_2', false);
             this.soundAni.addAnimation(0, 'newAnimation', true);
+            for (let i in this.bindSkeArr) {
+                let skeData = this.bindSkeArr[i];
+                skeData.ske.setAnimation(0, skeData.nAni, true);
+            }
         }
         this.button.interactable = !isShow;
     },
