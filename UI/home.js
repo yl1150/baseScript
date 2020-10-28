@@ -235,7 +235,6 @@ cc.Class({
         GD.sound.playTips('gameEnd', () => {
             GD.sound.stopTips();//手动强制停止所有音频
             GD.sound.stopBgm();
-            cc.nAudio.destroyAllSounds();
         })
         //提交数据
         if (cc.gameConfig.isWX) {
