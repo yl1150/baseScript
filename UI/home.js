@@ -33,8 +33,25 @@ cc.Class({
 
         GD.isShowRecord = this.isShowRecord;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
-        GD.isPlayBgm = cc.gameConfig.gameName == GAMELIST.questionBank;
 
+        switch (cc.gameConfig.gameName) {
+            case GAMELIST.default:
+            case GAMELIST.videoGame:
+            case GAMELIST.exercises1:             
+            case GAMELIST.exercises2:
+                GD.isPlayBgm = false;
+                break;
+            case GAMELIST.questionBank:
+
+            case GAMELIST.yearGame:
+
+            case GAMELIST.pkGame:
+                GD.isPlayBgm = true;
+                break;
+            default:
+                GD.isPlayBgm = false;
+                break;
+        }
     },
 
     start() {
@@ -45,7 +62,7 @@ cc.Class({
         this.registerEvent();
 
 
-        if(cc.gameConfig.gameName == GAMELIST.yearGame){
+        if (cc.gameConfig.gameName == GAMELIST.yearGame) {
             this._bg.active = true;
             return;
         }
@@ -222,7 +239,7 @@ cc.Class({
             cc.YL.net.sendTimeAndStar(cc.gameConfig.gameName == GAMELIST.questionBank ? cc.gameConfig.maxRoundID : cc.gameConfig.maxRoundID + 1, time, 0);
         } else {
             if (GD.isShowRecord && cc.gameConfig.gameName == GAMELIST.questionBank) {
-                cc.YL.net.sendSeqAndTime(8 , time)
+                cc.YL.net.sendSeqAndTime(8, time)
             } else {
                 cc.YL.net.sendTime(time)
             }
