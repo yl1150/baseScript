@@ -16,6 +16,7 @@ cc.Class({
         camera.getComponent(cc.Camera).backgroundColor = cc.color(0, 0, 0, 0);
 
         this._poster = this.node.getChildByName('videoPoster');
+        this._isloaded = false;
 
         let node = new cc.Node();
         node.color = cc.color(0, 0, 0, 80);
@@ -71,7 +72,10 @@ cc.Class({
             */
             if (networkState == 0 || readyState == 0 || networkState == 3) {
                 //未加载成功???
-                video0.load()//重新加载视频
+                if (!this._isloaded) {
+                    this._isloaded = true;
+                    video0.load()//重新加载视频
+                }
                 console.log('视频未加载成功，重新加载');
                 let mes = '正在加载视频。。。。'
                 if (networkState == 0) {
