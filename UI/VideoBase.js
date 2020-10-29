@@ -16,6 +16,15 @@ cc.Class({
         camera.getComponent(cc.Camera).backgroundColor = cc.color(0, 0, 0, 0);
 
         this._poster = this.node.getChildByName('videoPoster');
+
+        let node = new cc.Node();
+        node.color = cc.color(0, 0, 0, 80);
+        let mes_label = node.addComponent(cc.Label);
+        mes_label.fontSize = 20;
+        node.parent = this._poster;
+        this._poster.mes_label = mes_label;
+        node.active = false;
+
         this.videoPlayer = this.getComponent(cc.VideoPlayer);
         //播放器
         cc.gameConfig.videoURL && (this.videoPlayer.remoteURL = cc.gameConfig.videoURL);
@@ -41,6 +50,44 @@ cc.Class({
             var currentTime = self.videoPlayer._impl._video.currentTime;
             var isPlaying = self.videoPlayer.isPlaying();
             var isPlayStatus = (self.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING);
+            let video0 = document.getElementsByClassName('cocosVideo')[0];
+            let networkState = video0.networkState;
+            let readyState = video0.readyState;
+            console.log('networkState:----', networkState);
+            console.log('readyState----', readyState);
+            /* 
+            networkState --表示音频 / 视频元素的当前网络状态：
+            0 = NETWORK_EMPTY - 音频 / 视频尚未初始化
+            1 = NETWORK_IDLE - 音频 / 视频是活动的且已选取资源，但并未使用网络
+            2 = NETWORK_LOADING - 浏览器正在下载数据
+            3 = NETWORK_NO_SOURCE - 未找到音频 / 视频来源 
+
+            readyState--表示音频/视频元素的就绪状态：
+            0 = HAVE_NOTHING - 没有关于音频/视频是否就绪的信息
+            1 = HAVE_METADATA - 关于音频/视频就绪的元数据
+            2 = HAVE_CURRENT_DATA - 关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒
+            3 = HAVE_FUTURE_DATA - 当前及至少下一帧的数据是可用的
+            4 = HAVE_ENOUGH_DATA - 可用数据足以开始播放
+            */
+            if (networkState == 0 || readyState == 0 || networkState == 3) {
+                //未加载成功???
+                video0.load()//重新加载视频
+                console.log('视频未加载成功，重新加载');
+                let mes = '正在加载视频。。。。'
+                if (networkState == 0) {
+                    mes = '网络信号弱。。。。'
+                }
+                if (readyState == 0) {
+                    mes = '视频加载失败。。。。'
+                }
+                if (networkState == 3) {
+                    mes = '未检测到视频源。。。。'
+                }
+
+                self._poster.mes_label.string = mes;
+                self._poster.mes_label.node.active = true;
+                return false;
+            }
             if (currentTime || isPlaying || isPlayStatus) result = true;
             return result;
         }
@@ -49,6 +96,7 @@ cc.Class({
         var intervalTag = setInterval(() => {
             if (checkPlaying()) {
                 this.startGame();
+                this._poster.mes_label.node.active = false;
                 clearInterval(intervalTag);
             } else {
                 this.play();
