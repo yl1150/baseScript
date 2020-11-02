@@ -19,7 +19,8 @@ cc.Class({
         this._isloaded = false;
 
         let node = new cc.Node();
-        node.color = cc.color(0, 0, 0, 80);
+        node.color = cc.color(0, 0, 0, 120);
+        node.opacity = 120;
         let mes_label = node.addComponent(cc.Label);
         mes_label.fontSize = 20;
         node.parent = this._poster;
@@ -44,16 +45,11 @@ cc.Class({
         this._roundData = rounData;
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
         //强制播放视频（ready事件无效）
-
-        var self = this;
-        function checkPlaying() {
-            var result = false;
-            var currentTime = self.videoPlayer._impl._video.currentTime;
-            var isPlaying = self.videoPlayer.isPlaying();
-            var isPlayStatus = (self.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING);
+        let checkID = setTimeout(() => {
             let video0 = document.getElementsByClassName('cocosVideo')[0];
             let networkState = video0.networkState;
             let readyState = video0.readyState;
+            let mes = '正在加载视频。。。。'
             console.log('networkState:----', networkState);
             console.log('readyState----', readyState);
             /* 
@@ -72,12 +68,11 @@ cc.Class({
             */
             if (networkState == 0 || readyState == 0 || networkState == 3) {
                 //未加载成功???
-                if (!this._isloaded) {
-                    this._isloaded = true;
+                if (!self._isloaded) {
+                    self._isloaded = true;
                     video0.load()//重新加载视频
                 }
                 console.log('视频未加载成功，重新加载');
-                let mes = '正在加载视频。。。。'
                 if (networkState == 0) {
                     mes = '网络信号弱。。。。'
                 }
@@ -92,9 +87,17 @@ cc.Class({
                 self._poster.mes_label.node.active = true;
                 return false;
             }
+        }, 2000);
+        var self = this;
+        function checkPlaying() {
+            var result = false;
+            var currentTime = self.videoPlayer._impl._video.currentTime;
+            var isPlaying = self.videoPlayer.isPlaying();
+            var isPlayStatus = (self.videoPlayer._currentStatus === cc.VideoPlayer.EventType.PLAYING);
             if (currentTime || isPlaying || isPlayStatus) result = true;
             return result;
         }
+
 
 
         var intervalTag = setInterval(() => {
@@ -102,6 +105,7 @@ cc.Class({
                 this.startGame();
                 this._poster.mes_label.node.active = false;
                 clearInterval(intervalTag);
+                clearTimeout(checkID);
             } else {
                 this.play();
             }
