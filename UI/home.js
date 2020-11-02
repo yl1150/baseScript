@@ -31,7 +31,7 @@ cc.Class({
         if (!cc.gameConfig.gameName) cc.gameConfig.gameName = GAMELIST[this.gameName];
         if (!cc.gameConfig.maxRoundID) cc.gameConfig.maxRoundID = this.maxRoundID;
 
-        GD.isShowRecord = this.isShowRecord;
+        GD.isShowRecord = this.isShowRecord && cc.gameConfig.gameName == GAMELIST.questionBank;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
         GD.isSetTime = true;
         switch (cc.gameConfig.gameName) {
