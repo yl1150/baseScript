@@ -204,6 +204,7 @@ cc.Class({
             } */
             GD.sound.playSound('getStar');
             this.earnStar(this.node, starIcon, starNum, () => {
+                this.starBoard.active = false;
                 skePool.active = false;
                 ske.active = false;
                 callFunc && callFunc();
