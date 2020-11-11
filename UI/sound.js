@@ -120,16 +120,22 @@ cc.Class({
             this.stopTips();
             name += cc.YL.tools.randomNum(1, 3);
         }
-        if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[name])) {
+        cc.YL.loader.getSound(name, (url) => {
+            if (url) this.play(url);
+        });
+    },
+
+    play(url) {
+        if (!url) {
+            return
+        }
+        if (cc.audioEngine.AudioState.PLAYING == cc.audioEngine.getState(this.sIDPool[url.name])) {
             console.log('禁止同时播放同一个音效')
             return;
         }
 
-        cc.YL.loader.getSound(name, (url) => {
-            if (url) {
-                this.sIDPool.push(cc.audioEngine.play(url))
-            }
-        });
+        let id = cc.audioEngine.play(url);
+        this.sIDPool[url.name] = id;
     },
 
     //解说音效
@@ -138,7 +144,7 @@ cc.Class({
         this.showLabaAni(GD.showTips == name);
         if (name instanceof Object) {
             let url = name;
-            this.sIDPool.push(cc.audioEngine.play(url))
+            this.play(url);
             let time = url._audio.duration;
             this._timeID = cc.YL.timeOut(() => {
                 this.showLabaAni(false);
@@ -147,7 +153,7 @@ cc.Class({
         } else {
             cc.YL.loader.getSound(name, (url) => {
                 if (!url) return;
-                this.sIDPool.push(cc.audioEngine.play(url))
+                this.play(url);
                 let time = url._audio.duration;
                 this._timeID = cc.YL.timeOut(() => {
                     this.showLabaAni(false);
