@@ -56,6 +56,20 @@ cc.Class({
                 GD.isPlayBgm = false;
                 break;
         }
+
+
+
+        let versionNode = this.node.getChildByName('banben');
+        if(versionNode){
+            versionNode.getComponent(cc.Label).string = this.getVersion();
+        }
+    },
+
+
+    getVersion() {
+        let version = "1.0.";
+        let ex = cc.sys["isUseDomAudio"]() ? "1" : "0";
+        return version + ex;
     },
 
     start() {
