@@ -1,7 +1,6 @@
-const ICONTYPE = cc.Enum({
-    default: 1,
-    ice: 2
-});
+let FIT_TYPE = require('Define').FIT_TYPE;
+let ICONTYPE = require('Define').ICONTYPE;
+
 cc.Class({
     extends: cc.Component,
 
@@ -14,6 +13,11 @@ cc.Class({
             type: ICONTYPE,
             displayName: 'icon类型',
         },
+        screenFitType:{
+            default: FIT_TYPE.NONE,
+            type: FIT_TYPE,
+            displayName: '背景适配方式',
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -38,13 +42,17 @@ cc.Class({
 
         let widget = this.questionBg.getComponent(cc.Widget);
         if (widget && this.isUpdateBGWidget && cc.YL.tools.checkIsphone()) {
-            this.bgFit = this.questionBg.addComponent('bgFit');
-            this.bgFit.fit();
+            this.screenFit = this.questionBg.addComponent('screenFit');
+            this.screenFit.fit();
             widget.enabled = true;
             widget.target = cc.find('Canvas');
             widget.top = 60;
             widget.bottom = 60;
             widget.updateAlignment();
+        }
+
+        if(this.screenFitType == FIT_TYPE.showALL){
+            this.addComponent('screenFit');
         }
     },
 
@@ -73,7 +81,7 @@ cc.Class({
 
     setQuestionBg(isShow) {
         this.questionBg.active = isShow;
-        this.bgFit && this.bgFit.fit();
+        this.screenFit && this.screenFit.fit();
     },
 
     setBack(isShow) {

@@ -98,4 +98,20 @@ const GAMELIST = {
     pkGame: 'pkGame'
 };
 
-export {blockType,kStatusCode,videoStatusCode,GAMETYPE,GAMELIST}
+const FIT_TYPE = cc.Enum({
+    /**不适配 */
+    NONE: 0,
+
+    /**适配宽 */
+    fitWidth: 1,
+
+    /**缩放 */
+    showALL: 2,
+});
+
+const ICONTYPE = cc.Enum({
+    default: 1,
+    ice: 2
+});
+
+export {blockType,kStatusCode,videoStatusCode,GAMETYPE,GAMELIST,FIT_TYPE,ICONTYPE}
