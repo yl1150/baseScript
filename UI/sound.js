@@ -141,6 +141,9 @@ cc.Class({
 
     //解说音效
     playTips(name, callBack = null) {
+        if (name == 'wrong' || name == 'right') {
+            name += cc.YL.tools.randomNum(1, 3);
+        }
         this.stopTips();
         this.setBindAni(true);
         this.showLabaAni(GD.showTips == name);

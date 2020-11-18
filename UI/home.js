@@ -52,6 +52,9 @@ cc.Class({
             case GAMELIST.pkGame:
                 GD.isPlayBgm = true;
                 break;
+            case GAMELIST.seniorGame:
+                GD.isPlayBgm = true;
+                break;
             default:
                 GD.isPlayBgm = false;
                 break;
@@ -60,7 +63,7 @@ cc.Class({
 
 
         let versionNode = this.node.getChildByName('banben');
-        if(versionNode){
+        if (versionNode) {
             versionNode.getComponent(cc.Label).string = this.getVersion();
         }
     },
@@ -126,7 +129,6 @@ cc.Class({
     initUI() {
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        GD.root.setLoadDataUI(true);
         GD.root.reFreshStar();
         GD.root.setLoadDataUI(false);
         GD.root.setBack(false);

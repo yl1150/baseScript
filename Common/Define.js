@@ -1,8 +1,8 @@
 const blockType = cc.Enum({
-    Default : 0,
-    yellow : 1,
-    white : 2,
-    red : 3,
+    Default: 0,
+    yellow: 1,
+    white: 2,
+    red: 3,
 });
 const kStatusCode = cc.Enum({
     /**无状态 */
@@ -45,11 +45,14 @@ const GAMETYPE = cc.Enum({
     /**习题下*/
     exercises2: 5,
 
-    /*游戏*/
+    /*大班游戏*/
     yearGame: 6,
 
     /*pk游戏*/
-    pkGame: 7
+    pkGame: 7,
+
+    /*小班游戏*/
+    seniorGame: 8,
 });
 
 const GAMELIST = {
@@ -74,6 +77,10 @@ const GAMELIST = {
     '6': 'yearGame',
     /*pk游戏*/
     '7': 'pkGame',
+
+    /*小班游戏*/
+    '8': 'seniorGame',
+
     default: 'default',
 
     /**视频游戏 */
@@ -95,7 +102,10 @@ const GAMELIST = {
     yearGame: 'yearGame',
 
     /*pk游戏*/
-    pkGame: 'pkGame'
+    pkGame: 'pkGame',
+
+    /*小班游戏*/
+    seniorGame: 'seniorGame',
 };
 
 const FIT_TYPE = cc.Enum({
@@ -114,4 +124,4 @@ const ICONTYPE = cc.Enum({
     ice: 2
 });
 
-export {blockType,kStatusCode,videoStatusCode,GAMETYPE,GAMELIST,FIT_TYPE,ICONTYPE}
+export { blockType, kStatusCode, videoStatusCode, GAMETYPE, GAMELIST, FIT_TYPE, ICONTYPE }
