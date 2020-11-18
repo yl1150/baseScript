@@ -191,7 +191,7 @@ cc.Class({
     },
 
     stopTips() {
-        //cc.YL.emitter.emit('stopTips');
+        cc.YL.emitter.emit('stopTips');
         cc.YL.clearTimeOut(this._timeID);
         this.showLabaAni(false);
         cc.audioEngine.stopAllEffects();
