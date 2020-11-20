@@ -46,7 +46,7 @@ cc.Class({
                 GD.isPlayBgm = true;
                 break;
             case GAMELIST.yearGame:
-                GD.isSetTime = false;
+                GD.isSetTime = true;
                 GD.isPlayBgm = true;
                 break;
             case GAMELIST.pkGame:
@@ -76,6 +76,7 @@ cc.Class({
     },
 
     start() {
+        cc.YL.startTimeCount();//计时
         GD.sound.playStartBgm();
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
@@ -161,7 +162,6 @@ cc.Class({
 
     loadLayer(name, cb) {
         cc.YL.unLockTouch();
-        cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
