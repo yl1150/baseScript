@@ -24,7 +24,24 @@ cc.Class({
         this._vPlayer = this.videoPlayer.getComponent('VideoBase')
         this._questions = this.game.getChildByName('questions');
         this._isShowBGM = true;
+        this._time = 0;
         this.registerEvent();
+
+    },
+
+    start() {
+        GD.sound.setTipsButton(false);
+        this._vPlayer.init(
+            () => {
+                //初始化并展示出产动画
+                GD.jumpModel = false
+                this._isCheckTime = true
+                this._state = kStatusCode.STATUS_PLAYVIDEO
+                GD.sound.pauseBgm();
+            },
+            this.videoCallFunc.bind(this),
+            this.roundData
+        );
     },
 
     //注册事件
@@ -55,20 +72,7 @@ cc.Class({
     },
 
     startGame() {
-        cc.YL.unLockTouch()
-        this._time = 0
-        GD.sound.setTipsButton(false);
-        this._vPlayer.init(
-            () => {
-                //初始化并展示出产动画
-                GD.jumpModel = false
-                this._isCheckTime = true
-                this._state = kStatusCode.STATUS_PLAYVIDEO
-                GD.sound.pauseBgm();
-            },
-            this.videoCallFunc.bind(this),
-            this.roundData
-        );
+        cc.YL.unLockTouch();
     },
 
     continueGame() {
@@ -77,6 +81,7 @@ cc.Class({
         GD.jumpModel = false;
         this._isCheckTime = false
         cc.YL.timeOut(() => {
+            console.log('_isCheckTime----',this._isCheckTime)
             this._isCheckTime = true
         }, 1000)
         cc.YL.unLockTouch()
@@ -118,6 +123,10 @@ cc.Class({
         if (_currentTime > this.showBGMTime && this._isShowBGM) {
             this._isShowBGM = false
             //GD.sound.playBGM()
+        }
+        if (!this._isCheckTime ) {
+            console.log('禁止判断')
+            return
         }
         if (!this._isCheckTime || !this.roundData || cc.YL.tools.isTime(_currentTime, this._time)) {
             return

@@ -27,6 +27,22 @@ cc.Class({
         this.splitRoundData();
     },
 
+    start() {
+        this._time = 0
+        GD.sound.setTipsButton(false);
+        this._vPlayer.init(
+            () => {
+                //初始化并展示出产动画
+                GD.jumpModel = false
+                this._isCheckTime = true
+                this._state = kStatusCode.STATUS_PLAYVIDEO
+                GD.sound.pauseBgm();
+            },
+            this.videoCallFunc.bind(this),
+            this.roundData
+        );
+    },
+
     splitRoundData() {
         let arr = [];
         let json = this.roundData.json;
@@ -67,19 +83,7 @@ cc.Class({
 
     startGame() {
         cc.YL.unLockTouch()
-        this._time = 0
-        GD.sound.setTipsButton(false);
-        this._vPlayer.init(
-            () => {
-                //初始化并展示出产动画
-                GD.jumpModel = false
-                this._isCheckTime = true
-                this._state = kStatusCode.STATUS_PLAYVIDEO
-                GD.sound.pauseBgm();
-            },
-            this.videoCallFunc.bind(this),
-            this.roundData
-        );
+
     },
 
     continueGame() {

@@ -45,49 +45,7 @@ cc.Class({
         this._roundData = rounData;
         //由于视频加载完成的回调 不是所有情况都调用 为防止不调用的情况 添加长时间不响应时的处理
         //强制播放视频（ready事件无效）
-        let checkID = setTimeout(() => {
-            let video0 = document.getElementsByClassName('cocosVideo')[0];
-            let networkState = video0.networkState;
-            let readyState = video0.readyState;
-            let mes = '正在加载视频。。。。'
-            console.log('networkState:----', networkState);
-            console.log('readyState----', readyState);
-            /* 
-            networkState --表示音频 / 视频元素的当前网络状态：
-            0 = NETWORK_EMPTY - 音频 / 视频尚未初始化
-            1 = NETWORK_IDLE - 音频 / 视频是活动的且已选取资源，但并未使用网络
-            2 = NETWORK_LOADING - 浏览器正在下载数据
-            3 = NETWORK_NO_SOURCE - 未找到音频 / 视频来源 
 
-            readyState--表示音频/视频元素的就绪状态：
-            0 = HAVE_NOTHING - 没有关于音频/视频是否就绪的信息
-            1 = HAVE_METADATA - 关于音频/视频就绪的元数据
-            2 = HAVE_CURRENT_DATA - 关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒
-            3 = HAVE_FUTURE_DATA - 当前及至少下一帧的数据是可用的
-            4 = HAVE_ENOUGH_DATA - 可用数据足以开始播放
-            */
-            if (networkState == 0 || readyState == 0 || networkState == 3) {
-                //未加载成功???
-                if (!self._isloaded) {
-                    self._isloaded = true;
-                    video0.load()//重新加载视频
-                }
-                console.log('视频未加载成功，重新加载');
-                if (networkState == 0) {
-                    mes = '网络信号弱。。。。'
-                }
-                if (readyState == 0) {
-                    mes = '视频加载失败。。。。'
-                }
-                if (networkState == 3) {
-                    mes = '未检测到视频源。。。。'
-                }
-
-                self._poster.mes_label.string = mes;
-                self._poster.mes_label.node.active = true;
-                return false;
-            }
-        }, 2000);
         var self = this;
         function checkPlaying() {
             var result = false;
@@ -100,19 +58,21 @@ cc.Class({
 
 
 
-        var intervalTag = setInterval(() => {
+        var intervalTag = setTimeout(() => {
+            console.log('checkPlaying-----1')
             if (checkPlaying()) {
                 this.startGame();
                 this._poster.mes_label.node.active = false;
-                clearInterval(intervalTag);
-                clearTimeout(checkID);
+                clearTimeout(intervalTag);
+                //clearTimeout(checkID);
             } else {
                 this.play();
             }
-        }, 500);
+        }, 3000);
 
+        this.timeTag = intervalTag;
         cc.YL.tools.registerTouch(this._poster, () => { }, null, () => {
-            clearInterval(intervalTag);
+            clearTimeout(intervalTag);
             this.startGame();
         });
 
@@ -178,29 +138,43 @@ cc.Class({
         this._videoState = eventType
         switch (eventType) {
             case cc.VideoPlayer.EventType.META_LOADED:
-                { }
+                {
+                    console.log('META_LOADED')
+                }
                 break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY:
                 {
-
+                    console.log('READY_TO_PLAY')
+                    this.startGame();
+                    this._poster.mes_label.node.active = false;
+                    clearTimeout(this.timeTag);
                 }
                 break;
             case cc.VideoPlayer.EventType.CLICKED:
                 {
+                    console.log('CLICKED')
                 }
                 break;
             case cc.VideoPlayer.EventType.COMPLETED:
                 {
+                    console.log('COMPLETED')
                 }
+                break;
             case cc.VideoPlayer.EventType.PLAYING:
                 {
+                    console.log('PLAYING')
                 }
+                break;
             case cc.VideoPlayer.EventType.STOPPED:
                 {
+                    console.log('STOPPED')
                 }
+                break;
             case cc.VideoPlayer.EventType.PAUSED:
                 {
+                    console.log('PAUSED')
                 }
+                break;
             default:
                 break;
         }
@@ -310,21 +284,22 @@ cc.Class({
         if (!time) {
             return
         }
+        console.log('setTime:', time);
         this.videoPlayer._impl._video.currentTime = time
     },
 
 
     update(dt) {
-        if (!this.videoPlayer || !this._isLoaded || !this.getCurrentTime()) {
+        let currentTime = this.getCurrentTime();
+        if (!this.videoPlayer || !this._isLoaded || !currentTime) {
             return
         }
-        this._videoCallFunc(this.getCurrentTime())
-        this._prog.updateProgress(this.getCurrentTime(), this.videoPlayer.getDuration())
+        this._videoCallFunc(currentTime)
+        this._prog.updateProgress(currentTime, this.videoPlayer.getDuration())
 
         if (this.allowUpdateVisible) {
             //重置视频可见（专治黑屏）
             var video = this.videoPlayer._impl._video;
-            var currentTime = video.currentTime;
             if (currentTime > 0.1) {
                 video.style.visibility = 'visible';
                 this.allowUpdateVisible = false;
@@ -334,7 +309,6 @@ cc.Class({
         }
         if (this.allowUpdateCheckEnd) {
             //检测视频结束
-            var currentTime = this.getCurrentTime();
             var totalTime = this.getDuration();
             if (currentTime && totalTime && (totalTime - currentTime < 0.2)) {
                 this.allowUpdateCheckEnd = false;
