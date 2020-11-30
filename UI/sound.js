@@ -42,26 +42,27 @@ cc.Class({
         }
         this.bindSkeArr[spine.name] = null;
     },
+
     showLabaAni(isShow) {
+
         if (isShow) {
             this.soundAni.setAnimation(0, 'newAnimation_3', false);
             this.soundAni.addAnimation(0, 'newAnimation_1', true);
-            for (let i in this.bindSkeArr) {
-                let skeData = this.bindSkeArr[i];
-                skeData.ske.setAnimation(0, skeData.sAni, true);
-            }
         } else {
             if (this.soundAni.animation == 'newAnimation') {
                 return
             }
             this.soundAni.setAnimation(0, 'newAnimation_2', false);
             this.soundAni.addAnimation(0, 'newAnimation', true);
-            for (let i in this.bindSkeArr) {
-                let skeData = this.bindSkeArr[i];
-                skeData.ske.setAnimation(0, skeData.nAni, true);
-            }
         }
         this.button.interactable = !isShow;
+    },
+
+    setBindAni(isShow) {
+        for (let i in this.bindSkeArr) {
+            let skeData = this.bindSkeArr[i];
+            skeData.ske.setAnimation(0, isShow ? skeData.sAni : skeData.nAni, true);
+        }
     },
 
     callFunc() {
@@ -140,7 +141,11 @@ cc.Class({
 
     //解说音效
     playTips(name, callBack = null) {
+        if (name == 'wrong' || name == 'right') {
+            name += cc.YL.tools.randomNum(1, 3);
+        }
         this.stopTips();
+        this.setBindAni(true);
         this.showLabaAni(GD.showTips == name);
         if (name instanceof Object) {
             let url = name;
@@ -148,6 +153,7 @@ cc.Class({
             let time = url._audio.duration;
             this._timeID = cc.YL.timeOut(() => {
                 this.showLabaAni(false);
+                this.setBindAni(false);
                 callBack && callBack();
             }, time * 1000)
         } else {
@@ -157,6 +163,7 @@ cc.Class({
                 let time = url._audio.duration;
                 this._timeID = cc.YL.timeOut(() => {
                     this.showLabaAni(false);
+                    this.setBindAni(false);
                     callBack && callBack();
                 }, time * 1000)
             });
@@ -187,7 +194,7 @@ cc.Class({
     },
 
     stopTips() {
-        //cc.YL.emitter.emit('stopTips');
+        cc.YL.emitter.emit('stopTips');
         cc.YL.clearTimeOut(this._timeID);
         this.showLabaAni(false);
         cc.audioEngine.stopAllEffects();

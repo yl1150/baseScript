@@ -46,10 +46,13 @@ cc.Class({
                 GD.isPlayBgm = true;
                 break;
             case GAMELIST.yearGame:
-                GD.isSetTime = false;
+                GD.isSetTime = true;
                 GD.isPlayBgm = true;
                 break;
             case GAMELIST.pkGame:
+                GD.isPlayBgm = true;
+                break;
+            case GAMELIST.seniorGame:
                 GD.isPlayBgm = true;
                 break;
             default:
@@ -60,7 +63,7 @@ cc.Class({
 
 
         let versionNode = this.node.getChildByName('banben');
-        if(versionNode){
+        if (versionNode) {
             versionNode.getComponent(cc.Label).string = this.getVersion();
         }
     },
@@ -73,6 +76,7 @@ cc.Class({
     },
 
     start() {
+        cc.YL.startTimeCount();//计时
         GD.sound.playStartBgm();
         this.isFitPhone && cc.YL.fitPhone(this._game);
         this.initUI();
@@ -126,7 +130,6 @@ cc.Class({
     initUI() {
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
-        GD.root.setLoadDataUI(true);
         GD.root.reFreshStar();
         GD.root.setLoadDataUI(false);
         GD.root.setBack(false);
@@ -159,7 +162,6 @@ cc.Class({
 
     loadLayer(name, cb) {
         cc.YL.unLockTouch();
-        cc.YL.startTimeCount();//计时
         GD.sound && GD.sound.stopTips();
         GD.root.setStarBoard(false);
         GD.root.setQuestionBg(false);
