@@ -19,8 +19,8 @@ cc.Class({
         this._isloaded = false;
 
         let node = new cc.Node();
-        node.color = cc.color(0, 0, 0, 120);
-        node.opacity = 120;
+        node.color = cc.color(0, 0, 0, 180);
+        node.opacity = 180;
         let mes_label = node.addComponent(cc.Label);
         mes_label.fontSize = 20;
         node.parent = this._poster;
@@ -56,31 +56,55 @@ cc.Class({
             return result;
         }
 
-
+        this.showMessage('努力加载中。。。');
 
         var intervalTag = setTimeout(() => {
             console.log('checkPlaying-----1')
             if (checkPlaying()) {
                 this.startGame();
-                this._poster.mes_label.node.active = false;
+                this.showMessage('');
                 clearTimeout(intervalTag);
-                //clearTimeout(checkID);
             } else {
+                this.showMessage('视频加载超时,重新加载中。。。');
                 this.play();
+                setTimeout(() => {
+                    if (checkPlaying()) {
+                        this.startGame();
+                        this.showMessage('');
+                    } else {
+                        this.showMessage('视频加载失败,请重启游戏或者点击屏幕。。。');
+                    }
+                }, 1000);
             }
-        }, 3000);
+        }, 10000);
 
         this.timeTag = intervalTag;
         cc.YL.tools.registerTouch(this._poster, () => { }, null, () => {
             clearTimeout(intervalTag);
-            this.startGame();
+            this.showMessage('努力加载中。。。。');
+            this.play();
+            setTimeout(() => {
+                if (checkPlaying()) {
+                    this.startGame();
+                    this.showMessage('');
+                } else {
+                    this.showMessage('视频加载失败,请重启游戏或者点击屏幕。。。');
+                }
+            }, 1000);
         });
 
 
     },
 
+    showMessage(mes) {
+        this._poster.mes_label.node.active = mes != '';
+        this._poster.mes_label.string = mes
+    },
+
     startGame() {
         //限定时间内 不响应 强行调用
+        this.showMessage('');
+        clearTimeout(this.timeTag);
         this.videoDuration = this.videoPlayer.getDuration();
         this._prog.init(this, this._roundData);
         this._readyCallFunc();
@@ -146,8 +170,6 @@ cc.Class({
                 {
                     console.log('READY_TO_PLAY')
                     this.startGame();
-                    this._poster.mes_label.node.active = false;
-                    clearTimeout(this.timeTag);
                 }
                 break;
             case cc.VideoPlayer.EventType.CLICKED:
