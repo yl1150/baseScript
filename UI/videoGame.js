@@ -124,10 +124,6 @@ cc.Class({
             this._isShowBGM = false
             //GD.sound.playBGM()
         }
-        if (!this._isCheckTime ) {
-            console.log('禁止判断')
-            return
-        }
         if (!this._isCheckTime || !this.roundData || cc.YL.tools.isTime(_currentTime, this._time)) {
             return
         }
