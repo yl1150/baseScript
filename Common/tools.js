@@ -134,7 +134,7 @@ module.exports = {
     },
 
     //ios 返回true  安卓 false
-    checkPlatform(){
+    checkPlatform() {
         return false;
         //return cc.sys.os === cc.sys.OS_IOS;
     },
@@ -162,6 +162,7 @@ module.exports = {
         return false
     },
 
+    //仅判断元素不判断顺序
     checkArrIsSame(arr1, arr2) {
         if (arr1.length != arr2.length) {
             return false
@@ -174,6 +175,19 @@ module.exports = {
 
         for (let i in arr2) {
             if (!this.getArrIsHaveCell(arr1, arr2[i])) {
+                return false
+            }
+        }
+        return true
+    },
+
+    //判断元素 判断顺序
+    checkArrIsSameStrict(arr1, arr2) {
+        if (arr1.length != arr2.length) {
+            return false
+        }
+        for (let i in arr1) {
+            if (arr1[i] != arr2[i]) {
                 return false
             }
         }
