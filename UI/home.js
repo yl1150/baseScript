@@ -35,6 +35,7 @@ cc.Class({
         if (cc.gameConfig.isWX) GD.isShowRecord = true;
         GD.isSendRoundID = cc.gameConfig.gameName == GAMELIST.questionBank;
         GD.isSetTime = true;
+        GD.isLockClock = true;
         switch (cc.gameConfig.gameName) {
             case GAMELIST.default:
             case GAMELIST.videoGame:
@@ -50,6 +51,7 @@ cc.Class({
                 GD.isPlayBgm = true;
                 break;
             case GAMELIST.pkGame:
+                GD.isLockClock = false;
                 GD.isPlayBgm = true;
                 break;
             case GAMELIST.seniorGame:
@@ -84,7 +86,7 @@ cc.Class({
         this.registerEvent();
 
 
-        if (cc.gameConfig.gameName == GAMELIST.yearGame) {
+        if (cc.gameConfig.gameName == GAMELIST.yearGame||cc.gameConfig.gameName == GAMELIST.pkGame) {
             this._bg.active = true;
             return;
         }

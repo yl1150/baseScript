@@ -46,7 +46,7 @@ let register = {
         cc.YL.net.getUserToken();
         !cc.YL.emitter && (cc.YL.emitter = new Emitter());
 
-        !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.init(),cc.YL.loader.loadResByTier());
+        !cc.YL.loader && (cc.YL.loader = new Loader(), cc.YL.loader.init(), cc.YL.loader.loadResByTier());
         !GD.timePool && (GD.timePool = []);
 
         let scene = cc.director.getScene();
@@ -192,7 +192,9 @@ let register = {
     //添加语音闹钟 当满足条件时取消
     addClock(tipsName, clockTime = 20) {
         //注册触摸事件 当发生点击时 注销闹钟
-        return;
+        if (GD.isLockClock) {
+            return;
+        }
         clockTime += GD.sound.getDuringTime(tipsName);
         cc.YL.emitter.on('tips_touchStart', cc.YL.stopClock.bind(this));
         this.intervalID = setInterval(() => {
@@ -201,7 +203,9 @@ let register = {
     },
 
     stopClock() {
-        return;
+        if (GD.isLockClock) {
+            return;
+        }
         cc.YL.emitter.off('tips_touchStart');
         this.intervalID && clearInterval(this.intervalID);
         this.intervalID = null;

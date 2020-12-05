@@ -95,6 +95,21 @@ module.exports = {
         this.http_get(data, url, header, cb);
     },
 
+    addGameResult(gameResult, mistakesNum) {
+        var data = {
+            practiceId: GD.practiceId,
+            gameResult: gameResult,
+            mistakesNum: mistakesNum
+        }
+        data = JSON.stringify(data)
+
+        var url = cc.gameConfig.isOfficial ? 'http://www.hxsup.com/api/annual/phase/addGameResult' : 'http://dev.hxsup.com/api/annual/phase/addGameResult';
+        var header = {
+            "Authorization": GD.userToken,
+            "Content-Type": "application/json",
+        }
+        this.http_post(data, url, header);
+    },
 
     /**
      * 发送游戏时长和积分数（微信专用）
