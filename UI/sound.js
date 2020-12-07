@@ -33,14 +33,19 @@ cc.Class({
             nAni: norAni,
             sAni: speakAni
         }
-        this.bindSkeArr[spine.name] = skeData;
+        this.bindSkeArr.push(skeData);
     },
 
     unbundlingSpine(spine) {
         if (!spine) {
             return;
         }
-        this.bindSkeArr[spine.name] = null;
+        for(let i in this.bindSkeArr){
+            if(this.bindSkeArr[i].ske == spine){
+                this.bindSkeArr.splice(i,1);
+                return;
+            }
+        };
     },
 
     showLabaAni(isShow) {

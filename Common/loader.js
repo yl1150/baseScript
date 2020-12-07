@@ -101,7 +101,7 @@ Loader.prototype.getImg = function (name, callFunc) {
     if (!name) {
         return null
     }
-    if (!this.imgAssets) {
+    if (!this.imgAssets || this.imgAssets.length < 1) {
         cc.loader.loadRes("img/" + name, cc.SpriteFrame, (err, data) => {
             if (err) {
                 console.log(err);
@@ -123,7 +123,7 @@ Loader.prototype.getSpine = function (name, callFunc) {
     if (!name) {
         return null;
     }
-    if (!this.spineDatas) {
+    if (!this.spineDatas || this.spineDatas.length < 1) {
         cc.loader.loadRes("spineAndDB/" + name + '/' + name, sp.SkeletonData, (err, data) => {
             if (err) {
                 console.log(err);
