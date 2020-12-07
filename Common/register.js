@@ -180,7 +180,7 @@ let register = {
             }
             var success = cc.instantiate(_prefab);
             success.getComponent('success') ? success.getComponent('success').init() : success.addComponent("success").init();
-            success.parent = cc.find('Canvas');
+            success.parent = cc.find('Canvas/Root');
             success.zIndex = 999;
             cc.YL.timeOut(() => {
                 callFunc && callFunc();

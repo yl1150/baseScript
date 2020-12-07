@@ -5,6 +5,16 @@ const FITLIST = cc.Enum({
     /**psv */
     psv: 1,
 });
+
+const GameList = cc.Enum({
+    /**默认展现游戏目录 */
+    default: 0,
+    S1: 1,
+    S2: 2,
+    S3: 3,
+    L1: 11
+
+});
 cc.Class({
     extends: cc.Component,
 
@@ -13,10 +23,15 @@ cc.Class({
             default: FITLIST.default,
             type: FITLIST,
             displayName: '适配方式',
-        }
+        },
+        gameType: {
+            default: GameList.default,
+            type: GameList,
+            displayName: '游戏类型',
+        },
     },
 
-    init() {
+    onLoad() {
         this.caidai = this.node.getChildByName("caidai1")
         this.caidai2 = this.node.getChildByName("caidai2")
         this.dd = this.node.getChildByName('dd')
@@ -56,6 +71,32 @@ cc.Class({
         }
 
         setTimeout(() => {
+            this.showDDAni();
+        }, 500);
+    },
+
+
+    showDDAni() {
+        if (this.gameType == GameList.S3) {
+            let dd = cc.YL.tools.getRandomCell(this.dd.children);
+            dd.active = true;
+            switch (dd.name) {
+                case 'dd1':
+                    dd._db.setAnimation(0, 'shengli_a' + '1', false);
+                    dd._db.addAnimation(0, 'shengli_a' + '2', true);
+                    break;
+                case 'dd2':
+                    dd._db.setAnimation(0, 'shengli_b' + '1', false);
+                    dd._db.addAnimation(0, 'shengli_b' + '2', true);
+                    break;
+                case 'dd3':
+                    dd._db.setAnimation(0, 'newAnimation_1', true)
+
+                    break;
+                default:
+                    break;
+            }
+        } else {
             let ddNum = cc.YL.tools.randomNum(1, 3)
             let dd = this.dd.getChildByName('dd' + ddNum)
             dd.active = true
@@ -72,7 +113,8 @@ cc.Class({
                 default:
                     break;
             }
-        }, 500);
+
+        }
     },
     // update (dt) {},
 });
