@@ -31,7 +31,7 @@ cc.Class({
         },
     },
 
-    onLoad() {
+    init() {
         this.caidai = this.node.getChildByName("caidai1")
         this.caidai2 = this.node.getChildByName("caidai2")
         this.dd = this.node.getChildByName('dd')
