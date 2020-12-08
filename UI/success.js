@@ -77,7 +77,7 @@ cc.Class({
 
 
     showDDAni() {
-        if (this.gameType == GameList.S3) {
+        if (this.gameType == GameList.S3||this.gameType == GameList.L1) {
             let dd = cc.YL.tools.getRandomCell(this.dd.children);
             dd.active = true;
             switch (dd.name) {
