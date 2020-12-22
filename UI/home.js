@@ -196,6 +196,7 @@ cc.Class({
                 cc.loader.loadRes('prefab/' + name, cc.Prefab, (err, _prefab) => {
                     if (err) {
                         console.log(err);
+                        return;
                     }
                     let layer = cc.instantiate(_prefab);
                     this._game.addChild(layer);
