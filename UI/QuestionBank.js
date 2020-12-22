@@ -83,18 +83,22 @@ cc.Class({
                 round._components[i].init && round._components[i].init();
             }
         } else {
-            cc.loader.loadRes('prefab/' + this.folderName + '/round' + this.startLv, cc.Prefab, (err, _prefab) => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                var round = cc.instantiate(_prefab);
-                round.parent = this.node;
-                round.active = true;
-                for (let i in round._components) {
-                    round._components[i].init && round._components[i].init();
-                }
-            });
+            let loadPrefab = ()=>{
+                cc.loader.loadRes('prefab/' + this.folderName + '/round' + this.startLv, cc.Prefab, (err, _prefab) => {
+                    if (err) {
+                        console.log(err);
+                        loadPrefab();
+                        return;
+                    }
+                    var round = cc.instantiate(_prefab);
+                    round.parent = this.node;
+                    round.active = true;
+                    for (let i in round._components) {
+                        round._components[i].init && round._components[i].init();
+                    }
+                });
+            }
+            loadPrefab();
         }
     },
 
