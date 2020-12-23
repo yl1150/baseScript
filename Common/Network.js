@@ -203,7 +203,7 @@ module.exports = {
     },
 
 
-    http_get(params, url, header, cb, failCb, failCount = 0) {
+    http_get(params, url, header, cb, failCount = 0) {
         var self = this;
         var xhr = cc.loader.getXMLHttpRequest();
         xhr.open("GET", url + '?practiceId=' + params.practiceId);
@@ -223,9 +223,9 @@ module.exports = {
                     console.log("ErrorStatus:", xhr.status);
                     //失败重传，最多三次
                     if (++failCount < 3) {
-                        self.http_get(params, url, header, cb, failCb, failCount)
+                        self.http_post(params, url, header, cb, failCount)
                     } else {
-                        failCb && failCb(xhr.status);
+                        cb && cb(xhr.status);
                     };
                 }
             }
@@ -251,7 +251,11 @@ module.exports = {
                 } else {
                     console.log("ErrorStatus:", xhr.status);
                     //失败重传，最多三次
-                    if (++failCount < 3) self.http_post(params, url, header, cb, failCount);
+                    if (++failCount < 3) {
+                        self.http_post(params, url, header, cb, failCount)
+                    } else {
+                        cb && cb(xhr.status);
+                    };
                 }
             }
         };
