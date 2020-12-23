@@ -31,7 +31,7 @@ cc.Class({
         },
     },
 
-    onLoad() {
+    init() {
         this.caidai = this.node.getChildByName("caidai1")
         this.caidai2 = this.node.getChildByName("caidai2")
         this.dd = this.node.getChildByName('dd')
@@ -77,7 +77,7 @@ cc.Class({
 
 
     showDDAni() {
-        if (this.gameType == GameList.S3) {
+        if (this.gameType == GameList.S3||this.gameType == GameList.L1) {
             let dd = cc.YL.tools.getRandomCell(this.dd.children);
             dd.active = true;
             switch (dd.name) {

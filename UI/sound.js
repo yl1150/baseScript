@@ -202,6 +202,7 @@ cc.Class({
         cc.YL.emitter.emit('stopTips');
         cc.YL.clearTimeOut(this._timeID);
         this.showLabaAni(false);
+        this.setBindAni(false);
         cc.audioEngine.stopAllEffects();
         /* while (this.sIDPool.length > 0) {
             this.stopEffect(this.sIDPool.shift());

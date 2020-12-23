@@ -49,13 +49,16 @@ cc.Class({
             case GAMELIST.yearGame:
                 GD.isSetTime = true;
                 GD.isPlayBgm = true;
+                GD.bgMusicVolume = 1;
                 break;
             case GAMELIST.pkGame:
                 GD.isLockClock = false;
                 GD.isPlayBgm = true;
+                GD.bgMusicVolume = 1;
                 break;
             case GAMELIST.seniorGame:
                 GD.isPlayBgm = true;
+                GD.bgMusicVolume = 1;
                 break;
             default:
                 GD.isPlayBgm = false;
@@ -86,7 +89,7 @@ cc.Class({
         this.registerEvent();
 
 
-        if (cc.gameConfig.gameName == GAMELIST.yearGame||cc.gameConfig.gameName == GAMELIST.pkGame) {
+        if (cc.gameConfig.gameName == GAMELIST.yearGame || cc.gameConfig.gameName == GAMELIST.pkGame) {
             this._bg.active = true;
             return;
         }
@@ -193,6 +196,7 @@ cc.Class({
                 cc.loader.loadRes('prefab/' + name, cc.Prefab, (err, _prefab) => {
                     if (err) {
                         console.log(err);
+                        return;
                     }
                     let layer = cc.instantiate(_prefab);
                     this._game.addChild(layer);
