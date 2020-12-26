@@ -118,12 +118,13 @@ cc.Class({
         }, 4000)
     },
 
-    showStar(original, callFunc) {
+    showStar(original, callFunc,pscale = 3) {
         if (original.constructor == cc.Node) {
             let star = this.starPool.get();
             if (!star) {
                 star = cc.instantiate(this.star);
             }
+            star.setScale(pscale);
             star._partice = star.getChildByName('star').getComponent(cc.ParticleSystem);
             star.zIndex = 999;
             star.active = true;
@@ -144,6 +145,7 @@ cc.Class({
                 if (!star) {
                     star = cc.instantiate(this.star);
                 }
+                star.setScale(pscale);
                 star._partice = star.getChildByName('star').getComponent(cc.ParticleSystem);
                 star.zIndex = 999;
                 star.active = true;
