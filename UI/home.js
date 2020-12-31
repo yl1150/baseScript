@@ -123,7 +123,8 @@ cc.Class({
     },
 
     initData() {
-        GD.canRecording = false;
+        GD.canRecording = true;
+        return;
         if (window.webkit || window.android) {
             cc.YL.recorder.checkPermissionSupported()
             cc.YL.emitter.on('permissions', (datas) => {
