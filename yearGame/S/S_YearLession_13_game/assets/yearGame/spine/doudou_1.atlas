@@ -1,0 +1,97 @@
+
+doudou_1.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dd_lian
+  rotate: true
+  xy: 2, 2
+  size: 224, 259
+  orig: 224, 259
+  offset: 0, 0
+  index: -1
+dd_maojin
+  rotate: false
+  xy: 297, 163
+  size: 30, 63
+  orig: 30, 63
+  offset: 0, 0
+  index: -1
+dd_maozi
+  rotate: false
+  xy: 2, 228
+  size: 344, 193
+  orig: 344, 193
+  offset: 0, 0
+  index: -1
+dd_mei_a
+  rotate: true
+  xy: 281, 126
+  size: 100, 14
+  orig: 100, 14
+  offset: 0, 0
+  index: -1
+dd_mei_b
+  rotate: true
+  xy: 263, 122
+  size: 104, 16
+  orig: 104, 16
+  offset: 0, 0
+  index: -1
+dd_sai
+  rotate: false
+  xy: 297, 137
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+dd_shen
+  rotate: false
+  xy: 348, 271
+  size: 77, 150
+  orig: 77, 150
+  offset: 0, 0
+  index: -1
+dd_shou
+  rotate: true
+  xy: 263, 47
+  size: 64, 103
+  orig: 64, 103
+  offset: 0, 0
+  index: -1
+dd_tui
+  rotate: false
+  xy: 368, 27
+  size: 51, 84
+  orig: 51, 84
+  offset: 0, 0
+  index: -1
+dd_yan
+  rotate: false
+  xy: 323, 134
+  size: 21, 27
+  orig: 21, 27
+  offset: 0, 0
+  index: -1
+dd_yy
+  rotate: true
+  xy: 348, 113
+  size: 156, 44
+  orig: 156, 44
+  offset: 0, 0
+  index: -1
+dd_zui_a
+  rotate: true
+  xy: 263, 10
+  size: 35, 30
+  orig: 35, 30
+  offset: 0, 0
+  index: -1
+dd_zui_b
+  rotate: false
+  xy: 281, 116
+  size: 40, 8
+  orig: 40, 8
+  offset: 0, 0
+  index: -1

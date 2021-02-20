@@ -1,0 +1,139 @@
+
+doudou.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doudou_10
+  rotate: false
+  xy: 501, 79
+  size: 33, 15
+  orig: 33, 15
+  offset: 0, 0
+  index: -1
+doudou_10v
+  rotate: false
+  xy: 501, 19
+  size: 21, 31
+  orig: 21, 31
+  offset: 0, 0
+  index: -1
+doudou_13
+  rotate: true
+  xy: 568, 98
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+doudou_14
+  rotate: false
+  xy: 598, 105
+  size: 20, 26
+  orig: 20, 26
+  offset: 0, 0
+  index: -1
+doudou_15
+  rotate: false
+  xy: 453, 79
+  size: 46, 52
+  orig: 46, 52
+  offset: 0, 0
+  index: -1
+doudou_16
+  rotate: false
+  xy: 687, 129
+  size: 53, 86
+  orig: 53, 86
+  offset: 0, 0
+  index: -1
+doudou_17
+  rotate: false
+  xy: 537, 100
+  size: 29, 31
+  orig: 29, 31
+  offset: 0, 0
+  index: -1
+doudou_18
+  rotate: false
+  xy: 687, 217
+  size: 74, 129
+  orig: 74, 129
+  offset: 0, 0
+  index: -1
+doudou_19
+  rotate: false
+  xy: 501, 96
+  size: 34, 35
+  orig: 34, 35
+  offset: 0, 0
+  index: -1
+doudou_3
+  rotate: false
+  xy: 453, 4
+  size: 23, 73
+  orig: 23, 73
+  offset: 0, 0
+  index: -1
+doudou_4
+  rotate: true
+  xy: 478, 2
+  size: 48, 21
+  orig: 48, 21
+  offset: 0, 0
+  index: -1
+doudou_5
+  rotate: false
+  xy: 537, 55
+  size: 25, 43
+  orig: 25, 43
+  offset: 0, 0
+  index: -1
+doudou_7
+  rotate: true
+  xy: 453, 133
+  size: 213, 232
+  orig: 213, 232
+  offset: 0, 0
+  index: -1
+doudou_8
+  rotate: false
+  xy: 503, 54
+  size: 23, 23
+  orig: 23, 23
+  offset: 0, 0
+  index: -1
+doudou_9
+  rotate: true
+  xy: 620, 103
+  size: 28, 15
+  orig: 28, 15
+  offset: 0, 0
+  index: -1
+mao
+  rotate: false
+  xy: 2, 16
+  size: 449, 330
+  orig: 449, 330
+  offset: 0, 0
+  index: -1
+yan2
+  rotate: true
+  xy: 528, 49
+  size: 28, 6
+  orig: 28, 6
+  offset: 0, 0
+  index: -1
+yan3
+  rotate: true
+  xy: 478, 52
+  size: 25, 23
+  orig: 25, 23
+  offset: 0, 0
+  index: -1
+zui3
+  rotate: true
+  xy: 598, 70
+  size: 33, 13
+  orig: 33, 13
+  offset: 0, 0
+  index: -1

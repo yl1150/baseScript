@@ -1,0 +1,20 @@
+info face="face" size=71
+common lineHeight=71 scaleW=272 scaleH=216 pages=1
+page id=0 file="fz_96px.png"
+chars count=16
+char id=43 x=89 y=145 width=52 height=52 xoffset=0 yoffset=0 xadvance=52 page=0 chnl=15
+char id=45 x=197 y=145 width=52 height=12 xoffset=0 yoffset=0 xadvance=52 page=0 chnl=15
+char id=48 x=0 y=72 width=51 height=71 xoffset=0 yoffset=0 xadvance=51 page=0 chnl=15
+char id=50 x=0 y=145 width=47 height=71 xoffset=0 yoffset=0 xadvance=47 page=0 chnl=15
+char id=51 x=157 y=0 width=48 height=71 xoffset=0 yoffset=0 xadvance=48 page=0 chnl=15
+char id=52 x=0 y=0 width=52 height=70 xoffset=0 yoffset=0 xadvance=52 page=0 chnl=15
+char id=53 x=207 y=73 width=47 height=69 xoffset=0 yoffset=0 xadvance=47 page=0 chnl=15
+char id=54 x=105 y=71 width=49 height=70 xoffset=0 yoffset=0 xadvance=49 page=0 chnl=15
+char id=55 x=105 y=0 width=50 height=69 xoffset=0 yoffset=0 xadvance=50 page=0 chnl=15
+char id=47 x=49 y=145 width=38 height=71 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=56 x=207 y=0 width=48 height=71 xoffset=0 yoffset=0 xadvance=48 page=0 chnl=15
+char id=58 x=257 y=73 width=15 height=45 xoffset=0 yoffset=0 xadvance=15 page=0 chnl=15
+char id=57 x=54 y=0 width=49 height=71 xoffset=0 yoffset=0 xadvance=49 page=0 chnl=15
+char id=61 x=143 y=145 width=52 height=33 xoffset=0 yoffset=0 xadvance=52 page=0 chnl=15
+char id=63 x=157 y=73 width=45 height=70 xoffset=0 yoffset=0 xadvance=45 page=0 chnl=15
+char id=49 x=257 y=0 width=15 height=71 xoffset=0 yoffset=0 xadvance=15 page=0 chnl=15

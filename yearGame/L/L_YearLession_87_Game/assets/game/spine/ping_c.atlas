@@ -1,0 +1,62 @@
+
+ping_c.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+c_a11
+  rotate: false
+  xy: 2, 2
+  size: 170, 21
+  orig: 170, 21
+  offset: 0, 0
+  index: -1
+c_a1_1
+  rotate: false
+  xy: 519, 17
+  size: 235, 236
+  orig: 235, 236
+  offset: 0, 0
+  index: -1
+c_a1_2
+  rotate: false
+  xy: 281, 17
+  size: 236, 236
+  orig: 236, 236
+  offset: 0, 0
+  index: -1
+c_a2_1
+  rotate: true
+  xy: 756, 17
+  size: 236, 214
+  orig: 236, 214
+  offset: 0, 0
+  index: -1
+c_a2_2
+  rotate: true
+  xy: 972, 17
+  size: 236, 213
+  orig: 236, 213
+  offset: 0, 0
+  index: -1
+c_a3_1
+  rotate: true
+  xy: 1187, 17
+  size: 236, 169
+  orig: 236, 169
+  offset: 0, 0
+  index: -1
+c_a3_2
+  rotate: true
+  xy: 1358, 17
+  size: 236, 169
+  orig: 236, 169
+  offset: 0, 0
+  index: -1
+shaobei_3
+  rotate: true
+  xy: 2, 25
+  size: 228, 277
+  orig: 228, 277
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,55 @@
+
+xiaoren.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+f
+  rotate: false
+  xy: 830, 314
+  size: 706, 707
+  orig: 706, 707
+  offset: 0, 0
+  index: -1
+jiao
+  rotate: true
+  xy: 2, 64
+  size: 129, 283
+  orig: 129, 283
+  offset: 0, 0
+  index: -1
+shou_1
+  rotate: false
+  xy: 1316, 65
+  size: 215, 247
+  orig: 215, 247
+  offset: 0, 0
+  index: -1
+y
+  rotate: false
+  xy: 2, 195
+  size: 826, 826
+  orig: 826, 826
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 830, 118
+  size: 484, 194
+  orig: 484, 194
+  offset: 0, 0
+  index: -1
+zui
+  rotate: false
+  xy: 287, 2
+  size: 252, 84
+  orig: 252, 84
+  offset: 0, 0
+  index: -1
+zui_1
+  rotate: false
+  xy: 287, 88
+  size: 256, 105
+  orig: 256, 105
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,153 @@
+
+pingguo.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+a_baozi
+  rotate: true
+  xy: 952, 165
+  size: 92, 89
+  orig: 92, 89
+  offset: 0, 0
+  index: -1
+a_baozi2
+  rotate: true
+  xy: 1005, 413
+  size: 92, 89
+  orig: 92, 89
+  offset: 0, 0
+  index: -1
+a_kuaizi
+  rotate: false
+  xy: 803, 80
+  size: 147, 177
+  orig: 147, 177
+  offset: 0, 0
+  index: -1
+a_zuiba
+  rotate: false
+  xy: 952, 116
+  size: 90, 47
+  orig: 90, 47
+  offset: 0, 0
+  index: -1
+a_zuiba_1
+  rotate: false
+  xy: 1009, 39
+  size: 94, 44
+  orig: 94, 44
+  offset: 0, 0
+  index: -1
+a_zuiba_2
+  rotate: true
+  xy: 1005, 317
+  size: 94, 44
+  orig: 94, 44
+  offset: 0, 0
+  index: -1
+doudou
+  rotate: false
+  xy: 952, 85
+  size: 74, 29
+  orig: 74, 29
+  offset: 0, 0
+  index: -1
+pingguo
+  rotate: false
+  xy: 1005, 273
+  size: 88, 42
+  orig: 88, 42
+  offset: 0, 0
+  index: -1
+pingguo_1
+  rotate: true
+  xy: 424, 55
+  size: 202, 377
+  orig: 202, 377
+  offset: 0, 0
+  index: -1
+pingguo_11
+  rotate: false
+  xy: 424, 259
+  size: 579, 246
+  orig: 579, 246
+  offset: 0, 0
+  index: -1
+pingguo_12
+  rotate: true
+  xy: 2, 25
+  size: 480, 420
+  orig: 480, 420
+  offset: 0, 0
+  index: -1
+pingguo_2
+  rotate: false
+  xy: 424, 10
+  size: 323, 43
+  orig: 323, 43
+  offset: 0, 0
+  index: -1
+pingguo_4
+  rotate: true
+  xy: 1096, 446
+  size: 59, 54
+  orig: 59, 54
+  offset: 0, 0
+  index: -1
+pingguo_6
+  rotate: false
+  xy: 1051, 348
+  size: 62, 63
+  orig: 62, 63
+  offset: 0, 0
+  index: -1
+pingguo_7
+  rotate: true
+  xy: 903, 7
+  size: 71, 104
+  orig: 71, 104
+  offset: 0, 0
+  index: -1
+xiaomi_10
+  rotate: true
+  xy: 749, 12
+  size: 41, 152
+  orig: 41, 152
+  offset: 0, 0
+  index: -1
+xiaomi_14
+  rotate: false
+  xy: 1115, 391
+  size: 48, 53
+  orig: 48, 53
+  offset: 0, 0
+  index: -1
+xiaomi_2
+  rotate: false
+  xy: 1095, 288
+  size: 50, 58
+  orig: 50, 58
+  offset: 0, 0
+  index: -1
+xiaomi_3
+  rotate: false
+  xy: 1043, 213
+  size: 51, 58
+  orig: 51, 58
+  offset: 0, 0
+  index: -1
+xiaomi_4
+  rotate: false
+  xy: 204, 2
+  size: 68, 21
+  orig: 68, 21
+  offset: 0, 0
+  index: -1
+xiaomi_5
+  rotate: false
+  xy: 2, 7
+  size: 200, 16
+  orig: 200, 16
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,55 @@
+
+shubao.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+huoyan
+  rotate: false
+  xy: 229, 55
+  size: 18, 31
+  orig: 18, 31
+  offset: 0, 0
+  index: -1
+shen
+  rotate: false
+  xy: 2, 2
+  size: 175, 145
+  orig: 175, 145
+  offset: 0, 0
+  index: -1
+shou
+  rotate: true
+  xy: 179, 112
+  size: 35, 75
+  orig: 35, 75
+  offset: 0, 0
+  index: -1
+tianxian
+  rotate: true
+  xy: 179, 53
+  size: 33, 48
+  orig: 33, 48
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 179, 88
+  size: 71, 22
+  orig: 71, 22
+  offset: 0, 0
+  index: -1
+zui_a
+  rotate: false
+  xy: 179, 37
+  size: 22, 14
+  orig: 22, 14
+  offset: 0, 0
+  index: -1
+zui_b
+  rotate: false
+  xy: 229, 38
+  size: 22, 15
+  orig: 22, 15
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,48 @@
+
+dunjiao.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dj
+  rotate: false
+  xy: 2, 2
+  size: 600, 233
+  orig: 600, 233
+  offset: 0, 0
+  index: -1
+dj_hz
+  rotate: true
+  xy: 1243, 72
+  size: 163, 51
+  orig: 163, 51
+  offset: 0, 0
+  index: -1
+dj_lian
+  rotate: false
+  xy: 604, 2
+  size: 600, 233
+  orig: 600, 233
+  offset: 0, 0
+  index: -1
+dj_shou
+  rotate: true
+  xy: 1206, 26
+  size: 209, 35
+  orig: 209, 35
+  offset: 0, 0
+  index: -1
+dj_tui
+  rotate: true
+  xy: 1243, 16
+  size: 54, 162
+  orig: 54, 162
+  offset: 0, 0
+  index: -1
+dj_yan
+  rotate: false
+  xy: 1296, 192
+  size: 43, 43
+  orig: 43, 43
+  offset: 0, 0
+  index: -1

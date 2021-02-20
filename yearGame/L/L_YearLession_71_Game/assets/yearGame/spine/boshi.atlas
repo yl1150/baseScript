@@ -1,0 +1,118 @@
+
+boshi.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boshi
+  rotate: false
+  xy: 618, 217
+  size: 127, 52
+  orig: 127, 52
+  offset: 0, 0
+  index: -1
+boshi_1
+  rotate: true
+  xy: 459, 40
+  size: 125, 118
+  orig: 125, 118
+  offset: 0, 0
+  index: -1
+boshi_10
+  rotate: true
+  xy: 579, 48
+  size: 125, 54
+  orig: 125, 54
+  offset: 0, 0
+  index: -1
+boshi_11
+  rotate: false
+  xy: 635, 116
+  size: 58, 99
+  orig: 58, 99
+  offset: 0, 0
+  index: -1
+boshi_12
+  rotate: false
+  xy: 635, 53
+  size: 56, 61
+  orig: 56, 61
+  offset: 0, 0
+  index: -1
+boshi_13
+  rotate: false
+  xy: 990, 60
+  size: 257, 384
+  orig: 257, 384
+  offset: 0, 0
+  index: -1
+boshi_14
+  rotate: false
+  xy: 158, 29
+  size: 179, 136
+  orig: 179, 136
+  offset: 0, 0
+  index: -1
+boshi_2
+  rotate: false
+  xy: 522, 271
+  size: 98, 132
+  orig: 98, 132
+  offset: 0, 0
+  index: -1
+boshi_3
+  rotate: false
+  xy: 2, 167
+  size: 518, 236
+  orig: 518, 236
+  offset: 0, 0
+  index: -1
+boshi_4
+  rotate: false
+  xy: 339, 31
+  size: 118, 134
+  orig: 118, 134
+  offset: 0, 0
+  index: -1
+boshi_5
+  rotate: false
+  xy: 522, 175
+  size: 94, 94
+  orig: 94, 94
+  offset: 0, 0
+  index: -1
+boshi_6
+  rotate: true
+  xy: 747, 2
+  size: 442, 241
+  orig: 442, 241
+  offset: 0, 0
+  index: -1
+boshi_7
+  rotate: true
+  xy: 617, 446
+  size: 576, 431
+  orig: 576, 431
+  offset: 0, 0
+  index: -1
+boshi_9
+  rotate: false
+  xy: 2, 2
+  size: 154, 163
+  orig: 154, 163
+  offset: 0, 0
+  index: -1
+boshi_b
+  rotate: true
+  xy: 2, 405
+  size: 617, 613
+  orig: 617, 613
+  offset: 0, 0
+  index: -1
+boshi_b_1
+  rotate: false
+  xy: 1050, 636
+  size: 246, 386
+  orig: 246, 386
+  offset: 0, 0
+  index: -1

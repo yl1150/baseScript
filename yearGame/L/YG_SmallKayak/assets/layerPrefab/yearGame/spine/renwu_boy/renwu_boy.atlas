@@ -1,0 +1,167 @@
+
+renwu_boy.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+a_1
+  rotate: true
+  xy: 506, 55
+  size: 43, 76
+  orig: 43, 76
+  offset: 0, 0
+  index: -1
+a_2
+  rotate: false
+  xy: 341, 23
+  size: 53, 54
+  orig: 53, 54
+  offset: 0, 0
+  index: -1
+a_3
+  rotate: true
+  xy: 584, 37
+  size: 40, 92
+  orig: 40, 92
+  offset: 0, 0
+  index: -1
+a_3_1
+  rotate: false
+  xy: 970, 282
+  size: 41, 41
+  orig: 41, 41
+  offset: 0, 0
+  index: -1
+a_4
+  rotate: true
+  xy: 135, 9
+  size: 68, 101
+  orig: 68, 101
+  offset: 0, 0
+  index: -1
+a_mei1
+  rotate: true
+  xy: 912, 329
+  size: 165, 20
+  orig: 165, 20
+  offset: 0, 0
+  index: -1
+a_yan1
+  rotate: false
+  xy: 915, 171
+  size: 30, 43
+  orig: 30, 43
+  offset: 0, 0
+  index: -1
+a_zui1
+  rotate: false
+  xy: 912, 272
+  size: 56, 51
+  orig: 56, 51
+  offset: 0, 0
+  index: -1
+doudou
+  rotate: false
+  xy: 2, 79
+  size: 392, 415
+  orig: 392, 415
+  offset: 0, 0
+  index: -1
+doudou111
+  rotate: true
+  xy: 934, 325
+  size: 26, 72
+  orig: 26, 72
+  offset: 0, 0
+  index: -1
+doudou_1
+  rotate: false
+  xy: 776, 259
+  size: 134, 235
+  orig: 134, 235
+  offset: 0, 0
+  index: -1
+doudou_2
+  rotate: false
+  xy: 934, 393
+  size: 68, 101
+  orig: 68, 101
+  offset: 0, 0
+  index: -1
+doudou_3
+  rotate: true
+  xy: 396, 38
+  size: 60, 108
+  orig: 60, 108
+  offset: 0, 0
+  index: -1
+doudou_4
+  rotate: false
+  xy: 685, 80
+  size: 86, 39
+  orig: 86, 39
+  offset: 0, 0
+  index: -1
+kou
+  rotate: false
+  xy: 506, 28
+  size: 67, 25
+  orig: 67, 25
+  offset: 0, 0
+  index: -1
+maomao
+  rotate: false
+  xy: 396, 121
+  size: 378, 373
+  orig: 378, 373
+  offset: 0, 0
+  index: -1
+maomao_1
+  rotate: false
+  xy: 776, 45
+  size: 137, 212
+  orig: 137, 212
+  offset: 0, 0
+  index: -1
+maomao_3
+  rotate: false
+  xy: 2, 2
+  size: 131, 75
+  orig: 131, 75
+  offset: 0, 0
+  index: -1
+maomao_4
+  rotate: false
+  xy: 934, 353
+  size: 88, 38
+  orig: 88, 38
+  offset: 0, 0
+  index: -1
+maomao_5
+  rotate: true
+  xy: 585, 79
+  size: 40, 98
+  orig: 40, 98
+  offset: 0, 0
+  index: -1
+maomao_7
+  rotate: true
+  xy: 238, 9
+  size: 68, 101
+  orig: 68, 101
+  offset: 0, 0
+  index: -1
+mei333
+  rotate: false
+  xy: 396, 100
+  size: 187, 19
+  orig: 187, 19
+  offset: 0, 0
+  index: -1
+xiaoyan
+  rotate: true
+  xy: 915, 216
+  size: 54, 26
+  orig: 54, 26
+  offset: 0, 0
+  index: -1

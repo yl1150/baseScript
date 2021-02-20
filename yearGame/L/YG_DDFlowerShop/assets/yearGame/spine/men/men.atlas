@@ -1,0 +1,62 @@
+
+men.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fanzheng
+  rotate: true
+  xy: 1063, 36
+  size: 171, 164
+  orig: 171, 164
+  offset: 0, 0
+  index: -1
+fanzheng_1
+  rotate: false
+  xy: 1063, 209
+  size: 283, 283
+  orig: 283, 283
+  offset: 0, 0
+  index: -1
+fanzheng_2
+  rotate: false
+  xy: 1229, 73
+  size: 134, 134
+  orig: 134, 134
+  offset: 0, 0
+  index: -1
+fanzheng_3
+  rotate: false
+  xy: 1229, 2
+  size: 68, 69
+  orig: 68, 69
+  offset: 0, 0
+  index: -1
+menb1
+  rotate: false
+  xy: 533, 250
+  size: 528, 242
+  orig: 528, 242
+  offset: 0, 0
+  index: -1
+menb2
+  rotate: false
+  xy: 533, 6
+  size: 528, 242
+  orig: 528, 242
+  offset: 0, 0
+  index: -1
+meng_1
+  rotate: false
+  xy: 2, 250
+  size: 529, 242
+  orig: 529, 242
+  offset: 0, 0
+  index: -1
+meng_2
+  rotate: false
+  xy: 2, 6
+  size: 529, 242
+  orig: 529, 242
+  offset: 0, 0
+  index: -1

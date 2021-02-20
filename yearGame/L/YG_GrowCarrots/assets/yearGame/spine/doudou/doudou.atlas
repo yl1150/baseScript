@@ -1,0 +1,90 @@
+
+doudou.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chanzi
+  rotate: false
+  xy: 473, 7
+  size: 127, 247
+  orig: 127, 247
+  offset: 0, 0
+  index: -1
+maojin
+  rotate: true
+  xy: 2, 2
+  size: 25, 53
+  orig: 25, 53
+  offset: 0, 0
+  index: -1
+maozi
+  rotate: false
+  xy: 2, 95
+  size: 283, 159
+  orig: 283, 159
+  offset: 0, 0
+  index: -1
+meimao
+  rotate: false
+  xy: 57, 14
+  size: 84, 13
+  orig: 84, 13
+  offset: 0, 0
+  index: -1
+saihong
+  rotate: false
+  xy: 169, 3
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+shen
+  rotate: true
+  xy: 2, 29
+  size: 64, 124
+  orig: 64, 124
+  offset: 0, 0
+  index: -1
+shou
+  rotate: true
+  xy: 128, 40
+  size: 53, 85
+  orig: 53, 85
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 287, 41
+  size: 184, 213
+  orig: 184, 213
+  offset: 0, 0
+  index: -1
+tu
+  rotate: false
+  xy: 169, 26
+  size: 41, 12
+  orig: 41, 12
+  offset: 0, 0
+  index: -1
+tui
+  rotate: true
+  xy: 215, 51
+  size: 42, 69
+  orig: 42, 69
+  offset: 0, 0
+  index: -1
+yan
+  rotate: true
+  xy: 191, 6
+  size: 18, 23
+  orig: 18, 23
+  offset: 0, 0
+  index: -1
+zuiba
+  rotate: true
+  xy: 143, 9
+  size: 29, 24
+  orig: 29, 24
+  offset: 0, 0
+  index: -1

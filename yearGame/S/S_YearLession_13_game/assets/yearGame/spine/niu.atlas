@@ -1,0 +1,83 @@
+
+niu.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+c_a
+  rotate: true
+  xy: 301, 63
+  size: 59, 33
+  orig: 59, 33
+  offset: 0, 0
+  index: -1
+c_b
+  rotate: true
+  xy: 307, 3
+  size: 58, 50
+  orig: 58, 50
+  offset: 0, 0
+  index: -1
+niu_bi
+  rotate: true
+  xy: 381, 128
+  size: 125, 77
+  orig: 125, 77
+  offset: 0, 0
+  index: -1
+niu_er
+  rotate: false
+  xy: 336, 65
+  size: 57, 57
+  orig: 57, 57
+  offset: 0, 0
+  index: -1
+niu_lian
+  rotate: true
+  xy: 261, 124
+  size: 129, 118
+  orig: 129, 118
+  offset: 0, 0
+  index: -1
+niu_ru
+  rotate: true
+  xy: 359, 6
+  size: 57, 27
+  orig: 57, 27
+  offset: 0, 0
+  index: -1
+niu_shen
+  rotate: false
+  xy: 2, 52
+  size: 257, 201
+  orig: 257, 201
+  offset: 0, 0
+  index: -1
+niu_wei
+  rotate: false
+  xy: 261, 56
+  size: 38, 66
+  orig: 38, 66
+  offset: 0, 0
+  index: -1
+niu_yan
+  rotate: false
+  xy: 388, 28
+  size: 78, 35
+  orig: 78, 35
+  offset: 0, 0
+  index: -1
+niu_yan_b
+  rotate: false
+  xy: 395, 92
+  size: 76, 34
+  orig: 76, 34
+  offset: 0, 0
+  index: -1
+niu_yy
+  rotate: false
+  xy: 2, 2
+  size: 303, 48
+  orig: 303, 48
+  offset: 0, 0
+  index: -1

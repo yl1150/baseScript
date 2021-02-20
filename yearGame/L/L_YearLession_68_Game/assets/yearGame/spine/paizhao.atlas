@@ -1,0 +1,20 @@
+
+paizhao.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bai
+  rotate: false
+  xy: 604, 2
+  size: 600, 461
+  orig: 600, 461
+  offset: 0, 0
+  index: -1
+hei
+  rotate: false
+  xy: 2, 2
+  size: 600, 461
+  orig: 600, 461
+  offset: 0, 0
+  index: -1

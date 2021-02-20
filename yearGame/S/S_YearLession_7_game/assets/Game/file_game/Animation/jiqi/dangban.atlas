@@ -1,0 +1,13 @@
+
+dangban.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jiqi_5
+  rotate: false
+  xy: 2, 2
+  size: 920, 110
+  orig: 920, 110
+  offset: 0, 0
+  index: -1

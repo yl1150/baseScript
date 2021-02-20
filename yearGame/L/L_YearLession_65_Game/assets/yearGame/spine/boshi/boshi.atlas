@@ -1,0 +1,97 @@
+
+boshi.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bs_lian
+  rotate: true
+  xy: 2, 29
+  size: 225, 169
+  orig: 225, 169
+  offset: 0, 0
+  index: -1
+bs_maozi
+  rotate: true
+  xy: 173, 52
+  size: 202, 92
+  orig: 202, 92
+  offset: 0, 0
+  index: -1
+bs_mei
+  rotate: false
+  xy: 338, 12
+  size: 172, 67
+  orig: 172, 67
+  offset: 0, 0
+  index: -1
+bs_shen
+  rotate: false
+  xy: 364, 104
+  size: 101, 150
+  orig: 101, 150
+  offset: 0, 0
+  index: -1
+bs_shou_a
+  rotate: true
+  xy: 467, 162
+  size: 92, 87
+  orig: 92, 87
+  offset: 0, 0
+  index: -1
+bs_shou_b
+  rotate: true
+  xy: 467, 82
+  size: 78, 83
+  orig: 78, 83
+  offset: 0, 0
+  index: -1
+bs_sui
+  rotate: true
+  xy: 24, 6
+  size: 21, 53
+  orig: 21, 53
+  offset: 0, 0
+  index: -1
+bs_tui
+  rotate: false
+  xy: 287, 7
+  size: 49, 72
+  orig: 49, 72
+  offset: 0, 0
+  index: -1
+bs_yan_a
+  rotate: true
+  xy: 173, 2
+  size: 48, 57
+  orig: 48, 57
+  offset: 0, 0
+  index: -1
+bs_yan_b
+  rotate: true
+  xy: 232, 4
+  size: 46, 53
+  orig: 46, 53
+  offset: 0, 0
+  index: -1
+bs_yanjing
+  rotate: true
+  xy: 267, 81
+  size: 173, 95
+  orig: 173, 95
+  offset: 0, 0
+  index: -1
+bs_zui_a
+  rotate: true
+  xy: 512, 42
+  size: 38, 37
+  orig: 38, 37
+  offset: 0, 0
+  index: -1
+bs_zui_b
+  rotate: true
+  xy: 2, 5
+  size: 22, 20
+  orig: 22, 20
+  offset: 0, 0
+  index: -1

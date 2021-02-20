@@ -1,0 +1,34 @@
+
+dahai.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+huaier
+  rotate: false
+  xy: 909, 303
+  size: 255, 70
+  orig: 255, 70
+  offset: 0, 0
+  index: -1
+hualang
+  rotate: false
+  xy: 2, 2
+  size: 1933, 299
+  orig: 1933, 299
+  offset: 0, 0
+  index: -1
+shuibo5
+  rotate: false
+  xy: 2, 337
+  size: 441, 36
+  orig: 441, 36
+  offset: 0, 0
+  index: -1
+shuibo6
+  rotate: false
+  xy: 445, 320
+  size: 462, 53
+  orig: 462, 53
+  offset: 0, 0
+  index: -1

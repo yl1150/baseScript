@@ -1,0 +1,104 @@
+
+xiaomi.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+xiaomi_31
+  rotate: true
+  xy: 2, 41
+  size: 60, 116
+  orig: 60, 116
+  offset: 0, 0
+  index: -1
+xiaomi_32
+  rotate: false
+  xy: 113, 18
+  size: 18, 21
+  orig: 18, 21
+  offset: 0, 0
+  index: -1
+xiaomi_33
+  rotate: true
+  xy: 81, 14
+  size: 25, 9
+  orig: 25, 9
+  offset: 0, 0
+  index: -1
+xiaomi_34
+  rotate: false
+  xy: 66, 2
+  size: 19, 6
+  orig: 19, 6
+  offset: 0, 0
+  index: -1
+xiaomi_35
+  rotate: true
+  xy: 49, 7
+  size: 32, 15
+  orig: 32, 15
+  offset: 0, 0
+  index: -1
+xiaomi_36
+  rotate: false
+  xy: 120, 62
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+xiaomi_37
+  rotate: false
+  xy: 2, 103
+  size: 149, 150
+  orig: 149, 150
+  offset: 0, 0
+  index: -1
+xiaomi_38
+  rotate: false
+  xy: 15, 5
+  size: 32, 34
+  orig: 32, 34
+  offset: 0, 0
+  index: -1
+xiaomi_39
+  rotate: true
+  xy: 92, 18
+  size: 21, 19
+  orig: 21, 19
+  offset: 0, 0
+  index: -1
+xiaomi_40
+  rotate: true
+  xy: 107, 2
+  size: 14, 43
+  orig: 14, 43
+  offset: 0, 0
+  index: -1
+xiaomi_41
+  rotate: false
+  xy: 2, 4
+  size: 11, 35
+  orig: 11, 35
+  offset: 0, 0
+  index: -1
+xiaomi_43
+  rotate: false
+  xy: 120, 81
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+xiaomi_44
+  rotate: false
+  xy: 66, 10
+  size: 13, 29
+  orig: 13, 29
+  offset: 0, 0
+  index: -1
+yan_5
+  rotate: false
+  xy: 87, 3
+  size: 18, 9
+  orig: 18, 9
+  offset: 0, 0
+  index: -1

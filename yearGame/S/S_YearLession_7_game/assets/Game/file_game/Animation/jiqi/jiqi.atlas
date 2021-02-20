@@ -1,0 +1,125 @@
+
+jiqi.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+anniu
+  rotate: true
+  xy: 585, 294
+  size: 148, 128
+  orig: 148, 128
+  offset: 0, 0
+  index: -1
+jiqi
+  rotate: false
+  xy: 2, 348
+  size: 581, 121
+  orig: 581, 121
+  offset: 0, 0
+  index: -1
+jiqi_1
+  rotate: false
+  xy: 2, 471
+  size: 1169, 474
+  orig: 1169, 474
+  offset: 0, 0
+  index: -1
+jiqi_2
+  rotate: false
+  xy: 1031, 361
+  size: 66, 108
+  orig: 66, 108
+  offset: 0, 0
+  index: -1
+jiqi_3
+  rotate: false
+  xy: 585, 444
+  size: 308, 25
+  orig: 308, 25
+  offset: 0, 0
+  index: -1
+jiqi_4
+  rotate: true
+  xy: 828, 349
+  size: 93, 13
+  orig: 93, 13
+  offset: 0, 0
+  index: -1
+jiqi_5
+  rotate: true
+  xy: 1173, 25
+  size: 920, 110
+  orig: 920, 110
+  offset: 0, 0
+  index: -1
+jiqi_6
+  rotate: true
+  xy: 1031, 293
+  size: 66, 108
+  orig: 66, 108
+  offset: 0, 0
+  index: -1
+sugar_b
+  rotate: true
+  xy: 715, 240
+  size: 202, 111
+  orig: 202, 111
+  offset: 0, 0
+  index: -1
+sugar_b_1
+  rotate: true
+  xy: 828, 2
+  size: 276, 85
+  orig: 276, 85
+  offset: 0, 0
+  index: -1
+sugar_g
+  rotate: true
+  xy: 1003, 77
+  size: 201, 111
+  orig: 201, 111
+  offset: 0, 0
+  index: -1
+sugar_g_1
+  rotate: false
+  xy: 2, 261
+  size: 275, 85
+  orig: 275, 85
+  offset: 0, 0
+  index: -1
+sugar_p
+  rotate: true
+  xy: 2, 59
+  size: 200, 111
+  orig: 200, 111
+  offset: 0, 0
+  index: -1
+sugar_p_1
+  rotate: true
+  xy: 915, 3
+  size: 275, 86
+  orig: 275, 86
+  offset: 0, 0
+  index: -1
+sugar_r
+  rotate: true
+  xy: 115, 59
+  size: 200, 111
+  orig: 200, 111
+  offset: 0, 0
+  index: -1
+sugar_r_1
+  rotate: true
+  xy: 279, 71
+  size: 275, 85
+  orig: 275, 85
+  offset: 0, 0
+  index: -1
+yan1
+  rotate: true
+  xy: 895, 280
+  size: 189, 134
+  orig: 189, 134
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,90 @@
+
+chuan.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chuan1
+  rotate: false
+  xy: 2, 480
+  size: 311, 132
+  orig: 311, 132
+  offset: 0, 0
+  index: -1
+chuan2
+  rotate: false
+  xy: 2, 346
+  size: 311, 132
+  orig: 311, 132
+  offset: 0, 0
+  index: -1
+chuan3
+  rotate: false
+  xy: 2, 2
+  size: 435, 342
+  orig: 435, 342
+  offset: 0, 0
+  index: -1
+langhua
+  rotate: false
+  xy: 190, 754
+  size: 180, 30
+  orig: 180, 30
+  offset: 0, 0
+  index: -1
+langhua_1
+  rotate: false
+  xy: 2, 723
+  size: 182, 31
+  orig: 182, 31
+  offset: 0, 0
+  index: -1
+langhua_2
+  rotate: false
+  xy: 2, 687
+  size: 186, 32
+  orig: 186, 32
+  offset: 0, 0
+  index: -1
+shuiboa1
+  rotate: false
+  xy: 2, 614
+  size: 199, 35
+  orig: 214, 67
+  offset: 15, 0
+  index: -1
+shuiboa2
+  rotate: false
+  xy: 2, 652
+  size: 198, 33
+  orig: 214, 67
+  offset: 0, 34
+  index: -1
+shuibob1
+  rotate: false
+  xy: 2, 756
+  size: 186, 28
+  orig: 214, 67
+  offset: 19, 7
+  index: -1
+shuibob2
+  rotate: false
+  xy: 186, 721
+  size: 197, 31
+  orig: 214, 67
+  offset: 6, 33
+  index: -1
+shuiboc1
+  rotate: false
+  xy: 190, 687
+  size: 205, 32
+  orig: 214, 67
+  offset: 1, 35
+  index: -1
+shuiboc2
+  rotate: false
+  xy: 202, 651
+  size: 197, 34
+  orig: 214, 67
+  offset: 16, 3
+  index: -1

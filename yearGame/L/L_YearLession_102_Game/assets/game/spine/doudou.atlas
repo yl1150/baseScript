@@ -1,0 +1,139 @@
+
+doudou.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doudou_yingyeyuan
+  rotate: true
+  xy: 2, 36
+  size: 216, 257
+  orig: 216, 257
+  offset: 0, 0
+  index: -1
+yingyeyuan
+  rotate: false
+  xy: 322, 87
+  size: 61, 61
+  orig: 61, 61
+  offset: 0, 0
+  index: -1
+yingyeyuan_1
+  rotate: false
+  xy: 300, 38
+  size: 35, 13
+  orig: 35, 13
+  offset: 0, 0
+  index: -1
+yingyeyuan_10
+  rotate: false
+  xy: 261, 150
+  size: 77, 102
+  orig: 77, 102
+  offset: 0, 0
+  index: -1
+yingyeyuan_11
+  rotate: true
+  xy: 261, 73
+  size: 75, 59
+  orig: 75, 59
+  offset: 0, 0
+  index: -1
+yingyeyuan_12
+  rotate: true
+  xy: 74, 6
+  size: 28, 65
+  orig: 28, 65
+  offset: 0, 0
+  index: -1
+yingyeyuan_13
+  rotate: true
+  xy: 2, 6
+  size: 28, 70
+  orig: 28, 70
+  offset: 0, 0
+  index: -1
+yingyeyuan_14
+  rotate: false
+  xy: 313, 13
+  size: 37, 23
+  orig: 37, 23
+  offset: 0, 0
+  index: -1
+yingyeyuan_15111
+  rotate: false
+  xy: 340, 197
+  size: 50, 55
+  orig: 50, 55
+  offset: 0, 0
+  index: -1
+yingyeyuan_16
+  rotate: false
+  xy: 348, 41
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+yingyeyuan_17
+  rotate: false
+  xy: 228, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+yingyeyuan_2
+  rotate: false
+  xy: 352, 11
+  size: 23, 28
+  orig: 23, 28
+  offset: 0, 0
+  index: -1
+yingyeyuan_3
+  rotate: false
+  xy: 261, 37
+  size: 37, 14
+  orig: 37, 14
+  offset: 0, 0
+  index: -1
+yingyeyuan_4
+  rotate: false
+  xy: 261, 53
+  size: 49, 18
+  orig: 49, 18
+  offset: 0, 0
+  index: -1
+yingyeyuan_5
+  rotate: false
+  xy: 322, 56
+  size: 24, 29
+  orig: 24, 29
+  offset: 0, 0
+  index: -1
+yingyeyuan_6
+  rotate: false
+  xy: 141, 3
+  size: 40, 31
+  orig: 40, 31
+  offset: 0, 0
+  index: -1
+yingyeyuan_7
+  rotate: false
+  xy: 262, 17
+  size: 49, 18
+  orig: 49, 18
+  offset: 0, 0
+  index: -1
+yingyeyuan_8
+  rotate: false
+  xy: 377, 15
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+yingyeyuan_9
+  rotate: true
+  xy: 183, 9
+  size: 25, 43
+  orig: 25, 43
+  offset: 0, 0
+  index: -1

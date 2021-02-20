@@ -1,0 +1,146 @@
+
+niao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+c_fa
+  rotate: true
+  xy: 420, 449
+  size: 56, 41
+  orig: 56, 41
+  offset: 0, 0
+  index: -1
+c_mei
+  rotate: false
+  xy: 2, 8
+  size: 71, 15
+  orig: 71, 15
+  offset: 0, 0
+  index: -1
+c_sai
+  rotate: false
+  xy: 291, 13
+  size: 153, 12
+  orig: 153, 12
+  offset: 0, 0
+  index: -1
+c_shen
+  rotate: true
+  xy: 2, 88
+  size: 202, 212
+  orig: 202, 212
+  offset: 0, 0
+  index: -1
+c_shou
+  rotate: true
+  xy: 291, 27
+  size: 60, 73
+  orig: 60, 73
+  offset: 0, 0
+  index: -1
+c_yan_a
+  rotate: false
+  xy: 76, 27
+  size: 125, 59
+  orig: 125, 59
+  offset: 0, 0
+  index: -1
+c_yan_b
+  rotate: true
+  xy: 420, 135
+  size: 94, 35
+  orig: 94, 35
+  offset: 0, 0
+  index: -1
+c_zui
+  rotate: true
+  xy: 76, 2
+  size: 23, 35
+  orig: 23, 35
+  offset: 0, 0
+  index: -1
+h_fa
+  rotate: true
+  xy: 420, 391
+  size: 56, 41
+  orig: 56, 41
+  offset: 0, 0
+  index: -1
+h_shen
+  rotate: true
+  xy: 206, 303
+  size: 202, 212
+  orig: 202, 212
+  offset: 0, 0
+  index: -1
+h_shou
+  rotate: true
+  xy: 2, 25
+  size: 61, 72
+  orig: 61, 72
+  offset: 0, 0
+  index: -1
+l_fa
+  rotate: true
+  xy: 420, 333
+  size: 56, 41
+  orig: 56, 41
+  offset: 0, 0
+  index: -1
+l_shen
+  rotate: false
+  xy: 216, 89
+  size: 202, 212
+  orig: 202, 212
+  offset: 0, 0
+  index: -1
+l_shou
+  rotate: true
+  xy: 366, 27
+  size: 60, 72
+  orig: 60, 72
+  offset: 0, 0
+  index: -1
+y_a
+  rotate: true
+  xy: 420, 102
+  size: 31, 37
+  orig: 31, 37
+  offset: 0, 0
+  index: -1
+y_b
+  rotate: false
+  xy: 420, 231
+  size: 38, 43
+  orig: 38, 43
+  offset: 0, 0
+  index: -1
+y_c
+  rotate: true
+  xy: 113, 11
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+z_fa
+  rotate: true
+  xy: 420, 276
+  size: 55, 41
+  orig: 55, 41
+  offset: 0, 0
+  index: -1
+z_shen
+  rotate: false
+  xy: 2, 292
+  size: 202, 213
+  orig: 202, 213
+  offset: 0, 0
+  index: -1
+z_shou
+  rotate: true
+  xy: 216, 26
+  size: 61, 73
+  orig: 61, 73
+  offset: 0, 0
+  index: -1

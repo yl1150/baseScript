@@ -1,0 +1,69 @@
+
+jizai.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ji_cb
+  rotate: true
+  xy: 180, 146
+  size: 68, 64
+  orig: 68, 64
+  offset: 0, 0
+  index: -1
+ji_guan
+  rotate: false
+  xy: 2, 2
+  size: 70, 43
+  orig: 70, 43
+  offset: 0, 0
+  index: -1
+ji_shen
+  rotate: false
+  xy: 2, 47
+  size: 176, 167
+  orig: 176, 167
+  offset: 0, 0
+  index: -1
+ji_tui
+  rotate: true
+  xy: 74, 12
+  size: 33, 35
+  orig: 33, 35
+  offset: 0, 0
+  index: -1
+ji_yan
+  rotate: false
+  xy: 111, 16
+  size: 27, 29
+  orig: 27, 29
+  offset: 0, 0
+  index: -1
+ji_yan_b
+  rotate: false
+  xy: 160, 7
+  size: 27, 12
+  orig: 27, 12
+  offset: 0, 0
+  index: -1
+ji_yy
+  rotate: true
+  xy: 180, 21
+  size: 123, 47
+  orig: 123, 47
+  offset: 0, 0
+  index: -1
+ji_zui_a
+  rotate: true
+  xy: 140, 19
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+ji_zui_b
+  rotate: true
+  xy: 160, 21
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1

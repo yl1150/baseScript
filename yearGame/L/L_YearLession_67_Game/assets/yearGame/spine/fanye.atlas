@@ -1,0 +1,103 @@
+
+fanye.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+faye
+  rotate: false
+  xy: 808, 1030
+  size: 185, 211
+  orig: 185, 211
+  offset: 0, 0
+  index: -1
+faye_4
+  rotate: false
+  xy: 2, 1243
+  size: 1061, 643
+  orig: 1061, 643
+  offset: 0, 0
+  index: -1
+faye_6
+  rotate: false
+  xy: 722, 92
+  size: 968, 716
+  orig: 968, 716
+  offset: 0, 0
+  index: -1
+faye_7
+  rotate: true
+  xy: 2, 352
+  size: 889, 718
+  orig: 889, 718
+  offset: 0, 0
+  index: -1
+jiazi
+  rotate: true
+  xy: 722, 810
+  size: 431, 84
+  orig: 431, 84
+  offset: 0, 0
+  index: -1
+paizi
+  rotate: true
+  xy: 1065, 937
+  size: 949, 729
+  orig: 949, 729
+  offset: 0, 0
+  index: -1
+shou3
+  rotate: true
+  xy: 2, 2
+  size: 348, 709
+  orig: 348, 709
+  offset: 0, 0
+  index: -1
+
+fanye2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+faye_1
+  rotate: true
+  xy: 1405, 793
+  size: 747, 450
+  orig: 747, 450
+  offset: 0, 0
+  index: -1
+faye_2
+  rotate: false
+  xy: 424, 1141
+  size: 979, 399
+  orig: 979, 399
+  offset: 0, 0
+  index: -1
+faye_3
+  rotate: false
+  xy: 2, 664
+  size: 1035, 475
+  orig: 1035, 475
+  offset: 0, 0
+  index: -1
+huamian1
+  rotate: false
+  xy: 1039, 131
+  size: 889, 660
+  orig: 889, 660
+  offset: 0, 0
+  index: -1
+huamian2
+  rotate: false
+  xy: 2, 2
+  size: 889, 660
+  orig: 889, 660
+  offset: 0, 0
+  index: -1
+shou1
+  rotate: true
+  xy: 2, 1179
+  size: 361, 420
+  orig: 361, 420
+  offset: 0, 0
+  index: -1

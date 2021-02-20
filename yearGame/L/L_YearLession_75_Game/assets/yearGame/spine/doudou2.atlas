@@ -1,0 +1,90 @@
+
+doudou2.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cheba
+  rotate: true
+  xy: 270, 56
+  size: 147, 150
+  orig: 147, 150
+  offset: 0, 0
+  index: -1
+chelun
+  rotate: true
+  xy: 253, 2
+  size: 52, 53
+  orig: 52, 53
+  offset: 0, 0
+  index: -1
+cheshen
+  rotate: true
+  xy: 270, 205
+  size: 302, 232
+  orig: 302, 232
+  offset: 0, 0
+  index: -1
+d_mei
+  rotate: true
+  xy: 253, 69
+  size: 31, 14
+  orig: 31, 14
+  offset: 0, 0
+  index: -1
+d_sai
+  rotate: false
+  xy: 343, 25
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+d_shen
+  rotate: false
+  xy: 422, 43
+  size: 82, 160
+  orig: 82, 160
+  offset: 0, 0
+  index: -1
+d_shou
+  rotate: false
+  xy: 121, 45
+  size: 130, 55
+  orig: 130, 55
+  offset: 0, 0
+  index: -1
+d_tou
+  rotate: false
+  xy: 2, 186
+  size: 266, 321
+  orig: 266, 321
+  offset: 0, 0
+  index: -1
+d_tui
+  rotate: true
+  xy: 2, 34
+  size: 66, 117
+  orig: 66, 117
+  offset: 0, 0
+  index: -1
+d_yan
+  rotate: false
+  xy: 374, 22
+  size: 26, 32
+  orig: 26, 32
+  offset: 0, 0
+  index: -1
+d_zui
+  rotate: false
+  xy: 308, 22
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+yy_che
+  rotate: false
+  xy: 2, 102
+  size: 265, 82
+  orig: 265, 82
+  offset: 0, 0
+  index: -1

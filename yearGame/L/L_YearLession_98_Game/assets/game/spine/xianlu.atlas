@@ -1,0 +1,34 @@
+
+xianlu.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+xianlu
+  rotate: false
+  xy: 238, 216
+  size: 227, 151
+  orig: 227, 151
+  offset: 0, 0
+  index: -1
+xianlu2
+  rotate: false
+  xy: 2, 206
+  size: 234, 161
+  orig: 236, 163
+  offset: 0, 1
+  index: -1
+xianlu3
+  rotate: false
+  xy: 238, 2
+  size: 226, 212
+  orig: 230, 214
+  offset: 3, 1
+  index: -1
+xianlu4
+  rotate: false
+  xy: 2, 5
+  size: 215, 199
+  orig: 215, 199
+  offset: 0, 0
+  index: -1

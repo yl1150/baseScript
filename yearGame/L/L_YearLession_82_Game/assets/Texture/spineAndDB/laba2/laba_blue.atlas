@@ -1,0 +1,97 @@
+
+laba_blue.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bj1
+  rotate: false
+  xy: 332, 19
+  size: 111, 111
+  orig: 111, 111
+  offset: 0, 0
+  index: -1
+bj2
+  rotate: false
+  xy: 192, 99
+  size: 84, 31
+  orig: 84, 31
+  offset: 0, 0
+  index: -1
+laba
+  rotate: true
+  xy: 2, 69
+  size: 241, 188
+  orig: 241, 188
+  offset: 0, 0
+  index: -1
+laba22
+  rotate: false
+  xy: 409, 175
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: false
+  xy: 2, 312
+  size: 544, 709
+  orig: 544, 709
+  offset: 0, 0
+  index: -1
+shou
+  rotate: true
+  xy: 187, 8
+  size: 59, 58
+  orig: 59, 58
+  offset: 0, 0
+  index: -1
+yf1
+  rotate: false
+  xy: 336, 136
+  size: 71, 87
+  orig: 71, 87
+  offset: 0, 0
+  index: -1
+yf2
+  rotate: true
+  xy: 2, 2
+  size: 65, 79
+  orig: 65, 79
+  offset: 0, 0
+  index: -1
+yf3
+  rotate: true
+  xy: 247, 10
+  size: 87, 83
+  orig: 87, 83
+  offset: 0, 0
+  index: -1
+yf4
+  rotate: false
+  xy: 336, 225
+  size: 84, 85
+  orig: 84, 85
+  offset: 0, 0
+  index: -1
+yf5
+  rotate: true
+  xy: 83, 25
+  size: 42, 102
+  orig: 42, 102
+  offset: 0, 0
+  index: -1
+yougebi
+  rotate: true
+  xy: 192, 132
+  size: 178, 142
+  orig: 178, 142
+  offset: 0, 0
+  index: -1
+zuiba_
+  rotate: true
+  xy: 278, 101
+  size: 29, 49
+  orig: 29, 49
+  offset: 0, 0
+  index: -1

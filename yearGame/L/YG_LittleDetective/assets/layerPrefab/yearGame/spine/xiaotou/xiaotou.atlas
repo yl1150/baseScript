@@ -1,0 +1,237 @@
+
+xiaotou.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tuji/guizi1
+  rotate: false
+  xy: 1474, 1221
+  size: 87, 125
+  orig: 87, 125
+  offset: 0, 0
+  index: -1
+tuji/guizi2
+  rotate: true
+  xy: 1340, 132
+  size: 147, 52
+  orig: 147, 52
+  offset: 0, 0
+  index: -1
+tuji/guizi3
+  rotate: true
+  xy: 1805, 501
+  size: 112, 108
+  orig: 112, 108
+  offset: 0, 0
+  index: -1
+tuji/guizi4
+  rotate: true
+  xy: 1954, 330
+  size: 42, 47
+  orig: 42, 47
+  offset: 0, 0
+  index: -1
+tuji/guizi5
+  rotate: true
+  xy: 1340, 281
+  size: 104, 54
+  orig: 104, 54
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a
+  rotate: true
+  xy: 1474, 1065
+  size: 55, 85
+  orig: 55, 85
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a1
+  rotate: true
+  xy: 1905, 329
+  size: 43, 47
+  orig: 43, 47
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a10
+  rotate: false
+  xy: 763, 1348
+  size: 708, 496
+  orig: 708, 496
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a11
+  rotate: false
+  xy: 1082, 13
+  size: 256, 372
+  orig: 256, 372
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a12
+  rotate: false
+  xy: 2, 370
+  size: 718, 654
+  orig: 718, 654
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a13
+  rotate: true
+  xy: 1473, 1407
+  size: 437, 487
+  orig: 437, 487
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a14
+  rotate: true
+  xy: 1397, 164
+  size: 449, 406
+  orig: 449, 406
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a15
+  rotate: false
+  xy: 722, 387
+  size: 673, 637
+  orig: 673, 637
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a16
+  rotate: true
+  xy: 1397, 615
+  size: 439, 415
+  orig: 439, 415
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a17
+  rotate: false
+  xy: 2, 1026
+  size: 759, 818
+  orig: 759, 818
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a18
+  rotate: true
+  xy: 722, 29
+  size: 356, 358
+  orig: 356, 358
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a19
+  rotate: true
+  xy: 1157, 1056
+  size: 290, 315
+  orig: 290, 315
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a2
+  rotate: true
+  xy: 1805, 253
+  size: 69, 74
+  orig: 69, 74
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a21
+  rotate: false
+  xy: 1340, 2
+  size: 51, 128
+  orig: 51, 128
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a22
+  rotate: true
+  xy: 1832, 117
+  size: 73, 32
+  orig: 73, 32
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a23
+  rotate: true
+  xy: 1563, 1080
+  size: 325, 365
+  orig: 325, 365
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a24
+  rotate: true
+  xy: 1157, 1026
+  size: 28, 50
+  orig: 28, 50
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a25
+  rotate: true
+  xy: 1394, 49
+  size: 113, 197
+  orig: 113, 197
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a26
+  rotate: false
+  xy: 1473, 1348
+  size: 88, 57
+  orig: 88, 57
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a27
+  rotate: true
+  xy: 1805, 192
+  size: 59, 83
+  orig: 59, 83
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a28
+  rotate: true
+  xy: 1905, 374
+  size: 48, 97
+  orig: 48, 97
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a3
+  rotate: true
+  xy: 1881, 273
+  size: 49, 97
+  orig: 49, 97
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a4
+  rotate: false
+  xy: 1474, 1122
+  size: 79, 97
+  orig: 79, 97
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a6
+  rotate: false
+  xy: 1593, 115
+  size: 237, 47
+  orig: 237, 47
+  offset: 0, 0
+  index: -1
+tuji/xiaotou_a8
+  rotate: false
+  xy: 763, 1048
+  size: 392, 298
+  orig: 392, 298
+  offset: 0, 0
+  index: -1
+tuji/zuanshi1
+  rotate: false
+  xy: 1805, 324
+  size: 98, 76
+  orig: 98, 76
+  offset: 0, 0
+  index: -1
+tuji/zuanshi2
+  rotate: true
+  xy: 1805, 402
+  size: 97, 77
+  orig: 97, 77
+  offset: 0, 0
+  index: -1
+tuji/zuanshi3
+  rotate: false
+  xy: 1884, 424
+  size: 96, 75
+  orig: 96, 75
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,111 @@
+
+feichuan.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+feichuan
+  rotate: false
+  xy: 2, 439
+  size: 820, 1602
+  orig: 820, 1602
+  offset: 0, 0
+  index: -1
+feichuan_1
+  rotate: false
+  xy: 487, 2
+  size: 145, 53
+  orig: 145, 53
+  offset: 0, 0
+  index: -1
+feichuan_10
+  rotate: true
+  xy: 871, 188
+  size: 23, 325
+  orig: 23, 325
+  offset: 0, 0
+  index: -1
+feichuan_11
+  rotate: true
+  xy: 1009, 275
+  size: 260, 288
+  orig: 260, 288
+  offset: 0, 0
+  index: -1
+feichuan_12
+  rotate: true
+  xy: 1299, 349
+  size: 186, 209
+  orig: 186, 209
+  offset: 0, 0
+  index: -1
+feichuan_13
+  rotate: true
+  xy: 1009, 873
+  size: 1168, 268
+  orig: 1168, 268
+  offset: 0, 0
+  index: -1
+feichuan_2
+  rotate: false
+  xy: 1009, 537
+  size: 461, 334
+  orig: 461, 334
+  offset: 0, 0
+  index: -1
+feichuan_3
+  rotate: true
+  xy: 487, 57
+  size: 380, 382
+  orig: 380, 382
+  offset: 0, 0
+  index: -1
+feichuan_4
+  rotate: true
+  xy: 634, 5
+  size: 50, 109
+  orig: 50, 109
+  offset: 0, 0
+  index: -1
+feichuan_5
+  rotate: true
+  xy: 745, 5
+  size: 50, 109
+  orig: 50, 109
+  offset: 0, 0
+  index: -1
+feichuan_6
+  rotate: true
+  xy: 1299, 212
+  size: 135, 209
+  orig: 135, 209
+  offset: 0, 0
+  index: -1
+feichuan_7
+  rotate: true
+  xy: 871, 213
+  size: 60, 343
+  orig: 60, 343
+  offset: 0, 0
+  index: -1
+feichuan_8
+  rotate: false
+  xy: 856, 11
+  size: 151, 44
+  orig: 151, 44
+  offset: 0, 0
+  index: -1
+feichuan_9
+  rotate: false
+  xy: 1216, 18
+  size: 32, 255
+  orig: 32, 255
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 2, 8
+  size: 483, 429
+  orig: 483, 429
+  offset: 0, 0
+  index: -1

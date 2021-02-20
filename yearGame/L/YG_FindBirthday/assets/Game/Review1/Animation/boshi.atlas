@@ -1,0 +1,13 @@
+
+boshi.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+baoshitu
+  rotate: true
+  xy: 2, 2
+  size: 409, 573
+  orig: 409, 573
+  offset: 0, 0
+  index: -1

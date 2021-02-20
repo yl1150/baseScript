@@ -1,0 +1,160 @@
+
+nan_a.png
+size: 858,478
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+a_bi
+  rotate: false
+  xy: 826, 340
+  size: 19, 21
+  orig: 19, 21
+  offset: 0, 0
+  index: -1
+a_mei
+  rotate: true
+  xy: 635, 66
+  size: 171, 26
+  orig: 171, 26
+  offset: 0, 0
+  index: -1
+a_saihong
+  rotate: true
+  xy: 635, 2
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+a_shou
+  rotate: false
+  xy: 505, 4
+  size: 63, 87
+  orig: 63, 87
+  offset: 0, 0
+  index: -1
+a_shou_1
+  rotate: true
+  xy: 792, 22
+  size: 87, 60
+  orig: 87, 60
+  offset: 0, 0
+  index: -1
+a_shou_2
+  rotate: true
+  xy: 663, 113
+  size: 57, 60
+  orig: 57, 60
+  offset: 0, 0
+  index: -1
+a_yan
+  rotate: true
+  xy: 797, 111
+  size: 177, 50
+  orig: 177, 50
+  offset: 0, 0
+  index: -1
+a_yan_1
+  rotate: true
+  xy: 738, 294
+  size: 182, 38
+  orig: 182, 38
+  offset: 0, 0
+  index: -1
+a_yan_2
+  rotate: false
+  xy: 505, 239
+  size: 197, 30
+  orig: 197, 30
+  offset: 0, 0
+  index: -1
+a_zui
+  rotate: true
+  xy: 778, 290
+  size: 71, 30
+  orig: 71, 31
+  offset: 0, 1
+  index: -1
+a_zui1_1
+  rotate: true
+  xy: 810, 291
+  size: 70, 14
+  orig: 72, 15
+  offset: 1, 0
+  index: -1
+a_zui2
+  rotate: true
+  xy: 570, 11
+  size: 70, 63
+  orig: 70, 63
+  offset: 0, 0
+  index: -1
+pingzi_1
+  rotate: false
+  xy: 670, 281
+  size: 66, 195
+  orig: 66, 195
+  offset: 0, 0
+  index: -1
+renwu_nana
+  rotate: true
+  xy: 2, 9
+  size: 467, 501
+  orig: 467, 501
+  offset: 0, 0
+  index: -1
+renwu_nana_1
+  rotate: false
+  xy: 778, 363
+  size: 78, 113
+  orig: 78, 113
+  offset: 0, 0
+  index: -1
+renwu_nana_2
+  rotate: false
+  xy: 725, 126
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+renwu_nana_3
+  rotate: false
+  xy: 505, 271
+  size: 163, 205
+  orig: 163, 205
+  offset: 0, 0
+  index: -1
+renwu_nana_4
+  rotate: true
+  xy: 505, 93
+  size: 144, 68
+  orig: 144, 68
+  offset: 0, 0
+  index: -1
+renwu_nana_6
+  rotate: false
+  xy: 575, 83
+  size: 58, 154
+  orig: 58, 154
+  offset: 0, 0
+  index: -1
+renwu_nana_7
+  rotate: false
+  xy: 681, 4
+  size: 91, 41
+  orig: 91, 41
+  offset: 0, 0
+  index: -1
+renwu_nana_8
+  rotate: false
+  xy: 704, 172
+  size: 91, 107
+  orig: 91, 107
+  offset: 0, 0
+  index: -1
+renwu_nanb_5
+  rotate: true
+  xy: 663, 47
+  size: 62, 127
+  orig: 62, 127
+  offset: 0, 0
+  index: -1

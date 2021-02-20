@@ -1,0 +1,20 @@
+
+lanche.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lanche
+  rotate: false
+  xy: 2, 2
+  size: 635, 857
+  orig: 635, 857
+  offset: 0, 0
+  index: -1
+men
+  rotate: false
+  xy: 639, 300
+  size: 192, 559
+  orig: 192, 559
+  offset: 0, 0
+  index: -1

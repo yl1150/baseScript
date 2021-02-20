@@ -1,0 +1,83 @@
+
+kaoxiang.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+mianbao1_1
+  rotate: false
+  xy: 1592, 1045
+  size: 306, 303
+  orig: 306, 303
+  offset: 0, 0
+  index: -1
+mianbao2_1
+  rotate: false
+  xy: 1412, 1654
+  size: 394, 332
+  orig: 394, 332
+  offset: 0, 0
+  index: -1
+mianbao4
+  rotate: false
+  xy: 1592, 1350
+  size: 307, 302
+  orig: 307, 302
+  offset: 0, 0
+  index: -1
+sanjiaobao
+  rotate: true
+  xy: 1258, 1258
+  size: 394, 332
+  orig: 394, 332
+  offset: 0, 0
+  index: -1
+shoubi
+  rotate: false
+  xy: 984, 116
+  size: 426, 1078
+  orig: 426, 1078
+  offset: 0, 0
+  index: -1
+shoubi_1
+  rotate: false
+  xy: 2, 94
+  size: 442, 1100
+  orig: 442, 1100
+  offset: 0, 0
+  index: -1
+weibolu
+  rotate: true
+  xy: 2, 8
+  size: 39, 154
+  orig: 39, 154
+  offset: 0, 0
+  index: -1
+weibolu_1
+  rotate: true
+  xy: 1412, 2
+  size: 1254, 170
+  orig: 1254, 170
+  offset: 0, 0
+  index: -1
+weibolu_2
+  rotate: true
+  xy: 2, 49
+  size: 43, 42
+  orig: 43, 42
+  offset: 0, 0
+  index: -1
+weibolu_3
+  rotate: true
+  xy: 446, 108
+  size: 1086, 536
+  orig: 1086, 536
+  offset: 0, 0
+  index: -1
+weibolu_4
+  rotate: false
+  xy: 2, 1196
+  size: 1254, 790
+  orig: 1254, 790
+  offset: 0, 0
+  index: -1

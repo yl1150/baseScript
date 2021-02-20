@@ -1,0 +1,174 @@
+
+xiaomi.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+muma
+  rotate: false
+  xy: 570, 85
+  size: 536, 424
+  orig: 536, 424
+  offset: 0, 0
+  index: -1
+ti3_daoju2
+  rotate: true
+  xy: 2, 36
+  size: 473, 566
+  orig: 473, 566
+  offset: 0, 0
+  index: -1
+xiaomi_11
+  rotate: true
+  xy: 1108, 98
+  size: 106, 205
+  orig: 106, 205
+  offset: 0, 0
+  index: -1
+xiaomi_yao
+  rotate: true
+  xy: 1315, 102
+  size: 102, 197
+  orig: 102, 197
+  offset: 0, 0
+  index: -1
+xiaomi_yao_1
+  rotate: true
+  xy: 1677, 90
+  size: 55, 147
+  orig: 55, 147
+  offset: 0, 0
+  index: -1
+xiaomi_yao_10
+  rotate: false
+  xy: 1677, 29
+  size: 56, 59
+  orig: 56, 59
+  offset: 0, 0
+  index: -1
+xiaomi_yao_11
+  rotate: true
+  xy: 1596, 206
+  size: 39, 36
+  orig: 39, 36
+  offset: 0, 0
+  index: -1
+xiaomi_yao_2
+  rotate: false
+  xy: 1514, 102
+  size: 110, 102
+  orig: 110, 102
+  offset: 0, 0
+  index: -1
+xiaomi_yao_3
+  rotate: true
+  xy: 305, 2
+  size: 32, 36
+  orig: 32, 36
+  offset: 0, 0
+  index: -1
+xiaomi_yao_5
+  rotate: false
+  xy: 178, 24
+  size: 125, 10
+  orig: 125, 10
+  offset: 0, 0
+  index: -1
+xiaomi_yao_6
+  rotate: false
+  xy: 2, 5
+  size: 174, 29
+  orig: 174, 29
+  offset: 0, 0
+  index: -1
+xiaomi_yao_7
+  rotate: false
+  xy: 1596, 247
+  size: 260, 262
+  orig: 260, 262
+  offset: 0, 0
+  index: -1
+xiaomi_yao_8
+  rotate: true
+  xy: 343, 11
+  size: 23, 37
+  orig: 23, 37
+  offset: 0, 0
+  index: -1
+xiaomi_yao_9
+  rotate: false
+  xy: 1735, 24
+  size: 51, 64
+  orig: 51, 64
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 178, 4
+  size: 34, 18
+  orig: 34, 18
+  offset: 0, 0
+  index: -1
+yaoyaole
+  rotate: true
+  xy: 1203, 9
+  size: 87, 216
+  orig: 87, 216
+  offset: 0, 0
+  index: -1
+yaoyaole_1
+  rotate: true
+  xy: 1541, 25
+  size: 75, 134
+  orig: 75, 134
+  offset: 0, 0
+  index: -1
+yaoyaole_2
+  rotate: true
+  xy: 570, 4
+  size: 79, 189
+  orig: 79, 189
+  offset: 0, 0
+  index: -1
+yaoyaole_3
+  rotate: true
+  xy: 761, 16
+  size: 67, 219
+  orig: 67, 219
+  offset: 0, 0
+  index: -1
+yaoyaole_4
+  rotate: true
+  xy: 1800, 159
+  size: 86, 64
+  orig: 86, 64
+  offset: 0, 0
+  index: -1
+yaoyaole_5
+  rotate: true
+  xy: 982, 16
+  size: 67, 219
+  orig: 67, 219
+  offset: 0, 0
+  index: -1
+yaoyaole_6
+  rotate: false
+  xy: 1108, 206
+  size: 486, 303
+  orig: 486, 303
+  offset: 0, 0
+  index: -1
+yaoyaole_7
+  rotate: false
+  xy: 1626, 147
+  size: 172, 57
+  orig: 172, 57
+  offset: 0, 0
+  index: -1
+yaoyaole_8
+  rotate: true
+  xy: 1421, 11
+  size: 89, 118
+  orig: 89, 118
+  offset: 0, 0
+  index: -1

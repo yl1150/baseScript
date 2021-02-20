@@ -1,0 +1,13 @@
+
+yu_d.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+yud
+  rotate: false
+  xy: 2, 2
+  size: 207, 146
+  orig: 207, 146
+  offset: 0, 0
+  index: -1

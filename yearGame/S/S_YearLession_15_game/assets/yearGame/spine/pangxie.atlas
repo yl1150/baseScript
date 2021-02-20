@@ -1,0 +1,20 @@
+
+pangxie.png
+size: 256,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+px_shen
+  rotate: false
+  xy: 2, 2
+  size: 167, 58
+  orig: 167, 58
+  offset: 0, 0
+  index: -1
+xie_qian
+  rotate: true
+  xy: 171, 17
+  size: 43, 27
+  orig: 43, 27
+  offset: 0, 0
+  index: -1

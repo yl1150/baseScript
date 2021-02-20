@@ -1,0 +1,62 @@
+
+qst.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guang
+  rotate: true
+  xy: 73, 805
+  size: 27, 75
+  orig: 27, 75
+  offset: 0, 0
+  index: -1
+qst_shen
+  rotate: true
+  xy: 2, 2
+  size: 610, 622
+  orig: 610, 622
+  offset: 0, 0
+  index: -1
+shan
+  rotate: true
+  xy: 188, 788
+  size: 44, 146
+  orig: 44, 146
+  offset: 0, 0
+  index: -1
+shui_a
+  rotate: true
+  xy: 336, 737
+  size: 95, 354
+  orig: 95, 354
+  offset: 0, 0
+  index: -1
+shui_b
+  rotate: true
+  xy: 2, 620
+  size: 115, 349
+  orig: 115, 349
+  offset: 0, 0
+  index: -1
+shui_c
+  rotate: true
+  xy: 353, 614
+  size: 121, 341
+  orig: 121, 341
+  offset: 0, 0
+  index: -1
+wei_a
+  rotate: false
+  xy: 2, 817
+  size: 69, 15
+  orig: 69, 15
+  offset: 0, 0
+  index: -1
+zhou
+  rotate: false
+  xy: 150, 796
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1

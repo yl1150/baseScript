@@ -1,0 +1,27 @@
+
+haigui.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hg_shen
+  rotate: false
+  xy: 2, 2
+  size: 221, 72
+  orig: 221, 72
+  offset: 0, 0
+  index: -1
+hg_tui_a
+  rotate: false
+  xy: 2, 92
+  size: 42, 23
+  orig: 42, 23
+  offset: 0, 0
+  index: -1
+hg_tui_b
+  rotate: true
+  xy: 46, 76
+  size: 39, 66
+  orig: 39, 66
+  offset: 0, 0
+  index: -1

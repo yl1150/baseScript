@@ -1,0 +1,48 @@
+
+wurenji.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guantou
+  rotate: false
+  xy: 672, 415
+  size: 412, 357
+  orig: 412, 357
+  offset: 0, 0
+  index: -1
+guantou2
+  rotate: true
+  xy: 672, 2
+  size: 411, 357
+  orig: 411, 357
+  offset: 0, 0
+  index: -1
+guantou3
+  rotate: true
+  xy: 1086, 361
+  size: 411, 357
+  orig: 411, 357
+  offset: 0, 0
+  index: -1
+jishen
+  rotate: true
+  xy: 2, 195
+  size: 577, 668
+  orig: 577, 668
+  offset: 0, 0
+  index: -1
+zhou
+  rotate: false
+  xy: 131, 127
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zhuazi
+  rotate: true
+  xy: 2, 82
+  size: 111, 127
+  orig: 111, 127
+  offset: 0, 0
+  index: -1

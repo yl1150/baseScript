@@ -1,0 +1,188 @@
+
+doudou_erxingxiaoban.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hezi
+  rotate: false
+  xy: 67, 23
+  size: 46, 43
+  orig: 46, 43
+  offset: 0, 0
+  index: -1
+kou111
+  rotate: true
+  xy: 226, 87
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+xiaobandoudou
+  rotate: false
+  xy: 2, 115
+  size: 131, 139
+  orig: 131, 139
+  offset: 0, 0
+  index: -1
+xiaobandoudou_1
+  rotate: false
+  xy: 138, 6
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+xiaobandoudou_10
+  rotate: false
+  xy: 62, 4
+  size: 39, 17
+  orig: 39, 17
+  offset: 0, 0
+  index: -1
+xiaobandoudou_11
+  rotate: false
+  xy: 146, 37
+  size: 45, 76
+  orig: 45, 76
+  offset: 0, 0
+  index: -1
+xiaobandoudou_12
+  rotate: false
+  xy: 27, 7
+  size: 33, 20
+  orig: 33, 20
+  offset: 0, 0
+  index: -1
+xiaobandoudou_13
+  rotate: true
+  xy: 2, 29
+  size: 32, 53
+  orig: 32, 53
+  offset: 0, 0
+  index: -1
+xiaobandoudou_14
+  rotate: true
+  xy: 210, 3
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+xiaobandoudou_15
+  rotate: false
+  xy: 193, 22
+  size: 20, 52
+  orig: 20, 52
+  offset: 0, 0
+  index: -1
+xiaobandoudou_16
+  rotate: true
+  xy: 115, 2
+  size: 28, 12
+  orig: 28, 12
+  offset: 0, 0
+  index: -1
+xiaobandoudou_18
+  rotate: true
+  xy: 67, 68
+  size: 45, 77
+  orig: 45, 77
+  offset: 0, 0
+  index: -1
+xiaobandoudou_19
+  rotate: false
+  xy: 135, 115
+  size: 117, 139
+  orig: 117, 139
+  offset: 0, 0
+  index: -1
+xiaobandoudou_2
+  rotate: true
+  xy: 57, 42
+  size: 19, 8
+  orig: 19, 8
+  offset: 0, 0
+  index: -1
+xiaobandoudou_3
+  rotate: true
+  xy: 231, 57
+  size: 12, 16
+  orig: 12, 16
+  offset: 0, 0
+  index: -1
+xiaobandoudou_4
+  rotate: true
+  xy: 241, 93
+  size: 20, 11
+  orig: 20, 11
+  offset: 0, 0
+  index: -1
+xiaobandoudou_6
+  rotate: false
+  xy: 189, 3
+  size: 19, 17
+  orig: 19, 17
+  offset: 0, 0
+  index: -1
+xiaobandoudou_7
+  rotate: true
+  xy: 103, 4
+  size: 17, 9
+  orig: 17, 9
+  offset: 0, 0
+  index: -1
+xiaobandoudou_8
+  rotate: false
+  xy: 231, 71
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+xiaobandoudou_9
+  rotate: true
+  xy: 215, 37
+  size: 13, 25
+  orig: 13, 25
+  offset: 0, 0
+  index: -1
+xing2
+  rotate: true
+  xy: 2, 63
+  size: 50, 63
+  orig: 50, 63
+  offset: 0, 0
+  index: -1
+zhipian
+  rotate: false
+  xy: 115, 32
+  size: 21, 34
+  orig: 21, 34
+  offset: 0, 0
+  index: -1
+zhipian_0
+  rotate: false
+  xy: 193, 76
+  size: 31, 37
+  orig: 31, 37
+  offset: 0, 0
+  index: -1
+zhipian_1
+  rotate: true
+  xy: 215, 52
+  size: 22, 14
+  orig: 22, 14
+  offset: 0, 0
+  index: -1
+zhipian_2
+  rotate: true
+  xy: 2, 6
+  size: 21, 23
+  orig: 21, 23
+  offset: 0, 0
+  index: -1
+zhipian_5
+  rotate: false
+  xy: 169, 15
+  size: 18, 20
+  orig: 18, 20
+  offset: 0, 0
+  index: -1

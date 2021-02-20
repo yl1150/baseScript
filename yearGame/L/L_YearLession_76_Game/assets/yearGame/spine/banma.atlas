@@ -1,0 +1,76 @@
+
+banma.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bm_fa
+  rotate: true
+  xy: 186, 2
+  size: 73, 99
+  orig: 73, 99
+  offset: 0, 0
+  index: -1
+bm_mei
+  rotate: false
+  xy: 2, 3
+  size: 28, 7
+  orig: 28, 7
+  offset: 0, 0
+  index: -1
+bm_shen
+  rotate: true
+  xy: 2, 12
+  size: 240, 182
+  orig: 240, 182
+  offset: 0, 0
+  index: -1
+bm_tui_a
+  rotate: false
+  xy: 216, 122
+  size: 44, 130
+  orig: 44, 130
+  offset: 0, 0
+  index: -1
+bm_tui_b
+  rotate: false
+  xy: 308, 122
+  size: 38, 130
+  orig: 38, 130
+  offset: 0, 0
+  index: -1
+bm_tui_c
+  rotate: false
+  xy: 262, 122
+  size: 44, 130
+  orig: 44, 130
+  offset: 0, 0
+  index: -1
+bm_tui_d
+  rotate: true
+  xy: 237, 81
+  size: 39, 126
+  orig: 39, 126
+  offset: 0, 0
+  index: -1
+bm_wei
+  rotate: true
+  xy: 287, 22
+  size: 57, 49
+  orig: 57, 49
+  offset: 0, 0
+  index: -1
+bm_yan
+  rotate: true
+  xy: 216, 80
+  size: 40, 19
+  orig: 40, 19
+  offset: 0, 0
+  index: -1
+bm_yy
+  rotate: true
+  xy: 186, 77
+  size: 175, 28
+  orig: 175, 28
+  offset: 0, 0
+  index: -1

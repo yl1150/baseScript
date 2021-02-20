@@ -1,0 +1,97 @@
+
+doudou.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dd_mei1
+  rotate: false
+  xy: 144, 4
+  size: 117, 15
+  orig: 117, 15
+  offset: 0, 0
+  index: -1
+dd_mei2
+  rotate: false
+  xy: 2, 2
+  size: 140, 15
+  orig: 140, 15
+  offset: 0, 0
+  index: -1
+dd_shen1
+  rotate: false
+  xy: 2, 19
+  size: 91, 174
+  orig: 91, 174
+  offset: 0, 0
+  index: -1
+dd_shen2
+  rotate: false
+  xy: 137, 21
+  size: 90, 172
+  orig: 90, 172
+  offset: 0, 0
+  index: -1
+dd_shou
+  rotate: false
+  xy: 263, 73
+  size: 76, 120
+  orig: 76, 120
+  offset: 0, 0
+  index: -1
+dd_tou1
+  rotate: false
+  xy: 279, 205
+  size: 265, 300
+  orig: 265, 300
+  offset: 0, 0
+  index: -1
+dd_tou2
+  rotate: false
+  xy: 2, 195
+  size: 275, 310
+  orig: 275, 310
+  offset: 0, 0
+  index: -1
+dd_tui1
+  rotate: true
+  xy: 327, 11
+  size: 60, 96
+  orig: 60, 96
+  offset: 0, 0
+  index: -1
+dd_tui2
+  rotate: true
+  xy: 229, 23
+  size: 41, 96
+  orig: 41, 96
+  offset: 0, 0
+  index: -1
+dd_yan1
+  rotate: true
+  xy: 341, 97
+  size: 106, 31
+  orig: 106, 31
+  offset: 0, 0
+  index: -1
+dd_yan2
+  rotate: true
+  xy: 229, 66
+  size: 127, 32
+  orig: 127, 32
+  offset: 0, 0
+  index: -1
+dd_yy
+  rotate: true
+  xy: 95, 20
+  size: 173, 40
+  orig: 173, 40
+  offset: 0, 0
+  index: -1
+dd_zui
+  rotate: true
+  xy: 374, 158
+  size: 45, 34
+  orig: 45, 34
+  offset: 0, 0
+  index: -1

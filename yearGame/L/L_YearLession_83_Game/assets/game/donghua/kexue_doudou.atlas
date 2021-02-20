@@ -1,0 +1,111 @@
+
+kexue_doudou.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kexue_doudou
+  rotate: true
+  xy: 685, 454
+  size: 567, 385
+  orig: 567, 385
+  offset: 0, 0
+  index: -1
+kexue_doudou_1
+  rotate: false
+  xy: 2, 310
+  size: 681, 711
+  orig: 681, 711
+  offset: 0, 0
+  index: -1
+kexue_doudou_10
+  rotate: true
+  xy: 467, 2
+  size: 91, 94
+  orig: 91, 94
+  offset: 0, 0
+  index: -1
+kexue_doudou_11
+  rotate: false
+  xy: 460, 95
+  size: 72, 213
+  orig: 72, 213
+  offset: 0, 0
+  index: -1
+kexue_doudou_12
+  rotate: true
+  xy: 685, 351
+  size: 101, 63
+  orig: 101, 63
+  offset: 0, 0
+  index: -1
+kexue_doudou_13
+  rotate: false
+  xy: 358, 7
+  size: 107, 40
+  orig: 107, 40
+  offset: 0, 0
+  index: -1
+kexue_doudou_2
+  rotate: false
+  xy: 750, 374
+  size: 65, 78
+  orig: 65, 78
+  offset: 0, 0
+  index: -1
+kexue_doudou_3
+  rotate: false
+  xy: 2, 2
+  size: 354, 45
+  orig: 354, 45
+  offset: 0, 0
+  index: -1
+kexue_doudou_4
+  rotate: false
+  xy: 757, 296
+  size: 498, 76
+  orig: 498, 76
+  offset: 0, 0
+  index: -1
+kexue_doudou_5
+  rotate: true
+  xy: 720, 46
+  size: 112, 86
+  orig: 112, 86
+  offset: 0, 0
+  index: -1
+kexue_doudou_6
+  rotate: false
+  xy: 681, 191
+  size: 74, 117
+  orig: 74, 117
+  offset: 0, 0
+  index: -1
+kexue_doudou_7
+  rotate: true
+  xy: 2, 49
+  size: 259, 456
+  orig: 259, 456
+  offset: 0, 0
+  index: -1
+kexue_doudou_8
+  rotate: true
+  xy: 563, 8
+  size: 133, 155
+  orig: 133, 155
+  offset: 0, 0
+  index: -1
+kexue_doudou_9
+  rotate: false
+  xy: 534, 143
+  size: 145, 165
+  orig: 145, 165
+  offset: 0, 0
+  index: -1
+yan_a2
+  rotate: false
+  xy: 681, 160
+  size: 71, 29
+  orig: 71, 29
+  offset: 0, 0
+  index: -1

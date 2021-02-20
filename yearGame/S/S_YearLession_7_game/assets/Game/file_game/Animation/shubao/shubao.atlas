@@ -1,0 +1,146 @@
+
+shubao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+diandian
+  rotate: true
+  xy: 201, 208
+  size: 12, 20
+  orig: 12, 20
+  offset: 0, 0
+  index: -1
+dizuo
+  rotate: false
+  xy: 201, 222
+  size: 23, 4
+  orig: 23, 4
+  offset: 0, 0
+  index: -1
+kouxing
+  rotate: false
+  xy: 167, 129
+  size: 38, 35
+  orig: 38, 35
+  offset: 0, 0
+  index: -1
+kouxing11
+  rotate: true
+  xy: 269, 27
+  size: 33, 41
+  orig: 33, 41
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: false
+  xy: 2, 262
+  size: 231, 188
+  orig: 231, 188
+  offset: 0, 0
+  index: -1
+shou
+  rotate: false
+  xy: 204, 61
+  size: 27, 31
+  orig: 27, 31
+  offset: 0, 0
+  index: -1
+shou11
+  rotate: false
+  xy: 204, 94
+  size: 27, 33
+  orig: 27, 33
+  offset: 0, 0
+  index: -1
+shou_1
+  rotate: true
+  xy: 201, 228
+  size: 32, 31
+  orig: 32, 31
+  offset: 0, 0
+  index: -1
+shoubao_c1
+  rotate: true
+  xy: 2, 115
+  size: 145, 114
+  orig: 145, 114
+  offset: 0, 0
+  index: -1
+shoubi
+  rotate: true
+  xy: 151, 166
+  size: 34, 79
+  orig: 34, 79
+  offset: 0, 0
+  index: -1
+shoubi12
+  rotate: false
+  xy: 118, 136
+  size: 31, 124
+  orig: 31, 124
+  offset: 0, 0
+  index: -1
+sugar_b
+  rotate: true
+  xy: 235, 62
+  size: 202, 111
+  orig: 202, 111
+  offset: 0, 0
+  index: -1
+sugar_r
+  rotate: false
+  xy: 2, 2
+  size: 200, 111
+  orig: 200, 111
+  offset: 0, 0
+  index: -1
+tianxian
+  rotate: false
+  xy: 151, 202
+  size: 48, 58
+  orig: 48, 58
+  offset: 0, 0
+  index: -1
+tubiao
+  rotate: false
+  xy: 312, 27
+  size: 35, 33
+  orig: 35, 33
+  offset: 0, 0
+  index: -1
+tubiao1
+  rotate: false
+  xy: 233, 26
+  size: 34, 34
+  orig: 34, 34
+  offset: 0, 0
+  index: -1
+yan3
+  rotate: true
+  xy: 151, 146
+  size: 18, 12
+  orig: 18, 12
+  offset: 0, 0
+  index: -1
+yanjing2
+  rotate: false
+  xy: 147, 120
+  size: 18, 14
+  orig: 18, 14
+  offset: 0, 0
+  index: -1
+zheng_a1
+  rotate: true
+  xy: 235, 266
+  size: 184, 114
+  orig: 184, 114
+  offset: 0, 0
+  index: -1
+zui
+  rotate: false
+  xy: 118, 119
+  size: 27, 15
+  orig: 27, 15
+  offset: 0, 0
+  index: -1

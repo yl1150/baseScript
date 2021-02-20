@@ -1,0 +1,34 @@
+
+yuyin.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kuang_2
+  rotate: false
+  xy: 2, 76
+  size: 319, 161
+  orig: 319, 161
+  offset: 0, 0
+  index: -1
+wifia
+  rotate: true
+  xy: 2, 2
+  size: 72, 91
+  orig: 72, 91
+  offset: 0, 0
+  index: -1
+wifib
+  rotate: false
+  xy: 323, 146
+  size: 72, 91
+  orig: 72, 91
+  offset: 0, 0
+  index: -1
+wific
+  rotate: true
+  xy: 95, 2
+  size: 72, 91
+  orig: 72, 91
+  offset: 0, 0
+  index: -1

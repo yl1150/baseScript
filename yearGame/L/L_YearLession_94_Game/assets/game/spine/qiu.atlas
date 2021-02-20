@@ -1,0 +1,13 @@
+
+qiu.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qiu
+  rotate: true
+  xy: 2, 2
+  size: 60, 61
+  orig: 60, 61
+  offset: 0, 0
+  index: -1

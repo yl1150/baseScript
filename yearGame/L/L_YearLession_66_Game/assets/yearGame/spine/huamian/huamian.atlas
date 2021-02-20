@@ -1,0 +1,104 @@
+
+huamian.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fc
+  rotate: false
+  xy: 2, 80
+  size: 709, 520
+  orig: 709, 520
+  offset: 0, 0
+  index: -1
+fc_b
+  rotate: true
+  xy: 713, 47
+  size: 167, 174
+  orig: 167, 174
+  offset: 0, 0
+  index: -1
+guang_a
+  rotate: true
+  xy: 713, 384
+  size: 216, 248
+  orig: 216, 248
+  offset: 0, 0
+  index: -1
+guang_b
+  rotate: true
+  xy: 913, 359
+  size: 23, 42
+  orig: 23, 42
+  offset: 0, 0
+  index: -1
+guang_c
+  rotate: true
+  xy: 1004, 391
+  size: 11, 16
+  orig: 11, 16
+  offset: 0, 0
+  index: -1
+huo_c
+  rotate: false
+  xy: 889, 118
+  size: 102, 96
+  orig: 102, 96
+  offset: 0, 0
+  index: -1
+huo_d
+  rotate: false
+  xy: 2, 2
+  size: 75, 76
+  orig: 75, 76
+  offset: 0, 0
+  index: -1
+huoyan_b
+  rotate: true
+  xy: 889, 38
+  size: 78, 84
+  orig: 78, 84
+  offset: 0, 0
+  index: -1
+lan_a
+  rotate: true
+  xy: 920, 261
+  size: 96, 30
+  orig: 96, 30
+  offset: 0, 0
+  index: -1
+lan_b
+  rotate: true
+  xy: 963, 432
+  size: 168, 51
+  orig: 168, 51
+  offset: 0, 0
+  index: -1
+weiyan_b
+  rotate: true
+  xy: 1004, 404
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+xianlu_a 
+  rotate: false
+  xy: 713, 292
+  size: 198, 90
+  orig: 198, 90
+  offset: 0, 0
+  index: -1
+xianlu_b
+  rotate: true
+  xy: 713, 218
+  size: 72, 205
+  orig: 72, 205
+  offset: 0, 0
+  index: -1
+xianlu_c
+  rotate: false
+  xy: 963, 216
+  size: 39, 214
+  orig: 39, 214
+  offset: 0, 0
+  index: -1

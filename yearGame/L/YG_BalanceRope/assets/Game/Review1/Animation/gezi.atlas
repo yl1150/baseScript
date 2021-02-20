@@ -1,0 +1,76 @@
+
+gezi.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tuji/cankao
+  rotate: true
+  xy: 82, 18
+  size: 108, 98
+  orig: 108, 98
+  offset: 0, 0
+  index: -1
+tuji/chi
+  rotate: true
+  xy: 177, 5
+  size: 11, 32
+  orig: 11, 32
+  offset: 0, 0
+  index: -1
+tuji/chi_1
+  rotate: true
+  xy: 82, 2
+  size: 14, 59
+  orig: 14, 59
+  offset: 0, 0
+  index: -1
+tuji/gezi
+  rotate: true
+  xy: 2, 6
+  size: 120, 78
+  orig: 120, 78
+  offset: 0, 0
+  index: -1
+tuji/gezi_1
+  rotate: false
+  xy: 240, 120
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+tuji/gezi_2
+  rotate: true
+  xy: 182, 19
+  size: 54, 52
+  orig: 54, 52
+  offset: 0, 0
+  index: -1
+tuji/gezi_3
+  rotate: false
+  xy: 236, 62
+  size: 16, 11
+  orig: 16, 11
+  offset: 0, 0
+  index: -1
+tuji/gezi_4
+  rotate: false
+  xy: 143, 3
+  size: 19, 13
+  orig: 19, 13
+  offset: 0, 0
+  index: -1
+tuji/gezi_5
+  rotate: false
+  xy: 164, 3
+  size: 11, 13
+  orig: 11, 13
+  offset: 0, 0
+  index: -1
+tuji/gezi_9
+  rotate: false
+  xy: 182, 75
+  size: 56, 51
+  orig: 56, 51
+  offset: 0, 0
+  index: -1

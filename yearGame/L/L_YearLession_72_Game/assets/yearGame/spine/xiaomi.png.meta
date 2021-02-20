@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "fc0937dd-0893-4f6b-848a-fa12c151a612",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": true,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "xiaomi": {
+      "ver": "1.0.4",
+      "uuid": "10c562e6-d571-42e4-ad8c-9173ae5a588e",
+      "rawTextureUuid": "fc0937dd-0893-4f6b-848a-fa12c151a612",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -234,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 1576,
+      "height": 508,
+      "rawWidth": 2048,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

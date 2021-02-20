@@ -1,0 +1,27 @@
+
+yin.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ying_1
+  rotate: true
+  xy: 2, 2
+  size: 24, 70
+  orig: 24, 70
+  offset: 0, 0
+  index: -1
+ying_2
+  rotate: true
+  xy: 2, 29
+  size: 19, 44
+  orig: 19, 44
+  offset: 0, 0
+  index: -1
+ying_3
+  rotate: false
+  xy: 48, 28
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1

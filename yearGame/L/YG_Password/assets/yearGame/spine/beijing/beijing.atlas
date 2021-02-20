@@ -1,0 +1,62 @@
+
+beijing.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+beijing
+  rotate: false
+  xy: 480, 31
+  size: 136, 136
+  orig: 136, 136
+  offset: 0, 0
+  index: -1
+beijing_1
+  rotate: false
+  xy: 721, 110
+  size: 57, 57
+  orig: 57, 57
+  offset: 0, 0
+  index: -1
+beijing_2
+  rotate: true
+  xy: 618, 65
+  size: 102, 101
+  orig: 102, 101
+  offset: 0, 0
+  index: -1
+beijing_3
+  rotate: false
+  xy: 802, 143
+  size: 152, 152
+  orig: 152, 152
+  offset: 0, 0
+  index: -1
+beijing_5
+  rotate: false
+  xy: 802, 297
+  size: 161, 162
+  orig: 161, 162
+  offset: 0, 0
+  index: -1
+bright_blue
+  rotate: false
+  xy: 780, 109
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+guang
+  rotate: false
+  xy: 2, 2
+  size: 476, 457
+  orig: 490, 483
+  offset: 0, 26
+  index: -1
+guang_1
+  rotate: true
+  xy: 480, 169
+  size: 290, 320
+  orig: 360, 433
+  offset: 0, 113
+  index: -1

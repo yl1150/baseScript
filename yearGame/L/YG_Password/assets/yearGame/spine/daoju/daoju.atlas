@@ -1,0 +1,41 @@
+
+daoju.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ring_star
+  rotate: false
+  xy: 2, 222
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+zb1
+  rotate: false
+  xy: 2, 2
+  size: 249, 218
+  orig: 249, 218
+  offset: 0, 0
+  index: -1
+zb2
+  rotate: false
+  xy: 260, 253
+  size: 148, 225
+  orig: 148, 225
+  offset: 0, 0
+  index: -1
+zb3
+  rotate: false
+  xy: 260, 91
+  size: 139, 160
+  orig: 139, 160
+  offset: 0, 0
+  index: -1
+zb4
+  rotate: false
+  xy: 410, 236
+  size: 81, 242
+  orig: 81, 242
+  offset: 0, 0
+  index: -1

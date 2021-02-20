@@ -1,0 +1,27 @@
+
+xianshi.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+touying
+  rotate: false
+  xy: 1244, 681
+  size: 122, 203
+  orig: 122, 203
+  offset: 0, 0
+  index: -1
+touying_1
+  rotate: false
+  xy: 1244, 557
+  size: 122, 122
+  orig: 122, 122
+  offset: 0, 0
+  index: -1
+touying_2
+  rotate: false
+  xy: 2, 2
+  size: 1240, 882
+  orig: 1240, 882
+  offset: 0, 0
+  index: -1

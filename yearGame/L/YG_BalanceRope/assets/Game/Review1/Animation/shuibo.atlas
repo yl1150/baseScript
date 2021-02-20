@@ -1,0 +1,62 @@
+
+shuibo.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shuiwen
+  rotate: false
+  xy: 90, 40
+  size: 79, 39
+  orig: 79, 39
+  offset: 0, 0
+  index: -1
+shuiwen_1
+  rotate: false
+  xy: 431, 2
+  size: 40, 12
+  orig: 40, 12
+  offset: 0, 0
+  index: -1
+shuiwen_2
+  rotate: true
+  xy: 410, 15
+  size: 37, 19
+  orig: 37, 19
+  offset: 0, 0
+  index: -1
+shuiwen_3
+  rotate: true
+  xy: 470, 61
+  size: 18, 16
+  orig: 18, 16
+  offset: 0, 0
+  index: -1
+shuiwen_4
+  rotate: false
+  xy: 90, 18
+  size: 318, 20
+  orig: 318, 20
+  offset: 0, 0
+  index: -1
+shuiwen_5
+  rotate: false
+  xy: 171, 54
+  size: 263, 25
+  orig: 263, 25
+  offset: 0, 0
+  index: -1
+shuzhuang1
+  rotate: true
+  xy: 2, 16
+  size: 63, 86
+  orig: 63, 86
+  offset: 0, 0
+  index: -1
+ying
+  rotate: true
+  xy: 436, 16
+  size: 63, 32
+  orig: 63, 32
+  offset: 0, 0
+  index: -1

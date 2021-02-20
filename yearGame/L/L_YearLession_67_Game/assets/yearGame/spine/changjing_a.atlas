@@ -1,0 +1,118 @@
+
+changjing_a.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cjl
+  rotate: true
+  xy: 408, 88
+  size: 166, 159
+  orig: 166, 159
+  offset: 0, 0
+  index: -1
+cjl_1
+  rotate: true
+  xy: 317, 254
+  size: 22, 53
+  orig: 22, 53
+  offset: 0, 0
+  index: -1
+cjl_10
+  rotate: false
+  xy: 317, 278
+  size: 52, 231
+  orig: 52, 231
+  offset: 0, 0
+  index: -1
+cjl_11
+  rotate: false
+  xy: 371, 288
+  size: 67, 221
+  orig: 67, 221
+  offset: 0, 0
+  index: -1
+cjl_2
+  rotate: false
+  xy: 340, 2
+  size: 26, 27
+  orig: 26, 27
+  offset: 0, 0
+  index: -1
+cjl_3
+  rotate: false
+  xy: 285, 3
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+cjl_4
+  rotate: false
+  xy: 368, 5
+  size: 51, 24
+  orig: 51, 24
+  offset: 0, 0
+  index: -1
+cjl_5
+  rotate: false
+  xy: 558, 50
+  size: 91, 36
+  orig: 91, 36
+  offset: 0, 0
+  index: -1
+cjl_6
+  rotate: false
+  xy: 372, 256
+  size: 48, 30
+  orig: 48, 30
+  offset: 0, 0
+  index: -1
+cjl_7
+  rotate: false
+  xy: 2, 13
+  size: 281, 496
+  orig: 281, 496
+  offset: 0, 0
+  index: -1
+cjl_8
+  rotate: true
+  xy: 428, 6
+  size: 80, 128
+  orig: 80, 128
+  offset: 0, 0
+  index: -1
+cjl_9
+  rotate: false
+  xy: 285, 20
+  size: 53, 231
+  orig: 53, 231
+  offset: 0, 0
+  index: -1
+cjlz
+  rotate: false
+  xy: 340, 31
+  size: 66, 221
+  orig: 66, 221
+  offset: 0, 0
+  index: -1
+ma
+  rotate: false
+  xy: 302, 7
+  size: 21, 11
+  orig: 21, 11
+  offset: 0, 0
+  index: -1
+ma_1
+  rotate: true
+  xy: 408, 32
+  size: 54, 18
+  orig: 54, 18
+  offset: 0, 0
+  index: -1
+ying_1
+  rotate: true
+  xy: 285, 253
+  size: 256, 30
+  orig: 256, 30
+  offset: 0, 0
+  index: -1

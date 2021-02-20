@@ -1,0 +1,62 @@
+
+maque.png
+size: 256,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+maque_1
+  rotate: true
+  xy: 80, 15
+  size: 31, 35
+  orig: 31, 35
+  offset: 0, 0
+  index: -1
+maque_2
+  rotate: true
+  xy: 117, 12
+  size: 34, 30
+  orig: 34, 30
+  offset: 0, 0
+  index: -1
+maque_3
+  rotate: true
+  xy: 80, 48
+  size: 14, 59
+  orig: 14, 59
+  offset: 0, 0
+  index: -1
+maque_4
+  rotate: true
+  xy: 80, 2
+  size: 11, 32
+  orig: 11, 32
+  offset: 0, 0
+  index: -1
+maque_5
+  rotate: false
+  xy: 2, 5
+  size: 7, 6
+  orig: 7, 6
+  offset: 0, 0
+  index: -1
+maque_6
+  rotate: false
+  xy: 141, 56
+  size: 7, 6
+  orig: 7, 6
+  offset: 0, 0
+  index: -1
+maque_7
+  rotate: false
+  xy: 2, 13
+  size: 76, 49
+  orig: 76, 49
+  offset: 0, 0
+  index: -1
+maque_8
+  rotate: false
+  xy: 141, 48
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1

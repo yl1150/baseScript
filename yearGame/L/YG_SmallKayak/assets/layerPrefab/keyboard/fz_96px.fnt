@@ -1,0 +1,18 @@
+info face="face" size=96
+common lineHeight=96 scaleW=390 scaleH=390 pages=1
+page id=0 file="fzcyj_96px.png"
+chars count=14
+char id=43 x=0 y=0 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=63 x=98 y=0 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=48 x=0 y=98 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=49 x=98 y=98 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=50 x=196 y=0 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=51 x=196 y=98 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=52 x=0 y=196 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=53 x=98 y=196 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=54 x=196 y=196 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=55 x=294 y=0 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=56 x=294 y=98 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=57 x=294 y=196 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=61 x=0 y=294 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15
+char id=42 x=98 y=294 width=96 height=96 xoffset=0 yoffset=0 xadvance=96 page=0 chnl=15

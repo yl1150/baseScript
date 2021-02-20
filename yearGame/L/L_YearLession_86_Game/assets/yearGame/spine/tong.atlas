@@ -1,0 +1,62 @@
+
+tong.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cankao
+  rotate: true
+  xy: 2, 2
+  size: 159, 163
+  orig: 159, 163
+  offset: 0, 0
+  index: -1
+shuibo
+  rotate: true
+  xy: 772, 43
+  size: 118, 17
+  orig: 118, 17
+  offset: 0, 0
+  index: -1
+shuibo1
+  rotate: true
+  xy: 638, 3
+  size: 118, 17
+  orig: 118, 17
+  offset: 0, 0
+  index: -1
+shuibo2
+  rotate: true
+  xy: 657, 3
+  size: 118, 17
+  orig: 118, 17
+  offset: 0, 0
+  index: -1
+tong
+  rotate: true
+  xy: 167, 2
+  size: 159, 163
+  orig: 159, 163
+  offset: 0, 0
+  index: -1
+tong_1
+  rotate: true
+  xy: 512, 42
+  size: 119, 124
+  orig: 119, 124
+  offset: 0, 0
+  index: -1
+tong_3
+  rotate: false
+  xy: 332, 17
+  size: 178, 144
+  orig: 178, 144
+  offset: 0, 0
+  index: -1
+ying_1
+  rotate: false
+  xy: 638, 123
+  size: 132, 38
+  orig: 132, 38
+  offset: 0, 0
+  index: -1

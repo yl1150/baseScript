@@ -1,0 +1,13 @@
+
+chuanghu.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ch
+  rotate: false
+  xy: 2, 2
+  size: 286, 129
+  orig: 286, 129
+  offset: 0, 0
+  index: -1

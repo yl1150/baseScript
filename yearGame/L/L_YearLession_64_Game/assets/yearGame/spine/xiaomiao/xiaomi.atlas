@@ -1,0 +1,160 @@
+
+xiaomi.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fa_a
+  rotate: false
+  xy: 2, 62
+  size: 292, 219
+  orig: 292, 219
+  offset: 0, 0
+  index: -1
+fa_b
+  rotate: false
+  xy: 819, 278
+  size: 68, 80
+  orig: 68, 80
+  offset: 0, 0
+  index: -1
+kua
+  rotate: false
+  xy: 594, 101
+  size: 110, 57
+  orig: 110, 57
+  offset: 0, 0
+  index: -1
+lian
+  rotate: true
+  xy: 889, 157
+  size: 345, 309
+  orig: 345, 309
+  offset: 0, 0
+  index: -1
+maozi
+  rotate: false
+  xy: 2, 283
+  size: 532, 219
+  orig: 532, 219
+  offset: 0, 0
+  index: -1
+mei
+  rotate: false
+  xy: 2, 9
+  size: 161, 12
+  orig: 161, 12
+  offset: 0, 0
+  index: -1
+qunzi
+  rotate: true
+  xy: 703, 221
+  size: 137, 114
+  orig: 137, 114
+  offset: 0, 0
+  index: -1
+saihong
+  rotate: false
+  xy: 2, 23
+  size: 224, 37
+  orig: 224, 37
+  offset: 0, 0
+  index: -1
+shangyi
+  rotate: false
+  xy: 594, 160
+  size: 107, 154
+  orig: 107, 154
+  offset: 0, 0
+  index: -1
+shou
+  rotate: false
+  xy: 449, 102
+  size: 143, 179
+  orig: 143, 179
+  offset: 0, 0
+  index: -1
+shou_a
+  rotate: false
+  xy: 296, 100
+  size: 151, 181
+  orig: 151, 181
+  offset: 0, 0
+  index: -1
+shuiyi
+  rotate: false
+  xy: 536, 316
+  size: 111, 186
+  orig: 111, 186
+  offset: 0, 0
+  index: -1
+tui_a
+  rotate: true
+  xy: 707, 32
+  size: 73, 211
+  orig: 73, 211
+  offset: 0, 0
+  index: -1
+tui_b
+  rotate: true
+  xy: 649, 431
+  size: 71, 225
+  orig: 71, 225
+  offset: 0, 0
+  index: -1
+tui_c
+  rotate: true
+  xy: 649, 360
+  size: 69, 225
+  orig: 69, 225
+  offset: 0, 0
+  index: -1
+xx_a
+  rotate: false
+  xy: 765, 112
+  size: 96, 107
+  orig: 96, 107
+  offset: 0, 0
+  index: -1
+xx_b
+  rotate: true
+  xy: 703, 166
+  size: 53, 60
+  orig: 53, 60
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 258, 13
+  size: 170, 47
+  orig: 170, 47
+  offset: 0, 0
+  index: -1
+yan_a
+  rotate: false
+  xy: 221, 2
+  size: 35, 19
+  orig: 35, 19
+  offset: 0, 0
+  index: -1
+yinying
+  rotate: false
+  xy: 430, 30
+  size: 275, 68
+  orig: 275, 68
+  offset: 0, 0
+  index: -1
+zui_a
+  rotate: false
+  xy: 165, 4
+  size: 54, 17
+  orig: 54, 17
+  offset: 0, 0
+  index: -1
+zui_b
+  rotate: true
+  xy: 706, 107
+  size: 57, 44
+  orig: 57, 44
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,27 @@
+
+lengzhu.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+sanlengzhu
+  rotate: true
+  xy: 387, 2
+  size: 118, 74
+  orig: 118, 74
+  offset: 0, 0
+  index: -1
+sanlengzhu_1
+  rotate: true
+  xy: 216, 2
+  size: 118, 169
+  orig: 118, 169
+  offset: 0, 0
+  index: -1
+sanlengzhu_2
+  rotate: true
+  xy: 2, 2
+  size: 118, 212
+  orig: 118, 212
+  offset: 0, 0
+  index: -1

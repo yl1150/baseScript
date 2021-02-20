@@ -1,0 +1,48 @@
+
+luyin.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+baikuang1
+  rotate: false
+  xy: 646, 70
+  size: 162, 162
+  orig: 162, 162
+  offset: 0, 0
+  index: -1
+hua
+  rotate: true
+  xy: 646, 2
+  size: 66, 107
+  orig: 66, 107
+  offset: 0, 0
+  index: -1
+kuangb
+  rotate: false
+  xy: 810, 70
+  size: 162, 162
+  orig: 162, 162
+  offset: 0, 0
+  index: -1
+yinlang2b
+  rotate: false
+  xy: 443, 31
+  size: 201, 201
+  orig: 201, 201
+  offset: 0, 0
+  index: -1
+yinlang3b
+  rotate: false
+  xy: 229, 23
+  size: 212, 209
+  orig: 212, 209
+  offset: 0, 0
+  index: -1
+yinlang4b
+  rotate: false
+  xy: 2, 15
+  size: 225, 217
+  orig: 225, 217
+  offset: 0, 0
+  index: -1

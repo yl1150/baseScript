@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b235554d-0cda-4b80-8008-236c35c45ed5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": true,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 140,
+  "height": 69,
+  "platformSettings": {},
+  "subMetas": {
+    "del_Touch": {
+      "ver": "1.0.4",
+      "uuid": "c21760eb-cdce-414d-975c-d330177b0772",
+      "rawTextureUuid": "b235554d-0cda-4b80-8008-236c35c45ed5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 140,
+      "height": 69,
+      "rawWidth": 140,
+      "rawHeight": 69,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

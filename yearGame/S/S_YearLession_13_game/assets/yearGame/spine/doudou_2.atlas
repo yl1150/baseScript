@@ -1,0 +1,90 @@
+
+doudou_2.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lian
+  rotate: false
+  xy: 2, 212
+  size: 264, 298
+  orig: 264, 298
+  offset: 0, 0
+  index: -1
+maojin
+  rotate: false
+  xy: 166, 121
+  size: 87, 89
+  orig: 87, 89
+  offset: 0, 0
+  index: -1
+mei_a
+  rotate: false
+  xy: 96, 12
+  size: 134, 14
+  orig: 134, 14
+  offset: 0, 0
+  index: -1
+mei_b
+  rotate: false
+  xy: 96, 28
+  size: 133, 18
+  orig: 133, 18
+  offset: 0, 0
+  index: -1
+sai
+  rotate: false
+  xy: 198, 95
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+shen
+  rotate: false
+  xy: 2, 44
+  size: 87, 166
+  orig: 87, 166
+  offset: 0, 0
+  index: -1
+shou
+  rotate: false
+  xy: 91, 94
+  size: 73, 116
+  orig: 73, 116
+  offset: 0, 0
+  index: -1
+tui
+  rotate: true
+  xy: 2, 3
+  size: 39, 92
+  orig: 39, 92
+  offset: 0, 0
+  index: -1
+yan
+  rotate: true
+  xy: 166, 94
+  size: 25, 30
+  orig: 25, 30
+  offset: 0, 0
+  index: -1
+yy
+  rotate: false
+  xy: 91, 48
+  size: 156, 44
+  orig: 156, 44
+  offset: 0, 0
+  index: -1
+zui_a
+  rotate: false
+  xy: 232, 2
+  size: 43, 33
+  orig: 43, 33
+  offset: 0, 0
+  index: -1
+zui_b
+  rotate: false
+  xy: 231, 37
+  size: 43, 9
+  orig: 43, 9
+  offset: 0, 0
+  index: -1

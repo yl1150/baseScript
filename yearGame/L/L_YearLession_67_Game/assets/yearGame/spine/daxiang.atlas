@@ -1,0 +1,48 @@
+
+daxiang.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+daxiang
+  rotate: false
+  xy: 2, 272
+  size: 504, 228
+  orig: 504, 228
+  offset: 0, 0
+  index: -1
+daxiang_1
+  rotate: false
+  xy: 352, 231
+  size: 115, 39
+  orig: 115, 39
+  offset: 0, 0
+  index: -1
+daxiang_2
+  rotate: false
+  xy: 2, 2
+  size: 306, 268
+  orig: 306, 268
+  offset: 0, 0
+  index: -1
+daxiang_3
+  rotate: false
+  xy: 352, 191
+  size: 91, 38
+  orig: 91, 38
+  offset: 0, 0
+  index: -1
+daxiang_4
+  rotate: true
+  xy: 310, 13
+  size: 257, 40
+  orig: 257, 40
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 469, 241
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1

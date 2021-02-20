@@ -1,0 +1,48 @@
+
+jiqi.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jiqi_1
+  rotate: true
+  xy: 458, 2
+  size: 215, 160
+  orig: 215, 160
+  offset: 0, 0
+  index: -1
+jiqi_2
+  rotate: true
+  xy: 620, 3
+  size: 214, 160
+  orig: 214, 160
+  offset: 0, 0
+  index: -1
+jiqi_3
+  rotate: false
+  xy: 2, 61
+  size: 454, 156
+  orig: 454, 156
+  offset: 0, 0
+  index: -1
+jiqi_4
+  rotate: false
+  xy: 2, 219
+  size: 1033, 740
+  orig: 1033, 740
+  offset: 0, 0
+  index: -1
+jiqi_5
+  rotate: true
+  xy: 956, 3
+  size: 214, 145
+  orig: 214, 145
+  offset: 0, 0
+  index: -1
+jiqi_6
+  rotate: true
+  xy: 782, 18
+  size: 199, 172
+  orig: 199, 172
+  offset: 0, 0
+  index: -1

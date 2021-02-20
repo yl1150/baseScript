@@ -1,0 +1,97 @@
+
+baoshi.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+baoshi1
+  rotate: true
+  xy: 2, 2
+  size: 131, 170
+  orig: 131, 170
+  offset: 0, 0
+  index: -1
+baoshi2
+  rotate: false
+  xy: 1277, 256
+  size: 195, 248
+  orig: 195, 248
+  offset: 0, 0
+  index: -1
+bs_texiao
+  rotate: false
+  xy: 301, 4
+  size: 51, 89
+  orig: 51, 89
+  offset: 0, 0
+  index: -1
+di
+  rotate: true
+  xy: 543, 72
+  size: 220, 219
+  orig: 220, 219
+  offset: 0, 0
+  index: -1
+gai1
+  rotate: false
+  xy: 1068, 150
+  size: 142, 142
+  orig: 142, 142
+  offset: 0, 0
+  index: -1
+gai2
+  rotate: false
+  xy: 1068, 6
+  size: 142, 142
+  orig: 142, 142
+  offset: 0, 0
+  index: -1
+guang
+  rotate: true
+  xy: 301, 95
+  size: 38, 145
+  orig: 38, 145
+  offset: 0, 0
+  index: -1
+hengtiao
+  rotate: false
+  xy: 543, 294
+  size: 732, 210
+  orig: 732, 210
+  offset: 0, 0
+  index: -1
+hengtiao11b
+  rotate: true
+  xy: 354, 31
+  size: 62, 59
+  orig: 62, 59
+  offset: 0, 0
+  index: -1
+hengtiao2
+  rotate: false
+  xy: 916, 47
+  size: 150, 245
+  orig: 150, 245
+  offset: 0, 0
+  index: -1
+hengtiao3
+  rotate: false
+  xy: 764, 27
+  size: 150, 265
+  orig: 150, 265
+  offset: 0, 0
+  index: -1
+shanying
+  rotate: false
+  xy: 2, 135
+  size: 539, 369
+  orig: 539, 369
+  offset: 0, 0
+  index: -1
+xin2
+  rotate: false
+  xy: 174, 5
+  size: 125, 128
+  orig: 125, 128
+  offset: 0, 0
+  index: -1

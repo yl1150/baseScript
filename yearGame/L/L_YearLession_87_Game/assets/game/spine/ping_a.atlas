@@ -1,0 +1,62 @@
+
+ping_a.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shaobei_5
+  rotate: true
+  xy: 2, 25
+  size: 228, 276
+  orig: 228, 276
+  offset: 0, 0
+  index: -1
+shiguan_a1
+  rotate: true
+  xy: 280, 143
+  size: 110, 479
+  orig: 110, 479
+  offset: 0, 0
+  index: -1
+shiguan_a1_2
+  rotate: true
+  xy: 280, 31
+  size: 110, 479
+  orig: 110, 479
+  offset: 0, 0
+  index: -1
+shiguan_a2
+  rotate: true
+  xy: 761, 143
+  size: 110, 332
+  orig: 110, 332
+  offset: 0, 0
+  index: -1
+shiguan_a2_2
+  rotate: true
+  xy: 761, 31
+  size: 110, 332
+  orig: 110, 332
+  offset: 0, 0
+  index: -1
+shiguan_a3
+  rotate: true
+  xy: 1095, 142
+  size: 111, 258
+  orig: 111, 258
+  offset: 0, 0
+  index: -1
+shiguan_a3_2
+  rotate: true
+  xy: 1095, 29
+  size: 111, 258
+  orig: 111, 258
+  offset: 0, 0
+  index: -1
+shuibo
+  rotate: false
+  xy: 2, 2
+  size: 170, 21
+  orig: 170, 21
+  offset: 0, 0
+  index: -1

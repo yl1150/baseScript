@@ -1,0 +1,97 @@
+
+doudou.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bozi
+  rotate: false
+  xy: 430, 148
+  size: 36, 62
+  orig: 36, 62
+  offset: 0, 0
+  index: -1
+lian
+  rotate: true
+  xy: 2, 164
+  size: 345, 236
+  orig: 345, 236
+  offset: 0, 0
+  index: -1
+meimao
+  rotate: false
+  xy: 240, 190
+  size: 177, 20
+  orig: 177, 20
+  offset: 0, 0
+  index: -1
+saihong
+  rotate: false
+  xy: 2, 6
+  size: 248, 33
+  orig: 248, 33
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: true
+  xy: 2, 41
+  size: 121, 223
+  orig: 121, 223
+  offset: 0, 0
+  index: -1
+shou
+  rotate: true
+  xy: 227, 50
+  size: 112, 148
+  orig: 112, 148
+  offset: 0, 0
+  index: -1
+toufa
+  rotate: true
+  xy: 240, 212
+  size: 297, 208
+  orig: 297, 208
+  offset: 0, 0
+  index: -1
+tui
+  rotate: false
+  xy: 377, 69
+  size: 51, 119
+  orig: 51, 119
+  offset: 0, 0
+  index: -1
+yan
+  rotate: false
+  xy: 290, 171
+  size: 45, 17
+  orig: 45, 17
+  offset: 0, 0
+  index: -1
+yanjing
+  rotate: false
+  xy: 430, 107
+  size: 33, 39
+  orig: 33, 39
+  offset: 0, 0
+  index: -1
+yinying
+  rotate: false
+  xy: 252, 2
+  size: 174, 46
+  orig: 174, 46
+  offset: 0, 0
+  index: -1
+zui
+  rotate: true
+  xy: 428, 11
+  size: 56, 43
+  orig: 56, 43
+  offset: 0, 0
+  index: -1
+zuiba
+  rotate: false
+  xy: 240, 172
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1

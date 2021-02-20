@@ -1,0 +1,11 @@
+{
+    "roundNum": 1,
+    "trumpetId": 4,
+    "overAnimationId": 5,
+    "videoTimePoint": [
+        {"time":[0,1,6],"type":"normal"},
+        {"time":[0,2,33],"type":"normal"},
+        {"time":[0,3,37],"type":"normal"},
+        {"time":[0,4,51],"type":"normal"}
+    ]
+}

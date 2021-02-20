@@ -1,0 +1,55 @@
+
+guanmen.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cd
+  rotate: false
+  xy: 249, 2
+  size: 116, 33
+  orig: 116, 33
+  offset: 0, 0
+  index: -1
+men_a
+  rotate: false
+  xy: 2, 28
+  size: 122, 211
+  orig: 122, 211
+  offset: 0, 0
+  index: -1
+men_a_1
+  rotate: false
+  xy: 249, 37
+  size: 116, 202
+  orig: 116, 202
+  offset: 0, 0
+  index: -1
+men_b
+  rotate: false
+  xy: 126, 28
+  size: 121, 211
+  orig: 121, 211
+  offset: 0, 0
+  index: -1
+men_b_1
+  rotate: false
+  xy: 367, 37
+  size: 116, 202
+  orig: 116, 202
+  offset: 0, 0
+  index: -1
+menban_a
+  rotate: true
+  xy: 2, 2
+  size: 24, 225
+  orig: 24, 225
+  offset: 0, 0
+  index: -1
+menban_b
+  rotate: false
+  xy: 485, 14
+  size: 25, 225
+  orig: 25, 225
+  offset: 0, 0
+  index: -1

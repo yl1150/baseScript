@@ -1,0 +1,41 @@
+
+shou.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+d
+  rotate: false
+  xy: 1540, 365
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+fx2
+  rotate: true
+  xy: 831, 123
+  size: 706, 707
+  orig: 706, 707
+  offset: 0, 0
+  index: -1
+huadong
+  rotate: false
+  xy: 1891, 63
+  size: 64, 766
+  orig: 64, 766
+  offset: 0, 0
+  index: -1
+shou
+  rotate: false
+  xy: 1540, 473
+  size: 349, 356
+  orig: 349, 356
+  offset: 0, 0
+  index: -1
+yx2
+  rotate: false
+  xy: 2, 2
+  size: 827, 827
+  orig: 827, 827
+  offset: 0, 0
+  index: -1

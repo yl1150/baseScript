@@ -1,0 +1,55 @@
+
+yazi.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ya_cb
+  rotate: true
+  xy: 55, 52
+  size: 166, 90
+  orig: 166, 90
+  offset: 0, 0
+  index: -1
+ya_shen
+  rotate: false
+  xy: 2, 220
+  size: 274, 285
+  orig: 274, 285
+  offset: 0, 0
+  index: -1
+ya_tui_a
+  rotate: false
+  xy: 131, 3
+  size: 75, 47
+  orig: 75, 47
+  offset: 0, 0
+  index: -1
+ya_tui_b
+  rotate: false
+  xy: 55, 2
+  size: 74, 48
+  orig: 74, 48
+  offset: 0, 0
+  index: -1
+ya_yan
+  rotate: true
+  xy: 14, 17
+  size: 23, 22
+  orig: 23, 22
+  offset: 0, 0
+  index: -1
+ya_yan_b
+  rotate: true
+  xy: 2, 15
+  size: 25, 10
+  orig: 25, 10
+  offset: 0, 0
+  index: -1
+ya_yy
+  rotate: true
+  xy: 2, 42
+  size: 176, 51
+  orig: 176, 51
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,41 @@
+
+shouji.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shouji4
+  rotate: true
+  xy: 263, 6
+  size: 113, 33
+  orig: 113, 33
+  offset: 0, 0
+  index: -1
+shoujia2
+  rotate: true
+  xy: 227, 6
+  size: 113, 34
+  orig: 113, 34
+  offset: 0, 0
+  index: -1
+texiao_a1
+  rotate: true
+  xy: 171, 2
+  size: 117, 54
+  orig: 117, 54
+  offset: 0, 0
+  index: -1
+texiao_a2
+  rotate: true
+  xy: 91, 6
+  size: 113, 78
+  orig: 113, 78
+  offset: 0, 0
+  index: -1
+texiao_a3
+  rotate: true
+  xy: 2, 12
+  size: 107, 87
+  orig: 107, 87
+  offset: 0, 0
+  index: -1

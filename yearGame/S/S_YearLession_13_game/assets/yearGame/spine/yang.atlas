@@ -1,0 +1,76 @@
+
+yang.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+yang
+  rotate: false
+  xy: 2, 2
+  size: 326, 263
+  orig: 326, 263
+  offset: 0, 0
+  index: -1
+yang_fa_a
+  rotate: false
+  xy: 888, 47
+  size: 72, 38
+  orig: 72, 38
+  offset: 0, 0
+  index: -1
+yang_fa_b
+  rotate: true
+  xy: 962, 13
+  size: 72, 38
+  orig: 72, 38
+  offset: 0, 0
+  index: -1
+yang_lian
+  rotate: true
+  xy: 888, 120
+  size: 145, 110
+  orig: 145, 110
+  offset: 0, 0
+  index: -1
+yang_shen_a
+  rotate: false
+  xy: 611, 57
+  size: 275, 208
+  orig: 275, 208
+  offset: 0, 0
+  index: -1
+yang_shen_b
+  rotate: false
+  xy: 330, 7
+  size: 274, 208
+  orig: 274, 208
+  offset: 0, 0
+  index: -1
+yang_tui
+  rotate: true
+  xy: 966, 87
+  size: 31, 53
+  orig: 31, 53
+  offset: 0, 0
+  index: -1
+yang_yan
+  rotate: false
+  xy: 888, 87
+  size: 76, 31
+  orig: 76, 31
+  offset: 0, 0
+  index: -1
+yang_yan_b
+  rotate: true
+  xy: 1000, 190
+  size: 75, 17
+  orig: 75, 17
+  offset: 0, 0
+  index: -1
+yang_yy
+  rotate: false
+  xy: 330, 217
+  size: 279, 48
+  orig: 279, 48
+  offset: 0, 0
+  index: -1

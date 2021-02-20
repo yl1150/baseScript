@@ -1,0 +1,69 @@
+
+guowang.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gw_hg
+  rotate: false
+  xy: 536, 155
+  size: 368, 207
+  orig: 368, 207
+  offset: 0, 0
+  index: -1
+gw_hz
+  rotate: false
+  xy: 779, 469
+  size: 158, 49
+  orig: 158, 49
+  offset: 0, 0
+  index: -1
+gw_lian
+  rotate: false
+  xy: 2, 2
+  size: 532, 458
+  orig: 532, 458
+  offset: 0, 0
+  index: -1
+gw_shou
+  rotate: false
+  xy: 906, 37
+  size: 35, 199
+  orig: 35, 199
+  offset: 0, 0
+  index: -1
+gw_tui
+  rotate: false
+  xy: 779, 520
+  size: 158, 493
+  orig: 158, 493
+  offset: 0, 0
+  index: -1
+gw_yan
+  rotate: false
+  xy: 906, 293
+  size: 69, 69
+  orig: 69, 69
+  offset: 0, 0
+  index: -1
+gw_yy
+  rotate: false
+  xy: 536, 364
+  size: 476, 96
+  orig: 476, 96
+  offset: 0, 0
+  index: -1
+gw_zui
+  rotate: true
+  xy: 906, 238
+  size: 53, 44
+  orig: 53, 44
+  offset: 0, 0
+  index: -1
+pifeng
+  rotate: false
+  xy: 2, 462
+  size: 775, 551
+  orig: 775, 551
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,139 @@
+
+doudou.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doudou
+  rotate: false
+  xy: 1201, 406
+  size: 74, 29
+  orig: 74, 29
+  offset: 0, 0
+  index: -1
+doudou_1
+  rotate: false
+  xy: 1147, 299
+  size: 98, 36
+  orig: 98, 36
+  offset: 0, 0
+  index: -1
+doudou_10
+  rotate: true
+  xy: 1051, 15
+  size: 69, 91
+  orig: 69, 91
+  offset: 0, 0
+  index: -1
+doudou_11
+  rotate: false
+  xy: 941, 235
+  size: 155, 272
+  orig: 155, 272
+  offset: 0, 0
+  index: -1
+doudou_12
+  rotate: true
+  xy: 1199, 239
+  size: 58, 63
+  orig: 58, 63
+  offset: 0, 0
+  index: -1
+doudou_13
+  rotate: false
+  xy: 1098, 404
+  size: 101, 103
+  orig: 101, 103
+  offset: 0, 0
+  index: -1
+doudou_14
+  rotate: false
+  xy: 1098, 295
+  size: 47, 107
+  orig: 47, 107
+  offset: 0, 0
+  index: -1
+doudou_15
+  rotate: true
+  xy: 1144, 16
+  size: 68, 91
+  orig: 68, 91
+  offset: 0, 0
+  index: -1
+doudou_16
+  rotate: true
+  xy: 941, 8
+  size: 76, 108
+  orig: 76, 108
+  offset: 0, 0
+  index: -1
+doudou_17
+  rotate: false
+  xy: 1098, 248
+  size: 99, 45
+  orig: 99, 45
+  offset: 0, 0
+  index: -1
+doudou_3
+  rotate: false
+  xy: 1201, 437
+  size: 37, 70
+  orig: 37, 70
+  offset: 0, 0
+  index: -1
+doudou_4
+  rotate: false
+  xy: 486, 28
+  size: 453, 479
+  orig: 453, 479
+  offset: 0, 0
+  index: -1
+doudou_5
+  rotate: false
+  xy: 1247, 303
+  size: 41, 52
+  orig: 41, 52
+  offset: 0, 0
+  index: -1
+doudou_6
+  rotate: true
+  xy: 1257, 370
+  size: 34, 50
+  orig: 34, 50
+  offset: 0, 0
+  index: -1
+doudou_7
+  rotate: true
+  xy: 1147, 337
+  size: 65, 59
+  orig: 65, 59
+  offset: 0, 0
+  index: -1
+doudou_8
+  rotate: false
+  xy: 486, 2
+  size: 193, 24
+  orig: 193, 24
+  offset: 0, 0
+  index: -1
+doudou_9
+  rotate: false
+  xy: 1208, 357
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+doudou_b
+  rotate: true
+  xy: 2, 14
+  size: 493, 482
+  orig: 493, 482
+  offset: 0, 0
+  index: -1
+doudou_b_1
+  rotate: true
+  xy: 941, 86
+  size: 147, 270
+  orig: 147, 270
+  offset: 0, 0
+  index: -1

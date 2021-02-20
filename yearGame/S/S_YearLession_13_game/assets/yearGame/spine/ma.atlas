@@ -1,0 +1,90 @@
+
+ma.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+m_shen
+  rotate: true
+  xy: 2, 176
+  size: 333, 253
+  orig: 333, 253
+  offset: 0, 0
+  index: -1
+ma_fa_a
+  rotate: false
+  xy: 235, 2
+  size: 38, 46
+  orig: 38, 46
+  offset: 0, 0
+  index: -1
+ma_fa_b
+  rotate: true
+  xy: 86, 18
+  size: 156, 147
+  orig: 156, 147
+  offset: 0, 0
+  index: -1
+ma_mei
+  rotate: false
+  xy: 2, 3
+  size: 42, 9
+  orig: 42, 9
+  offset: 0, 0
+  index: -1
+ma_tui_a
+  rotate: true
+  xy: 235, 113
+  size: 61, 180
+  orig: 61, 180
+  offset: 0, 0
+  index: -1
+ma_tui_b
+  rotate: false
+  xy: 312, 329
+  size: 54, 180
+  orig: 54, 180
+  offset: 0, 0
+  index: -1
+ma_tui_c
+  rotate: true
+  xy: 235, 50
+  size: 61, 180
+  orig: 61, 180
+  offset: 0, 0
+  index: -1
+ma_tui_d
+  rotate: true
+  xy: 312, 274
+  size: 53, 175
+  orig: 53, 175
+  offset: 0, 0
+  index: -1
+ma_wei
+  rotate: false
+  xy: 2, 14
+  size: 82, 160
+  orig: 82, 160
+  offset: 0, 0
+  index: -1
+ma_yan
+  rotate: false
+  xy: 275, 22
+  size: 55, 26
+  orig: 55, 26
+  offset: 0, 0
+  index: -1
+ma_yan_b
+  rotate: false
+  xy: 86, 4
+  size: 57, 12
+  orig: 57, 12
+  offset: 0, 0
+  index: -1
+ma_yy
+  rotate: true
+  xy: 257, 195
+  size: 314, 53
+  orig: 314, 53
+  offset: 0, 0
+  index: -1

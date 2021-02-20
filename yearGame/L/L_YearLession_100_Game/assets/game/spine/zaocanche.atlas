@@ -1,0 +1,111 @@
+
+zaocanche.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+che_lun
+  rotate: false
+  xy: 2, 100
+  size: 165, 165
+  orig: 165, 165
+  offset: 0, 0
+  index: -1
+che_shen
+  rotate: false
+  xy: 2, 267
+  size: 1464, 752
+  orig: 1464, 752
+  offset: 0, 0
+  index: -1
+dd_mei
+  rotate: false
+  xy: 2, 3
+  size: 131, 15
+  orig: 131, 15
+  offset: 0, 0
+  index: -1
+dd_sai
+  rotate: false
+  xy: 2, 38
+  size: 185, 25
+  orig: 185, 25
+  offset: 0, 0
+  index: -1
+dd_shen
+  rotate: true
+  xy: 169, 96
+  size: 90, 166
+  orig: 90, 166
+  offset: 0, 0
+  index: -1
+dd_shou
+  rotate: false
+  xy: 337, 83
+  size: 83, 110
+  orig: 83, 110
+  offset: 0, 0
+  index: -1
+dd_tou
+  rotate: true
+  xy: 422, 9
+  size: 256, 288
+  orig: 256, 288
+  offset: 0, 0
+  index: -1
+dd_tui
+  rotate: true
+  xy: 263, 25
+  size: 38, 88
+  orig: 38, 88
+  offset: 0, 0
+  index: -1
+dd_yan
+  rotate: true
+  xy: 189, 38
+  size: 25, 29
+  orig: 25, 29
+  offset: 0, 0
+  index: -1
+dd_zui
+  rotate: false
+  xy: 220, 188
+  size: 41, 32
+  orig: 41, 32
+  offset: 0, 0
+  index: -1
+ganzi
+  rotate: true
+  xy: 2, 20
+  size: 16, 259
+  orig: 16, 259
+  offset: 0, 0
+  index: -1
+peng
+  rotate: true
+  xy: 1468, 65
+  size: 954, 371
+  orig: 954, 371
+  offset: 0, 0
+  index: -1
+weiqi_a
+  rotate: false
+  xy: 263, 195
+  size: 87, 70
+  orig: 87, 70
+  offset: 0, 0
+  index: -1
+weiqi_b
+  rotate: true
+  xy: 220, 222
+  size: 43, 39
+  orig: 43, 39
+  offset: 0, 0
+  index: -1
+yy
+  rotate: true
+  xy: 135, 2
+  size: 16, 8
+  orig: 16, 8
+  offset: 0, 0
+  index: -1

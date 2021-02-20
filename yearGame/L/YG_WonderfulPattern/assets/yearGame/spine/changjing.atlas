@@ -1,0 +1,27 @@
+
+changjing.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guang
+  rotate: false
+  xy: 2, 2
+  size: 1482, 1411
+  orig: 1482, 1411
+  offset: 0, 0
+  index: -1
+guang2
+  rotate: false
+  xy: 1486, 210
+  size: 247, 1203
+  orig: 247, 1203
+  offset: 0, 0
+  index: -1
+guangdian
+  rotate: false
+  xy: 1486, 142
+  size: 66, 66
+  orig: 66, 66
+  offset: 0, 0
+  index: -1

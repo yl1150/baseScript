@@ -1,0 +1,181 @@
+
+biaotidoudou.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doudou
+  rotate: false
+  xy: 665, 184
+  size: 86, 86
+  orig: 86, 86
+  offset: 0, 0
+  index: -1
+doudou_1
+  rotate: false
+  xy: 2, 2
+  size: 168, 21
+  orig: 168, 21
+  offset: 0, 0
+  index: -1
+doudou_10
+  rotate: false
+  xy: 2, 92
+  size: 395, 418
+  orig: 395, 418
+  offset: 0, 0
+  index: -1
+doudou_2
+  rotate: false
+  xy: 493, 60
+  size: 36, 46
+  orig: 36, 46
+  offset: 0, 0
+  index: -1
+doudou_3
+  rotate: false
+  xy: 633, 226
+  size: 30, 44
+  orig: 30, 44
+  offset: 0, 0
+  index: -1
+doudou_4
+  rotate: false
+  xy: 434, 54
+  size: 57, 52
+  orig: 57, 52
+  offset: 0, 0
+  index: -1
+doudou_5
+  rotate: false
+  xy: 465, 11
+  size: 41, 41
+  orig: 41, 41
+  offset: 0, 0
+  index: -1
+doudou_6
+  rotate: true
+  xy: 402, 16
+  size: 33, 61
+  orig: 33, 61
+  offset: 0, 0
+  index: -1
+doudou_7
+  rotate: false
+  xy: 633, 272
+  size: 135, 238
+  orig: 135, 238
+  offset: 0, 0
+  index: -1
+doudou_8
+  rotate: true
+  xy: 812, 41
+  size: 99, 176
+  orig: 99, 176
+  offset: 0, 0
+  index: -1
+doudou_9
+  rotate: true
+  xy: 753, 142
+  size: 112, 183
+  orig: 112, 183
+  offset: 0, 0
+  index: -1
+laba
+  rotate: true
+  xy: 812, 256
+  size: 254, 205
+  orig: 254, 205
+  offset: 0, 0
+  index: -1
+laba_1
+  rotate: true
+  xy: 289, 6
+  size: 37, 111
+  orig: 37, 111
+  offset: 0, 0
+  index: -1
+laba_2
+  rotate: true
+  xy: 399, 108
+  size: 116, 238
+  orig: 116, 238
+  offset: 0, 0
+  index: -1
+laba_3
+  rotate: true
+  xy: 572, 12
+  size: 94, 238
+  orig: 94, 238
+  offset: 0, 0
+  index: -1
+laba_4
+  rotate: true
+  xy: 2, 25
+  size: 65, 238
+  orig: 65, 238
+  offset: 0, 0
+  index: -1
+shubao
+  rotate: true
+  xy: 399, 226
+  size: 284, 232
+  orig: 284, 232
+  offset: 0, 0
+  index: -1
+shubao_1
+  rotate: true
+  xy: 770, 477
+  size: 33, 38
+  orig: 33, 38
+  offset: 0, 0
+  index: -1
+shubao_2
+  rotate: true
+  xy: 337, 51
+  size: 39, 95
+  orig: 39, 95
+  offset: 0, 0
+  index: -1
+shubao_3
+  rotate: false
+  xy: 508, 19
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+shubao_4
+  rotate: true
+  xy: 242, 45
+  size: 45, 93
+  orig: 45, 93
+  offset: 0, 0
+  index: -1
+shubao_5
+  rotate: false
+  xy: 531, 67
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+shubao_6
+  rotate: false
+  xy: 639, 111
+  size: 58, 71
+  orig: 58, 71
+  offset: 0, 0
+  index: -1
+shubao_7
+  rotate: false
+  xy: 172, 5
+  size: 115, 18
+  orig: 115, 18
+  offset: 0, 0
+  index: -1
+shubao_8
+  rotate: false
+  xy: 242, 26
+  size: 33, 17
+  orig: 33, 17
+  offset: 0, 0
+  index: -1

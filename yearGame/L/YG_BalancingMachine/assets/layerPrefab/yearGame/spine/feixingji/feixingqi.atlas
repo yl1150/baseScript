@@ -1,0 +1,111 @@
+
+feixingqi.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+che1
+  rotate: true
+  xy: 114, 142
+  size: 112, 25
+  orig: 112, 25
+  offset: 0, 0
+  index: -1
+che2
+  rotate: true
+  xy: 2, 2
+  size: 106, 28
+  orig: 106, 28
+  offset: 0, 0
+  index: -1
+che3
+  rotate: false
+  xy: 150, 115
+  size: 77, 29
+  orig: 77, 29
+  offset: 0, 0
+  index: -1
+jiqi1
+  rotate: false
+  xy: 2, 110
+  size: 77, 144
+  orig: 77, 144
+  offset: 0, 0
+  index: -1
+jiqi3
+  rotate: true
+  xy: 229, 124
+  size: 20, 34
+  orig: 20, 34
+  offset: 0, 0
+  index: -1
+jiqi4
+  rotate: false
+  xy: 265, 48
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+jiqi5
+  rotate: true
+  xy: 114, 119
+  size: 21, 34
+  orig: 21, 34
+  offset: 0, 0
+  index: -1
+jiqi6
+  rotate: false
+  xy: 265, 29
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+jiqi7
+  rotate: true
+  xy: 81, 115
+  size: 139, 31
+  orig: 139, 31
+  offset: 0, 0
+  index: -1
+mianfen
+  rotate: false
+  xy: 32, 17
+  size: 67, 91
+  orig: 67, 91
+  offset: 0, 0
+  index: -1
+tangguo
+  rotate: false
+  xy: 265, 67
+  size: 53, 77
+  orig: 53, 77
+  offset: 0, 0
+  index: -1
+xiangzi1
+  rotate: true
+  xy: 101, 5
+  size: 108, 80
+  orig: 108, 80
+  offset: 0, 0
+  index: -1
+xiangzi2
+  rotate: true
+  xy: 141, 146
+  size: 108, 80
+  orig: 108, 80
+  offset: 0, 0
+  index: -1
+xiangzi3
+  rotate: true
+  xy: 223, 146
+  size: 108, 80
+  orig: 108, 80
+  offset: 0, 0
+  index: -1
+xiangzi4
+  rotate: true
+  xy: 183, 5
+  size: 108, 80
+  orig: 108, 80
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,83 @@
+
+boshi2.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+b_er
+  rotate: false
+  xy: 309, 4
+  size: 43, 26
+  orig: 43, 26
+  offset: 0, 0
+  index: -1
+b_mao
+  rotate: false
+  xy: 490, 119
+  size: 266, 135
+  orig: 266, 135
+  offset: 0, 0
+  index: -1
+b_shen
+  rotate: false
+  xy: 309, 32
+  size: 136, 222
+  orig: 136, 222
+  offset: 0, 0
+  index: -1
+b_shou
+  rotate: true
+  xy: 490, 2
+  size: 115, 102
+  orig: 115, 102
+  offset: 0, 0
+  index: -1
+b_sui
+  rotate: false
+  xy: 758, 183
+  size: 29, 71
+  orig: 29, 71
+  offset: 0, 0
+  index: -1
+b_tou
+  rotate: false
+  xy: 2, 10
+  size: 305, 244
+  orig: 305, 244
+  offset: 0, 0
+  index: -1
+b_tui
+  rotate: false
+  xy: 594, 20
+  size: 66, 97
+  orig: 66, 97
+  offset: 0, 0
+  index: -1
+b_yj
+  rotate: true
+  xy: 662, 25
+  size: 92, 120
+  orig: 92, 120
+  offset: 0, 0
+  index: -1
+b_zui_a
+  rotate: true
+  xy: 447, 15
+  size: 47, 41
+  orig: 47, 41
+  offset: 0, 0
+  index: -1
+b_zui_b
+  rotate: true
+  xy: 354, 11
+  size: 19, 29
+  orig: 19, 29
+  offset: 0, 0
+  index: -1
+yy
+  rotate: true
+  xy: 447, 64
+  size: 190, 41
+  orig: 190, 41
+  offset: 0, 0
+  index: -1

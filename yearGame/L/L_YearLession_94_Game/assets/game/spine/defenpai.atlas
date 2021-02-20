@@ -1,0 +1,139 @@
+
+defenpai.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dengfengpai
+  rotate: true
+  xy: 253, 293
+  size: 211, 193
+  orig: 211, 193
+  offset: 0, 0
+  index: -1
+dengfengpai_1
+  rotate: false
+  xy: 2, 164
+  size: 249, 340
+  orig: 249, 340
+  offset: 0, 0
+  index: -1
+dengfengpai_2
+  rotate: false
+  xy: 359, 178
+  size: 194, 7
+  orig: 194, 7
+  offset: 0, 0
+  index: -1
+doudoutouxiang
+  rotate: false
+  xy: 359, 187
+  size: 102, 104
+  orig: 102, 104
+  offset: 0, 0
+  index: -1
+maomaotouxiang
+  rotate: true
+  xy: 560, 236
+  size: 97, 92
+  orig: 97, 92
+  offset: 0, 0
+  index: -1
+pingguotouxiang
+  rotate: true
+  xy: 253, 166
+  size: 125, 104
+  orig: 125, 104
+  offset: 0, 0
+  index: -1
+shizi0
+  rotate: true
+  xy: 2, 2
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi1
+  rotate: true
+  xy: 344, 4
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi10
+  rotate: true
+  xy: 848, 2
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi2
+  rotate: false
+  xy: 515, 7
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi3
+  rotate: false
+  xy: 448, 335
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi4
+  rotate: false
+  xy: 610, 335
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi5
+  rotate: false
+  xy: 677, 164
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi6
+  rotate: false
+  xy: 772, 335
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi7
+  rotate: true
+  xy: 677, 2
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi8
+  rotate: false
+  xy: 839, 164
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+shizi9
+  rotate: false
+  xy: 934, 335
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+wen
+  rotate: true
+  xy: 173, 2
+  size: 160, 169
+  orig: 160, 169
+  offset: 0, 0
+  index: -1
+xiaomitouxiang
+  rotate: true
+  xy: 463, 235
+  size: 98, 95
+  orig: 98, 95
+  offset: 0, 0
+  index: -1

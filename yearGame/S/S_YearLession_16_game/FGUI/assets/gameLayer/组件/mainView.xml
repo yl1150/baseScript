@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImage="ui://f96j8p0xl7kt1" designImageOffsetX="-280" designImageOffsetY="-200" designImageLayer="1">
+  <displayList>
+    <component id="n0_l7kt" name="btn1" src="l7ktu" fileName="组件/Button1.xml" xy="1177,-11">
+      <Button icon="ui://f96j8p0xl7kt8"/>
+    </component>
+    <component id="n1_l7kt" name="btn2" src="l7ktu" fileName="组件/Button1.xml" xy="1176,257">
+      <Button icon="ui://f96j8p0xl7kt6"/>
+    </component>
+    <component id="n2_l7kt" name="btn3" src="l7ktu" fileName="组件/Button1.xml" xy="1173,523">
+      <Button icon="ui://f96j8p0xl7kt7"/>
+    </component>
+    <component id="n4_l7kt" name="n4" src="l7ktu" fileName="组件/Button1.xml" xy="1175,787">
+      <Button icon="ui://f96j8p0xl7ktl"/>
+    </component>
+  </displayList>
+</component>

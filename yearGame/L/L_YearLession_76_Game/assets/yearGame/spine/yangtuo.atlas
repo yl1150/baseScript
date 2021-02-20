@@ -1,0 +1,90 @@
+
+yangtuo.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+yt_yan_b
+  rotate: true
+  xy: 389, 163
+  size: 73, 9
+  orig: 73, 9
+  offset: 0, 0
+  index: -1
+ytbi
+  rotate: true
+  xy: 276, 2
+  size: 42, 46
+  orig: 42, 46
+  offset: 0, 0
+  index: -1
+yter
+  rotate: false
+  xy: 434, 152
+  size: 34, 59
+  orig: 34, 59
+  offset: 0, 0
+  index: -1
+ytmei
+  rotate: true
+  xy: 306, 71
+  size: 39, 8
+  orig: 39, 8
+  offset: 0, 0
+  index: -1
+ytsai
+  rotate: true
+  xy: 306, 147
+  size: 89, 14
+  orig: 89, 14
+  offset: 0, 0
+  index: -1
+ytshen
+  rotate: true
+  xy: 2, 9
+  size: 227, 272
+  orig: 227, 272
+  offset: 0, 0
+  index: -1
+yttui_a
+  rotate: false
+  xy: 324, 105
+  size: 63, 131
+  orig: 63, 131
+  offset: 0, 0
+  index: -1
+yttui_b
+  rotate: true
+  xy: 324, 40
+  size: 63, 131
+  orig: 63, 131
+  offset: 0, 0
+  index: -1
+ytwei
+  rotate: true
+  xy: 389, 123
+  size: 38, 43
+  orig: 38, 43
+  offset: 0, 0
+  index: -1
+ytyan
+  rotate: false
+  xy: 400, 213
+  size: 71, 23
+  orig: 71, 23
+  offset: 0, 0
+  index: -1
+ytzui
+  rotate: true
+  xy: 306, 112
+  size: 33, 16
+  orig: 33, 16
+  offset: 0, 0
+  index: -1
+yy_yt
+  rotate: true
+  xy: 276, 46
+  size: 190, 28
+  orig: 190, 28
+  offset: 0, 0
+  index: -1

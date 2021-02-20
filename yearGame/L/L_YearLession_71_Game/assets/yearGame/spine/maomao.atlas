@@ -1,0 +1,132 @@
+
+maomao.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doudou
+  rotate: true
+  xy: 1153, 204
+  size: 74, 29
+  orig: 74, 29
+  offset: 0, 0
+  index: -1
+maomao
+  rotate: false
+  xy: 948, 2
+  size: 105, 50
+  orig: 105, 50
+  offset: 0, 0
+  index: -1
+maomao_1
+  rotate: true
+  xy: 477, 15
+  size: 495, 469
+  orig: 495, 469
+  offset: 0, 0
+  index: -1
+maomao_10
+  rotate: true
+  xy: 1097, 265
+  size: 245, 33
+  orig: 245, 33
+  offset: 0, 0
+  index: -1
+maomao_11
+  rotate: false
+  xy: 1132, 389
+  size: 43, 121
+  orig: 43, 121
+  offset: 0, 0
+  index: -1
+maomao_3
+  rotate: true
+  xy: 1055, 4
+  size: 48, 57
+  orig: 48, 57
+  offset: 0, 0
+  index: -1
+maomao_4
+  rotate: true
+  xy: 948, 54
+  size: 146, 267
+  orig: 146, 267
+  offset: 0, 0
+  index: -1
+maomao_5
+  rotate: true
+  xy: 1169, 5
+  size: 47, 81
+  orig: 47, 81
+  offset: 0, 0
+  index: -1
+maomao_6
+  rotate: false
+  xy: 1177, 411
+  size: 43, 99
+  orig: 43, 99
+  offset: 0, 0
+  index: -1
+maomao_7
+  rotate: false
+  xy: 1205, 281
+  size: 58, 58
+  orig: 58, 58
+  offset: 0, 0
+  index: -1
+maomao_8
+  rotate: true
+  xy: 1184, 210
+  size: 68, 103
+  orig: 68, 103
+  offset: 0, 0
+  index: -1
+maomao_9
+  rotate: false
+  xy: 1132, 280
+  size: 71, 107
+  orig: 71, 107
+  offset: 0, 0
+  index: -1
+maomao_b
+  rotate: true
+  xy: 2, 10
+  size: 500, 473
+  orig: 500, 473
+  offset: 0, 0
+  index: -1
+maomao_b_1
+  rotate: false
+  xy: 948, 202
+  size: 147, 308
+  orig: 147, 308
+  offset: 0, 0
+  index: -1
+maomao_b_2
+  rotate: true
+  xy: 1222, 454
+  size: 56, 39
+  orig: 56, 39
+  offset: 0, 0
+  index: -1
+pingguo_4
+  rotate: true
+  xy: 1097, 204
+  size: 59, 54
+  orig: 59, 54
+  offset: 0, 0
+  index: -1
+xiaomi_14
+  rotate: true
+  xy: 1114, 4
+  size: 48, 53
+  orig: 48, 53
+  offset: 0, 0
+  index: -1
+xiaomi_4
+  rotate: true
+  xy: 1205, 341
+  size: 68, 21
+  orig: 68, 21
+  offset: 0, 0
+  index: -1

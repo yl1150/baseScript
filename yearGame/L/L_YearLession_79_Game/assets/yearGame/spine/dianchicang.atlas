@@ -1,0 +1,76 @@
+
+dianchicang.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dianchi
+  rotate: false
+  xy: 850, 172
+  size: 846, 368
+  orig: 846, 368
+  offset: 0, 0
+  index: -1
+dianchi_1
+  rotate: true
+  xy: 1699, 568
+  size: 342, 284
+  orig: 342, 284
+  offset: 0, 0
+  index: -1
+dianchi_2
+  rotate: true
+  xy: 1699, 90
+  size: 476, 198
+  orig: 476, 198
+  offset: 0, 0
+  index: -1
+dianchi_3
+  rotate: false
+  xy: 2, 541
+  size: 846, 369
+  orig: 846, 369
+  offset: 0, 0
+  index: -1
+dianchia
+  rotate: false
+  xy: 1899, 442
+  size: 42, 124
+  orig: 42, 124
+  offset: 0, 0
+  index: -1
+dianchia_1
+  rotate: false
+  xy: 1899, 316
+  size: 42, 124
+  orig: 42, 124
+  offset: 0, 0
+  index: -1
+dianchigai
+  rotate: false
+  xy: 2, 171
+  size: 846, 368
+  orig: 846, 368
+  offset: 0, 0
+  index: -1
+dianchigai_1
+  rotate: false
+  xy: 850, 542
+  size: 847, 368
+  orig: 847, 368
+  offset: 0, 0
+  index: -1
+nengliang
+  rotate: true
+  xy: 850, 2
+  size: 168, 280
+  orig: 168, 280
+  offset: 0, 0
+  index: -1
+nengliang_1
+  rotate: true
+  xy: 1132, 11
+  size: 159, 271
+  orig: 159, 271
+  offset: 0, 0
+  index: -1
