@@ -1,0 +1,41 @@
+
+nengliang.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bo
+  rotate: false
+  xy: 1603, 40
+  size: 67, 184
+  orig: 67, 184
+  offset: 0, 0
+  index: -1
+bo_1
+  rotate: false
+  xy: 1672, 40
+  size: 67, 184
+  orig: 67, 184
+  offset: 0, 0
+  index: -1
+dian
+  rotate: false
+  xy: 820, 6
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+nengliangcao
+  rotate: false
+  xy: 820, 40
+  size: 781, 184
+  orig: 781, 184
+  offset: 0, 0
+  index: -1
+nengliangcao_2
+  rotate: false
+  xy: 2, 2
+  size: 816, 222
+  orig: 816, 222
+  offset: 0, 0
+  index: -1
