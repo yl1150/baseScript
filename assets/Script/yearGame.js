@@ -8,16 +8,12 @@ cc.Class({
 
     start() {
         this.lv = 1;
-        this.gameLayer = this.node.getChildByName('gameLayer');
-        this.ddSke = this.node.getChildByName('doudou').getComponent(sp.Skeleton);
-
 
         GD.sound.playBGM();
-        GD.sound.setTipsButton(false);
-        GD.sound.playTips('startTips', this.showOpening.bind(this));
+
         this.registerEvent();
 
-        cc.YL.lockTouch();
+        cc.YL.unLockTouch();
 
     },
 
